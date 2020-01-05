@@ -1,1 +1,7 @@
-lib
+/vendor/
+/htdocs/doc/
+templates_c/
+/lib
+*.log
+!.gitignore
+!.gitkeep
