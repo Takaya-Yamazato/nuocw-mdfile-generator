@@ -72,10 +72,22 @@ $course_sql = "SELECT contents.contents, course.term, course.course_id
         INNER JOIN page_type_master ON page_type_master.page_type_code = pages.page_type 
         WHERE course.course_id = $sort_key " ;
 
+$course_result = pg_query($course_sql);
+if (!$course_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+    
+for ($j = 0 ; $j < pg_num_rows($course_result) ; $j++){
+$course_rows = pg_fetch_array($course_result, NULL, PGSQL_ASSOC);
+print_r($course_rows);
+//    echo $contents_rows['contents'][0];
+//    echo $contents_rows['course_id'][0];
+}
+
 print("page_type_code |     name     |        name_e         |     filename     | disp_order<br> 
   51             | 授業ホーム   | Course Home           | index            |        510 <br><br>");
  
-$course_sql = "SELECT contents.id, pages.course_id, contents.contents
+$contents_sql = "SELECT contents.id, pages.course_id, contents.contents
                 FROM pages, page_contents, contents 
                 WHERE pages.course_id = $sort_key 
                 AND pages.page_type = '51' AND pages.page_id = page_contents.page_id 
@@ -83,22 +95,19 @@ $course_sql = "SELECT contents.id, pages.course_id, contents.contents
                 ORDER BY contents.id DESC LIMIT 1 ";
 
 
-print($course_sql) ;
+print($contents_sql) ;
 echo "<br><br>";
 
-$course_result = pg_query($course_sql);
-    if (!$course_result) {
+$contents_result = pg_query($contents_sql);
+    if (!$contents_result) {
         die('クエリーが失敗しました。'.pg_last_error());
     }
-
-
-
         
-for ($j = 0 ; $j < pg_num_rows($course_result) ; $j++){
-    $course_rows = pg_fetch_array($course_result, NULL, PGSQL_ASSOC);
-    print_r($course_rows);
-//    echo $course_rows['contents'][0];
-//    echo $course_rows['course_id'][0];
+for ($k = 0 ; $k < pg_num_rows($contents_result) ; $k++){
+    $contents_rows = pg_fetch_array($contents_result, NULL, PGSQL_ASSOC);
+    print_r($contents_rows);
+//    echo $contents_rows['contents'][0];
+//    echo $contents_rows['course_id'][0];
   
 echo "<br><br>";
     
@@ -115,9 +124,9 @@ print('url_flv='.$courselist_rows['url_flv'].'<br>');
 echo "<br><br>";
 
     echo "<br><br>";
-    print('course.course_id='.$course_rows['course_id'].'<br>');
-    print('contents.contents='.$course_rows['contents'].'<br>');
-    print(mb_substr($course_rows['contents'],0,100).'<br>');
+    print('course.course_id='.$contents_rows['course_id'].'<br>');
+    print('contents.contents='.$contents_rows['contents'].'<br>');
+    print(mb_substr($contents_rows['contents'],0,100).'<br>');
     echo "<br><br>";
  
     $courselist_text =
@@ -130,7 +139,7 @@ title: \"".$courselist_rows['course_name']."\"
 
 # 簡単な説明
 description: >-
-".mb_substr($course_rows['contents'],0,100)."...
+".mb_substr($contents_rows['contents'],0,100)."...
 
 # 講師名
 lecturer: \"".$courselist_rows['instructor_name']."\"
@@ -139,7 +148,7 @@ lecturer: \"".$courselist_rows['instructor_name']."\"
 department: \"".$courselist_rows['department_id']."\"
 
 # 開講時限
-term: 
+term: \"".$courselist_rows['department_id']."\"
 
 # 対象者
 target: 
@@ -169,7 +178,7 @@ date: ".$courselist_rows['date']."
 ---
 
 ### 授業ホーム
-".$course_rows['contents']."
+".$contents_rows['contents']."
 
     " ;
     // ファイルに書き込む
@@ -178,8 +187,9 @@ date: ".$courselist_rows['date']."
     // ファイルを閉じる
     fclose($fp);
 
-
 }
+
+
 
 }
 

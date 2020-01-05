@@ -17,7 +17,7 @@ lecturer: "内藤久資/久保仁"
 department: "6"
 
 # 開講時限
-term: 
+term: "6"
 
 # 対象者
 target: 

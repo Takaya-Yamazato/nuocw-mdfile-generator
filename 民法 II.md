@@ -17,7 +17,7 @@ lecturer: "田高寛貴"
 department: "4"
 
 # 開講時限
-term: 
+term: "4"
 
 # 対象者
 target: 
