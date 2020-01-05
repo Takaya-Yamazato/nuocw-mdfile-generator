@@ -1,0 +1,17 @@
+{
+	"require":{
+		"php"                        : ">=5.6",
+		"pear/db"                    : "dev-master",
+		"smarty/smarty"              : "2.*",
+		"jasig/phpcas"               : "*",
+		"michelf/php-markdown"       : "^1.6"
+	},
+	"require-dev":{
+		"phpunit/phpunit"            : "*",
+		"squizlabs/php_codesniffer"  : "*",
+		"phpmd/phpmd"                : "*",
+		"sebastian/phpcpd"           : "*",
+		"phploc/phploc"              : "*",
+		"friendsofphp/php-cs-fixer"  : "*"
+	}
+}
