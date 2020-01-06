@@ -2,6 +2,7 @@
 /htdocs/doc/
 templates_c/
 /lib
+.DS_Store
 *.log
 .*~
 !.gitignore

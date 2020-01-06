@@ -1,7 +1,0 @@
-/vendor/
-/htdocs/doc/
-templates_c/
-/lib/ocw_sys_config.php
-*.log
-!.gitignore
-!.gitkeep
