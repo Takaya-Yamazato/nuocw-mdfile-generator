@@ -39,14 +39,15 @@ $close_ocwpdb = pg_close($ocwpdb);
 if ($close_ocwpdb){
     print('ocwpdb：切断に成功しました。<br><br>');
     }
- 
+
+    //
+// ここから ocwdb　への接続
 // DBの接続
 $ocwdb = pg_connect(ocwdb);
 if (!ocwdb) {
     die('ocwdb：接続失敗です。'.pg_last_error());
 }
 print('ocwdb：接続に成功しました。<br>');
-
 
 for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     $courselist_rows = pg_fetch_array($courselist_result, NULL, PGSQL_ASSOC);
@@ -78,9 +79,43 @@ if (!$course_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $course_array = pg_fetch_all($course_result);
-echo "<br>course_result<br>" ;
+echo "<br>course_array<br>" ;
 print_r($course_array);
 echo "<br>".$course_array[0]['course_name']."<br>" ;
+echo "<br>".$course_array[0]['division']."<br>" ;
+echo "<br>".$course_array[0]['term']."<br>" ;
+$division_code = $course_array[0]['division'] ;
+echo $division_code ;
+$term_code = $course_array[0]['term'] ;
+echo $term_code ;
+
+// 部局 department
+$division_code_master_sql = "SELECT division_name 
+                            FROM division_code_master 
+                            WHERE division_code = '$division_code' ; " ;
+$division_code_master_result = pg_query($division_code_master_sql);
+if (!$division_code_master_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+$division_code_master_array = pg_fetch_all($division_code_master_result);
+echo "<br>division_code_master_result<br>" ;
+print_r($division_code_master_array);
+$division = $division_code_master_array[0]['division_name'] ;
+echo "<br>".$division."<br>" ;
+
+// 開講時限　term
+$term_code_master_sql = "SELECT name 
+                            FROM term_code_master 
+                            WHERE term_code = '$term_code' ; " ;
+$term_code_master_result = pg_query($term_code_master_sql);
+if (!$term_code_master_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+$term_code_master_array = pg_fetch_all($term_code_master_result);
+echo "<br>term_code_master_result<br>" ;
+print_r($term_code_master_array);
+$term = $term_code_master_array[0]['name'] ;
+echo "<br>".$term."<br>" ;
 
 // for ($j = 0 ; $j < pg_num_rows($course_result) ; $j++){
 // $course_rows = pg_fetch_array($course_result, NULL, PGSQL_ASSOC);
@@ -481,16 +516,16 @@ title: \"".$courselist_rows['course_name']."\"
 
 # 簡単な説明
 description: >-
-".strip_tags(mb_substr($course_home_array[0]['contents'],0,100))."...
+".strip_tags(mb_substr($course_home_array[0]['contents'],0,100))." ...
 
 # 講師名
 lecturer: \"".$courselist_rows['instructor_name']."\"
 
 # 部局名
-department: \"".$courselist_rows['department_id']."\"
+department: \"".$division."\"
 
 # 開講時限
-term: \"".$courselist_rows['department_id']."\"
+term: \"".$term."\"
 
 # 対象者、単位数、授業回数
 target: \"".$class_is_for."\"
