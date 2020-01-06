@@ -3,5 +3,6 @@
 templates_c/
 /lib
 *.log
+.*~
 !.gitignore
 !.gitkeep
