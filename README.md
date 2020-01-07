@@ -1,4 +1,4 @@
-﻿nuocw-mdfile-generate$
+﻿nuocw-mdfile-generate
 ==========
 新日本語版システムのための md ファイルを出力するソフトウェアです。
 だいたいメドがつきましたので、github にて公開します。
