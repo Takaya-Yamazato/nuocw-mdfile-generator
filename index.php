@@ -1,5 +1,5 @@
 <html>
-<head><title>nuocw-mdfile-generate</title></head>
+<head><title>nuocw-mdfile-generator</title></head>
 <body>
 
 <?php
