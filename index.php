@@ -17,13 +17,12 @@ print('ocwpdb：接続に成功しました。<br>');
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-
+$limit = "LIMIT 200" ;
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
         FROM courselist_by_coursename
         WHERE exist_lectnotes='t'
-        ORDER BY $sort_key $sort_order
-        LIMIT 5 ";
+        ORDER BY $sort_key $sort_order $limit ; ";
 //        WHERE course_id=41
 
 print($courselist_sql) ;
@@ -55,24 +54,12 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     //    echo $courselist_rows['contents'][0];
     //    echo $courselist_rows['course_id'][0];
 
-    // 書き込みモードでファイルを開く
-    $file_name = $courselist_rows['course_name'].".md" ;
-    echo "<br>".$file_name."<br>" ;
-    $fp = fopen($file_name, "w");
-
 // 出力ソートキー
 // $sort_key = "course_id";
 $sort_key = $courselist_rows['course_id'] ;
 $sort_order = "DESC";
 
 // SQL文の作成
-// $course_sql = "SELECT contents.contents, course.term, course.course_id 
-//         FROM course 
-//         INNER JOIN pages ON course.course_id = pages.course_id 
-//         INNER JOIN page_contents ON pages.page_id = page_contents.page_id 
-//         INNER JOIN contents ON page_contents.contents_id = contents.pid 
-//         INNER JOIN page_type_master ON page_type_master.page_type_code = pages.page_type 
-//         WHERE course.course_id = $sort_key " ;
 $course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
 $course_result = pg_query($course_sql);
 if (!$course_result) {
@@ -116,13 +103,6 @@ echo "<br>term_code_master_result<br>" ;
 print_r($term_code_master_array);
 $term = $term_code_master_array[0]['name'] ;
 echo "<br>".$term."<br>" ;
-
-// for ($j = 0 ; $j < pg_num_rows($course_result) ; $j++){
-// $course_rows = pg_fetch_array($course_result, NULL, PGSQL_ASSOC);
-// print_r($course_rows);
-// //    echo $contents_rows['contents'][0];
-// //    echo $contents_rows['course_id'][0];
-// }
 
 // pdfなどの追加資料　Attachments
 //$attachments_sql = "SELECT id, name, description, relation_type, relation_id, del_flg
@@ -174,13 +154,13 @@ if (!$class_is_for_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $class_is_for_array = pg_fetch_all($class_is_for_result);
-if (!$class_is_for_array){
+if (!($class_is_for_array[0]['contents'])){
     echo "データがありません！" ;
     $class_is_for = "" ;
 }else{
     echo "class_is_for_array<br>" ;
     print_r($class_is_for_array);
-    $class_is_for = strip_tags($class_is_for_array[0]['contents']) ;
+    $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
 }
 
 
@@ -199,14 +179,14 @@ if (!$course_home_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $course_home_array = pg_fetch_all($course_home_result);
-if (!$course_home_array){
+if (!mbTrim(space_trim($course_home_array[0]['contents']))){
     echo "データがありません！" ;
     $course_home ="" ;
 }else{
     echo "course_home_array<br>" ;
     print_r($course_home_array);
     $course_home ="### 授業ホーム
-    ".strip_tags($course_home_array[0]['contents']) ;
+    ".space_trim(strip_tags($course_home_array[0]['contents'])) ;
 }
 
 // 52             | シラバス     | Syllabus              | syllabus         |        520
@@ -224,13 +204,13 @@ if (!$syllabus_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $syllabus_array = pg_fetch_all($syllabus_result);
-if(!$syllabus_array){
+if(!mbTrim(space_trim($syllabus_array[0]['contents']))){
     echo "データがありません！" ;
     $syllabus ="" ;
 }else{
     echo "syllabus_array<br>" ;
     print_r($syllabus_array);
-    $syllabus ="### ".strip_tags($syllabus_array[0]['contents']) ;
+    $syllabus ="### ".space_trim(strip_tags($syllabus_array[0]['contents'])) ;
 }
 
 
@@ -249,13 +229,13 @@ if (!$calendar_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $calendar_array = pg_fetch_all($calendar_result);
-if(!$calendar_array){
+if(!space_trim($calendar_array[0]['contents'])){
     echo "データがありません！" ;
     $calendar = "" ;
 }else{
     echo "calendar_array<br>" ;
     print_r($calendar_array);
-    $calendar ="### ".strip_tags($calendar_array[0]['contents']) ;
+    $calendar ="### ".space_trim(strip_tags($calendar_array[0]['contents'])) ;
 }
 
 // 54             | 講義ノート   | Lecture Notes         | lecturenotes     |        540
@@ -274,13 +254,13 @@ if (!$lecture_notes_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $lecture_notes_array = pg_fetch_all($lecture_notes_result);
-if(!$lecture_notes_array){
+if(!mbTrim(space_trim($lecture_notes_array[0]['contents']))){
     echo "データがありません！" ;
     $lecture_notes = "" ;
 }else{
     echo "lecture_notes_array<br>" ;
     print_r($lecture_notes_array);
-    $lecture_notes = "### ".strip_tags($lecture_notes_array[0]['contents']) ;
+    $lecture_notes = "### ".space_trim(strip_tags($lecture_notes_array[0]['contents'])) ;
 }
 
 
@@ -301,13 +281,13 @@ if (!$assignments_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $assignments_array = pg_fetch_all($assignments_result);
-if (!$assignments_array){ 
+if (!mbTrim(space_trim($assignments_array[0]['contents']))){ 
     echo "データがありません！" ;
     $assignment = "";
 }else{
     echo "assignments_array<br>" ;
     print_r($assignments_array);
-    $assignment = "### ".strip_tags($assignments_array[0]['contents']) ; }
+    $assignment = "### ".space_trim(strip_tags($assignments_array[0]['contents'])) ; }
 
 // 56             | 成績評価     | Evaluation            | evaluation       |        560
 $evaluation_sql = "SELECT contents.contents 
@@ -324,13 +304,13 @@ if (!$evaluation_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $evaluation_array = pg_fetch_all($evaluation_result);
-if($evaluation_array){
+if (mbTrim(space_trim($evaluation_array[0]['contents']))) {
     echo "データがありません！" ;
     $evaluation = "";
 }else{
     echo "evaluation_array<br>" ;
     print_r($evaluation_array);
-    $evaluation = "### ".strip_tags($evaluation_array[0]['contents']) ;    
+    $evaluation = "### ".space_trim(strip_tags($evaluation_array[0]['contents'])) ;    
 }
 
 // 57             | 学習成果     | Achievement           | achievement      |        570
@@ -348,13 +328,13 @@ if (!$achievement_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $achievement_array = pg_fetch_all($achievement_result);
-if(!$achievement_array){
+if(!mbTrim(space_trim($achievement_array[0]['contents']))){
     echo "データがありません！" ;
     $achievement = "";
 }else{
     echo "achievement_array<br>" ;
     print_r($achievement_array);
-    $achievement = "### ".strip_tags($achievement_array[0]['contents']) ; 
+    $achievement = "### ".space_trim(strip_tags($achievement_array[0]['contents'])) ; 
     
 }
 
@@ -373,13 +353,13 @@ if (!$related_resources_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $related_resources_array = pg_fetch_all($related_resources_result);
-if(!$related_resources_array){
+if(!mbTrim(space_trim($related_resources_array[0]['contents']))){
     echo "データがありません！" ;
     $related_resources = "" ;
 }else{
     echo "related_resources_array<br>" ;
     print_r($related_resources_array);
-    $related_resources = "### ".strip_tags($related_resources_array[0]['contents']) ;    
+    $related_resources = "### ".mbTrim(strip_tags($related_resources_array[0]['contents'])) ;    
 }
 
 // 59             | 授業の工夫   | Teaching Tips         | teachingtips     |        590
@@ -397,13 +377,13 @@ if (!$teaching_tips_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $teaching_tips_array = pg_fetch_all($teaching_tips_result);
-if (!$teaching_tips_array){
+if (!mbTrim(space_trim($teaching_tips_array[0]['contents']))){
     echo "データがありません！" ;
     $teaching_tips = "" ;
 }else{
     echo "teaching_tips_array<br>" ;
     print_r($teaching_tips_array);
-    $teaching_tips = "### ".strip_tags($teaching_tips_array[0]['contents']) ;    
+    $teaching_tips = "### ".space_trim(strip_tags($teaching_tips_array[0]['contents'])) ;    
 }
 
 
@@ -423,13 +403,13 @@ if (!$farewell_lecture_home_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $farewell_lecture_home_array = pg_fetch_all($farewell_lecture_home_result);
-if ($farewell_lecture_home_array){
+if (!mbTrim(space_trim($farewell_lecture_home_array[0]['contents']))){
     echo "データがありません！" ;
     $farewell_lecture_home = "";
 }else{
     echo "farewell_lecture_home_array<br>" ;
     print_r($farewell_lecture_home_array);
-    $farewell_lecture_home = "### ".strip_tags($farewell_lecture_home_array[0]['contents']) ;
+    $farewell_lecture_home = "### ".space_trim(strip_tags($farewell_lecture_home_array[0]['contents'])) ;
     
 }
 
@@ -448,13 +428,13 @@ if (!$farewell_lecture_introduction_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $farewell_lecture_introduction_array = pg_fetch_all($farewell_lecture_introduction_result);
-if ($farewell_lecture_introduction_array){
+if (mbTrim(space_trim($farewell_lecture_introduction_array[0]['contents']))){
     echo "データがありません！" ;
     $farewell_lecture_introduction = "" ;
 }else{
     echo "farewell_lecture_introduction_array<br>" ;
     print_r($farewell_lecture_introduction_array);
-    $farewell_lecture_introduction = "### ".strip_tags($farewell_lecture_introduction_array[0]['contents']) ;
+    $farewell_lecture_introduction = "### ".space_trim(strip_tags($farewell_lecture_introduction_array[0]['contents'])) ;
         
 }
 
@@ -473,13 +453,13 @@ if (!$farewell_lecture_resources_result) {
 die('クエリーが失敗しました。'.pg_last_error());
 }
 $farewell_lecture_resources_array = pg_fetch_all($farewell_lecture_resources_result);
-if ($farewell_lecture_resources_array){
+if (!mbTrim(space_trim($farewell_lecture_resources_array[0]['contents']))){
     echo "データがありません！" ;
     $farewell_lecture_resources = "" ;
 }else{
     echo "farewell_lecture_resources_array<br>" ;
     print_r($farewell_lecture_resources_array);
-    $farewell_lecture_resources = "### ".strip_tags($farewell_lecture_resources_array[0]['contents']) ;    
+    $farewell_lecture_resources = "### ".space_trim(strip_tags($farewell_lecture_resources_array[0]['contents'])) ;    
 }
 
   
@@ -497,16 +477,23 @@ print('url_flv='.$courselist_rows['url_flv'].'<br>');
     
 echo "<br><br>";
 
-    // echo "<br><br>";
-    // print('course.course_id='.$contents_rows['course_id'].'<br>');
-    // print('contents.contents='.$contents_rows['contents'].'<br>');
-    // print(mb_substr($contents_rows['contents'],0,100).'<br>');
-    // echo "<br><br>";
+if(strpos($courselist_rows['course_name'],'最終講義') !== false){
+    // 最終講義のファイル名
+    $file_name = "./src/pages/farewell/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
+    $templateKey = "farewell" ;
+  }else{
+    // 授業のファイル名
+    $file_name = "./src/pages/courses/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
+    $templateKey = "courses" ;
+  }
+// 書き込みモードでファイルを開く
+echo "<br>".$file_name."<br>" ;
+$fp = fopen($file_name, "w");
  
-    $courselist_text =
+$courselist_text =
 "---
 # テンプレート指定
-templateKey: \"courses\"
+templateKey: \"".$templateKey."\"
 
 # コースID
 course_id: \"".$sort_key."\"
@@ -516,10 +503,10 @@ title: \"".$courselist_rows['course_name']."\"
 
 # 簡単な説明
 description: >-
-".strip_tags(mb_substr($course_home_array[0]['contents'],0,100))." ...
+  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home_array[0]['contents'],0,100))) )."...
 
 # 講師名
-lecturer: \"".$courselist_rows['instructor_name']."\"
+lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
 
 # 部局名
 department: \"".$division."\"
@@ -528,7 +515,7 @@ department: \"".$division."\"
 term: \"".$term."\"
 
 # 対象者、単位数、授業回数
-target: \"".$class_is_for."\"
+target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
 
 # 授業回数
 classes: 
@@ -554,31 +541,26 @@ date: ".$courselist_rows['date']."
 ---
 
 ".$course_home."
-
 ".$teaching_tips."
-
 ".$achievement."
-
 ".$syllabus."
-
 ".$calendar."
-
 ".$lecture_notes."
-
 ".$assignment."
-
 ".$evaluation."
-
 ".$related_resources."
+".$farewell_lecture_home."
+".$farewell_lecture_introduction."
+".$farewell_lecture_resources."
 
     " ;
-    // ファイルに書き込む
-    fwrite($fp,$courselist_text);
+// ファイルに書き込む
+fwrite($fp,$courselist_text);
  
-    // ファイルを閉じる
-    fclose($fp);
+// ファイルを閉じる
+fclose($fp);
 
-//}
+
 
 
 

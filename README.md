@@ -1,11 +1,12 @@
 ﻿nuocw-mdfile-generate
 ==========
 新日本語版システムのための md ファイルを出力するソフトウェアです。
+
 だいたいメドがつきましたので、github にて公開します。
 
 試行錯誤をやりながら作ってますので、コードが汚いです。
-データ確認のために、余計な出力がたくさん出ますが、
-まだ気にしないで下さい。
+
+データ確認のために、余計な出力がたくさん出ますが、気にしないで下さい。
 
 Requirements
 ------------
@@ -17,7 +18,7 @@ Requirements
 * postgres (PostgreSQL) 12.1
 
 config-example.php を config.php へコピーし、
-ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定します。
+ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定してください。
 
 #### 基本動作
 
