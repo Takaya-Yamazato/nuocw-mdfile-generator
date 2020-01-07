@@ -16,6 +16,9 @@ Requirements
 * PHP 7.4.1 (cli) (built: Dec 18 2019 14:47:11) ( NTS )
 * postgres (PostgreSQL) 12.1
 
+config-example.php を config.php へコピーし、
+ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定します。
+
 #### 基本動作
 
 ブラウザで index.php へアクセスすると、

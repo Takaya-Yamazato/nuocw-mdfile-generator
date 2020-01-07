@@ -4,7 +4,7 @@
 
 <?php
 
-require_once('./lib/ocw_init.php');
+require_once('./config.php');
 
 // DBに接続
 $ocwpdb = pg_connect(ocwpdb);
@@ -178,7 +178,7 @@ if (!$class_is_for_array){
     echo "データがありません！" ;
     $class_is_for = "" ;
 }else{
-    echo "<br>" ;
+    echo "class_is_for_array<br>" ;
     print_r($class_is_for_array);
     $class_is_for = strip_tags($class_is_for_array[0]['contents']) ;
 }
@@ -203,7 +203,7 @@ if (!$course_home_array){
     echo "データがありません！" ;
     $course_home ="" ;
 }else{
-    echo "<br>" ;
+    echo "course_home_array<br>" ;
     print_r($course_home_array);
     $course_home ="### 授業ホーム
     ".strip_tags($course_home_array[0]['contents']) ;
@@ -228,7 +228,7 @@ if(!$syllabus_array){
     echo "データがありません！" ;
     $syllabus ="" ;
 }else{
-    echo "<br>" ;
+    echo "syllabus_array<br>" ;
     print_r($syllabus_array);
     $syllabus ="### ".strip_tags($syllabus_array[0]['contents']) ;
 }
@@ -253,7 +253,7 @@ if(!$calendar_array){
     echo "データがありません！" ;
     $calendar = "" ;
 }else{
-    echo "<br>" ;
+    echo "calendar_array<br>" ;
     print_r($calendar_array);
     $calendar ="### ".strip_tags($calendar_array[0]['contents']) ;
 }
@@ -278,7 +278,7 @@ if(!$lecture_notes_array){
     echo "データがありません！" ;
     $lecture_notes = "" ;
 }else{
-    echo "<br>" ;
+    echo "lecture_notes_array<br>" ;
     print_r($lecture_notes_array);
     $lecture_notes = "### ".strip_tags($lecture_notes_array[0]['contents']) ;
 }
@@ -305,7 +305,7 @@ if (!$assignments_array){
     echo "データがありません！" ;
     $assignment = "";
 }else{
-    echo "<br>" ;
+    echo "assignments_array<br>" ;
     print_r($assignments_array);
     $assignment = "### ".strip_tags($assignments_array[0]['contents']) ; }
 
@@ -328,7 +328,7 @@ if($evaluation_array){
     echo "データがありません！" ;
     $evaluation = "";
 }else{
-    echo "<br>" ;
+    echo "evaluation_array<br>" ;
     print_r($evaluation_array);
     $evaluation = "### ".strip_tags($evaluation_array[0]['contents']) ;    
 }
@@ -352,7 +352,7 @@ if(!$achievement_array){
     echo "データがありません！" ;
     $achievement = "";
 }else{
-    echo "<br>" ;
+    echo "achievement_array<br>" ;
     print_r($achievement_array);
     $achievement = "### ".strip_tags($achievement_array[0]['contents']) ; 
     
@@ -377,7 +377,7 @@ if(!$related_resources_array){
     echo "データがありません！" ;
     $related_resources = "" ;
 }else{
-    echo "<br>" ;
+    echo "related_resources_array<br>" ;
     print_r($related_resources_array);
     $related_resources = "### ".strip_tags($related_resources_array[0]['contents']) ;    
 }
@@ -401,7 +401,7 @@ if (!$teaching_tips_array){
     echo "データがありません！" ;
     $teaching_tips = "" ;
 }else{
-    echo "<br>" ;
+    echo "teaching_tips_array<br>" ;
     print_r($teaching_tips_array);
     $teaching_tips = "### ".strip_tags($teaching_tips_array[0]['contents']) ;    
 }
@@ -427,7 +427,7 @@ if ($farewell_lecture_home_array){
     echo "データがありません！" ;
     $farewell_lecture_home = "";
 }else{
-    echo "<br>" ;
+    echo "farewell_lecture_home_array<br>" ;
     print_r($farewell_lecture_home_array);
     $farewell_lecture_home = "### ".strip_tags($farewell_lecture_home_array[0]['contents']) ;
     
@@ -452,7 +452,7 @@ if ($farewell_lecture_introduction_array){
     echo "データがありません！" ;
     $farewell_lecture_introduction = "" ;
 }else{
-    echo "<br>course_result<br>" ;
+    echo "farewell_lecture_introduction_array<br>" ;
     print_r($farewell_lecture_introduction_array);
     $farewell_lecture_introduction = "### ".strip_tags($farewell_lecture_introduction_array[0]['contents']) ;
         
@@ -477,7 +477,7 @@ if ($farewell_lecture_resources_array){
     echo "データがありません！" ;
     $farewell_lecture_resources = "" ;
 }else{
-    echo "<br>course_result<br>" ;
+    echo "farewell_lecture_resources_array<br>" ;
     print_r($farewell_lecture_resources_array);
     $farewell_lecture_resources = "### ".strip_tags($farewell_lecture_resources_array[0]['contents']) ;    
 }
