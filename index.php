@@ -21,7 +21,7 @@ print('ocwpdb：接続に成功しました。<br>');
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 600" ;
+$limit = "LIMIT 50 OFFSET 600" ;
 
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
