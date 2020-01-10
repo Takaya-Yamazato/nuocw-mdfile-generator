@@ -5,10 +5,10 @@
 <?php
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('./config.php');
+require_once('./library.php');
 
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
-
 
 // DBに接続
 $ocwpdb = pg_connect(ocwpdb);
@@ -21,7 +21,8 @@ print('ocwpdb：接続に成功しました。<br>');
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 20 OFFSET 50" ;
+$limit = "LIMIT 200 OFFSET 600" ;
+
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
         FROM courselist_by_coursename
@@ -185,21 +186,7 @@ $course_home_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $course_home = get_contents($course_home_sql);
-
-// $course_home_result = pg_query($course_home_sql);
-// if (!$course_home_result) {
-// die('クエリーが失敗しました。'.pg_last_error());
-// }
-// $course_home_array = pg_fetch_all($course_home_result);
-// if (!mbTrim(space_trim($course_home_array[0]['contents']))){
-//     echo "データがありません！" ;
-//     $course_home ="" ;
-// }else{
-//     echo "course_home_array<br>" ;
-//     print_r($course_home_array);
-//     $course_home ="### 授業ホーム
-//     ".space_trim(strip_tags($course_home_array[0]['contents'])) ;
-// }
+$course_home = convert_ocwlink ($course_home , $sort_key) ;
 
 // 52             | シラバス     | Syllabus              | syllabus         |        520
 $syllabus_sql = "SELECT contents.contents 
@@ -212,20 +199,7 @@ $syllabus_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $syllabus = get_contents ($syllabus_sql) ;
-// $syllabus_result = pg_query($syllabus_sql);
-// if (!$syllabus_result) {
-// die('クエリーが失敗しました。'.pg_last_error());
-// }
-// $syllabus_array = pg_fetch_all($syllabus_result);
-// if(!mbTrim(space_trim($syllabus_array[0]['contents']))){
-//     echo "データがありません！" ;
-//     $syllabus ="" ;
-// }else{
-//     echo "syllabus_array<br>" ;
-//     print_r($syllabus_array);
-//     $syllabus ="### ".space_trim(strip_tags($syllabus_array[0]['contents'])) ;
-// }
-
+$syllabus = convert_ocwlink ($syllabus, $sort_key) ;
 
 // 53             | スケジュール | Calendar              | calendar         |        530
 $calendar_sql = "SELECT contents.contents 
@@ -237,7 +211,8 @@ $calendar_sql = "SELECT contents.contents
                     AND contents.type = '1301' 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$syllabus = get_contents ($calendar_sql) ;
+$calendar = get_contents ($calendar_sql) ;
+$calendar = convert_ocwlink ($calendar, $sort_key) ;
 
 // 54             | 講義ノート   | Lecture Notes         | lecturenotes     |        540
  
@@ -251,6 +226,7 @@ $lecture_notes_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $lecture_notes = get_contents ($lecture_notes_sql) ;
+$lecture_notes = convert_ocwlink ($lecture_notes, $sort_key) ;
 
 // 55             | 課題         | Assignments           | assignments      |        550
  
@@ -264,6 +240,7 @@ $assignments_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $assignment = get_contents($assignments_sql) ;
+$assignment = convert_ocwlink ($assignments, $sort_key) ;
 
 // 56             | 成績評価     | Evaluation            | evaluation       |        560
 $evaluation_sql = "SELECT contents.contents 
@@ -276,9 +253,10 @@ $evaluation_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $evaluation = get_contents($evaluation_sql);
+$evaluation = convert_ocwlink ($evaluation, $sort_key) ;
 
 // 57             | 学習成果     | Achievement           | achievement      |        570
- $achievement_sql = "SELECT contents.contents 
+$achievement_sql = "SELECT contents.contents 
                     FROM pages, page_contents, contents 
                     WHERE pages.course_id = $sort_key 
                     AND pages.page_type = '57' 
@@ -288,6 +266,7 @@ $evaluation = get_contents($evaluation_sql);
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $achievement = get_contents($achievement_sql);
+$achievement = convert_ocwlink ($achievement, $sort_key) ;
 
 // 58             | 参考資料     | Related Resources     | relatedresources |        580
  $related_resources_sql = "SELECT contents.contents 
@@ -300,6 +279,7 @@ $achievement = get_contents($achievement_sql);
                         ORDER BY contents.id DESC LIMIT 1; ";
 
 $related_resources = get_contents($related_resources_sql);
+$related_resources = convert_ocwlink ($related_resources, $sort_key) ;
 
 // 59             | 授業の工夫   | Teaching Tips         | teachingtips     |        590
 $teaching_tips_sql = "SELECT contents.contents 
@@ -312,9 +292,9 @@ $teaching_tips_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $teaching_tips = get_contents($teaching_tips_sql);
+$teaching_tips = convert_ocwlink ($teaching_tips, $sort_key) ;
 
 // 71             | 最終講義・講義ホーム   | Farewell Lecture Home | f_index          |        515
-
 $farewell_lecture_home_sql = "SELECT contents.contents 
                     FROM pages, page_contents, contents 
                     WHERE pages.course_id = $sort_key 
@@ -325,6 +305,7 @@ $farewell_lecture_home_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $farewell_lecture_home = get_contents($farewell_lecture_home_sql);
+$farewell_lecture_home_del_firstline = preg_replace('/\###.*/um', '' , $farewell_lecture_home);
 
 // 72             | 最終講義・講師紹介     | Introduction          | f_intro          |        525
 $farewell_lecture_introduction_sql = "SELECT contents.contents 
@@ -337,6 +318,7 @@ $farewell_lecture_introduction_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $farewell_lecture_introduction = get_contents($farewell_lecture_introduction_sql);
+$farewell_lecture_introduction = convert_ocwimg ($farewell_lecture_introduction, $sort_key);
 
 // 73             | 最終講義・講義資料     | Resources             | f_resources      |        585
 $farewell_lecture_resources_sql = "SELECT contents.contents 
@@ -348,48 +330,145 @@ $farewell_lecture_resources_sql = "SELECT contents.contents
                     AND contents.type = '1101' 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
-$output = "](" ;
-$destination = "[/files/".$sort_key."/" ;
+$farewell_lecture_resources = "\n" ;
+$farewell_lecture_resources .= get_contents($farewell_lecture_resources_sql);
+$farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $sort_key) ;
 
-$farewell_lecture_resources = preg_replace('/\{ocwlink file="/', $destination , $farewell_lecture_resources);
-$farewell_lecture_resources = preg_replace('/" desc="/', $output , $farewell_lecture_resources);
-$farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources);     
-$destination = "![/files/".$sort_key."/" ;
+// $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
+// preg_match_all($file, $farewell_lecture_resources, $file_match);
+// //print_r($file_match);
+// $desc = '/(?<=desc=\").+?(?=\")/';
+// preg_match_all($desc, $farewell_lecture_resources, $desc_match);
+// //print_r($desc_match);
 
-$farewell_lecture_resources = preg_replace('/\{ocwimg file="/', $destination , $farewell_lecture_resources);
-$farewell_lecture_resources = preg_replace('/" align="right" alt="/', $output , $farewell_lecture_resources);
-$farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources); 
+// $ii = 0;
+// foreach ($desc_match[0] as $value){
+//     $farewell_lecture_resources .= 
+//     "[".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//     $ii++;
+// }
+//$farewell_lecture_resources .= "\n[".$desc_match[0][0]."](/files/".$sort_key."/".$file_match[0][0].")" ;
+//print_r($farewell_lecture_resources);
 
-echo "<br><br>";
+//$farewell_lecture_resources = preg_replace($pattern, '' , $farewell_lecture_resources);
+
+//print_r($farewell_lecture_resources);
+
+
+//  $str='(東京都){神奈川県}(千葉県)';
+//  $pattern = '/\(.+?\)/';
+//  $pattern = '/(?<={).*?(?=})/';
+//  preg_match_all($pattern, $str, $match);
+//  print_r($match);
+
+// $farewell_lecture_resources = preg_replace('/(?<={).*?(?=})/', '' , $farewell_lecture_resources);
+// $farewell_lecture_resources = preg_replace('/\{\}/', '' , $farewell_lecture_resources);
+
+echo "<br> farewell_lecture_resources <br>".$farewell_lecture_resources ;
+
+
+// preg_match_all('/\{ocwlink file=["|\'][.+?]"/', $farewell_lecture_resources, $res,PREG_SET_ORDER);
+// print_r($res);
+
+// $output = "](" ;
+// $destination = "[/files/".$sort_key."/" ;
+
+// $farewell_lecture_resources = preg_replace('/\{ocwlink file="/', $destination , $farewell_lecture_resources);
+// $farewell_lecture_resources = preg_replace('/" desc="/', $output , $farewell_lecture_resources);
+// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources);     
+// $destination = "![/files/".$sort_key."/" ;
+
+// $farewell_lecture_resources = preg_replace('/\{ocwimg file="/', $destination , $farewell_lecture_resources);
+// $farewell_lecture_resources = preg_replace('/" align="right" alt="/', $output , $farewell_lecture_resources);
+// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources); 
+
+// echo "<br><br>";
     
-print('course_id='.$courselist_rows['course_id'].'<br>');
-print('course_name='.$courselist_rows['course_name'].'<br>');
-print('year='.$courselist_rows['year'].'<br>');
-print('publish_group_abbr='.$courselist_rows['publish_group_abbr'].'<br>');
-print('date='.$courselist_rows['date'].'<br>');
-print('department_id='.$courselist_rows['department_id'].'<br>');
-print('instructor_id='.$courselist_rows['instructor_id'].'<br>');
-print('vsyllabus_id='.$courselist_rows['vsyllabus_id'].'<br>');
-print('url_flv='.$courselist_rows['url_flv'].'<br>');
+// print('course_id='.$courselist_rows['course_id'].'<br>');
+// print('course_name='.$courselist_rows['course_name'].'<br>');
+// print('year='.$courselist_rows['year'].'<br>');
+// print('publish_group_abbr='.$courselist_rows['publish_group_abbr'].'<br>');
+// print('date='.$courselist_rows['date'].'<br>');
+// print('department_id='.$courselist_rows['department_id'].'<br>');
+// print('instructor_id='.$courselist_rows['instructor_id'].'<br>');
+// print('vsyllabus_id='.$courselist_rows['vsyllabus_id'].'<br>');
+// print('url_flv='.$courselist_rows['url_flv'].'<br>');
     
-echo "<br><br>";
+// echo "<br><br>";
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
     // 最終講義のファイル名
     $file_name = "./src/pages/farewell/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
     $templateKey = "farewell" ;
+    $main_text = $farewell_lecture_home."\n"
+                .$farewell_lecture_introduction."\n"
+                .$farewell_lecture_resources ;
+    $courselist_text =
+"---
+# テンプレート指定
+templateKey: \"".$templateKey."\"
+
+# コースID
+course_id: \"".$sort_key."\"
+
+# タイトル
+title: \"".$courselist_rows['course_name']."\"
+
+# 簡単な説明
+description: >-
+  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,100))) )."...
+
+# 講師名
+lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
+
+# 部局名
+department: \"".$division."\"
+
+# 開講時限
+term: \"".$courselist_rows['year']."年度".$term."\"
+
+# 対象者、単位数、授業回数
+target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
+
+# 授業回数
+classes: 
+
+# 単位数
+credit: 
+
+# pdfなどの追加資料
+attachments: 
+".$attaches."
+
+# 関連するタグ
+tags:
+
+# 色付けのロールにするか
+featuredpost: true
+
+# ロールに表示する画像
+featuredimage: ".$featuredimage."
+
+# 記事投稿日
+date: ".$courselist_rows['date']."
+
+---
+" ;
+
   }else{
     // 授業のファイル名
     $file_name = "./src/pages/courses/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
     $templateKey = "courses" ;
-  }
-// 書き込みモードでファイルを開く
-echo "<br>".$file_name."<br>" ;
-
-$fp = fopen($file_name, "w");
- 
-$courselist_text =
+    $main_text = $course_home."\n"
+                .$teaching_tips."\n"
+                .$achievement."\n"
+                .$syllabus."\n"
+                .$calendar."\n"
+                .$lecture_notes."\n"
+                .$assignment."\n"
+                .$evaluation."\n"
+                .$related_resources ;
+    $courselist_text =
 "---
 # テンプレート指定
 templateKey: \"".$templateKey."\"
@@ -439,19 +518,16 @@ featuredimage: ".$featuredimage."
 date: ".$courselist_rows['date']."
 
 ---
+" ;
 
-".$course_home.$farewell_lecture_home."
-".$teaching_tips.$farewell_lecture_introduction."
-".$achievement.$farewell_lecture_resources."
-".$syllabus."
-".$calendar."
-".$lecture_notes."
-".$assignment."
-".$evaluation."
-".$related_resources."
-    " ;
+  }
+// 書き込みモードでファイルを開く
+echo "<br>".$file_name."<br>" ;
+
+$fp = fopen($file_name, "w");
+
 // ファイルに書き込む
-fwrite($fp,$courselist_text);
+fwrite($fp,$courselist_text.$main_text);
  
 // ファイルを閉じる
 fclose($fp);
