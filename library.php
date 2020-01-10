@@ -79,7 +79,7 @@ function get_contents ($sql) {
         echo "データがありません！" ;
         $contents ="" ;
     }else{
-        echo $array."array<br>" ;
+        echo $array[0]['contents']."array<br>" ;
         print_r($array);
         $contents = space_trim($array[0]['contents']) ;
   
@@ -92,8 +92,33 @@ function get_contents ($sql) {
         $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
         unset($md);
 
+        $contents_tag = '/\#\#\#.+?(?=\s)/';
+        preg_match_all($contents_tag, $contents, $tag_match);
+        $ii = 0;
+//        $temp = array() ;
+        foreach ($tag_match[0] as $value){
+            $contents = str_replace($tag_match[0][$ii], "\n".$tag_match[0][$ii]."\n",$contents) ;
+              $ii++;
+            }
+//        $replace_tag  = '$1 $2\n' ;
+//        $tag_replace = preg_replace($tag_match, $temp , $contents);
+        echo "<br>tag_match<br>" ;
+        print_r($tag_match);
+        echo "<br>contents<br>" ;
+        print_r($contents);
+//        echo "<br>tag_replace<br>" ;
+//        print_r($tag_replace);
+            
+          // $ii = 0;
+          // $temp = "";
+          // foreach ($desc_match[0] as $value){
+          //     $temp .= 
+          //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+          //     $ii++;
+          //   }
+
       // 残っている <dd> タグを削除
-        $contents = strip_tags ($contents) ;
+//        $contents = strip_tags ($contents) ;
     }
 
     return $contents ;
