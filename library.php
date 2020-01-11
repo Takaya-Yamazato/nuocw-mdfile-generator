@@ -84,8 +84,10 @@ function get_contents ($sql) {
         $contents = space_trim($array[0]['contents']) ;
   
         // {#pdf#} を削除
-        $contents = preg_replace('/\{#pdf#\}/', "", $contents);    
-
+        if ( $contents = preg_replace('/\{#pdf#\}/', "", $contents) ){
+          echo "<br>{#pdf#}<br>" ;
+          print_r($contents);
+        }
         // html タグを markdown へ変換
         $md = new Markdownify\Converter() ;
 //        $md = new Markdownify\Converter($linkPosition = LINK_AFTER_CONTENT, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
@@ -93,32 +95,32 @@ function get_contents ($sql) {
         unset($md);
 
         $contents_tag = '/\#\#\#.+?(?=\s)/';
-        preg_match_all($contents_tag, $contents, $tag_match);
-        $ii = 0;
-//        $temp = array() ;
-        foreach ($tag_match[0] as $value){
+        if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+          $ii = 0;
+          foreach ($tag_match[0] as $value){
             $contents = str_replace($tag_match[0][$ii], "\n".$tag_match[0][$ii]."\n",$contents) ;
               $ii++;
             }
 //        $replace_tag  = '$1 $2\n' ;
 //        $tag_replace = preg_replace($tag_match, $temp , $contents);
-        echo "<br>tag_match<br>" ;
-        print_r($tag_match);
-        echo "<br>contents<br>" ;
-        print_r($contents);
-//        echo "<br>tag_replace<br>" ;
-//        print_r($tag_replace);
-            
-          // $ii = 0;
-          // $temp = "";
-          // foreach ($desc_match[0] as $value){
-          //     $temp .= 
-          //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-          //     $ii++;
-          //   }
+          echo "<br>tag_match<br>" ;
+          print_r($tag_match);
+          echo "<br>contents_tag<br>" ;
+          print_r($contents);
+  //        echo "<br>tag_replace<br>" ;
+  //        print_r($tag_replace);
+              
+            // $ii = 0;
+            // $temp = "";
+            // foreach ($desc_match[0] as $value){
+            //     $temp .= 
+            //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+            //     $ii++;
+            //   }
 
-      // 残っている <dd> タグを削除
-//        $contents = strip_tags ($contents) ;
+        // 残っている <dd> タグを削除
+  //        $contents = strip_tags ($contents) ;
+            }
     }
 
     return $contents ;

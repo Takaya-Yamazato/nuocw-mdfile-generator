@@ -26,3 +26,33 @@ ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定してくださ
 ocwpdb と ocwdb へ接続し、
 そこからデータを取得、md ファイルを出力します。
 
+#### nuocw-new-site で試す
+
+/src/pages/courses/ と /src/pages/farewell/ に
+ここで作成した md-file が入っています。
+それぞれ、nuocw-new-site の
+/src/pages/courses/ と /src/pages/farewell/ に
+コーピーしてご利用ください。
+
+画像ファイルやPDFなどは、dev2 の
+
+/ocw/working_copies/ocw-system-public/production/files
+
+を nuocw-new-site の
+
+/static/
+
+にコピーして参照できるようにしてください。
+
+gatsby-config.js に以下を追加してください。
+
+    {
+      // ocw-system の files 
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/files`,
+        name: "uploads",
+      },
+    },
+
+

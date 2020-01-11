@@ -21,7 +21,7 @@ print('ocwpdb：接続に成功しました。<br>');
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 50 OFFSET 600" ;
+$limit = "LIMIT 50 OFFSET 630" ;
 
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
@@ -186,7 +186,7 @@ $course_home_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $course_home = get_contents($course_home_sql);
-$course_home = convert_ocwlink ($course_home , $sort_key) ;
+// $course_home = convert_ocwlink ($course_home , $sort_key) ;
 
 // 52             | シラバス     | Syllabus              | syllabus         |        520
 $syllabus_sql = "SELECT contents.contents 
@@ -199,7 +199,7 @@ $syllabus_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $syllabus = get_contents ($syllabus_sql) ;
-$syllabus = convert_ocwlink ($syllabus, $sort_key) ;
+// $syllabus = convert_ocwlink ($syllabus, $sort_key) ;
 
 // 53             | スケジュール | Calendar              | calendar         |        530
 $calendar_sql = "SELECT contents.contents 
@@ -226,7 +226,7 @@ $lecture_notes_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $lecture_notes = get_contents ($lecture_notes_sql) ;
-$lecture_notes = convert_ocwlink ($lecture_notes, $sort_key) ;
+// $lecture_notes = convert_ocwlink ($lecture_notes, $sort_key) ;
 
 // 55             | 課題         | Assignments           | assignments      |        550
  
@@ -240,7 +240,7 @@ $assignments_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $assignment = get_contents($assignments_sql) ;
-$assignment = convert_ocwlink ($assignments, $sort_key) ;
+// $assignment = convert_ocwlink ($assignments, $sort_key) ;
 
 // 56             | 成績評価     | Evaluation            | evaluation       |        560
 $evaluation_sql = "SELECT contents.contents 
@@ -253,7 +253,7 @@ $evaluation_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $evaluation = get_contents($evaluation_sql);
-$evaluation = convert_ocwlink ($evaluation, $sort_key) ;
+// $evaluation = convert_ocwlink ($evaluation, $sort_key) ;
 
 // 57             | 学習成果     | Achievement           | achievement      |        570
 $achievement_sql = "SELECT contents.contents 
@@ -266,7 +266,7 @@ $achievement_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $achievement = get_contents($achievement_sql);
-$achievement = convert_ocwlink ($achievement, $sort_key) ;
+// $achievement = convert_ocwlink ($achievement, $sort_key) ;
 
 // 58             | 参考資料     | Related Resources     | relatedresources |        580
  $related_resources_sql = "SELECT contents.contents 
@@ -279,7 +279,7 @@ $achievement = convert_ocwlink ($achievement, $sort_key) ;
                         ORDER BY contents.id DESC LIMIT 1; ";
 
 $related_resources = get_contents($related_resources_sql);
-$related_resources = convert_ocwlink ($related_resources, $sort_key) ;
+// $related_resources = convert_ocwlink ($related_resources, $sort_key) ;
 
 // 59             | 授業の工夫   | Teaching Tips         | teachingtips     |        590
 $teaching_tips_sql = "SELECT contents.contents 
@@ -292,7 +292,7 @@ $teaching_tips_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $teaching_tips = get_contents($teaching_tips_sql);
-$teaching_tips = convert_ocwlink ($teaching_tips, $sort_key) ;
+// $teaching_tips = convert_ocwlink ($teaching_tips, $sort_key) ;
 
 // 71             | 最終講義・講義ホーム   | Farewell Lecture Home | f_index          |        515
 $farewell_lecture_home_sql = "SELECT contents.contents 
@@ -318,7 +318,7 @@ $farewell_lecture_introduction_sql = "SELECT contents.contents
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $farewell_lecture_introduction = get_contents($farewell_lecture_introduction_sql);
-$farewell_lecture_introduction = convert_ocwimg ($farewell_lecture_introduction, $sort_key);
+// $farewell_lecture_introduction = convert_ocwimg ($farewell_lecture_introduction, $sort_key);
 
 // 73             | 最終講義・講義資料     | Resources             | f_resources      |        585
 $farewell_lecture_resources_sql = "SELECT contents.contents 
@@ -330,9 +330,9 @@ $farewell_lecture_resources_sql = "SELECT contents.contents
                     AND contents.type = '1101' 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$farewell_lecture_resources = "\n" ;
-$farewell_lecture_resources .= get_contents($farewell_lecture_resources_sql);
-$farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $sort_key) ;
+// $farewell_lecture_resources = "\n" ;
+$farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
+// $farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $sort_key) ;
 
 // $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 // preg_match_all($file, $farewell_lecture_resources, $file_match);
@@ -522,17 +522,68 @@ date: ".$courselist_rows['date']."
 
   }
 
+$courselist_text .= $main_text ;
+
+// テンポラリーファイルに書き込み
+$fp_tmp = fopen('tmp.md', 'w');
+fwrite($fp_tmp,$main_text);
+fclose($fp_tmp);
+
+// 一行ずつ読み込んで処理する
+
+$input_filename = 'before.txt'; // 処理したいファイル
+$output_filename = 'after.txt'; // 処理後のファイル
+
+$fp_tmp = fopen('tmp.md', 'r');
+$fp = fopen($file_name, "w");
+
+$file = '/(?<=\{ocwlink file=\").+?(?=\")/';
+$desc = '/(?<=desc=\").+?(?=\")/';
+
+while ($line = fgets($fp_tmp)) {
+
+    // -----
+    // ここに$lineに対して何かしらの処理を書く
+    // -----
+
+    if(preg_match_all($file, $line, $file_match) ){
+        // echo "<br>file_match<br>" ;
+        // echo $file_match[0][0];
+        // echo "<br>desc_match<br>" ;
+        preg_match_all($desc, $line, $desc_match);
+        print_r($desc_match);
+        $line = "- [".$desc_match[0][0]."](/files/".$sort_key."/".$file_match[0][0].") " ;
+        }
+
+          
+        // $ii = 0;
+        // foreach ($desc_match[0] as $value){
+        //     $resources .= 
+        //     "- [".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+        //     $ii++;
+        //   }
+      
+        // $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
+        // $resources = preg_replace('/\{\}/', '' , $resources);
+        // $resources = str_replace('\\', '' , $resources) ;
+    
+    //$line = convert_ocwlink ($line) ;
+    echo "<br>line : ".$line."<br>";
+    fwrite($fp, $line);
+}
+fclose($fp_tmp);
+fclose($fp);
 
 // 書き込みモードでファイルを開く
 echo "<br>".$file_name."<br>" ;
 
-$fp = fopen($file_name, "w");
+//$fp = fopen($file_name, "w");
 
 // ファイルに書き込む
-fwrite($fp,$courselist_text.$main_text);
+// fwrite($fp,$courselist_text);
  
 // ファイルを閉じる
-fclose($fp);
+// fclose($fp);
 
 
 
