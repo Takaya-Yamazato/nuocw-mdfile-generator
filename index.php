@@ -604,7 +604,7 @@ if ($close_ocwdb){
     // print('ocwdb：切断に成功しました。<br>');
     }
 
-    // exec('/bin/rm ./tmp.md'  );
+exec('/bin/rm tmp.md'  );
 ?>
 </body>
 </html>
