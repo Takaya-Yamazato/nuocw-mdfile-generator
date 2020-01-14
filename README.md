@@ -57,4 +57,4 @@ gatsby-config.js に以下を追加してください。
       },
     },
 
-
+ここにも gatsby-config.js をおいておきますので、参考にしてください。

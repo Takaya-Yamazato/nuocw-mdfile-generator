@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Test\\Markdownify\\' => array($vendorDir . '/pixel418/markdownify/test'),
+    'Markdownify\\' => array($vendorDir . '/pixel418/markdownify/src'),
 );

@@ -15,13 +15,15 @@ $ocwpdb = pg_connect(ocwpdb);
 if (!ocwpdb) {
     die('ocwpdb：接続失敗です。'.pg_last_error());
 }
-print('ocwpdb：接続に成功しました。<br>');
+// print('ocwpdb：接続に成功しました。<br>');
 
 // 出力ソートキー
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 50 OFFSET 630" ;
+$limit = "LIMIT 50 OFFSET 20" ;
+// 全てのファイルを出力する場合
+// $limit = "" ;
 
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
@@ -30,8 +32,8 @@ $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish
         ORDER BY $sort_key $sort_order $limit ; ";
 //        WHERE course_id=41
 
-print($courselist_sql) ;
-echo "<br><br>";
+// print($courselist_sql) ;
+// echo "<br><br>";
 
 $courselist_result = pg_query($courselist_sql);
     if (!$courselist_result) {
@@ -41,7 +43,7 @@ $courselist_result = pg_query($courselist_sql);
 // DBの切断
 $close_ocwpdb = pg_close($ocwpdb);
 if ($close_ocwpdb){
-    print('ocwpdb：切断に成功しました。<br><br>');
+    // print('ocwpdb：切断に成功しました。<br><br>');
     }
 
     //
@@ -51,11 +53,12 @@ $ocwdb = pg_connect(ocwdb);
 if (!ocwdb) {
     die('ocwdb：接続失敗です。'.pg_last_error());
 }
-print('ocwdb：接続に成功しました。<br>');
+// print('ocwdb：接続に成功しました。<br>');
+
 
 for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     $courselist_rows = pg_fetch_array($courselist_result, NULL, PGSQL_ASSOC);
-    print_r($courselist_rows);
+    // print_r($courselist_rows);
     //    echo $courselist_rows['contents'][0];
     //    echo $courselist_rows['course_id'][0];
 
@@ -63,6 +66,7 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
 // $sort_key = "course_id";
 $sort_key = $courselist_rows['course_id'] ;
 $sort_order = "DESC";
+$course_name = str_replace('/', '／' , $courselist_rows['course_name'] );
 
 // SQL文の作成
 $course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
@@ -71,15 +75,17 @@ if (!$course_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $course_array = pg_fetch_all($course_result);
-echo "<br>course_array<br>" ;
-print_r($course_array);
-echo "<br>".$course_array[0]['course_name']."<br>" ;
-echo "<br>".$course_array[0]['division']."<br>" ;
-echo "<br>".$course_array[0]['term']."<br>" ;
+// echo "<br>course_array<br>" ;
+// print_r($course_array);
+// echo "<br>".$course_array[0]['course_name']."<br>" ;
+// echo "<br>".$course_array[0]['division']."<br>" ;
+// echo "<br>".$course_array[0]['term']."<br>" ;
+
+
 $division_code = $course_array[0]['division'] ;
-echo $division_code ;
+// echo $division_code ;
 $term_code = $course_array[0]['term'] ;
-echo $term_code ;
+// echo $term_code ;
 
 // 部局 department
 $division_code_master_sql = "SELECT division_name 
@@ -90,10 +96,10 @@ if (!$division_code_master_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $division_code_master_array = pg_fetch_all($division_code_master_result);
-echo "<br>division_code_master_result<br>" ;
-print_r($division_code_master_array);
+// echo "<br>division_code_master_result<br>" ;
+// print_r($division_code_master_array);
 $division = $division_code_master_array[0]['division_name'] ;
-echo "<br>".$division."<br>" ;
+// echo "<br>".$division."<br>" ;
 
 // 開講時限　term
 $term_code_master_sql = "SELECT name 
@@ -104,10 +110,10 @@ if (!$term_code_master_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $term_code_master_array = pg_fetch_all($term_code_master_result);
-echo "<br>term_code_master_result<br>" ;
-print_r($term_code_master_array);
+// echo "<br>term_code_master_result<br>" ;
+// print_r($term_code_master_array);
 $term = $term_code_master_array[0]['name'] ;
-echo "<br>".$term."<br>" ;
+// echo "<br>".$term."<br>" ;
 
 // pdfなどの追加資料　Attachments
 //$attachments_sql = "SELECT id, name, description, relation_type, relation_id, del_flg
@@ -123,20 +129,20 @@ if (!$attachments_result) {
 }
 $attachments_array = pg_fetch_all($attachments_result);
 if (!$attachments_array){
-    echo "データがありません！" ;
+    // echo "データがありません！" ;
     $attachments = "" ;
 }else{
-    echo "<br>" ;
-    print_r($attachments_array);
-    echo "<br>" ;
+    // echo "<br>" ;
+    // print_r($attachments_array);
+    // echo "<br>" ;
     $attachments = call_user_func_array('array_merge', $attachments_array); 
-    print_r($attachments);
+    // print_r($attachments);
     $attaches = "";
     $featuredimage = "/img/chemex.jpg";
     foreach ($attachments_array as $attachment){
         if ($attachment['description'] == '看板画像'){
-            echo $attachment['name']."    " ;
-            echo $attachment['description']."<br>" ;
+            // echo $attachment['name']."    " ;
+            // echo $attachment['description']."<br>" ;
             $featuredimage = "/files/".$sort_key."/".$attachment['name'] ; 
         }else{
             $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
@@ -166,11 +172,11 @@ if (!$class_is_for_result) {
 }
 $class_is_for_array = pg_fetch_all($class_is_for_result);
 if (!($class_is_for_array[0]['contents'])){
-    echo "データがありません！" ;
+    // echo "データがありません！" ;
     $class_is_for = "" ;
 }else{
-    echo "class_is_for_array<br>" ;
-    print_r($class_is_for_array);
+    // echo "class_is_for_array<br>" ;
+    // print_r($class_is_for_array);
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
 }
 
@@ -412,7 +418,7 @@ templateKey: \"".$templateKey."\"
 course_id: \"".$sort_key."\"
 
 # タイトル
-title: \"".$courselist_rows['course_name']."\"
+title: \"".$course_name."\"
 
 # 簡単な説明
 description: >-
@@ -425,7 +431,7 @@ lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
 department: \"".$division."\"
 
 # 開講時限
-term: \"".$courselist_rows['year']."年度".$term."\"
+term: \"".$courselist_rows['year']."年度\t".$term."\"
 
 # 対象者、単位数、授業回数
 target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
@@ -477,7 +483,7 @@ templateKey: \"".$templateKey."\"
 course_id: \"".$sort_key."\"
 
 # タイトル
-title: \"".$courselist_rows['course_name']."\"
+title: \"".$course_name."\"
 
 # 簡単な説明
 description: >-
@@ -490,7 +496,7 @@ lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
 department: \"".$division."\"
 
 # 開講時限
-term: \"".$term."\"
+term: \"".$courselist_rows['year']."年度\t".$term."\"
 
 # 対象者、単位数、授業回数
 target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
@@ -526,19 +532,22 @@ $courselist_text .= $main_text ;
 
 // テンポラリーファイルに書き込み
 $fp_tmp = fopen('tmp.md', 'w');
-fwrite($fp_tmp,$main_text);
+fwrite($fp_tmp,$courselist_text);
 fclose($fp_tmp);
 
-// 一行ずつ読み込んで処理する
+echo "<br>ID: ".$course_array[0]['course_id']."\t".$file_name."\t を出力しました。" ;
+// echo "<br>".$file_name."\t を出力しました。" ;
 
-$input_filename = 'before.txt'; // 処理したいファイル
-$output_filename = 'after.txt'; // 処理後のファイル
+// 一行ずつ読み込んで処理する
 
 $fp_tmp = fopen('tmp.md', 'r');
 $fp = fopen($file_name, "w");
 
-$file = '/(?<=\{ocwlink file=\").+?(?=\")/';
-$desc = '/(?<=desc=\").+?(?=\")/';
+$ocwlink = '/(?<=\{ocwlink file=\").+?(?=\")/';
+$ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
+
+$ocwimg = '/(?<=\{ocwimg file=\").+?(?=\")/';
+$ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
 
 while ($line = fgets($fp_tmp)) {
 
@@ -546,16 +555,26 @@ while ($line = fgets($fp_tmp)) {
     // ここに$lineに対して何かしらの処理を書く
     // -----
 
-    if(preg_match_all($file, $line, $file_match) ){
+    if( preg_match_all($ocwlink, $line, $ocwlink_match) ){
+        // ocwlink
         // echo "<br>file_match<br>" ;
         // echo $file_match[0][0];
         // echo "<br>desc_match<br>" ;
-        preg_match_all($desc, $line, $desc_match);
-        print_r($desc_match);
-        $line = "- [".$desc_match[0][0]."](/files/".$sort_key."/".$file_match[0][0].") " ;
-        }
+        preg_match_all($ocwlink_desc, $line, $desc_match);
+        // print_r($desc_match);
+        $line = "\n[".$desc_match[0][0]."](/files/".$sort_key."/".$ocwlink_match[0][0].") \n" ;
+    }
 
-          
+        // ocwimg
+    if( preg_match_all($ocwimg, $line, $ocwimg_match) ){
+
+        //print_r($file_match);
+
+        preg_match_all($ocwimg_desc, $line, $desc_match);
+            //print_r($desc_match);
+        $line = "\n![".$desc_match[0][0]."](/files/".$sort_key."/".$ocwimg_match[0][0].") " ;
+    }    
+    
         // $ii = 0;
         // foreach ($desc_match[0] as $value){
         //     $resources .= 
@@ -568,25 +587,13 @@ while ($line = fgets($fp_tmp)) {
         // $resources = str_replace('\\', '' , $resources) ;
     
     //$line = convert_ocwlink ($line) ;
-    echo "<br>line : ".$line."<br>";
+    // echo "<br>line : ".$line."<br>";
     fwrite($fp, $line);
 }
+
+// ファイルを閉じる
 fclose($fp_tmp);
 fclose($fp);
-
-// 書き込みモードでファイルを開く
-echo "<br>".$file_name."<br>" ;
-
-//$fp = fopen($file_name, "w");
-
-// ファイルに書き込む
-// fwrite($fp,$courselist_text);
- 
-// ファイルを閉じる
-// fclose($fp);
-
-
-
 
 
 }
@@ -594,9 +601,10 @@ echo "<br>".$file_name."<br>" ;
  // DBの切断        
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
-    print('ocwdb：切断に成功しました。<br>');
+    // print('ocwdb：切断に成功しました。<br>');
     }
 
+    // exec('/bin/rm ./tmp.md'  );
 ?>
 </body>
 </html>

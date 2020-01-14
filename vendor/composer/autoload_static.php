@@ -6,27 +6,33 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit06d5f9e05ada3dd61c896347ff7a3c69
 {
-    public static $prefixesPsr0 = array (
+    public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Test\\Markdownify' => 
-            array (
-                0 => __DIR__ . '/..' . '/pixel418/markdownify/test',
-            ),
+            'Test\\Markdownify\\' => 17,
         ),
         'M' => 
         array (
-            'Markdownify' => 
-            array (
-                0 => __DIR__ . '/..' . '/pixel418/markdownify/src',
-            ),
+            'Markdownify\\' => 12,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Test\\Markdownify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pixel418/markdownify/test',
+        ),
+        'Markdownify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pixel418/markdownify/src',
         ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit06d5f9e05ada3dd61c896347ff7a3c69::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit06d5f9e05ada3dd61c896347ff7a3c69::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit06d5f9e05ada3dd61c896347ff7a3c69::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

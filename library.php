@@ -5,6 +5,9 @@
  *
  **/
 
+// NOTICEを非表示
+ error_reporting(E_ALL & ~E_NOTICE);
+
 function space_trim ($str) {
     // 行頭の半角、全角スペースを、空文字に置き換える
     $str = preg_replace('/^[ 　]+/u', '', $str);
@@ -13,6 +16,10 @@ function space_trim ($str) {
     $str = preg_replace('/[ 　]+$/u', '', $str);
  
     return $str;
+}
+function convertEOL($string, $to = "\n")
+{   
+    return preg_replace("/\r\n|\r|\n/", $to, $string);
 }
 
 function mbTrim($pString)
@@ -76,52 +83,61 @@ function get_contents ($sql) {
     }
     $array = pg_fetch_all($result);
     if (!mbTrim($array[0]['contents'])){
-        echo "データがありません！" ;
+        // echo "データがありません！" ;
         $contents ="" ;
     }else{
-        echo $array[0]['contents']."array<br>" ;
-        print_r($array);
+        // echo $array[0]['contents']."array<br>" ;
+        // print_r($array);
         $contents = space_trim($array[0]['contents']) ;
-  
-        // {#pdf#} を削除
-        if ( $contents = preg_replace('/\{#pdf#\}/', "", $contents) ){
-          echo "<br>{#pdf#}<br>" ;
-          print_r($contents);
-        }
-        // html タグを markdown へ変換
-        $md = new Markdownify\Converter() ;
-//        $md = new Markdownify\Converter($linkPosition = LINK_AFTER_CONTENT, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
-        $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
-        unset($md);
 
         $contents_tag = '/\#\#\#.+?(?=\s)/';
         if ( preg_match_all($contents_tag, $contents, $tag_match) ){
           $ii = 0;
           foreach ($tag_match[0] as $value){
-            $contents = str_replace($tag_match[0][$ii], "\n".$tag_match[0][$ii]."\n",$contents) ;
+            $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
               $ii++;
             }
-//        $replace_tag  = '$1 $2\n' ;
-//        $tag_replace = preg_replace($tag_match, $temp , $contents);
-          echo "<br>tag_match<br>" ;
-          print_r($tag_match);
-          echo "<br>contents_tag<br>" ;
-          print_r($contents);
-  //        echo "<br>tag_replace<br>" ;
-  //        print_r($tag_replace);
+// //        $replace_tag  = '$1 $2\n' ;
+// //        $tag_replace = preg_replace($tag_match, $temp , $contents);
+//           // echo "<br>tag_match<br>" ;
+//           // print_r($tag_match);
+//           // echo "<br>contents_tag<br>" ;
+//           // print_r($contents);
+//   //        echo "<br>tag_replace<br>" ;
+//   //        print_r($tag_replace);
               
-            // $ii = 0;
-            // $temp = "";
-            // foreach ($desc_match[0] as $value){
-            //     $temp .= 
-            //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-            //     $ii++;
-            //   }
+//             // $ii = 0;
+//             // $temp = "";
+//             // foreach ($desc_match[0] as $value){
+//             //     $temp .= 
+//             //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//             //     $ii++;
+//             //   }
 
-        // 残っている <dd> タグを削除
-  //        $contents = strip_tags ($contents) ;
+
             }
     }
+    // 改行コードを LF(\n) に統一
+    $contents = preg_replace("/\r\n|\r/","\n",$contents);
+    
+    // {#pdf#} を削除
+    if ( $contents = preg_replace('/\{#pdf#\}/', "", $contents) ){
+      // echo "<br>{#pdf#}<br>" ;
+      // print_r($contents);
+        }
+
+    // html タグを markdown へ変換
+    // $md = new Markdownify\Converter() ;
+    $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, false);
+    // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
+    $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
+    unset($md);
+
+    // 残っている <dd> タグを削除
+    $contents = strip_tags ($contents) ;
+
+    // なぜだかバックスラッシュ「\」が残るので削る
+    $contents = str_replace('\\', '' , $contents) ;
 
     return $contents ;
 }
