@@ -24,9 +24,24 @@ htmlタグ から markdwonタグ への変換に
 
 [pixel418/markdownify](https://packagist.org/packages/pixel418/markdownify)
 
-を使っています。以下を実行し、利用できるようにしてください。
+を使っています。
 
-  composer require pixel418/markdownify
+
+composer.json
+
+{
+    "require": {
+        "pixel418/markdownify": "2.3"
+    }
+}
+
+と、Composer の設定ファイルを作り、
+
+$ php -r "readfile('https://getcomposer.org/installer');" | php
+$ php composer.phar install
+
+Composer のインストール＆ライブラリのインストールしてください。
+
 
 
 #### 基本動作
