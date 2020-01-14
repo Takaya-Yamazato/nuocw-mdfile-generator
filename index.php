@@ -20,10 +20,10 @@ if (!ocwpdb) {
 // 出力ソートキー
 $sort_key = "course_id";
 // $sort_key = "41" ;
-$sort_order = "ASC";
+$sort_order = "DESC";
 $limit = "LIMIT 50 OFFSET 20" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // SQL文の作成
 $courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
@@ -66,7 +66,14 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
 // $sort_key = "course_id";
 $sort_key = $courselist_rows['course_id'] ;
 $sort_order = "DESC";
-$course_name = str_replace('/', '／' , $courselist_rows['course_name'] );
+
+$course_name = preg_replace("/( |　)/", "", $courselist_rows['course_name'] );
+$course_name = str_replace('/', '／' , $course_name );
+$course_name = $course_name."-".$sort_key."-".$courselist_rows['year'] ;
+
+$course_date = $courselist_rows['date'];
+
+$lecturer = space_trim($courselist_rows['instructor_name']) ;
 
 // SQL文の作成
 $course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
@@ -112,7 +119,8 @@ if (!$term_code_master_result) {
 $term_code_master_array = pg_fetch_all($term_code_master_result);
 // echo "<br>term_code_master_result<br>" ;
 // print_r($term_code_master_array);
-$term = $term_code_master_array[0]['name'] ;
+$term = $courselist_rows['year']."年度\t".$term_code_master_array[0]['name'] ;
+
 // echo "<br>".$term."<br>" ;
 
 // pdfなどの追加資料　Attachments
@@ -404,7 +412,7 @@ $farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
     // 最終講義のファイル名
-    $file_name = "./src/pages/farewell/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
+    $file_name = "./src/pages/farewell/".$course_name.".md" ;
     $templateKey = "farewell" ;
     $main_text = $farewell_lecture_home."\n"
                 .$farewell_lecture_introduction."\n"
@@ -425,13 +433,13 @@ description: >-
   ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,100))) )."...
 
 # 講師名
-lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
+lecturer: \"".$lecturer."\"
 
 # 部局名
 department: \"".$division."\"
 
 # 開講時限
-term: \"".$courselist_rows['year']."年度\t".$term."\"
+term: \"".$term."\"
 
 # 対象者、単位数、授業回数
 target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
@@ -456,14 +464,14 @@ featuredpost: true
 featuredimage: ".$featuredimage."
 
 # 記事投稿日
-date: ".$courselist_rows['date']."
+date: ".$course_date."
 
 ---
 " ;
 
   }else{
     // 授業のファイル名
-    $file_name = "./src/pages/courses/".$courselist_rows['course_name']."-".$courselist_rows['year'].".md" ;
+    $file_name = "./src/pages/courses/".$course_name.".md" ;
     $templateKey = "courses" ;
     $main_text = $course_home."\n"
                 .$teaching_tips."\n"
@@ -490,13 +498,13 @@ description: >-
   ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home,0,100))) )."...
 
 # 講師名
-lecturer: \"".space_trim($courselist_rows['instructor_name'])."\"
+lecturer: \"".$lecturer."\"
 
 # 部局名
 department: \"".$division."\"
 
 # 開講時限
-term: \"".$courselist_rows['year']."年度\t".$term."\"
+term: \"".$term."\"
 
 # 対象者、単位数、授業回数
 target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
@@ -521,7 +529,7 @@ featuredpost: true
 featuredimage: ".$featuredimage."
 
 # 記事投稿日
-date: ".$courselist_rows['date']."
+date: ".$course_date."
 
 ---
 " ;
