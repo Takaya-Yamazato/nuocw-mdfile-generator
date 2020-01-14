@@ -20,8 +20,8 @@ if (!ocwpdb) {
 // 出力ソートキー
 $sort_key = "course_id";
 // $sort_key = "41" ;
-$sort_order = "DESC";
-$limit = "LIMIT 50 OFFSET 20" ;
+$sort_order = "ASC";
+$limit = "LIMIT 20 OFFSET 20" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -65,32 +65,48 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
 // 出力ソートキー
 // $sort_key = "course_id";
 $sort_key = $courselist_rows['course_id'] ;
-$sort_order = "DESC";
 
-$course_name = preg_replace("/( |　)/", "", $courselist_rows['course_name'] );
+$course_name = strip_tags( $courselist_rows['course_name'] );
+// $course_name = preg_replace('/\s(?=\s)/', '', $course_name );
+$course_name = preg_replace("/( |　)/", "-", $course_name );
 $course_name = str_replace('/', '／' , $course_name );
-$course_name = $course_name."-".$sort_key."-".$courselist_rows['year'] ;
+$course_name = preg_replace('/--+/', '-', $course_name) ;
+
+// $course_name = preg_replace("/(-|---)/", "-", $course_name );
+// $course_name = $course_name."-".$sort_key."-".$courselist_rows['year'] ;
+$course_name = $course_name."-".$courselist_rows['year'] ;
 
 $course_date = $courselist_rows['date'];
 
 $lecturer = space_trim($courselist_rows['instructor_name']) ;
 
 // SQL文の作成
-$course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
+// $course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
+$course_sql = "SELECT * FROM course 
+            INNER JOIN course_status ON course.course_id = course_status.course_id 
+            WHERE course.archive = 'f' 
+            AND course_status.status='01' 
+            AND course_status.lang='ja' 
+            AND course.course_id = $sort_key; " ;
 $course_result = pg_query($course_sql);
 if (!$course_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
+
 $course_array = pg_fetch_all($course_result);
+// if (!$course_array){
+//     die('course_array NULL');
+// }
+
 // echo "<br>course_array<br>" ;
 // print_r($course_array);
 // echo "<br>".$course_array[0]['course_name']."<br>" ;
 // echo "<br>".$course_array[0]['division']."<br>" ;
 // echo "<br>".$course_array[0]['term']."<br>" ;
 
-
 $division_code = $course_array[0]['division'] ;
-// echo $division_code ;
+// echo "<br>division code: ".$division_code."<br>" ;
+
 $term_code = $course_array[0]['term'] ;
 // echo $term_code ;
 
@@ -543,7 +559,7 @@ $fp_tmp = fopen('tmp.md', 'w');
 fwrite($fp_tmp,$courselist_text);
 fclose($fp_tmp);
 
-echo "<br>ID: ".$course_array[0]['course_id']."\t".$file_name."\t を出力しました。" ;
+echo "<br>ID: ".$sort_key."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
 
 // 一行ずつ読み込んで処理する

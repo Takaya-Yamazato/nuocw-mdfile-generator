@@ -97,6 +97,7 @@ function get_contents ($sql) {
             $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
               $ii++;
             }
+    
 // //        $replace_tag  = '$1 $2\n' ;
 // //        $tag_replace = preg_replace($tag_match, $temp , $contents);
 //           // echo "<br>tag_match<br>" ;
@@ -116,6 +117,14 @@ function get_contents ($sql) {
 
 
             }
+            $contents_tag = '/\#\#.+?(?=\s)/';
+            if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+              $ii = 0;
+              foreach ($tag_match[0] as $value){
+                $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
+                  $ii++;
+                }
+            }            
     }
     // 改行コードを LF(\n) に統一
     $contents = preg_replace("/\r\n|\r/","\n",$contents);
