@@ -20,6 +20,15 @@ Requirements
 config-example.php を config.php へコピーし、
 ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定してください。
 
+htmlタグ から markdwonタグ への変換に
+
+[pixel418/markdownify](https://packagist.org/packages/pixel418/markdownify)
+
+を使っています。以下を実行し、利用できるようにしてください。
+
+  composer require pixel418/markdownify
+
+
 #### 基本動作
 
 ブラウザで index.php へアクセスすると、
@@ -45,7 +54,7 @@ ocwpdb と ocwdb へ接続し、
 にコピーして参照できるようにしてください。
 
 また、コピーした画像ファイルやPDFを md-file が参照できるように
-\
+
 gatsby-config.js に以下を追加してください。
 
     {
