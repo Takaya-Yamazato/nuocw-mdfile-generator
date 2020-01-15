@@ -70,7 +70,14 @@ date: 2017-04-10
 
 
 
- ### 目的と目標 The main purpose of this course is to help students create longer and more sophisticated research presentations. Lessons will address the content and structure of professional-level academic presentations as well as strategies for successful delivery, including slide design, speaking style, and body language. The course will have an active learning environment, and students will be expected to participate enthusiastically in group work, class discussion, and presentation feedback activities. The instructor will provide guidance and support throughout the presentation design process. In their presentations, students will make a logical argument about a topic related to their majors or any academic field of interest. They will reference information from at least four academic articles about their topic and critically evaluate claims in their sources. Because students are required to use academic articles as sources, we will devote an early class to reviewing how knowledge is constructed and expressed in these texts. Students will give two presentations: one that introduces their topic and research questions (approximately 5 minutes) and one that contains their complete logical argument (approximately 10 minutes). When giving presentations, students will be expected to use notes rather than reading from a script. ### 履修条件あるいは関連科目等 Graduate students in any field are welcome to take this course. Students must be able to communicate effectively in English (student presentations, class discussions, and short lectures will be conducted entirely in English). It is NOT necessary to take this course before taking other presentation courses. ### 内容と計画 Tentative lesson schedule (subject to change depending on student need and progress):  
+ ### 目的と目標 
+ 
+ The main purpose of this course is to help students create longer and more sophisticated research presentations. Lessons will address the content and structure of professional-level academic presentations as well as strategies for successful delivery, including slide design, speaking style, and body language. The course will have an active learning environment, and students will be expected to participate enthusiastically in group work, class discussion, and presentation feedback activities. The instructor will provide guidance and support throughout the presentation design process. In their presentations, students will make a logical argument about a topic related to their majors or any academic field of interest. They will reference information from at least four academic articles about their topic and critically evaluate claims in their sources. Because students are required to use academic articles as sources, we will devote an early class to reviewing how knowledge is constructed and expressed in these texts. Students will give two presentations: one that introduces their topic and research questions (approximately 5 minutes) and one that contains their complete logical argument (approximately 10 minutes). When giving presentations, students will be expected to use notes rather than reading from a script. 
+ 
+ ### 履修条件あるいは関連科目等
+ Graduate students in any field are welcome to take this course. Students must be able to communicate effectively in English (student presentations, class discussions, and short lectures will be conducted entirely in English). It is NOT necessary to take this course before taking other presentation courses. 
+ ### 内容と計画
+Tentative lesson schedule (subject to change depending on student need and progress):  
 Lesson 1: Course overview; fundamental characteristics of academic presentations and research  
 Homework: Self-introduction/research interests paragraph  
 Lesson 2: Academic articles: a genre analysis  
@@ -95,7 +102,13 @@ Homework: Prepare your full presentation
 Lesson 12: Student presentations: Logical argument  
 Lesson 13: Student presentations: Logical argument  
 Lesson 14: Student presentations: Logical argument  
-Lesson 15: Course wrap-up ### 成績評価の方法と基準 Presentation 1: topic and research questions (30%); Presentation 2: logical argument (50%); Homework and participation (20%).] Students must attend at least 80% of class sessions in order to receive credit for the course. ### 教科書，参考書，参照情報等 There is no required textbook. All course materials will be provided by the instructor or selected by students. ### 連絡事項 Enrollment is limited to 20 students. In the event of over-enrollment, seats in the course will be awarded on a first-come, first-serve basis during the first lesson. Please feel free to approach the instructor with any questions or concerns about this class.
+Lesson 15: Course wrap-up 
+### 成績評価の方法と基準 
+Presentation 1: topic and research questions (30%); Presentation 2: logical argument (50%); Homework and participation (20%).] Students must attend at least 80% of class sessions in order to receive credit for the course. 
+### 教科書，参考書，参照情報等 
+There is no required textbook. All course materials will be provided by the instructor or selected by students. 
+### 連絡事項 
+Enrollment is limited to 20 students. In the event of over-enrollment, seats in the course will be awarded on a first-come, first-serve basis during the first lesson. Please feel free to approach the instructor with any questions or concerns about this class.
 
 
 [Lesson 1 ACADEMIC PRESENTATIONS: PRINCIPLES AND PRACTCES](/files/623/Nuske Lesson 1.pdf) 
