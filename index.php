@@ -21,30 +21,29 @@ if (!ocwpdb) {
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 20 OFFSET 20" ;
+$limit = "LIMIT 5 OFFSET 495" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
-// SQL文の作成
-$courselist_sql = "SELECT course_id, course_name, instructor_name, year, publish_group_abbr, date, department_id, instructor_id, vsyllabus_id, url_flv 
-        FROM courselist_by_coursename
-        WHERE exist_lectnotes='t'
-        ORDER BY $sort_key $sort_order $limit ; ";
-//        WHERE course_id=41
+// // SQL文の作成
+// $courselist_sql = "SELECT * FROM courselist_by_coursename
+//         -- WHERE exist_lectnotes='t'
+//         ORDER BY $sort_key $sort_order $limit ; ";
+// //        WHERE course_id=41
 
-// print($courselist_sql) ;
-// echo "<br><br>";
+// // print($courselist_sql) ;
+// // echo "<br><br>";
 
-$courselist_result = pg_query($courselist_sql);
-    if (!$courselist_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
+// $courselist_result = pg_query($courselist_sql);
+//     if (!$courselist_result) {
+//         die('クエリーが失敗しました。'.pg_last_error());
+//     }
 
-// DBの切断
-$close_ocwpdb = pg_close($ocwpdb);
-if ($close_ocwpdb){
-    // print('ocwpdb：切断に成功しました。<br><br>');
-    }
+// // DBの切断
+// $close_ocwpdb = pg_close($ocwpdb);
+// if ($close_ocwpdb){
+//     // print('ocwpdb：切断に成功しました。<br><br>');
+//     }
 
     //
 // ここから ocwdb　への接続
@@ -53,11 +52,70 @@ $ocwdb = pg_connect(ocwdb);
 if (!ocwdb) {
     die('ocwdb：接続失敗です。'.pg_last_error());
 }
-// print('ocwdb：接続に成功しました。<br>');
+print('ocwdb：接続に成功しました。<br>');
 
+
+// SQL文の作成
+$courselist_sql = "SELECT c.course_id, c.course_name as course_name, 
+            year, term, d.department_id, d.department_name as department_name, division,
+            array_to_string(array( 
+                SELECT i.instructor_name FROM course_instructor ci, instructor i 
+                WHERE ci.course_id = c.course_id AND ci.instructor_id = i.instructor_id 
+                ORDER BY ci.disp_order ASC ), '／') as instructor_name, time 
+                FROM course c, department d, term_code_master tcm, course_status cs, event ev, 
+                ((SELECT course_id FROM course_status WHERE status='02' AND lang='ja') 
+                EXCEPT (SELECT course_id FROM course_status WHERE status='09')) AS cs02
+                WHERE c.department_id = d.department_id AND 
+                c.term = tcm.term_code AND c.course_id = cs.course_id 
+                AND cs.event_id = ev.event_id AND cs02.course_id = c.course_id 
+                AND cs.status='02' AND cs.lang ='ja'
+            ORDER BY c.course_id $sort_order $limit ";
+
+$courselist_sql = "SELECT c.course_id, c.course_name as course_name,
+                   year, term as course_semester,
+                   d.department_id, d.department_name as department_name, division,
+                   array_to_string(array(
+                      SELECT
+                        i.instructor_name
+                      FROM course_instructor ci, instructor i
+                      WHERE ci.course_id = c.course_id AND
+                            ci.instructor_id = i.instructor_id
+                      ORDER BY ci.disp_order ASC
+                     ), '／') as instructor_name
+            FROM course c, department d, term_code_master tcm
+            WHERE c.department_id = d.department_id AND
+                  c.term = tcm.term_code AND
+
+                  EXISTS (
+                      SELECT c_s.status
+                       FROM course_status c_s
+                       WHERE c_s.course_id = c.course_id AND
+                             c_s.status = '01' AND
+                             c_s.lang = 'ja'
+                  ) AND
+
+
+                  NOT EXISTS (
+                      SELECT c_s.status
+                       FROM  course_status c_s
+                       WHERE c_s.course_id = c.course_id AND
+                             ((c_s.status = '08' AND lang = 'ja') OR 
+                               c_s.status = '09')
+                  )
+            ORDER BY c.course_id $sort_order $limit ";
+// print($courselist_sql) ;
+// echo "<br><br>";
+
+$courselist_result = pg_query($courselist_sql);
+    if (!$courselist_result) {
+        die('クエリーが失敗しました。'.pg_last_error());
+    }
+
+// print_r($courselist_result)    ;
 
 for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     $courselist_rows = pg_fetch_array($courselist_result, NULL, PGSQL_ASSOC);
+    // echo "<br><br>";
     // print_r($courselist_rows);
     //    echo $courselist_rows['contents'][0];
     //    echo $courselist_rows['course_id'][0];
@@ -67,16 +125,31 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
 $sort_key = $courselist_rows['course_id'] ;
 
 $course_name = strip_tags( $courselist_rows['course_name'] );
+$course_name = space_trim( $course_name ) ;
 // $course_name = preg_replace('/\s(?=\s)/', '', $course_name );
 $course_name = preg_replace("/( |　)/", "-", $course_name );
 $course_name = str_replace('/', '／' , $course_name );
-$course_name = preg_replace('/--+/', '-', $course_name) ;
+$course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // $course_name = preg_replace("/(-|---)/", "-", $course_name );
 // $course_name = $course_name."-".$sort_key."-".$courselist_rows['year'] ;
-$course_name = $course_name."-".$courselist_rows['year'] ;
+// $course_name = $course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'] ;
 
-$course_date = $courselist_rows['date'];
+// echo "<br>".$course_name ;
+
+// 記事投稿日
+$course_date_sql = "SELECT * FROM event WHERE event_id IN
+             (SELECT event_id FROM course_status WHERE  course_id=60) 
+             ORDER BY event_id DESC" ;
+$course_date_result = pg_query($course_date_sql);
+if (!$course_date_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+
+$course_date_array = pg_fetch_all($course_date_result);
+// print_r($course_date_array);
+
+$course_date = $course_date_array[0]['time'];
 
 $lecturer = space_trim($courselist_rows['instructor_name']) ;
 
@@ -94,6 +167,7 @@ if (!$course_result) {
 }
 
 $course_array = pg_fetch_all($course_result);
+// $course_array = $courselist_rows;
 // if (!$course_array){
 //     die('course_array NULL');
 // }
@@ -334,8 +408,10 @@ $farewell_lecture_home_sql = "SELECT contents.contents
                     AND contents.type = '1101' 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
+// echo "<br>farewell_lecture_home_sql ".$farewell_lecture_home_sql."<br>" ;
 $farewell_lecture_home = get_contents($farewell_lecture_home_sql);
 $farewell_lecture_home_del_firstline = preg_replace('/\###.*/um', '' , $farewell_lecture_home);
+// print_r($farewell_lecture_home);
 
 // 72             | 最終講義・講師紹介     | Introduction          | f_intro          |        525
 $farewell_lecture_introduction_sql = "SELECT contents.contents 
@@ -428,7 +504,7 @@ $farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
     // 最終講義のファイル名
-    $file_name = "./src/pages/farewell/".$course_name.".md" ;
+    $file_name = "./src/pages/farewell/".$course_name."-".$courselist_rows['department_name'].".md" ;
     $templateKey = "farewell" ;
     $main_text = $farewell_lecture_home."\n"
                 .$farewell_lecture_introduction."\n"
@@ -461,10 +537,10 @@ term: \"".$term."\"
 target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
 
 # 授業回数
-classes: 
+classes: \"\"
 
 # 単位数
-credit: 
+credit: \"\"
 
 # pdfなどの追加資料
 attachments: 
@@ -487,7 +563,7 @@ date: ".$course_date."
 
   }else{
     // 授業のファイル名
-    $file_name = "./src/pages/courses/".$course_name.".md" ;
+    $file_name = "./src/pages/courses/".$course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'].".md" ;
     $templateKey = "courses" ;
     $main_text = $course_home."\n"
                 .$teaching_tips."\n"
@@ -523,13 +599,13 @@ department: \"".$division."\"
 term: \"".$term."\"
 
 # 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
+target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t    ', $class_is_for )."\"
 
 # 授業回数
-classes: 
+classes: \"\"
 
 # 単位数
-credit: 
+credit: \"\"
 
 # pdfなどの追加資料
 attachments: 
@@ -625,7 +701,7 @@ fclose($fp);
  // DBの切断        
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
-    // print('ocwdb：切断に成功しました。<br>');
+    print('ocwdb：切断に成功しました。<br>');
     }
 
 exec('/bin/rm tmp.md'  );

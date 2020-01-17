@@ -3,7 +3,6 @@ config.php
 vendor
 composer.lock
 composer.phar
-nuocw-new-site-pages
 *.log
 .*~
 !.gitignore
