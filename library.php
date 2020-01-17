@@ -92,8 +92,8 @@ function get_contents ($sql) {
 
         // 改行コードを LF(\n) に統一
         $contents = preg_replace("/\r\n|\r/","\n",$contents);
-        $contents = str_replace("\\r\n","\n",$contents);
-        $contents = str_replace("\\r","\n",$contents);
+        $contents = str_replace("\r\n","\n",$contents);
+        $contents = str_replace("\r","\n",$contents);
         // print_r($contents);
 
         // 全角スペースを半角へ変換
@@ -102,7 +102,7 @@ function get_contents ($sql) {
         // 文字列の先頭、末尾の半角全角スペース削除
         $contents = space_trim($contents) ;
 
-        // $contents_tag = '/\#\#\#.+?(?=\s)/';
+        // ### タイトル　を抜き出す
         $contents_tag = '/\#+\s(\S+)\s/';
         if ( preg_match_all($contents_tag, $contents, $tag_match) ){
           $ii = 0;
@@ -113,36 +113,27 @@ function get_contents ($sql) {
               $ii++;
               // echo "<br>".$ii." contents: ".$contents."<br>" ;
             }
-            // print_r($tag_match);
-            // echo "<br>";
-// //        $replace_tag  = '$1 $2\n' ;
-// //        $tag_replace = preg_replace($tag_match, $temp , $contents);
-//           // echo "<br>tag_match<br>" ;
-//           // print_r($tag_match);
-//           // echo "<br>contents_tag<br>" ;
-//           // print_r($contents);
-//   //        echo "<br>tag_replace<br>" ;
-//   //        print_r($tag_replace);
-              
-//             // $ii = 0;
-//             // $temp = "";
-//             // foreach ($desc_match[0] as $value){
-//             //     $temp .= 
-//             //     "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-//             //     $ii++;
-//             //   }
-
-
-            }
-
-            // $contents_tag = '/\#\#.+?(?=\s)/';
+        }
+        // // ###タイトル　を抜き出す（### の後にスペースが無い）        
+        // $contents_tag = '/\#+(\S+)\s/';
+        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+        //   $ii = 0;
+        //   // print_r($tag_match);
+        //   // echo "<br>";
+        //   foreach ($tag_match[0] as $value){
+        //     $contents = str_replace( $tag_match[0][$ii] , "<br>".$tag_match[0][$ii]."<br>" , $contents ) ;
+        //       $ii++;
+        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+        //     }
+        // }
+            // * タイトル　を抜き出す
             $contents_tag_asterisk = '/\*+\s(\S+)\s/';
             if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
               $ii = 0;
               // print_r($tag_match);
               // echo "<br>";
               foreach ($tag_match_asterisk[0] as $value){
-                $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n<br>".$tag_match_asterisk[0][$ii], $contents ) ;
+                $contents = str_replace( $tag_match_asterisk[0][$ii] , "<br>".$tag_match_asterisk[0][$ii], $contents ) ;
                   $ii++;
                 }
             }            

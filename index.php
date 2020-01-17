@@ -6,6 +6,7 @@
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('./config.php');
 require_once('./library.php');
+require_once('lib/class/OCWDB.class.php');
 
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
@@ -124,7 +125,8 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
 // $sort_key = "course_id";
 $sort_key = $courselist_rows['course_id'] ;
 
-$course_name = strip_tags( $courselist_rows['course_name'] );
+$course_name = $courselist_rows['course_name']  ;
+$course_name = strip_tags( $course_name );
 $course_name = space_trim( $course_name ) ;
 // $course_name = preg_replace('/\s(?=\s)/', '', $course_name );
 $course_name = preg_replace("/( |　)/", "-", $course_name );
