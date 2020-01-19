@@ -30,7 +30,7 @@ composer.json
 
 {
     "require": {
-        "pixel418/markdownify": "2.3"
+        "pixel418/markdownify": "2.*"
     }
 }
 
