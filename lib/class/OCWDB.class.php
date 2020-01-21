@@ -8,7 +8,7 @@ require_once('OCWVAR.class.php');
 // * 名称の取得
 // PDO  - getCourseName($course_id, $lang)  
 // PDO  - getPageNameArray($page_id)
-// PDO  - getPageName($page_id, $glue)
+// PDO失敗  - getPageName($page_id, $glue)
 // PDO  - getPageFilename($page_id)
 // PDO  - getDepartmentName($department_id, $lang) : 所属グループ
 // PDO  - getDepartmentTopicPath($department_id, $lang)
@@ -1468,28 +1468,48 @@ class OCWDB
   public static function setPageStatus($page_id, $status_code, $flg)
   {
       global $db;
-    
+      $ocwdb = new OCWDB();
+    //   echo $page_id.$status_code.$flg ;
+    //     echo !ctype_digit("$page_id");
+    //     echo !ctype_digit("$status_code");
+    //     echo !is_bool($flg);
+    //     echo (!ctype_digit("$page_id") || !ctype_digit("$status_code") || !is_bool($flg));
+
       if (!ctype_digit("$page_id") || !ctype_digit("$status_code") || !is_bool($flg)) {
+        //   echo "false" ;
           return false;
       }
-    
+    // echo $page_id.$status_code.$flg ;
+
     // page_id から page_nameを得る
-    $page_name = OCWDB::getPageName($page_id);
+    $page_name = $ocwdb->getPageName($page_id);
     
     // status から status の名称を得る
-    $status_name = OCWDB::getStatusName($status_code);
+    $status_name = $ocwdb->getStatusName($status_code);
     
     // 重複登録のチェック用: 現在のステータスリスト
     $sql = "SELECT p_s.status FROM page_status p_s WHERE p_s.page_id = $page_id;";
-      $status_list =& $db->getCol($sql);
-      if (DB::isError($status_list)) {
-          return false;
-      }
-    
+    //   $status_list =& $db->getCol($sql);
+        // if ($ocwdb->isError($status_list)) {
+        //     return false;
+        // } 
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $status_list = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        print_r($status_list);
+
+
+
     // イベント登録
     $description = "${page_name}: ${status_name}を" . (($flg) ? '有効に' : '無効に');
-      if (!OCWDB::setOkEvent(ET_PAGE_STATUS_CHANGED, $description)
-      || !OCWDB::setEventRelation('', RIT_PAGE_ID, $page_id)
+      if (!$ocwdb->setOkEvent(ET_PAGE_STATUS_CHANGED, $description)
+      || !$ocwdb->setEventRelation('', RIT_PAGE_ID, $page_id)
     ) {
           return false;
       }
@@ -1500,22 +1520,36 @@ class OCWDB
       if (!in_array($status_code, $status_list)) {
           $sql = "INSERT INTO page_status (page_id, status, event_id)
             VALUES ($page_id, '$status_code', currval('event_id_seq'));";
-          $res =& $db->query($sql);
+        //   $res =& $db->query($sql);
+          try {
+            $sql_pdo = $db->prepare($sql);
+            $sql_pdo->execute();
+            $res = $sql_pdo->fetch(PDO::FETCH_BOTH);
+          }catch(PDOException $e) {
+              echo "データベースエラー（PDOエラー）";
+              // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+                return false;
+            }
       }
     } else {
         // 削除時
       if (in_array($status_code, $status_list)) {
           $sql = "DELETE FROM page_status
            WHERE page_id = $page_id AND status = '$status_code';";
-          $res =& $db->query($sql);
+        //   $res =& $db->query($sql);
+          try {
+            $sql_pdo = $db->prepare($sql);
+            $sql_pdo->execute();
+            $res = $sql_pdo->fetch(PDO::FETCH_BOTH);
+          }catch(PDOException $e) {
+              echo "データベースエラー（PDOエラー）";
+              // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+                return false;
+            }
       }
     }
-    
-      if (DB::isError($res)) {
-          return false;
-      } else {
           return true;
-      }
+
   }
   
   // ページステータスが設定されているか調べる.
