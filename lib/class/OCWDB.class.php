@@ -8,7 +8,7 @@ require_once('OCWVAR.class.php');
 // * 名称の取得
 // PDO  - getCourseName($course_id, $lang)  
 // PDO  - getPageNameArray($page_id)
-// PDO失敗  - getPageName($page_id, $glue)
+// PDO  - getPageName($page_id, $glue)
 // PDO  - getPageFilename($page_id)
 // PDO  - getDepartmentName($department_id, $lang) : 所属グループ
 // PDO  - getDepartmentTopicPath($department_id, $lang)
@@ -47,7 +47,7 @@ require_once('OCWVAR.class.php');
 // PDO  - getDepartmentIdByDepartmentAbbr($department_abbr)
 //
 // * ステータス関連
-//   - setPageStatus($page_id, $status_code, $flg)
+// PDO失敗？  - setPageStatus($page_id, $status_code, $flg)
 //   - isSetPageStatus($page_id, $status_code)
 //   - existSetPageStatus($course_id, $status_code)
 //   - setCourseStatus($course_id, $status_code, $flg, $lang)
@@ -112,7 +112,7 @@ class OCWDB
     }catch(PDOException $e) {
         //エラー出力
         echo "データベースエラー（PDOエラー）";
-        var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+        // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
           return false;
       }
     //   echo "<br>column : ".$column."<br>" ;
@@ -160,15 +160,21 @@ class OCWDB
               // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
                 return false;
             }
-            return $res;        
+            return $res[0];        
     }
   
   // ページ名をサブページの場合, glue でくっつけて返す.
   public static function getPageName($page_id, $glue=' > ')
-  {
+  { 
+      echo $page_id.$glue."<br>" ;
+      // echo implode($glue, $page_id);
+
       $ocwdb = new OCWDB();
       $array = $ocwdb->getPageNameArray($page_id);
-    //   print_r(!$array);
+      // var_dump($array);
+      // echo "<br>array['p']=".$array['p'] ;
+      // echo "<br>array['ptm']=".$array['ptm'] ;
+
       if (!$array = $ocwdb->getPageNameArray($page_id)) {
           return false;
       } else {
@@ -522,11 +528,13 @@ class OCWDB
       global $DAY_LIST;
       global $DAY_LIST_E;
       global $TIME_LIST;
+
+      $ocwvar = new OCWVAR();
     
       $mt = array();
     
     // 入力は適正か.
-    if (!OCWVAR::isId($course_id)) {
+    if (!$ocwvar->isId($course_id)) {
         return false;
     }
     
@@ -554,9 +562,13 @@ class OCWDB
             return false;
         }
         // return $res;
-        echo "<br> terms : ";
-        print_r($terms[0]);
-        
+        // echo "<br> terms : ".$terms['term'];
+        // var_dump($terms);
+        // $food = array('fruits' => array('orange', 'banana', 'apple'),
+        //       'veggie' => array('carrot', 'collard', 'pea'));
+        //       echo count($terms);
+
+
     // 登録なしのときは, 空文字列を返す.
     if (count($terms) == 0) {
         return '';
@@ -567,24 +579,26 @@ class OCWDB
         // 該当学期の講義時間を曜日ごとにグループ化して取得.
       $sql = "SELECT mt.day, mt.time FROM meeting_time mt
                WHERE mt.course_id = $course_id AND mt.term = '$term_code';";
+      $sql = "SELECT mt.day, mt.time FROM meeting_time mt WHERE mt.course_id = '41' AND mt.term = '2';" ;
         // $res =& $db->getAssoc($sql, false, array(), DB_FETCHMODE_ASSOC, true);
         try {
             $sql_pdo = $db->prepare($sql);
             $sql_pdo->execute();
-            $res = $sql_pdo->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
+            $res = $sql_pdo->fetchAll(PDO::FETCH_ASSOC);
           }catch(PDOException $e) {
               echo "データベースエラー（PDOエラー）";
             //   var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
                 return false;
             }
             echo "<br> getMeetingTime : ";
-            print_r($res);
+            var_dump($res[0]['day']);
+            echo $day_code;  // $day_code が無いぞ...
             // return $res;
       // 曜日について回す.
       $_mt_term = array();
         foreach ($_day_list as $day_code => $day_name) {
             // 該当曜日に登録があるとき.
-        if (count($res[$day_code]) > 0) {
+        if (count($res[0][$day_code]) > 0) {
             $times_of_the_day = '';
           
           // 日本語のとき.
@@ -1483,10 +1497,12 @@ class OCWDB
 
     // page_id から page_nameを得る
     $page_name = $ocwdb->getPageName($page_id);
-    
+    echo "<br> page_name : ".$page_name ;
+
     // status から status の名称を得る
     $status_name = $ocwdb->getStatusName($status_code);
-    
+    echo "<br>status : ".$status_name;
+
     // 重複登録のチェック用: 現在のステータスリスト
     $sql = "SELECT p_s.status FROM page_status p_s WHERE p_s.page_id = $page_id;";
     //   $status_list =& $db->getCol($sql);
@@ -1502,15 +1518,19 @@ class OCWDB
           // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
             return false;
         }
-        print_r($status_list);
+        var_dump($status_list);
 
 
 
     // イベント登録
     $description = "${page_name}: ${status_name}を" . (($flg) ? '有効に' : '無効に');
+    echo "<br> description: ".$description;
       if (!$ocwdb->setOkEvent(ET_PAGE_STATUS_CHANGED, $description)
       || !$ocwdb->setEventRelation('', RIT_PAGE_ID, $page_id)
     ) {
+        echo $ocwdb->setOkEvent(ET_PAGE_STATUS_CHANGED, $description);
+        echo $ocwdb->setEventRelation('', RIT_PAGE_ID, $page_id);
+        echo "false@description";
           return false;
       }
     
@@ -1549,6 +1569,7 @@ class OCWDB
       }
     }
           return true;
+          var_export(true);
 
   }
   
@@ -2211,39 +2232,65 @@ EOD;
   public static function setEvent($result, $type, $description)
   {
       global $db;
+      $ocwvar = new OCWVAR();
+      // echo "<br> isId($result) : " ;  var_export( !$ocwvar->isId($result) );
+      // echo "<br> isId($type)   : " ;  var_export( !$ocwvar->isId($type) );
 
       if (empty($_SESSION['userid'])
-      || !OCWVAR::isId($result)
-      || !OCWVAR::isId($type)
+      || !$ocwvar->isId($result)
+      || !$ocwvar->isId($type)
     ) {
+          echo "<br>setEvent : false";
           return false;
       }
 
-      $event_data = array(
-      'publisher' => $_SESSION['userid'],
-      'result' => $result,
-      'type' => $type,
-      'description' => $description
-    );
-      $res = $db->autoExecute("event", $event_data, DB_AUTOQUERY_INSERT);
-
-      if (!DB::isError($res)) {
-          return true;
-      } else {
-          return false;
-      }
+    //   $event_data = array(
+    //   'publisher' => $_SESSION['userid'],
+    //   'result' => $result,
+    //   'type' => $type,
+    //   'description' => $description
+    // );
+    //   $res = $db->autoExecute("event", $event_data, DB_AUTOQUERY_INSERT);
+    // SQL で書き直す
+    // INSERT INTO table (id, name, country) VALUES (?, ?, ?)
+    // UPDATE table SET id=?, name=?, country=? WHERE ...
+    $publisher = $_SESSION['userid'] ;
+        $sql = "INSERT INTO event (publisher, result, type, description) 
+            VALUES ($publisher, $result, $type, $description); " ;
+    // echo "<br>sql :".$sql ;
+    //   if (!DB::isError($res)) {
+    //       return true;
+    //   } else {
+    //       return false;
+    //   }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $res = $sql_pdo->execute();
+        // $res = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        var_export($res);
+        return $res;
   }
 
   // 成功した event を登録する。
   public static function setOkEvent($type, $description)
   {
-      return OCWDB::setEvent(ERT_OK, $type, $description);
+        $ocwdb = new OCWDB();  
+        $setOKevent_value = $ocwdb->setEvent(ERT_OK, $type, $description);
+        echo "<br>setOKevent : " ;
+        var_dump( $setOKevent_value );
+        return $ocwdb->setEvent(ERT_OK, $type, $description);
   }
 
   // エラーの event を登録する。
   public static function setErrorEvent($type, $description)
   {
-      return OCWDB::setEvent(ERT_ERROR, $type, $description);
+        $ocwdb = new OCWDB();  
+        return $ocwdb->setEvent(ERT_ERROR, $type, $description);
   }
 
   // event_relation を登録する。
@@ -2251,6 +2298,7 @@ EOD;
   public static function setEventRelation($event_id, $relation_type, $relation_id)
   {
       global $db;
+      $ocwvar = new OCWVAR();
 
       if (!ctype_digit($event_id)) {
           if (empty($event_id)) {
@@ -2260,8 +2308,8 @@ EOD;
           }
       }
 
-      if (!OCWVAR::isId($relation_type)
-      || !OCWVAR::isId($relation_id)
+      if (!$ocwvar->isId($relation_type)
+      || !$ocwvar->isId($relation_id)
     ) {
           return false;
       }
@@ -2269,12 +2317,22 @@ EOD;
 
       $sql = "INSERT INTO event_relation (event_id, relation_type, relation_id)
               VALUES (${event_id}, '${relation_type}', ${relation_id}); ";
-      $res =& $db->query($sql);
+    //   $res =& $db->query($sql);
 
-      if (!DB::isError($res)) {
-          return true;
-      } else {
-          return false;
-      }
+    //   if (!DB::isError($res)) {
+    //       return true;
+    //   } else {
+    //       return false;
+    //   }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $res = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return true;
   }
 }

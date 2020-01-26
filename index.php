@@ -72,9 +72,9 @@ $ocwdb = new OCWDB;
 // echo "<hr> CourseVsyllabus: ".$CourseVsyllabus."<br>" ;  
 // print_r($CourseVsyllabus);
 
-// $MeetingTime = $ocwdb -> getMeetingTime($course_id='41', $lang='ja');
-// echo "<br> MeetingTime: ".$MeetingTime."<br>" ;  
-// print_r($MeetingTime);
+$MeetingTime = $ocwdb -> getMeetingTime($course_id='41', $lang='ja');
+echo "<br> MeetingTime: ".$MeetingTime."<br>" ;  
+print_r($MeetingTime);
 
 // $TermName = $ocwdb -> getTermName($term_code='10', $lang = 'ja');
 // echo "<br> TermName: ".$TermName."<br>" ;  
@@ -136,8 +136,10 @@ $ocwdb = new OCWDB;
 // echo "<hr> DepartmentIdByDepartmentAbbr: <br><br>".$DepartmentIdByDepartmentAbbr."<br>" ;  
 // print_r($DepartmentIdByDepartmentAbbr);
 
+$_SESSION['userid'] = 'yamazato';
+
 $PageStatus = $ocwdb -> setPageStatus($page_id='1492', $status_code='08', $flg=true) ;
-echo "<hr> PageStatus: <br><br>".$PageStatus."<br>" ;  
+echo "<hr> PageStatus: <br><br>".var_export($PageStatus)."<br>" ;  
 print_r($PageStatus);
 
 
