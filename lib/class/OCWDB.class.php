@@ -59,17 +59,17 @@ require_once('OCWVAR.class.php');
 //   - whenReleased($course_id, $lang)
 //
 // * ファイル関連
-//   - getCourseIdByFileGid($file_gid)
-//   - getCourseIdByFileId($file_id)
-//   - getFileName($file_gid)
-//   - getVsyllabusFileName($vsyllabus_id)
-//   - getCurrentFileId($file_gid)
-//   - getFileGidByFileId($file_id)
-//   - getExtensionByFileId($file_id)
-//   - chflgFileGroup($file_gid, $flg)
-//   - getMimeTypeId($mime_type, $extension)
-//   - getBakName($filepath)
-//   - getIndexImageGid($course_id)
+// PDO失敗  - getCourseIdByFileGid($file_gid)
+// PDO  - getCourseIdByFileId($file_id)
+// PDO  - getFileName($file_gid)
+// PDO  - getVsyllabusFileName($vsyllabus_id)
+// PDO  - getCurrentFileId($file_gid)
+// PDO  - getFileGidByFileId($file_id)
+// PDO  - getExtensionByFileId($file_id)
+// 未対応  - chflgFileGroup($file_gid, $flg)
+// PDO  - getMimeTypeId($mime_type, $extension)
+// 未対応  - getBakName($filepath)
+// PDO  - getIndexImageGid($course_id)
 //
 // * イベント関連
 //   - getEventListInCourse($course_id)
@@ -1929,8 +1929,9 @@ EOD;
   public static function getCourseIdByFileId($file_id)
   {
       global $db;
-    
-      return OCWDB::getCourseIdByFileGid(OCWDB::getFileGidByFileId($file_id));
+      $ocwdb = new OCWDB();
+      $FileGidByFileId = $ocwdb->getFileGidByFileId($file_id) ;
+      return $ocwdb->getCourseIdByFileGid( $FileGidByFileId );
   }
   
   // ファイル ID から拡張子を得る.
@@ -1945,13 +1946,23 @@ EOD;
       $sql = "SELECT mtm.extension FROM file f, mime_type_master mtm
                  WHERE f.id = $file_id AND
                        mtm.id = f.mime_type;";
-      $extension = $db->getOne($sql);
+    //   $extension = $db->getOne($sql);
     
-      if (!DB::isError($extension)) {
-          return $extension;
-      } else {
-          return false;
-      }
+    //   if (!DB::isError($extension)) {
+    //       return $extension;
+    //   } else {
+    //       return false;
+    //   }
+    try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $extension = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return $extension[0];
   }
   
   // ファイル名を得る.
@@ -1964,16 +1975,25 @@ EOD;
         return false;
     }
     
-      $sql=  "SELECT name
-        FROM file_group
-       WHERE id = $file_gid
-       ; ";
-      $file_name = $db->getOne($sql);
+      $sql=  "SELECT name FROM file_group
+       WHERE id = $file_gid ; ";
+    //   $file_name = $db->getOne($sql);
     
-      if (DB::isError($file_name)) {
-          return false;
-      }
-      return $file_name;
+    //   if (DB::isError($file_name)) {
+    //       return false;
+    //   }
+    //   return $file_name;
+
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $file_name = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return $file_name[0];
   }
   
   // ビジュアルシラバス画像のファイル名を得る.
@@ -1982,6 +2002,7 @@ EOD;
       define('FILE_NAME_PREFIX', 'vsyllabus_');
       define('VSYLLABUS_FILEDIR', FILEDIR. '/vsyllabus_pic/');
 
+      echo $vsyllabus_id ;
     // ファイル ID が不正でないか.
     if (!ctype_digit("$vsyllabus_id")) {
         return false;
@@ -2007,13 +2028,23 @@ EOD;
     // ひとまず, 与えられた gid をもち, id が最大のものが有効とする.
     $sql = "SELECT max(id) FROM file
         WHERE gid = $file_gid;";
-      $id = $db->getOne($sql);
+    //   $id = $db->getOne($sql);
     
-      if (DB::isError($id)) {
-          return false;
-      }
+    //   if (DB::isError($id)) {
+    //       return false;
+    //   }
     
-      return $id;
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $id = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        
+      return $id[0];
   }
   
   // ファイル ID からファイルグループ ID を得る.
@@ -2026,19 +2057,33 @@ EOD;
       }
     
       $sql = "SELECT gid FROM file WHERE id=$file_id;";
-      $res = $db->getOne($sql);
+    //   $res = $db->getOne($sql);
     
-      if (!DB::isError($res)) {
-          return $res;
-      } else {
-          return false;
-      }
+    //   if (!DB::isError($res)) {
+    //       return $res;
+    //   } else {
+    //       return false;
+    //   }
+
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $res = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return $res[0];
   }
   
   
   // 指定された file group の del_flg を上げ下げする.
   //   - $flg には TRUE または FALSE を入れる.
   //   - トランザクション管理は呼び出し側ですること.
+  //
+  // PDO化　未対応
+  //
   public static function chflgFileGroup($file_gid, $flg)
   {
       global $db;
@@ -2082,12 +2127,21 @@ EOD;
           $sql .=  "AND mime_type_master.extension = '$extension'
                       ";
       }
-      $res =& $db->getAll($sql);
-    
-      if (DB::isError($res)) {
-          return false;
-      }
-      return $res;
+    //   $res =& $db->getAll($sql);
+    //   if (DB::isError($res)) {
+    //       return false;
+    //   }
+    //   return $res;
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $res = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return $res;
   }
   
   // ファイルバックアップ用の、重複しないファイル名を探す関数
@@ -2115,11 +2169,21 @@ EOD;
                   FROM course c
                   WHERE c.course_id = $course_id       
                   ";
-      $file_gid =& $db->getOne($sql);
-      if (DB::isError($file_gid)) {
-          return false;
-      }
-      return $file_gid;
+    //   $file_gid =& $db->getOne($sql);
+    //   if (DB::isError($file_gid)) {
+    //       return false;
+    //   }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $file_gid = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+
+      return $file_gid[0];
   }
   
   //////////////////////////////

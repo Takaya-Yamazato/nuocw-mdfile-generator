@@ -136,11 +136,48 @@ print_r($MeetingTime);
 // echo "<hr> DepartmentIdByDepartmentAbbr: <br><br>".$DepartmentIdByDepartmentAbbr."<br>" ;  
 // print_r($DepartmentIdByDepartmentAbbr);
 
-$_SESSION['userid'] = 'yamazato';
+// $_SESSION['userid'] = 'yamazato';
 
-$PageStatus = $ocwdb -> setPageStatus($page_id='1492', $status_code='08', $flg=true) ;
-echo "<hr> PageStatus: <br><br>".var_export($PageStatus)."<br>" ;  
-print_r($PageStatus);
+// $PageStatus = $ocwdb -> setPageStatus($page_id='1492', $status_code='08', $flg=true) ;
+// echo "<hr> PageStatus: <br><br>".var_export($PageStatus)."<br>" ;  
+// print_r($PageStatus);
+
+// 失敗
+// $CourseIdByFileId = $ocwdb -> getCourseIdByFileId($file_id='402') ;
+// echo "<hr> CourseIdByFileId: <br><br>".$CourseIdByFileId."<br>" ;  
+// var_dump($CourseIdByFileId);
+
+$ExtensionByFileId = $ocwdb -> getExtensionByFileId($file_id='402') ;
+echo "<hr> ExtensionByFileId: <br><br>".$ExtensionByFileId."<br>" ;  
+var_dump($ExtensionByFileId);
+
+$FileName = $ocwdb -> getFileName($file_gid='402') ;
+echo "<hr> FileName : <br><br>".$FileName."<br>" ;  
+var_dump($FileName);
+
+$VsyllabusFileName = $ocwdb -> getVsyllabusFileName($vsyllabus_id='428') ;
+echo "<hr> VsyllabusFileName : <br><br>".$VsyllabusFileName."<br>" ;  
+var_dump($VsyllabusFileName);
+
+$CurrentFileId = $ocwdb -> getCurrentFileId($file_gid='402') ;
+echo "<hr> CurrentFileId : <br><br>".$CurrentFileId."<br>" ;  
+var_dump($CurrentFileId);
+
+$FileGidByFileId = $ocwdb -> getFileGidByFileId($file_id='402') ;
+echo "<hr> FileGidByFileId : <br><br>".$FileGidByFileId."<br>" ;  
+var_dump($FileGidByFileId);
+
+// 未対応 chflgFileGroup($file_gid, $flg)
+
+$MimeTypeId = $ocwdb -> getMimeTypeId($mime_type='text/plain', $extension=null) ;
+echo "<hr> MimeTypeId : <br><br>".$MimeTypeId."<br>" ;  
+var_dump($MimeTypeId);
+
+// 未対応　getBakName($filepath)
+
+$IndexImageGid = $ocwdb -> getIndexImageGid($course_id='41') ;
+echo "<hr> IndexImageGid : <br><br>".$IndexImageGid."<br>" ;  
+var_dump($IndexImageGid);
 
 
 echo "<hr><br>";
