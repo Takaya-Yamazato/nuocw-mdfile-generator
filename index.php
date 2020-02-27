@@ -156,7 +156,7 @@ $course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
-             (SELECT event_id FROM course_status WHERE  course_id=60) 
+             (SELECT event_id FROM course_status WHERE  course_id = $sort_key) 
              ORDER BY event_id DESC" ;
 $course_date_result = pg_query($course_date_sql);
 if (!$course_date_result) {

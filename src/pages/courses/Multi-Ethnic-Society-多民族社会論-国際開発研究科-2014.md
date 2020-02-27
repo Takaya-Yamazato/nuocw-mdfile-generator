@@ -84,7 +84,7 @@ featuredpost: true
 featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2015-12-03 11:24:52
 
 ---
 This course will deal with ethnicity-related issues. Starting from key concepts (ethnicity, nationalism, etc.), it will cover various topics and cases of nation-state building and majority-minority relations mainly from sociological viewpoint. Students may be requested to make presentations on case studies depending on their research interests.

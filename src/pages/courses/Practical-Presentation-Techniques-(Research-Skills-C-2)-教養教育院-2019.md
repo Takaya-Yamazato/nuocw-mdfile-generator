@@ -46,7 +46,7 @@ featuredpost: true
 featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2019-08-21 13:39:43
 
 ---
 In an informal atmosphere, this course provides students with important skills, practice and confidence in communicating research effectively through presentations, as well as in writing abstracts/proposals for acceptance to conferences. Some attention is also given to poster presentation techniques. Throughout, the course emphasizes clear expression through logic and design, along with constructive, enjoyable communication across fields.

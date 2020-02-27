@@ -68,7 +68,7 @@ featuredpost: true
 featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2015-12-07 16:51:19
 
 ---
 
