@@ -72,7 +72,7 @@ require_once('OCWVAR.class.php');
 // PDO  - getIndexImageGid($course_id)
 //
 // * イベント関連
-//   - getEventListInCourse($course_id)
+// PDO  - getEventListInCourse($course_id)
 //   - getNotSeenEventsNumber($page_id, $userid)
 //   - setEvent($result, $type, $description)
 //   - setOkEvent($type, $description)
@@ -2237,13 +2237,32 @@ EOD;
     ORDER BY event_id DESC";
       if ($start && $disp_num) {
           $sql .= " LIMIT $disp_num OFFSET $start";
-          $event_list =& $db->getAll($sql);
+          // $event_list =& $db->getAll($sql);
+          try {
+            $sql_pdo = $db->prepare($sql);
+            $sql_pdo->execute();
+            $event_list = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+          }catch(PDOException $e) {
+              echo "データベースエラー（PDOエラー）";
+              // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+                return false;
+            }
       //$event_list =& $db->limitQuery($sql, $start, $disp_num); 
       } else {
-          $event_list =& $db->getAll($sql);
-      }
-      if (DB::isError($event_list)) {
-          return false;
+          // $event_list =& $db->getAll($sql);
+      // }
+      // if (DB::isError($event_list)) {
+      //     return false;
+      // }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $event_list = $sql_pdo->fetchAll(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
       }
       return $event_list;
   }
@@ -2262,10 +2281,20 @@ EOD;
       e_r.relation_type = '02' AND
       e_r.relation_id = $page_id AND
       e.publisher = '$user_id'";
-      $last_browsed_event_id =& $db->getOne($sql);
-      if (DB::isError($last_browsed_event_id)) {
-          return false;
-      }
+      // $last_browsed_event_id =& $db->getOne($sql);
+      // if (DB::isError($last_browsed_event_id)) {
+      //     return false;
+      // }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $last_browsed_event_id = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        $last_browsed_event_id = $last_browsed_event_id[0];
     // まだ1度もそのページを見たことがない場合、
     // 上の SQL を実行すると NULL が返ってきて
     // 次に行う event_id の比較に都合が悪いので 0 を代入する
@@ -2282,13 +2311,23 @@ EOD;
       e_r.relation_type = '02' AND
       e_r.relation_id = $page_id AND
       e.event_id > $last_browsed_event_id ";
-      $comm_num =& $db->getOne($sql);
+      // $comm_num =& $db->getOne($sql);
     
-      if (DB::isError($comm_num)) {
-          return false;
-      } else {
-          return $comm_num;
-      }
+      // if (DB::isError($comm_num)) {
+      //     return false;
+      // } else {
+      //     return $comm_num;
+      // }
+      try {
+        $sql_pdo = $db->prepare($sql);
+        $sql_pdo->execute();
+        $comm_num = $sql_pdo->fetch(PDO::FETCH_BOTH);
+      }catch(PDOException $e) {
+          echo "データベースエラー（PDOエラー）";
+          // var_dump($e->getMessage());    //エラーの詳細を調べる場合、コメントアウトを外す
+            return false;
+        }
+        return $comm_num[0];
   }
 
 
