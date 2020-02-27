@@ -718,7 +718,7 @@ fclose($fp);
  // DBの切断        
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
-    print('ocwdb：切断に成功しました。<br>');
+    print('<br><br>ocwdb：切断に成功しました。<br>');
     }
 
 exec('/bin/rm tmp.md'  );
