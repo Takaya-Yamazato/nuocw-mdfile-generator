@@ -28,11 +28,11 @@ htmlタグ から markdwonタグ への変換に
 
 composer.json
 
-{
-    "require": {
-        "pixel418/markdownify": "2.*"
+    {
+        "require": {
+            "pixel418/markdownify": "2.*"
+        }
     }
-}
 
 と、Composer の設定ファイルを作り、
 
