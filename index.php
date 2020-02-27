@@ -253,7 +253,7 @@ if (!$attachments_array){
     $attachments = call_user_func_array('array_merge', $attachments_array); 
     // print_r($attachments);
     $attaches = "";
-    $featuredimage = "/img/chemex.jpg";
+    $featuredimage = "/img/common/thumbnail.png";
     foreach ($attachments_array as $attachment){
         if ($attachment['description'] == '看板画像'){
             // echo $attachment['name']."    " ;
