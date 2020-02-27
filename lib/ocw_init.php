@@ -7,7 +7,7 @@ require_once(__DIR__.'/../vendor/autoload.php');
 // mb_regex_encoding("EUC-JP");
 mb_regex_encoding("UTF-8");
 require_once('master_value_define.php');
-require_once('ocw_sys_config.php');
+// require_once('ocw_sys_config.php');
 require_once('ocw_define.php');
 
 // 環境設定

@@ -6,6 +6,8 @@
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('config.php');
 require_once('library.php');
+// require_once('lib/ocw_init.php') ;
+require_once('lib/class/OCWDB.class.php');
 
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
@@ -106,19 +108,19 @@ $courselist_sql = "SELECT c.course_id, c.course_name as course_name,
 // print($courselist_sql) ;
 // echo "<br><br>";
 
-$sth = $ocwdb->prepare($courselist_sql);
-$sth->execute();
+// $sth = $ocwdb->prepare($courselist_sql);
+// $sth->execute();
 
-/* Exercise PDOStatement::fetch styles */
-print("PDO::FETCH_ASSOC: ");
-print("Return next row as an array indexed by column name<br>");
-// 一行のみ取り出す
-$result = $sth->fetch(PDO::FETCH_ASSOC);
-// 全て取り出す
-$result = $sth->fetchALL(PDO::FETCH_ASSOC);
-// print_r($sth) ;
-var_dump($result);
-print("\n");
+// /* Exercise PDOStatement::fetch styles */
+// print("PDO::FETCH_ASSOC: ");
+// print("Return next row as an array indexed by column name<br>");
+// // 一行のみ取り出す
+// $result = $sth->fetch(PDO::FETCH_ASSOC);
+// // 全て取り出す
+// $result = $sth->fetchALL(PDO::FETCH_ASSOC);
+// // print_r($sth) ;
+// var_dump($result);
+// print("\n");
 
 $courselist_result = pg_query($courselist_sql);
     if (!$courselist_result) {

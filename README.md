@@ -35,10 +35,10 @@ composer.json
 }
 
 と、Composer の設定ファイルを作り、
-
+```
 $ php -r "readfile('https://getcomposer.org/installer');" | php
 $ php composer.phar install
-
+```
 Composer のインストール＆ライブラリのインストールしてください。
 
 
