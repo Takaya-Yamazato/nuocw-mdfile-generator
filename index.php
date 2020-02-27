@@ -722,6 +722,10 @@ if ($close_ocwdb){
     }
 
 exec('/bin/rm tmp.md'  );
+
+exec('/bin/cp src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
+exec('/bin/cp src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+
 ?>
 </body>
 </html>
