@@ -11,10 +11,10 @@ exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
 
 // DBに接続
-$ocwpdb = pg_connect(ocwpdb);
-if (!ocwpdb) {
-    die('ocwpdb：接続失敗です。'.pg_last_error());
-}
+// $ocwpdb = pg_connect(ocwpdb);
+// if (!ocwpdb) {
+//     die('ocwpdb：接続失敗です。'.pg_last_error());
+// }
 // print('ocwpdb：接続に成功しました。<br>');
 
 // 出力ソートキー
