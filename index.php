@@ -3,7 +3,9 @@
 <body>
 
 <?php
+require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('config.php');
+require_once('library.php');
 
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
