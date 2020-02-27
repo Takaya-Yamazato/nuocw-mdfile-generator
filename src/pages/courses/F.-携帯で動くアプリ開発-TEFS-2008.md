@@ -51,10 +51,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2012-06-05 16:19:23
 
 ---
 

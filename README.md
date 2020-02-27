@@ -5,7 +5,7 @@
 だいたいメドがつきましたので、github にて公開します。
 
 参照しているデータベース（ocwpdb, ocwdb）は 
-2019年11月11日 時点のものです。
+**2020年02月25日** 時点のものです。
 
 Requirements
 ------------
@@ -28,16 +28,18 @@ htmlタグ から markdwonタグ への変換に
 
 composer.json
 
-{
-    "require": {
-        "pixel418/markdownify": "2.3"
+    {
+        "require": {
+            "pixel418/markdownify": "2.*"
+        }
     }
-}
 
 と、Composer の設定ファイルを作り、
 
+```
 $ php -r "readfile('https://getcomposer.org/installer');" | php
 $ php composer.phar install
+```
 
 Composer のインストール＆ライブラリのインストールしてください。
 

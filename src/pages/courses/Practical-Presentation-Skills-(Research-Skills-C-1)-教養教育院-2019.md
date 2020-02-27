@@ -43,10 +43,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2019-08-01 13:47:45
 
 ---
 In an informal atmosphere, this course provides students with important skills, practice and confidence in communicating research effectively through presentations. It emphasizes logical clarity and enjoying constructive communication across fields.

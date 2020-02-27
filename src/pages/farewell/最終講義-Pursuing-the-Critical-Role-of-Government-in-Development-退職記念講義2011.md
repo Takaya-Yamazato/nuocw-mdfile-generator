@@ -47,10 +47,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2012-09-05 12:28:44
 
 ---
 ### 国際開発と政治学をかけあわせる 

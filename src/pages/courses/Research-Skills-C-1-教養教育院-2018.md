@@ -55,10 +55,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2019-07-11 10:20:35
 
 ---
 The aims of this course are to help students/researchers in any field to: 1. acquire skills in creating logical, clear and persuasively effective academic presentations 2. develop confidence and competence in delivering research presentations in English 3. practice discussion for academic contexts

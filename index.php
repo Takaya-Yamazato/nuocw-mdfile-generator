@@ -4,18 +4,19 @@
 
 <?php
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
-require_once('./config.php');
-require_once('./library.php');
+require_once('config.php');
+require_once('library.php');
+// require_once('lib/ocw_init.php') ;
 require_once('lib/class/OCWDB.class.php');
 
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
 
 // DBに接続
-$ocwpdb = pg_connect(ocwpdb);
-if (!ocwpdb) {
-    die('ocwpdb：接続失敗です。'.pg_last_error());
-}
+// $ocwpdb = pg_connect(ocwpdb);
+// if (!ocwpdb) {
+//     die('ocwpdb：接続失敗です。'.pg_last_error());
+// }
 // print('ocwpdb：接続に成功しました。<br>');
 
 // 出力ソートキー
@@ -107,6 +108,20 @@ $courselist_sql = "SELECT c.course_id, c.course_name as course_name,
 // print($courselist_sql) ;
 // echo "<br><br>";
 
+// $sth = $ocwdb->prepare($courselist_sql);
+// $sth->execute();
+
+// /* Exercise PDOStatement::fetch styles */
+// print("PDO::FETCH_ASSOC: ");
+// print("Return next row as an array indexed by column name<br>");
+// // 一行のみ取り出す
+// $result = $sth->fetch(PDO::FETCH_ASSOC);
+// // 全て取り出す
+// $result = $sth->fetchALL(PDO::FETCH_ASSOC);
+// // print_r($sth) ;
+// var_dump($result);
+// print("\n");
+
 $courselist_result = pg_query($courselist_sql);
     if (!$courselist_result) {
         die('クエリーが失敗しました。'.pg_last_error());
@@ -141,7 +156,7 @@ $course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
-             (SELECT event_id FROM course_status WHERE  course_id=60) 
+             (SELECT event_id FROM course_status WHERE  course_id = $sort_key) 
              ORDER BY event_id DESC" ;
 $course_date_result = pg_query($course_date_sql);
 if (!$course_date_result) {
@@ -238,7 +253,7 @@ if (!$attachments_array){
     $attachments = call_user_func_array('array_merge', $attachments_array); 
     // print_r($attachments);
     $attaches = "";
-    $featuredimage = "/img/chemex.jpg";
+    $featuredimage = "/img/common/thumbnail.png";
     foreach ($attachments_array as $attachment){
         if ($attachment['description'] == '看板画像'){
             // echo $attachment['name']."    " ;
@@ -703,10 +718,14 @@ fclose($fp);
  // DBの切断        
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
-    print('ocwdb：切断に成功しました。<br>');
+    print('<br><br>ocwdb：切断に成功しました。<br>');
     }
 
 exec('/bin/rm tmp.md'  );
+
+exec('/bin/cp src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
+exec('/bin/cp src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+
 ?>
 </body>
 </html>

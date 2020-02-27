@@ -43,10 +43,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2017-02-15 14:09:42
 
 ---
 ### 21世紀から名古屋大学に着任して15年 

@@ -67,10 +67,10 @@ tags:
 featuredpost: true
 
 # ロールに表示する画像
-featuredimage: /img/chemex.jpg
+featuredimage: /img/common/thumbnail.png
 
 # 記事投稿日
-date: 2016-03-04 14:23:00
+date: 2018-03-22 10:38:58
 
 ---
 This lecture series will introduce students to basic theories and approaches in international development. We will begin by examining how development has been defined, measured, and approached by the development community. This is followed by the review of classical theories of development that examine the roles of the market and the state in promoting development. We will try particularly to understand theories about modernization and underdevelopment, the two major currents of thought that explore the causes of why nations stay poor. We will then look at development actors, i.e., foreign donors, aid recipients, international financial institutions, the United Nations, multinational corporations, and civil society organizations. Lastly, we will discuss some of the current issues in international development: environment, rural and urban development, and health. **By the end of this course, students will be expected to demonstrate their understanding of the evolution of development theories and to enhance their ability to articulate their views concerning current development issues.**
