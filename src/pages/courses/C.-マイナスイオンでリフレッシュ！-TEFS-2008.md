@@ -33,13 +33,13 @@ credit: ""
 # pdfなどの追加資料
 attachments: 
   - name: "" 
-    path : /files/113/C1.pdf
+    path: /files/113/C1.pdf
   - name: "" 
-    path : /files/113/C2.pdf
+    path: /files/113/C2.pdf
   - name: "" 
-    path : /files/113/C3.pdf
+    path: /files/113/C3.pdf
   - name: "" 
-    path : /files/113/s_C.jpg
+    path: /files/113/s_C.jpg
 
 
 # 関連するタグ
@@ -48,18 +48,20 @@ tags:
 # 色付けのロールにするか
 featuredpost: true
 
-# ロールに表示する画像
+# 画像
+## rootフォルダはstaticになっている
+## なにも指定がない場合はデフォルトの画像が表示される
+## 映像がある場合は映像優先で表示する
 featuredimage: /img/common/thumbnail.png
+
+# 映像のURL
+## なにも指定がない場合は画像が表示される
+movie: http://nuvideo.media.nagoya-u.ac.jp/embed/37d41a395653034900dda2923ce862c31e80542d
 
 # 記事投稿日
 date: 2012-06-12 15:36:15
 
 ---
-
-
-
-
-
 ### 実験資料
 
 

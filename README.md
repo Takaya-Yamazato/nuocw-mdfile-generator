@@ -17,6 +17,7 @@ Requirements
 * postgres (PostgreSQL) 12.1
 
 config-example.php を config.php へコピーし、
+
 ocwpdb および ocwdb の HOSTNAME, USERNAME, PASSWORD を設定してください。
 
 htmlタグ から markdwonタグ への変換に
@@ -55,6 +56,7 @@ ocwpdb と ocwdb へ接続し、
 
 /src/pages/courses/ と /src/pages/farewell/ に
 ここで作成した md-file が入っています。
+
 それぞれ、nuocw-new-site の
 /src/pages/courses/ と /src/pages/farewell/ に
 コーピーしてご利用ください。

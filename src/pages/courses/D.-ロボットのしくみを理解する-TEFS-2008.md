@@ -33,9 +33,9 @@ credit: ""
 # pdfなどの追加資料
 attachments: 
   - name: "" 
-    path : /files/114/D.pdf
+    path: /files/114/D.pdf
   - name: "" 
-    path : /files/114/s_D.jpg
+    path: /files/114/s_D.jpg
 
 
 # 関連するタグ
@@ -44,18 +44,20 @@ tags:
 # 色付けのロールにするか
 featuredpost: true
 
-# ロールに表示する画像
+# 画像
+## rootフォルダはstaticになっている
+## なにも指定がない場合はデフォルトの画像が表示される
+## 映像がある場合は映像優先で表示する
 featuredimage: /img/common/thumbnail.png
+
+# 映像のURL
+## なにも指定がない場合は画像が表示される
+movie: http://nuvideo.media.nagoya-u.ac.jp/embed/06dd1af54b0d54d48c962dbf5b65a92fb111d67c
 
 # 記事投稿日
 date: 2012-06-12 15:02:09
 
 ---
-
-
-
-
-
 ### 実験資料
 
 

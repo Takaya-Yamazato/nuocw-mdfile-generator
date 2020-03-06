@@ -33,15 +33,15 @@ credit: ""
 # pdfなどの追加資料
 attachments: 
   - name: "" 
-    path : /files/121/A3.pdf
+    path: /files/121/A3.pdf
   - name: "" 
-    path : /files/121/A1.pdf
+    path: /files/121/A1.pdf
   - name: "" 
-    path : /files/121/s_A.jpg
+    path: /files/121/s_A.jpg
   - name: "" 
-    path : /files/121/A2.pdf
+    path: /files/121/A2.pdf
   - name: "" 
-    path : /files/121/A2new.pdf
+    path: /files/121/A2new.pdf
 
 
 # 関連するタグ
@@ -50,8 +50,15 @@ tags:
 # 色付けのロールにするか
 featuredpost: true
 
-# ロールに表示する画像
+# 画像
+## rootフォルダはstaticになっている
+## なにも指定がない場合はデフォルトの画像が表示される
+## 映像がある場合は映像優先で表示する
 featuredimage: /img/common/thumbnail.png
+
+# 映像のURL
+## なにも指定がない場合は画像が表示される
+movie: http://nuvideo.media.nagoya-u.ac.jp/embed/c7b48b2c869832a960105db9489b61e77f3300ea
 
 # 記事投稿日
 date: 2015-08-17 14:52:44

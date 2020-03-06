@@ -23,9 +23,9 @@ exec('/bin/rm ./src/pages/farewell/*' );
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 5 OFFSET 495" ;
+$limit = "LIMIT 100 OFFSET 00" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
@@ -261,7 +261,7 @@ if (!$attachments_array){
             $featuredimage = "/files/".$sort_key."/".$attachment['name'] ; 
         }else{
             $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
-            $attaches .= "    path : /files/".$sort_key."/".$attachment['name'].= "\n" ;
+            $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
         // foreach ($attachment as $attach){
         // echo $attach."<br>"  ;
         // "  - name: ".$attaches .= "\n".$attach ;
@@ -457,6 +457,36 @@ $farewell_lecture_resources_sql = "SELECT contents.contents
 $farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
 // $farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $sort_key) ;
 
+// 講義映像
+$movie_sql = "SELECT url_flv FROM visual_syllabus 
+            WHERE vsyllabus_id = 
+                (SELECT vsyllabus_id FROM course 
+                 WHERE course_id = $sort_key ) ; " ;
+$movie_result = pg_query($movie_sql);
+if (!$movie_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+$movie = pg_fetch_row($movie_result);
+$movie = $movie[0] ;
+// echo "<br>"; print_r($movie);
+$movie = str_ireplace("http://studio.media.nagoya-u.ac.jp/videos/watch.php?v=", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $movie);
+if(preg_match('/FlvPlayer/',$movie)){
+    $movie = '' ;
+    echo "<br>".$movie ;
+  }
+
+
+// $movie_description = "SELECT description FROM visual_syllabus 
+//             WHERE vsyllabus_id = 
+//                 (SELECT vsyllabus_id FROM course 
+//                 WHERE course_id = $sort_key ) ; " ;
+
+// $movie_duration = "SELECT time FROM visual_syllabus 
+//             WHERE vsyllabus_id = 
+//                 (SELECT vsyllabus_id FROM course 
+//                 WHERE course_id = $sort_key ) ; " ;
+
+
 // $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 // preg_match_all($file, $farewell_lecture_resources, $file_match);
 // //print_r($file_match);
@@ -526,6 +556,7 @@ if(strpos($courselist_rows['course_name'],'最終講義') !== false){
     $main_text = $farewell_lecture_home."\n"
                 .$farewell_lecture_introduction."\n"
                 .$farewell_lecture_resources ;
+    $main_text = ltrim( $main_text ) ;
     $courselist_text =
 "---
 # テンプレート指定
@@ -560,6 +591,7 @@ classes: \"\"
 credit: \"\"
 
 # pdfなどの追加資料
+## rootフォルダはstaticになっている
 attachments: 
 ".$attaches."
 
@@ -569,8 +601,15 @@ tags:
 # 色付けのロールにするか
 featuredpost: true
 
-# ロールに表示する画像
+# 画像
+## rootフォルダはstaticになっている
+## なにも指定がない場合はデフォルトの画像が表示される
+## 映像がある場合は映像優先で表示する
 featuredimage: ".$featuredimage."
+
+# 映像のURL
+## なにも指定がない場合は画像が表示される
+movie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
@@ -591,6 +630,7 @@ date: ".$course_date."
                 .$assignment."\n"
                 .$evaluation."\n"
                 .$related_resources ;
+    $main_text = ltrim( $main_text ) ;
     $courselist_text =
 "---
 # テンプレート指定
@@ -634,8 +674,15 @@ tags:
 # 色付けのロールにするか
 featuredpost: true
 
-# ロールに表示する画像
+# 画像
+## rootフォルダはstaticになっている
+## なにも指定がない場合はデフォルトの画像が表示される
+## 映像がある場合は映像優先で表示する
 featuredimage: ".$featuredimage."
+
+# 映像のURL
+## なにも指定がない場合は画像が表示される
+movie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
@@ -645,7 +692,7 @@ date: ".$course_date."
 
   }
 
-$courselist_text .= $main_text ;
+$courselist_text .= ltrim( $main_text ) ;
 
 // テンポラリーファイルに書き込み
 $fp_tmp = fopen('tmp.md', 'w');
@@ -671,6 +718,7 @@ while ($line = fgets($fp_tmp)) {
     // -----
     // ここに$lineに対して何かしらの処理を書く
     // -----
+    // $line = ltrim( $line ) ;
 
     if( preg_match_all($ocwlink, $line, $ocwlink_match) ){
         // ocwlink
@@ -723,8 +771,8 @@ if ($close_ocwdb){
 
 exec('/bin/rm tmp.md'  );
 
-exec('/bin/cp src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
-exec('/bin/cp src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
 
 ?>
 </body>

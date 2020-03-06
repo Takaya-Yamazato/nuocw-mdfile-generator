@@ -14,7 +14,7 @@ function space_trim ($str) {
  
     // 末尾の半角、全角スペースを、空文字に置き換える
     $str = preg_replace('/[ 　]+$/u', '', $str);
- 
+
     return $str;
 }
 function convertEOL($string, $to = "\n")
