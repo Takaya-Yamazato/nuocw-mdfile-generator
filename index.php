@@ -27,7 +27,7 @@ $sort_key = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 2 OFFSET 50" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
