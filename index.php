@@ -9,6 +9,8 @@ require_once('library.php');
 // require_once('lib/ocw_init.php') ;
 require_once('lib/class/OCWDB.class.php');
 
+$nuocw_new_site_directory = '/Users/yamazato/Sites/nuocw-new-site/static/' ;
+
 exec('/bin/rm ./src/pages/courses/*'  );
 exec('/bin/rm ./src/pages/farewell/*' );
 
@@ -23,7 +25,7 @@ exec('/bin/rm ./src/pages/farewell/*' );
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 00" ;
+$limit = "LIMIT 2 OFFSET 50" ;
 // 全てのファイルを出力する場合
 // $limit = "" ;
 
@@ -243,6 +245,15 @@ if (!$attachments_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $attachments_array = pg_fetch_all($attachments_result);
+
+$file_directory = $nuocw_new_site_directory."files/".$sort_key."/*" ;
+$file_directory_result = glob( $file_directory );
+// echo "<br>".dirname($file_directory)."<br>" ; 
+// var_dump($file_directory_result);
+
+
+
+
 if (!$attachments_array){
     // echo "データがありません！" ;
     $attachments = "" ;
@@ -253,6 +264,7 @@ if (!$attachments_array){
     $attachments = call_user_func_array('array_merge', $attachments_array); 
     // print_r($attachments);
     $attaches = "";
+    $ii = 0 ;
     $featuredimage = "/img/common/thumbnail.png";
     foreach ($attachments_array as $attachment){
         if ($attachment['description'] == '看板画像'){
@@ -260,17 +272,68 @@ if (!$attachments_array){
             // echo $attachment['description']."<br>" ;
             $featuredimage = "/files/".$sort_key."/".$attachment['name'] ; 
         }else{
-            $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
-            $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
+            // $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
+            // $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
+            // $attache_file_name = trim ( $attachment['name'] ) ;
+            
+            foreach ( $file_directory_result as $filename) {
+                if ( strcasecmp(basename($filename), trim ( $attachment['name'] )) == 0 ) {
+                    // echo "A match was found.  ". basename($filename). " = ". trim ( $attachment['name'] ) . "<br>";
+                    $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
+                    $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
+                    
+                } else {
+                    // echo "A match was not found. ". basename($filename). " != ". trim ( $attachment['name'] ) . "<br>";
+                    
+                }
+                
+            }
         // foreach ($attachment as $attach){
         // echo $attach."<br>"  ;
         // "  - name: ".$attaches .= "\n".$attach ;
         // }
         }
+        $ii ++ ;
     }
 }
 
-// 
+
+// $jj = 0;
+// echo "<br><br>" ; 
+// foreach ( $file_directory_result as $filename) {
+//     echo basename($filename). "<br>";
+//     $file_directory_result[$jj] = basename($filename) ;
+//     if ( preg_match( $attache_file_name , $file_directory_result[$jj] )) {
+//         echo "A match was found.". "<br>";
+//         echo $attache_file_name. "<br>";
+//     } else {
+//         echo "A match was not found.". "<br>";
+//     }
+//     $jj++ ;
+// }
+// echo "<br> file_directory_result <br>" ; 
+// var_dump($file_directory_result);
+
+// echo "<br> attache_file_name <br>"; 
+// var_dump($attache_file_name);
+
+// $attache_intersect = array_intersect( $file_directory_result , $attache_file_name ) ;
+// echo "<br>array_intersect(file_directory_result, attache_file_name)<br>"; 
+// var_dump( $attache_intersect );
+
+// echo "<br>array_diff(file_directory_result, attache_file_name)<br>" ; 
+// var_dump( array_diff( $attache_file_name , $file_directory_result ) );
+
+
+
+// // 比較元の配列を変数に格納
+// $arr = array('b'=>'sano', 'd'=>'aoyama', 'momozono');
+ 
+// // 比較対象の配列を変数に格納
+// $arr2 = array('a'=>'izumi', 'd'=>'aoyama', 'sano', 'momozono');
+ 
+// // 「キー => 値」のペアで比較して重複していない要素のみ出力
+// print_r(array_diff_assoc($arr, $arr2));
 
 // 1281               | 対象者
 $class_is_for_sql = "SELECT contents.contents 
@@ -295,6 +358,9 @@ if (!($class_is_for_array[0]['contents'])){
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
 }
 
+$class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
+
+// echo "<br>".$class_is_for;
 
 // 51             | 授業ホーム   | Course Home           | index            |        510
 $course_home_sql = "SELECT contents.contents 
@@ -550,14 +616,22 @@ if(preg_match('/FlvPlayer/',$movie)){
 // echo "<br><br>";
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
-    // 最終講義のファイル名
-    $file_name = "./src/pages/farewell/".$course_name."-".$courselist_rows['department_name'].".md" ;
-    $templateKey = "farewell" ;
-    $main_text = $farewell_lecture_home."\n"
-                .$farewell_lecture_introduction."\n"
-                .$farewell_lecture_resources ;
-    $main_text = ltrim( $main_text ) ;
-    $courselist_text =
+
+// 最終講義のファイル名
+$file_name = "./src/pages/farewell/".$sort_key."-".$course_name."-".$courselist_rows['department_name'].".md" ;
+$templateKey = "farewell" ;
+
+$main_text = "
+".$farewell_lecture_home."
+
+".$farewell_lecture_introduction."
+
+".$farewell_lecture_resources ;
+
+// 改行が連続する場合、ひとつにまとめる
+// $main_text = preg_replace('/(\n|\r|\r\n)+/us',"\n", $main_text );    
+
+$courselist_text =
 "---
 # テンプレート指定
 templateKey: \"".$templateKey."\"
@@ -582,7 +656,7 @@ department: \"".$division."\"
 term: \"".$term."\"
 
 # 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t', $class_is_for )."\"
+target: \"".preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for )."\"
 
 # 授業回数
 classes: \"\"
@@ -594,7 +668,6 @@ credit: \"\"
 ## rootフォルダはstaticになっている
 attachments: 
 ".$attaches."
-
 # 関連するタグ
 tags:
 
@@ -609,29 +682,44 @@ featuredimage: ".$featuredimage."
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: ".$movie."
+featuredmovie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
-
 ---
+
 " ;
 
   }else{
-    // 授業のファイル名
-    $file_name = "./src/pages/courses/".$course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'].".md" ;
-    $templateKey = "courses" ;
-    $main_text = $course_home."\n"
-                .$teaching_tips."\n"
-                .$achievement."\n"
-                .$syllabus."\n"
-                .$calendar."\n"
-                .$lecture_notes."\n"
-                .$assignment."\n"
-                .$evaluation."\n"
-                .$related_resources ;
-    $main_text = ltrim( $main_text ) ;
-    $courselist_text =
+
+// 授業のファイル名
+$file_name = "./src/pages/courses/".$sort_key."-".$course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'].".md" ;
+
+$templateKey = "courses" ;
+
+$main_text = "
+".$course_home."
+
+".$teaching_tips."
+
+".$achievement."
+
+".$syllabus."
+
+".$calendar."
+
+".$lecture_notes."
+
+".$assignment."
+
+".$evaluation."
+
+".$related_resources ;
+
+// 改行が連続する場合、ひとつにまとめる
+// $main_text = preg_replace('/(\n|\r|\r\n)+/us',"\n", $main_text );
+
+$courselist_text =
 "---
 # テンプレート指定
 templateKey: \"".$templateKey."\"
@@ -656,7 +744,7 @@ department: \"".$division."\"
 term: \"".$term."\"
 
 # 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', '\t    ', $class_is_for )."\"
+target: \"".preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for )."\"
 
 # 授業回数
 classes: \"\"
@@ -667,9 +755,12 @@ credit: \"\"
 # pdfなどの追加資料
 attachments: 
 ".$attaches."
-
 # 関連するタグ
 tags:
+
+# カテゴリ
+category:
+  - culture
 
 # 色付けのロールにするか
 featuredpost: true
@@ -682,21 +773,21 @@ featuredimage: ".$featuredimage."
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: ".$movie."
+featuredmovie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
-
 ---
+
 " ;
 
   }
 
-$courselist_text .= ltrim( $main_text ) ;
+// $courselist_text .= ltrim( $main_text ) ;
 
 // テンポラリーファイルに書き込み
 $fp_tmp = fopen('tmp.md', 'w');
-fwrite($fp_tmp,$courselist_text);
+fwrite($fp_tmp,$main_text);
 fclose($fp_tmp);
 
 echo "<br>ID: ".$sort_key."\t".$file_name."\t を出力しました。" ;
@@ -705,7 +796,8 @@ echo "<br>ID: ".$sort_key."\t".$file_name."\t を出力しました。" ;
 // 一行ずつ読み込んで処理する
 
 $fp_tmp = fopen('tmp.md', 'r');
-$fp = fopen($file_name, "w");
+$fp_tmp2 = fopen('tmp2.md', 'w');
+// $fp = fopen($file_name, "w");
 
 $ocwlink = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
@@ -713,13 +805,27 @@ $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
 $ocwimg = '/(?<=\{ocwimg file=\").+?(?=\")/';
 $ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
 
+$contents_tag = '/\#+\s(\S+)\s/';
+$contents_desc = '/\#+\s(\S+)\s/';
+
 while ($line = fgets($fp_tmp)) {
 
     // -----
     // ここに$lineに対して何かしらの処理を書く
     // -----
-    // $line = ltrim( $line ) ;
+ 
+    // 改行コードを LF(\n) に統一
+        $line = preg_replace("/\r\n|\r/","\n",$line);
+        $line = str_replace("\r\n","\n",$line);
+        $line = str_replace("\r","\n",$line);
+    // print_r($contents);
 
+    // 全角スペースを半角へ変換
+        $line = mb_convert_kana($line, 's');
+       
+    // 文字列の先頭、末尾の半角全角スペース削除
+        $line = space_trim($line) ;
+    
     if( preg_match_all($ocwlink, $line, $ocwlink_match) ){
         // ocwlink
         // echo "<br>file_match<br>" ;
@@ -727,7 +833,7 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>desc_match<br>" ;
         preg_match_all($ocwlink_desc, $line, $desc_match);
         // print_r($desc_match);
-        $line = "\n[".$desc_match[0][0]."](/files/".$sort_key."/".$ocwlink_match[0][0].") \n" ;
+        $line = "[".$desc_match[0][0]."](/files/".$sort_key."/".$ocwlink_match[0][0].") \n" ;
     }
 
         // ocwimg
@@ -737,7 +843,7 @@ while ($line = fgets($fp_tmp)) {
 
         preg_match_all($ocwimg_desc, $line, $desc_match);
             //print_r($desc_match);
-        $line = "\n![".$desc_match[0][0]."](/files/".$sort_key."/".$ocwimg_match[0][0].") " ;
+        $line = "![".$desc_match[0][0]."](/files/".$sort_key."/".$ocwimg_match[0][0].") " ;
     }    
     
         // $ii = 0;
@@ -753,26 +859,61 @@ while ($line = fgets($fp_tmp)) {
     
     //$line = convert_ocwlink ($line) ;
     // echo "<br>line : ".$line."<br>";
-    fwrite($fp, $line);
+    fwrite($fp_tmp2, $line);
 }
 
 // ファイルを閉じる
 fclose($fp_tmp);
-fclose($fp);
+fclose($fp_tmp2);
 
+// $fp_tmp2 = fopen('tmp2.md', 'r');
+// $main_text = fread($handle, filesize($tmp_filename));
+// fclose($fp_tmp2);
+
+$main_text = file_get_contents('tmp2.md');
+$courselist_text .= ltrim( $main_text ) ;
+// echo "<br><br>" ; var_dump($courselist_text) ;
+
+$fp = fopen($file_name, "w");
+fwrite($fp,$courselist_text);
+fclose($fp);
 
 }
 
- // DBの切断        
+
+// ファイルの中身を読んで文字列に格納する
+// $fp_tmp = fopen('tmp.md', 'r');
+// $main_text = fread('tmp.md', filesize('tmp.md'));
+// fclose($fp_tmp);
+
+
+// $handle = fopen("tmp2.md", "r");
+// $main_text = fread($handle, filesize("tmp2.md"));
+// fclose($handle);
+
+// $courselist_text .= ltrim( $main_text ) ;
+// echo "<br><br>" ; var_dump($courselist_text) ;
+
+// DBの切断        
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
     print('<br><br>ocwdb：切断に成功しました。<br>');
     }
 
 exec('/bin/rm tmp.md'  );
+exec('/bin/rm tmp2.md'  );
+
+exec('/bin/rm /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/*.md') ;
+exec('/bin/rm /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
+
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/course-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/') ;
 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+
+exec('/bin/rm /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
 
 ?>
 </body>

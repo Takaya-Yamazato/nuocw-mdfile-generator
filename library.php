@@ -90,18 +90,6 @@ function get_contents ($sql) {
         // print_r($array);
         $contents = $array[0]['contents'] ;
 
-        // 改行コードを LF(\n) に統一
-        $contents = preg_replace("/\r\n|\r/","\n",$contents);
-        $contents = str_replace("\r\n","\n",$contents);
-        $contents = str_replace("\r","\n",$contents);
-        // print_r($contents);
-
-        // 全角スペースを半角へ変換
-        $contents = mb_convert_kana($contents, 's');
-        
-        // 文字列の先頭、末尾の半角全角スペース削除
-        $contents = space_trim($contents) ;
-
         // ### タイトル　を抜き出す
         $contents_tag = '/\#+\s(\S+)\s/';
         if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -109,7 +97,7 @@ function get_contents ($sql) {
           // print_r($tag_match);
           // echo "<br>";
           foreach ($tag_match[0] as $value){
-            $contents = str_replace( $tag_match[0][$ii] , "<br>".$tag_match[0][$ii]."<br>" , $contents ) ;
+            $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii]."\n" , $contents ) ;
               $ii++;
               // echo "<br>".$ii." contents: ".$contents."<br>" ;
             }
@@ -136,7 +124,10 @@ function get_contents ($sql) {
                 $contents = str_replace( $tag_match_asterisk[0][$ii] , "<br>".$tag_match_asterisk[0][$ii], $contents ) ;
                   $ii++;
                 }
-            }            
+            }
+          
+          // 改行が連続する場合、ひとつにまとめる
+          $contents = preg_replace('/(\n|\r|\r\n)+/us',"\n", $contents );
     }
 
     
@@ -148,13 +139,13 @@ function get_contents ($sql) {
 
     // html タグを markdown へ変換
     // $md = new Markdownify\Converter() ;
-    $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, false);
+    $md = new Markdownify\Converter(Markdownify\Converter::LINK_AFTER_PARAGRAPH, false, true);
     // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
     $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
     unset($md);
 
     // 残っている <dd> タグを削除
-    $contents = strip_tags ($contents) ;
+    // $contents = strip_tags ($contents) ;
 
     // なぜだかバックスラッシュ「\」が残るので削る
     $contents = str_replace('\\', '' , $contents) ;
