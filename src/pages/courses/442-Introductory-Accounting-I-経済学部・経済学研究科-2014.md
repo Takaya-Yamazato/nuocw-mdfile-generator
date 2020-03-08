@@ -66,6 +66,8 @@ Contents of this course will be standard introductory accounting with focus on b
 
 
 
+
+
 ### 担当教員
 
 野口 晃弘 (大学院経済学研究科)
@@ -86,6 +88,8 @@ Ability to speak and discuss accounting and bookkeeping in English will be requi
 
 
 
+
+
 ### 講義ノート
 
 <dl>
@@ -100,6 +104,8 @@ Ability to speak and discuss accounting and bookkeeping in English will be requi
 
 
 
+
+
 ### 成績評価
 
 Attendance (25%), homework (25%), and oral presentation (25%), essay (25%).
@@ -107,4 +113,5 @@ Attendance (25%), homework (25%), and oral presentation (25%), essay (25%).
 A: 100-80 (as for undergraduate students S: 100-90), B: 79-70, C: 69-60, F 59-0
 
 The procedure for "withdrawing the course" will not be applied. Not submitting essay will be graded as "Absent".
+
 

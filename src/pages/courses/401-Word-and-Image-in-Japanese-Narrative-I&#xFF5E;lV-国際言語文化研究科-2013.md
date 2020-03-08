@@ -81,6 +81,8 @@ In each class, I aim for an optimal balance of lecture and lively class discussi
 
 
 
+
+
 ### 授業の目標
 
 * Students will become familiar with the traditions of Japanese visual narrative, and be able to make connections and distinctions between different periods, trends, schools, works and figures.
@@ -284,6 +286,11 @@ None.
 ### 参考書
 
 None.
+
+
+
+
+
 
 
 

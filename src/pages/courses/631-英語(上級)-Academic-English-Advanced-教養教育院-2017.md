@@ -74,6 +74,8 @@ In addition to students’ own presentations, textbook exercises and videos of m
 
 
 
+
+
 ### 本授業の目的およびねらい
 
 学会や社会で求められるプレゼンテーションを行えるよう、リーディング・スピーキング・リスニング・ライティングの各能力を高め、また４技能の統合を目指すことを目的とする。研究拠点大学たる名古屋大学の学生に相応しい学術英語を使いこなす能力を、実際の運用を前提とした学習活動を通して養う。自分の考えをその根拠とともにいかに説得力ある論理的な英文に組み立てるかというこれまで英語（基礎）・（中級）で養った知識・技能と、英語（コミュニケーション）で培ったコミュニケーション能力に加え、プレゼンテーションに必要な知識や技能を習得し、学術英語を使いこなす能力を更に発展させる。
@@ -101,7 +103,11 @@ None are required, but an English dictionary may be useful.
 
 
 
+
+
 [feedback_sheet](/files/631/feedback_sheet.pdf) 
+
+
 
 
 
@@ -110,4 +116,5 @@ None are required, but an English dictionary may be useful.
 Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">self-study using e-learning </a>(20%).
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
 

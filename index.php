@@ -630,7 +630,9 @@ $templateKey = "farewell" ;
 $main_text = "
 ".$farewell_lecture_home."
 
+
 ".$farewell_lecture_introduction."
+
 
 ".$farewell_lecture_resources ;
 
@@ -706,19 +708,27 @@ $templateKey = "courses" ;
 $main_text = "
 ".$course_home."
 
+
 ".$teaching_tips."
+
 
 ".$achievement."
 
+
 ".$syllabus."
+
 
 ".$calendar."
 
+
 ".$lecture_notes."
+
 
 ".$assignment."
 
+
 ".$evaluation."
+
 
 ".$related_resources ;
 

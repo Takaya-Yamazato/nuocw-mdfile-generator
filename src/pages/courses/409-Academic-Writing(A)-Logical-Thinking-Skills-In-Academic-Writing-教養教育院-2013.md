@@ -75,6 +75,8 @@ All these materials are free, and will be available for download at the course w
 
 
 
+
+
 ### 講義資料
 
 [What Is A Thesis Statement And How To Build One From Scratch](/files/409/Thesis statement recipe (30April13).pdf) 
@@ -86,10 +88,13 @@ All these materials are free, and will be available for download at the course w
 
 
 
+
+
 ### Grading
 
 Students who need the course credits are required to meet the following conditions:
 
 1. Attendance must be over 80%
 2. Two oral presentations ((i) thesis statement, (ii)logical argument)
+
 

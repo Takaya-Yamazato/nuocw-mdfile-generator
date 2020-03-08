@@ -64,6 +64,7 @@ date: 2019-07-11 10:20:35
 
 The aims of this course are to help students/researchers in any field to: 1. acquire skills in creating logical, clear and persuasively effective academic presentations 2. develop confidence and competence in delivering research presentations in English 3. practice discussion for academic contexts
 
+
 ### 授業の工夫
 
 There is no escaping the fact that the overwhelming majority of students are stressed by the need to give presentations about their research, especially if it’s in a second or third language. While overcoming nervousness is not the sole or even the primary aim of this course, it is something that needs to be dealt with, and I try to do that firstly by creating a relaxed, friendly, interactive atmosphere in which students are not afraid to make mistakes.
@@ -75,6 +76,8 @@ With that in mind, I make it clear to the students that when they present in cla
 In that sense, logical clarity—which generally means supporting a clearly stated thesis and cutting incidental material within the strictly controlled time frame of presentations—is basically a pragmatic, not dogmatic issue. It serves to communicate clearly and persuasively.
 
 The other important issue I’ve discovered is giving plenty of feedback. I help students individually on request as they prepare their two presentations for each course, particularly with structural and slide design issues. I give detailed feedback after their presentations, along with somewhat less detailed (but nevertheless very useful) feedback from fellow students. The goal, I tell them, is not to produce a faultless presentation, since that is almost impossible, but to improve through consideration of the feedback and through experience.
+
+
 
 
 
@@ -94,13 +97,18 @@ The combined central aims of these 2 courses include helping students/researcher
 
 
 
+
+
 ### 講義ノート
 
 ![](/files/672/Presentations.png) 
+
 ### 課題 Two presentations of 6-10 minutes plus Question Time of 5 minutes for both courses.
 An abstract for the Fall semester course.
 
+
 ### 成績評価 Two presentations 40%, Participation 60% for both corses.
+
 
 ### 参考資料
 

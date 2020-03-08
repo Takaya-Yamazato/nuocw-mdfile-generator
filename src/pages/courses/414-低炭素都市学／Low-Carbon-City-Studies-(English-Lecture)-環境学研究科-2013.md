@@ -69,6 +69,8 @@ date: 2014-11-19 22:41:25
 
 
 
+
+
 ### 授業内容
 
 1. 地球温暖化と都市
@@ -96,9 +98,14 @@ none
 
 
 
+
+
+
+
 ### 成績評価方法・基準
 
 * Short Essay on every class (30%)
 * Discussion, Presentation (20%)
 * Final Report (50%)
+
 
