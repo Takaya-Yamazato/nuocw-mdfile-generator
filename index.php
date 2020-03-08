@@ -270,14 +270,20 @@ if (!$attachments_array){
         if ($attachment['description'] == '看板画像'){
             // echo $attachment['name']."    " ;
             // echo $attachment['description']."<br>" ;
-            $featuredimage = "/files/".$sort_key."/".$attachment['name'] ; 
+
+            foreach ( $file_directory_result as $filename) {
+                if ( strcasecmp(basename($filename), trim( $attachment['name'] )) == 0 ) {
+                    $featuredimage = "/files/".$sort_key."/".trim( $attachment['name'] ) ; 
+                    
+                }
+            }
         }else{
             // $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
             // $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
             // $attache_file_name = trim ( $attachment['name'] ) ;
             
             foreach ( $file_directory_result as $filename) {
-                if ( strcasecmp(basename($filename), trim ( $attachment['name'] )) == 0 ) {
+                if ( strcasecmp(basename($filename), trim( $attachment['name'] )) == 0 ) {
                     // echo "A match was found.  ". basename($filename). " = ". trim ( $attachment['name'] ) . "<br>";
                     $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
                     $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
