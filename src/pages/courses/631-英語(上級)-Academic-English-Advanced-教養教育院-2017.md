@@ -64,17 +64,15 @@ featuredmovie:
 date: 2017-09-22 11:03:44
 ---
 
-### Key features
+### Key
+
+features
 
 Each student researches, prepares, and delivers multiple oral presentations. Topics for the presentations develop from personal interests, to description and evaluation of a recommended vacation, to presentation of original survey research, and finally a persuasive presentation on a topic of the student’s own choice.
 
 Presentation skills developed include brainstorming, planning and writing effective speeches. A presentation requires a strong introduction, logically and rhetorically sound structure, and a clear and memorable conclusion. In addition, delivery skills including voice, eye contact, and body language are developed. Students create and use visual aids of various types as appropriate to each presentation’s topic. They also work on dealing effectively and confidently with questions from the audience.
 
 In addition to students’ own presentations, textbook exercises and videos of model presentations allow for additional study and understanding. Students work in groups or in pairs to evaluate exercises or model presentations. Weekly quizzes, based on the textbook exercises, help students focus appropriately.
-
-
-
-
 
 ### 本授業の目的およびねらい
 
@@ -87,7 +85,10 @@ Be sure to comply with all university requirements.
 ### 教科書
 
 Present Yourself 2. Steven Gershon. Cambridge. ISBN 978-1-107-43578-0
-Videos are available from: <a href="http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition"target="blank">www.cambridge.org/presentyourself </a>
+
+Videos are available from: [www.cambridge.org/presentyourself][1]
+
+[1]: http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition
 
 ### 参考書
 
@@ -95,26 +96,25 @@ None are required, but an English dictionary may be useful.
 
 ### 注意事項
 
-対面授業に加え、課外学習教材 <a href="http://eface.ilas.nagoya-u.ac.jp/moodle/login/index.php" target="_blank">「eFace」 </a>を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+対面授業に加え、課外学習教材 [「eFace」][2] を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
+[2]: http://eface.ilas.nagoya-u.ac.jp/moodle/login/index.php
 
 ### 担当者からの言葉
 
-初回の授業を欠席した場合は、課外学習の説明資料を<a href="http://elearn.ilas.nagoya-u.ac.jp/access/" target="_blank">アカデミック・イングリッシュ支援室のサイト </a>からダウンロードすること。
+初回の授業を欠席した場合は、課外学習の説明資料を[アカデミック・イングリッシュ支援室のサイト][3] からダウンロードすること。
 
+[3]: http://elearn.ilas.nagoya-u.ac.jp/access/
 
-
-
+### 講義資料
 
 [feedback_sheet](/files/631/feedback_sheet.pdf) 
 
-
-
-
-
 ### 成績評価
 
-Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">self-study using e-learning </a>(20%).
+Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and [self-study using e-learning][1] (20%).
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
 
+[1]: http://elearn.ilas.nagoya-u.ac.jp/
 

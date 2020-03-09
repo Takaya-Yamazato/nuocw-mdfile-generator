@@ -64,10 +64,6 @@ date: 2015-11-09 17:11:54
 
 Contents of this course will be standard introductory accounting with focus on basic bookkeeping. The knowledge acquired through this course should form the foundation of accounting skills that could be utilized during the advanced courses in accounting.
 
-
-
-
-
 ### 担当教員
 
 野口 晃弘 (大学院経済学研究科)
@@ -86,25 +82,11 @@ Donald E. Kieso, Jerry J. Weygandt, Terry D. Warfield, Intermediate Accounting, 
 
 Ability to speak and discuss accounting and bookkeeping in English will be required to attend the class.
 
-
-
-
-
 ### 講義ノート
 
-<dl>
-<dt>
 第1回
-</dt>
 
-<dd>
 [Introduction](/files/442/Noguchi_lec_note.pdf) 
-</dd>
-</dl>
-
-
-
-
 
 ### 成績評価
 
@@ -113,5 +95,4 @@ Attendance (25%), homework (25%), and oral presentation (25%), essay (25%).
 A: 100-80 (as for undergraduate students S: 100-90), B: 79-70, C: 69-60, F 59-0
 
 The procedure for "withdrawing the course" will not be applied. Not submitting essay will be graded as "Absent".
-
 

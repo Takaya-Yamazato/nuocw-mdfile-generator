@@ -10,7 +10,7 @@ title: "最終講義-基礎研究、Translational-Research、-臨床試験から
 
 # 簡単な説明
 description: >-
-  医学系研究科、ヤング・リーダーズ・プログラム、医療行政専攻 坂本　純一私が名古屋大学医学部に入学したのは1969年、大学紛争の真最中でした。この年は中部地区だけでなく関東地方ほか日本の各地から...
+  医学系研究科、ヤング・リーダーズ・プログラム、医療行政専攻 坂本　純一私が名古屋大学医学部に入学したのは1969年、大学紛争の真最中でした。この年は中部地区だけでなく関東地方ほか日本の各地から様...
 
 # 講師名
 lecturer: "坂本純一"
@@ -33,10 +33,6 @@ credit: ""
 # pdfなどの追加資料
 ## rootフォルダはstaticになっている
 attachments: 
-  - name: "坂本先生の写真リサイズ" 
-    path: /files/354/s_H23sakamoto.png
-  - name: "講義資料改訂版" 
-    path: /files/354/sakamoto_edited.pdf
 
 # 関連するタグ
 tags:
@@ -52,7 +48,7 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-featuredmovie: http://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6
+featuredmovie: https://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6
 
 # 記事投稿日
 date: 2014-05-30 13:38:05
@@ -74,16 +70,21 @@ date: 2014-05-30 13:38:05
 
 医学部を卒業してから37年間の間、基礎研究、Translational Research、臨床試験研究、医療行政と様々な分野にチャレンジしてきましたが、よき先輩、同僚、後輩、また様々な分野のかたがたのご指導、ご支援により、自分なりに興味深く、その時期その時期を楽しく、また満足できるような成果をあげることができましたことを、改めて皆様に心から感謝いたしたいと願っております。
 
-
 ![坂本 教授](/files/354/s_H23sakamoto.png) 
+
 ## 講師紹介
 
 坂本 純一（さかもと じゅんいち） 名古屋大学大学院医学系研究科 教授
 
 ### 学歴
 
-* 1975年 名古屋大学医学部医学科 卒業
-* 1979年 名古屋大学大学院医学研究科外科学博士課程 修了
+* 1975年
+
+名古屋大学医学部医学科 卒業
+
+* 1979年
+
+名古屋大学大学院医学研究科外科学博士課程 修了
 
 ### 取得学位
 
@@ -92,37 +93,74 @@ date: 2014-05-30 13:38:05
 ### 専門分野
 
 * 外科腫瘍学
+
 * 腫瘍免疫学
+
 * 臨床試験
+
 * 医療行政
 
 ### 研究課題
 
-* 2006年- 医療行政、保険医療政策
-* 1987年- 臨床試験によるエビデンス、メタアナリシス
+* 2006年-
+
+医療行政、保険医療政策
+
+* 1987年-
+
+臨床試験によるエビデンス、メタアナリシス
+
 * 1981年-1999年 腫瘍免疫、トランスレーショナル・リサーチ
+
 * 1975年-2000年 外科腫瘍学
 
 ### 所属学会
 
 * 日本外科学会
+
 * 日本癌学会
+
 * 日本癌治療学会
+
 * 消化器外科学会
-* アメリカ癌学会 (American Association for Cancer Research)
-* アメリカ癌治療学会 (American Society of Clinical Oncology)
+
+* アメリカ癌学会
+
+(American Association for Cancer Research)
+
+* アメリカ癌治療学会
+
+(American Society of Clinical Oncology)
+
 * 日本臨床外科学会
+
 * 日本臨床腫瘍学会
-* 国際外科学会 (International College of Surgeons)
-* アメリカ外科学会 (American College of Surgeons)
-* アメリカ外科腫瘍学会 (American Society of Surgical Oncology)
-* 国際臨床試験学会 (Society for Clinical Trials)
+
+* 国際外科学会
+
+(International College of Surgeons)
+
+* アメリカ外科学会
+
+(American College of Surgeons)
+
+* アメリカ外科腫瘍学会
+
+(American Society of Surgical Oncology)
+
+* 国際臨床試験学会
+
+(Society for Clinical Trials)
 
 ### 受賞
 
-* 癌集学的治療研究財団一般研究助成 (1988)
-* 名駅ロータリークラブ椿賞 (2007)
+* 癌集学的治療研究財団一般研究助成
 
+(1988)
+
+* 名駅ロータリークラブ椿賞
+
+(2007)
 
 ### 講義資料
 

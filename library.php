@@ -90,6 +90,28 @@ function get_contents ($sql) {
         // print_r($array);
         $contents = $array[0]['contents'] ;
 
+        // html タグを markdown へ変換
+        // $md = new Markdownify\Converter() ;
+        $md = new Markdownify\Converter(Markdownify\Converter::LINK_AFTER_PARAGRAPH, false, false);
+        // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
+        $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
+        unset($md);
+
+        // {#pdf#} を削除
+        $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+
+        // #で改行
+        $contents_tag = $contents_tag = '/\#+(\S+)/';
+        if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+          $ii = 0;
+          // print_r($tag_match);
+          // echo "<br>";
+          foreach ($tag_match[0] as $value){
+            $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
+              $ii++;
+              // echo "<br>".$ii." contents: ".$contents."<br>" ;
+            }
+        }
         // ### タイトル　を抜き出す
         $contents_tag = '/\#+\s(\S+)\s/';
         if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -109,7 +131,7 @@ function get_contents ($sql) {
         //   // print_r($tag_match);
         //   // echo "<br>";
         //   foreach ($tag_match[0] as $value){
-        //     $contents = str_replace( $tag_match[0][$ii] , "<br>".$tag_match[0][$ii]."<br>" , $contents ) ;
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
         //       $ii++;
         //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
         //     }
@@ -121,31 +143,17 @@ function get_contents ($sql) {
               // print_r($tag_match);
               // echo "<br>";
               foreach ($tag_match_asterisk[0] as $value){
-                $contents = str_replace( $tag_match_asterisk[0][$ii] , "<br>".$tag_match_asterisk[0][$ii], $contents ) ;
+                $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii]."\n" , $contents ) ;
                   $ii++;
                 }
             }
-          
-          // 改行が連続する場合、ひとつにまとめる
-          $contents = preg_replace('/(\n|\r|\r\n)+/us',"\n", $contents );
     }
 
+    // 改行が連続する場合、ひとつにまとめる
+    $contents = preg_replace('/(\n|\r|\r\n)+/us',"\n", $contents );
     
-    // {#pdf#} を削除
-    if ( $contents = preg_replace('/\{#pdf#\}/', "", $contents) ){
-      // echo "<br>{#pdf#}<br>" ;
-      // print_r($contents);
-        }
-
-    // html タグを markdown へ変換
-    // $md = new Markdownify\Converter() ;
-    $md = new Markdownify\Converter(Markdownify\Converter::LINK_AFTER_PARAGRAPH, false, true);
-    // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
-    $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
-    unset($md);
-
     // 残っている <dd> タグを削除
-    // $contents = strip_tags ($contents) ;
+    $contents = strip_tags ($contents) ;
 
     // なぜだかバックスラッシュ「\」が残るので削る
     $contents = str_replace('\\', '' , $contents) ;

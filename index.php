@@ -25,9 +25,9 @@ exec('/bin/rm ./src/pages/farewell/*' );
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 2 OFFSET 50" ;
+$limit = "LIMIT 10 OFFSET 120" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
@@ -274,7 +274,6 @@ if (!$attachments_array){
             foreach ( $file_directory_result as $filename) {
                 if ( strcasecmp(basename($filename), trim( $attachment['name'] )) == 0 ) {
                     $featuredimage = "/files/".$sort_key."/".trim( $attachment['name'] ) ; 
-                    
                 }
             }
         }else{
@@ -287,12 +286,7 @@ if (!$attachments_array){
                     // echo "A match was found.  ". basename($filename). " = ". trim ( $attachment['name'] ) . "<br>";
                     $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
                     $attaches .= "    path: /files/".$sort_key."/".$attachment['name'].= "\n" ;
-                    
-                } else {
-                    // echo "A match was not found. ". basename($filename). " != ". trim ( $attachment['name'] ) . "<br>";
-                    
-                }
-                
+                } 
             }
         // foreach ($attachment as $attach){
         // echo $attach."<br>"  ;
@@ -542,9 +536,11 @@ $movie = pg_fetch_row($movie_result);
 $movie = $movie[0] ;
 // echo "<br>"; print_r($movie);
 $movie = str_ireplace("http://studio.media.nagoya-u.ac.jp/videos/watch.php?v=", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $movie);
+$movie = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/embed/", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $movie);
+
 if(preg_match('/FlvPlayer/',$movie)){
     $movie = '' ;
-    echo "<br>".$movie ;
+    echo "\n".$movie ;
   }
 
 
@@ -675,7 +671,7 @@ credit: \"\"
 # pdfなどの追加資料
 ## rootフォルダはstaticになっている
 attachments: 
-".$attaches."
+
 # 関連するタグ
 tags:
 
@@ -824,6 +820,10 @@ $ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
 $contents_tag = '/\#+\s(\S+)\s/';
 $contents_desc = '/\#+\s(\S+)\s/';
 
+$studio_url = 'https://nuvideo.media.nagoya-u.ac.jp/embed/' ;
+$studio_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/embed\//' ;
+$studio_media = '/http:\/\/studio.media.nagoya-u.ac.jp\/videos\/watch.php\?\v\=/' ;
+
 while ($line = fgets($fp_tmp)) {
 
     // -----
@@ -859,9 +859,15 @@ while ($line = fgets($fp_tmp)) {
 
         preg_match_all($ocwimg_desc, $line, $desc_match);
             //print_r($desc_match);
-        $line = "![".$desc_match[0][0]."](/files/".$sort_key."/".$ocwimg_match[0][0].") " ;
+        $line = "![".$desc_match[0][0]."](/files/".$sort_key."/".$ocwimg_match[0][0].") \n" ;
     }    
     
+    // スタジオ動画配信サーバ URL の変更
+    $line = preg_replace($studio_media, $studio_url, $line);
+    // echo "<br>line : ".$line."<br>";
+    $line = preg_replace($studio_url_old, $studio_url, $line);
+    // echo "<br>line : ".$line."<br>";
+
         // $ii = 0;
         // foreach ($desc_match[0] as $value){
         //     $resources .= 
@@ -887,8 +893,14 @@ fclose($fp_tmp2);
 // fclose($fp_tmp2);
 
 $main_text = file_get_contents('tmp2.md');
+// 改行が連続する場合、ひとつにまとめる
+$main_text = preg_replace('/(\n|\r|\r\n)+/us',"\n\n", $main_text );
+
 $courselist_text .= ltrim( $main_text ) ;
-// echo "<br><br>" ; var_dump($courselist_text) ;
+
+
+
+    // echo "<br><br>" ; var_dump($courselist_text) ;
 
 $fp = fopen($file_name, "w");
 fwrite($fp,$courselist_text);
@@ -928,8 +940,8 @@ exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
 
-exec('/bin/rm /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+// exec('/bin/rm /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
 
 ?>
 </body>

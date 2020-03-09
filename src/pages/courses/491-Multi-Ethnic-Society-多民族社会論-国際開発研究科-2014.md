@@ -84,14 +84,9 @@ date: 2015-12-03 11:24:52
 
 This course will deal with ethnicity-related issues. Starting from key concepts (ethnicity, nationalism, etc.), it will cover various topics and cases of nation-state building and majority-minority relations mainly from sociological viewpoint. Students may be requested to make presentations on case studies depending on their research interests.
 
-
 ### 授業の工夫
 
 Because background of students (what they learned in their undergraduate days) varies from person to person, it is difficult to set an appropriate level of discussion and choose relevant topics every session. I encourage students to extend their own perspectives after understanding different approaches to similar issue.
-
-
-
-
 
 ### テキスト・参考文献
 
@@ -101,116 +96,57 @@ Will be distributed by the instructor.
 
 English
 
-
-
-
-
 ### 講義ノート
 
-<dl>
-<dt>
 第2回
-</dt>
 
-<dd>
 [Comparing concepts: ethnic group, nation, race, etc.](/files/491/note2.pdf) 
-</dd>
 
-<dt>
 第3回
-</dt>
 
-<dd>
 [Modern nation-state building (1)](/files/491/notes3.pdf) 
-</dd>
 
-<dt>
 第4回
-</dt>
 
-<dd>
 [Modern nation-state building (2)](/files/491/notes4.pdf) 
-</dd>
 
-<dt>
 第5回
-</dt>
 
-<dd>
 [Pluralism (1)](/files/491/notes5.pdf) 
-</dd>
 
-<dt>
 第6回
-</dt>
 
-<dd>
 [Pluralism (2)](/files/491/notes6.pdf) 
-</dd>
 
-<dt>
 第7回
-</dt>
 
-<dd>
 [Nationality and citizenship](/files/491/notes7.pdf) 
-</dd>
 
-<dt>
 第9回
-</dt>
 
-<dd>
 [Ethnic groups in mass media](/files/491/notes9_3.pdf) 
-</dd>
 
-<dt>
 第10回
-</dt>
 
-<dd>
 [National integration and languages](/files/491/notes10_2.pdf) 
-</dd>
 
-<dt>
 第11回
-</dt>
 
-<dd>
 [Indigenous peoples, states and development (1)](/files/491/notes11_2.pdf) 
-</dd>
 
-<dt>
 第12回
-</dt>
 
-<dd>
 [Indigenous peoples, states and development (2)](/files/491/notes12_2.pdf) 
-</dd>
 
-<dt>
 第13回
-</dt>
 
-<dd>
 [Case study (1)](/files/491/notes13_2.pdf) 
-</dd>
 
-<dt>
 第14回
-</dt>
 
-<dd>
 [Case study (2)](/files/491/s_notes14.pdf) 
-</dd>
-</dl>
-
-
-
-
 
 ### 成績評価
 
 Attendance (60%) + term paper (40%)
-
 

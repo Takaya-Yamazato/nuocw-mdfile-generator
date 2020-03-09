@@ -33,10 +33,6 @@ credit: ""
 # pdfなどの追加資料
 ## rootフォルダはstaticになっている
 attachments: 
-  - name: "庄司先生の写真" 
-    path: /files/329/s_shoji.png
-  - name: "庄司先生の講義資料" 
-    path: /files/329/lshoji.pdf
 
 # 関連するタグ
 tags:
@@ -66,20 +62,27 @@ date: 2017-02-15 15:20:48
 
 私はこの3月で定年だが、数学者に定年はない。数学者は死ぬまで数学者でいるしかないだろうから、私は自分の夢を追い続けることにしよう。
 
-
 ![庄司 俊明 教授](/files/329/s_shoji.png) 
+
 ## 講師紹介
 
 庄司 俊明（しょうじ・としあき）多元数理科学研究科教授
 
 ### 学歴
 
-* 1970年03月 東京大学 理学部 数学科 卒業
-* 1972年03月 東京大学大学院 理学研究科 数学 修士課程 修了
+* 1970年03月
+
+東京大学 理学部 数学科 卒業
+
+* 1972年03月
+
+東京大学大学院 理学研究科 数学 修士課程 修了
 
 ### 取得学位
 
-* 理学博士 , 東京大学 , 論文 , 1981年
+* 理学博士
+
+, 東京大学 , 論文 , 1981年
 
 ### 専門分野
 
@@ -87,19 +90,25 @@ date: 2017-02-15 15:20:48
 
 ### 受賞学術賞
 
-* 代数学賞 , 2001年03月28日 , 日本数学会
+* 代数学賞
+
+, 2001年03月28日 , 日本数学会
 
 ### 所属学会
 
 * 日本数学会
 
-
 ### 講義ビデオ
 
-<a href="http://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28" target="blank">Characters, character sheaves and beyond</a>
+[Characters, character sheaves and beyond][1]
+
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
+
+[1]: https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28
 
 ### 講義資料
 
 [Characters,character sheaves and beyond](/files/329/lshoji.pdf) 
+
