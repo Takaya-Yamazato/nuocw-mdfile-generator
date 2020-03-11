@@ -64,21 +64,39 @@ In an informal atmosphere, this course provides students with important skills, 
 
 ### 授業の工夫
 
-Most of us are stressed by the need to give presentations about our research, especially if it's in a second or third language. This course attempts to deal with that from the beginning by creating a, friendly, interactive atmosphere in which students are not afraid to make mistakes. Secondly, at a cognitive level, I have students examine closely why they are presenting, and help them realize that a presentation is not usually an end in itself; a research presentation generally has the functions of disseminating results or progress, garnering useful feedback, perhaps making useful contacts. In short, a research presentation is not usually an exam. Even if our research is going to be "tested" by some in the audience, that should have the constructive effect of improving our research. With that in mind, I make it clear to the students that when they present in class, they should focus on getting useful feedback, which doesn't necessarily mean entertaining the audience but keeping them interested and facilitating understanding through clear organization and delivery of material. So that raises what is definitely a central issue of the course, making a logically clear and persuasive case for an idea through the presentation. That means supporting a clearly stated thesis and cutting incidental material within a strictly controlled time frame. The other important issue I've discovered is giving plenty of feedback. I help students individually on request as they prepare their two presentations for each course, particularly with structural and slide design issues. I give detailed feedback after their presentations, along with somewhat less detailed (but nevertheless very useful) feedback from fellow students. The goal, I tell them, is not to produce a faultless presentation, since that is almost impossible, but to improve through consideration of the feedback and through experience.
+
+Most of us are stressed by the need to give presentations about our research, especially if it's in a second or third language. This course attempts to deal with that from the beginning by creating a, friendly, interactive atmosphere in which students are not afraid to make mistakes.
+
+Secondly, at a cognitive level, I have students examine closely why they are presenting, and help them realize that a presentation is not usually an end in itself; a research presentation generally has the functions of disseminating results or progress, garnering useful feedback, perhaps making useful contacts. In short, a research presentation is not usually an exam. Even if our research is going to be "tested" by some in the audience, that should have the constructive effect of improving our research.
+
+With that in mind, I make it clear to the students that when they present in class, they should focus on getting useful feedback, which doesn't necessarily mean entertaining the audience but keeping them interested and facilitating understanding through clear organization and delivery of material. So that raises what is definitely a central issue of the course, making a logically clear and persuasive case for an idea through the presentation. That means supporting a clearly stated thesis and cutting incidental material within a strictly controlled time frame.
+
+The other important issue I've discovered is giving plenty of feedback. I help students individually on request as they prepare their two presentations for each course, particularly with structural and slide design issues. I give detailed feedback after their presentations, along with somewhat less detailed (but nevertheless very useful) feedback from fellow students. The goal, I tell them, is not to produce a faultless presentation, since that is almost impossible, but to improve through consideration of the feedback and through experience.
+
+
+
 
 ### 授業の目標
 
-The central aims of this course are to help students/researchers in any field to: 1. acquire skills in preparing logical, clear and persuasively effective academic presentations. 2. develop confidence and competence in delivering presentations in English. 3. gain skills and confidence in communicating both within a research field and with researchers from other fields.
+
+The central aims of this course are to help students/researchers in any field to:
+1. acquire skills in preparing logical, clear and persuasively effective academic presentations.
+2. develop confidence and competence in delivering presentations in English.
+3. gain skills and confidence in communicating both within a research field and with researchers from other fields.
+
+
+
 
 ### 講義ノート
 
+
 [Presentation Skills/Techniques](/files/728/book.pdf) 
+
+
 
 ### 成績評価
 
-Participation 60% Two presentations 40%
+Participation 60%
+Two presentations 40%
 
-* Students
-
-are required to attend a minimum of 10 lessons in order to receive credits for the course.
-
+* Students are required to attend a minimum of 10 lessons in order to receive credits for the course.

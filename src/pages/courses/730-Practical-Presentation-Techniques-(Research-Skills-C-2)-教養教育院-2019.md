@@ -64,21 +64,37 @@ In an informal atmosphere, this course provides students with important skills, 
 
 ### 授業の工夫
 
-While helping students to gain confidence in academic communication, this course focuses on building and delivering presentations that engage the audience with the research itself. A fundamental assumption of this course is that a primary aim of presentations it to gather useful feedback in order to advance research in the field. The challenge, then, is to present the research in a way that makes its aim, significance and credibility unmistakably clear to the audience. This requires careful organization of information: not everything is of equal importance, so difficult editing decisions need to be made. Following these basic practical principles, the course helps students to develop, experiment with, and even create techniques for clarity and impact. This is applied primarily to oral presentations, but there is also some discussion of poster presentations, as well as analysis of what makes a presentation abstract/proposal successful. Students are encouraged to be acutely aware of the context in which they are presenting so that they may adapt their material to various types of audience both within and outside their specific research field in the future. It is essential to understand the audience’s perspective and the complexity of communicating to people with varied backgrounds. To do so, a certain degree of flexibility is essential. Classes are conducted in an informal atmosphere with students working in randomized groups, changing each week to maximize communication between researchers across fields. A lot of feedback, from the instructor and fellow students, is given in order to raise communicative awareness.
+
+While helping students to gain confidence in academic communication, this course focuses on building and delivering presentations that engage the audience with the research itself. A fundamental assumption of this course is that a primary aim of presentations it to gather useful feedback in order to advance research in the field. The challenge, then, is to present the research in a way that makes its aim, significance and credibility unmistakably clear to the audience. This requires careful organization of information: not everything is of equal importance, so difficult editing decisions need to be made.
+
+Following these basic practical principles, the course helps students to develop, experiment with, and even create techniques for clarity and impact. This is applied primarily to oral presentations, but there is also some discussion of poster presentations, as well as analysis of what makes a presentation abstract/proposal successful.
+
+Students are encouraged to be acutely aware of the context in which they are presenting so that they may adapt their material to various types of audience both within and outside their specific research field in the future. It is essential to understand the audience’s perspective and the complexity of communicating to people with varied backgrounds. To do so, a certain degree of flexibility is essential.
+
+Classes are conducted in an informal atmosphere with students working in randomized groups, changing each week to maximize communication between researchers across fields. A lot of feedback, from the instructor and fellow students, is given in order to raise communicative awareness.
+
 
 ### 授業の目標
 
-This course is directed towards graduate students and researchers in all fields and has the following practical goals: 1. to raise logical drafting and practical delivery skills to a level where your presentations or poster sessions at an international level can be highly effective, low stress, even enjoyable. 2. to produce logically persuasive presentation abstracts, scripts, slides and posters related to your research area that you can use as models for future international “real world” presentations. 3. to raise confidence in general international communication, especially in academic contexts.
+This course is directed towards graduate students and researchers in all fields and has the following practical goals:
+
+1. to raise logical drafting and practical delivery skills to a level where your presentations or poster sessions at an international level can be highly effective, low stress, even enjoyable.
+2. to produce logically persuasive presentation abstracts, scripts, slides and posters related to your research area that you can use as models for future international “real world” presentations.
+3. to raise confidence in general international communication, especially in academic contexts.
+
+
+
 
 ### 講義ノート
 
+
 [Presentation Skills/Techniques](/files/730/book.pdf) 
+
 
 ### 成績評価
 
-Participation 60% Two presentations 40%
 
-* Students
+Participation 60%
+Two presentations 40%
 
-are required to attend a minimum of 10 lessons in order to receive credits for the course.
-
+* Students are required to attend a minimum of 10 lessons in order to receive credits for the course.

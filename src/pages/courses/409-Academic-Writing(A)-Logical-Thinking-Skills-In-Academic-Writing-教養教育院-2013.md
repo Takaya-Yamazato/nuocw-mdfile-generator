@@ -59,46 +59,45 @@ featuredimage: /img/common/thumbnail.png
 featuredmovie: 
 
 # 記事投稿日
-date: 2018-04-17 10:18:47
+date: 2020-01-15 12:55:32
 ---
 
 ### Course
-
 Requirements
 
 1. Graduate students who are abele to take classes, and communicate, in English.
-
 2. Preference will be given to those who are planning to submit abstracts to international conferences or journals.
 
-### Textbooks,Reference
 
+### Textbooks,Reference
 book.etc
 
 The course instructor has developed a series of course materials, including (i) step-by-step guide on how to build a thesis statement, (ii) step-by-step guide on how to build a logical argument, (iii) template on how to write a high quality abstract, (iv) template on how to write a high quality introduction, etc.
 
 All these materials are free, and will be available for download at the course web site.
 
+
 ### 講義資料
 
-* {ocwlink
 
-file="Thesis statement recipe (30April13).pdf" desc="What Is A Thesis Statement And How To Build One From Scratch"}
 
-* {ocwlink
 
-file="Thesis Statement template 2014.pdf" desc="How to build a clear thesis statement"}
+[What Is A Thesis Statement And How To Build One From Scratch](/files/409/Thesis statement recipe (30April13).pdf) 
+
+
+[How to build a clear thesis statement](/files/409/Thesis Statement template 2014.pdf) 
+
 
 ### 講義映像
 
-[Academic Writing2015:Introduction][1]
 
-[1]: https://nuvideo.media.nagoya-u.ac.jp/embed/4f48418da449dfbbc561ecf755d688fc3b4a7144
+[Academic Writing2015:Introduction](https://nuvideo.media.nagoya-u.ac.jp/embed/4f48418da449dfbbc561ecf755d688fc3b4a7144)
+
 
 ### Grading
+
 
 Students who need the course credits are required to meet the following conditions:
 
 1. Attendance must be over 80%
-
 2. Two oral presentations ((i) thesis statement, (ii)logical argument)
-

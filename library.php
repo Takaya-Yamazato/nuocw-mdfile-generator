@@ -90,28 +90,36 @@ function get_contents ($sql) {
         // print_r($array);
         $contents = $array[0]['contents'] ;
 
-        // html タグを markdown へ変換
-        // $md = new Markdownify\Converter() ;
-        $md = new Markdownify\Converter(Markdownify\Converter::LINK_AFTER_PARAGRAPH, false, false);
-        // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
-        $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
-        unset($md);
+        // 改行コードを LF(\n) に統一
+        $contents = preg_replace("/\r\n|\r/","\n",$contents);
+        // $line = str_replace("\r\n","\n",$line);
+        // $line = str_replace("\r","\n",$line);
 
         // {#pdf#} を削除
         $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
 
-        // #で改行
-        $contents_tag = $contents_tag = '/\#+(\S+)/';
-        if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-          $ii = 0;
-          // print_r($tag_match);
-          // echo "<br>";
-          foreach ($tag_match[0] as $value){
-            $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
-              $ii++;
-              // echo "<br>".$ii." contents: ".$contents."<br>" ;
-            }
+        // ### タイトル　が　NULL なら html タグを markdown へ変換
+        $contents_tag = $contents_tag = '/\#+\s(\S+)/';
+        if ( preg_match_all($contents_tag, $contents) == NULL ){
+            // $md = new Markdownify\Converter() ;
+            $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, false);
+            // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
+            $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
+            unset($md);
         }
+
+        // // #で改行
+        // $contents_tag = $contents_tag = '/\#+(\S+)/';
+        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+        //   $ii = 0;
+        //   // print_r($tag_match);
+        //   // echo "<br>";
+        //   foreach ($tag_match[0] as $value){
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
+        //       $ii++;
+        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+        //     }
+        // }
         // ### タイトル　を抜き出す
         $contents_tag = '/\#+\s(\S+)\s/';
         if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -119,7 +127,7 @@ function get_contents ($sql) {
           // print_r($tag_match);
           // echo "<br>";
           foreach ($tag_match[0] as $value){
-            $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii]."\n" , $contents ) ;
+            $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
               $ii++;
               // echo "<br>".$ii." contents: ".$contents."<br>" ;
             }
@@ -143,14 +151,12 @@ function get_contents ($sql) {
               // print_r($tag_match);
               // echo "<br>";
               foreach ($tag_match_asterisk[0] as $value){
-                $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii]."\n" , $contents ) ;
+                $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
                   $ii++;
                 }
             }
-    }
 
-    // 改行が連続する場合、ひとつにまとめる
-    $contents = preg_replace('/(\n|\r|\r\n)+/us',"\n", $contents );
+        }
     
     // 残っている <dd> タグを削除
     $contents = strip_tags ($contents) ;
@@ -163,56 +169,56 @@ function get_contents ($sql) {
 
 
 
-function convert_ocwlink ($resources, $sort_key){
+// function convert_ocwlink ($resources, $sort_key){
 
-  $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
-  preg_match_all($file, $resources, $file_match);
-  //print_r($file_match);
-  $desc = '/(?<=desc=\").+?(?=\")/';
-  preg_match_all($desc, $resources, $desc_match);
-  //print_r($desc_match);
+//   $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
+//   preg_match_all($file, $resources, $file_match);
+//   //print_r($file_match);
+//   $desc = '/(?<=desc=\").+?(?=\")/';
+//   preg_match_all($desc, $resources, $desc_match);
+//   //print_r($desc_match);
     
-  $ii = 0;
-  foreach ($desc_match[0] as $value){
-      $resources .= 
-      "- [".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-      $ii++;
-    }
+//   $ii = 0;
+//   foreach ($desc_match[0] as $value){
+//       $resources .= 
+//       "- [".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//       $ii++;
+//     }
 
-  $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
-  $resources = preg_replace('/\{\}/', '' , $resources);
-  $resources = str_replace('\\', '' , $resources) ;
+//   $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
+//   $resources = preg_replace('/\{\}/', '' , $resources);
+//   $resources = str_replace('\\', '' , $resources) ;
 
-  return $resources ;
-}
+//   return $resources ;
+// }
 
-function convert_ocwimg ($resources, $sort_key){
+// function convert_ocwimg ($resources, $sort_key){
 
-  $file = '/(?<=\{ocwimg file=\").+?(?=\")/';
-  preg_match_all($file, $resources, $file_match);
-  //print_r($file_match);
-  $desc = '/(?<=alt=\").+?(?=\")/';
-  preg_match_all($desc, $resources, $desc_match);
-  //print_r($desc_match);
+//   $file = '/(?<=\{ocwimg file=\").+?(?=\")/';
+//   preg_match_all($file, $resources, $file_match);
+//   //print_r($file_match);
+//   $desc = '/(?<=alt=\").+?(?=\")/';
+//   preg_match_all($desc, $resources, $desc_match);
+//   //print_r($desc_match);
     
-  $ii = 0;
-  $temp = "";
-  foreach ($desc_match[0] as $value){
-      $temp .= 
-      "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-      $ii++;
-    }
+//   $ii = 0;
+//   $temp = "";
+//   foreach ($desc_match[0] as $value){
+//       $temp .= 
+//       "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//       $ii++;
+//     }
 
-  // {〜} までを削除
-  $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
-  // 上で残った {} を削除
-  $resources = preg_replace('/\{\}/', '' , $resources);
-  // 半角バックスラッシュを削除
-  $resources = str_replace('\\', '' , $resources) ;
-  $resources = $temp."\n".$resources ;
+//   // {〜} までを削除
+//   $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
+//   // 上で残った {} を削除
+//   $resources = preg_replace('/\{\}/', '' , $resources);
+//   // 半角バックスラッシュを削除
+//   $resources = str_replace('\\', '' , $resources) ;
+//   $resources = $temp."\n".$resources ;
 
-  return $resources ;
-}
+//   return $resources ;
+// }
 
 
 ?>

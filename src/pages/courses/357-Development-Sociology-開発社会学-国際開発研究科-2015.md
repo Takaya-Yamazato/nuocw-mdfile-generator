@@ -88,27 +88,25 @@ This lecture series will introduce students to basic theories and approaches in 
 
 ### 授業の工夫
 
+
 本授業は開発社会学というタイトルですが、開発問題に関わる理論の歴史的な系譜や基礎的な概念について教えています。学生の半数以上は世界各国の留学生です。個人差もありますが、留学生は一般に、出身国に関わらず、疑問点や自分の意見を積極的に表明することに慣れています。一方、日本人学生は発言が少ないため、両者のバランスをとるために工夫が必要です。授業で取り扱う課題について、まず3、4人の小グループで議論させてから、グループごとに話し合った内容を発表してもらうなどして、誰もが議論に参加し、自分の意見を言える環境づくりに努めています。
+
 
 ### テキスト・参考文献など
 
-* Haslam,
 
-P. A., J. Schafer, and P. Beaudet, eds. 2012. Introduction to International Development: Approaches, Actors, and Issues. Second ed. Ontario: Oxford University Press.
 
-* Haynes,
+* Haslam, P. A., J. Schafer, and P. Beaudet, eds. 2012. Introduction to International Development: Approaches, Actors, and Issues. Second ed. Ontario: Oxford University Press.
 
-J. 2008. Development Studies. Cambridge: Policy.
+* Haynes, J. 2008. Development Studies. Cambridge: Policy.
 
-* Willis,
+* Willis, K. 2005. Theories and Practices of Development. London: Routledge.
 
-K. 2005. Theories and Practices of Development. London: Routledge.
+* Perecman, E. and S. R. Curran, eds. 2006. A Handbook for Social Science Field Research: Essays & Bibliographic Sources on Research Design and Methods. Thousand Oaks: Sage Publications
 
-* Perecman,
-
-E. and S. R. Curran, eds. 2006. A Handbook for Social Science Field Research: Essays & Bibliographic Sources on Research Design and Methods. Thousand Oaks: Sage Publications
 
 ### 講義資料
+
 
 第1~15回
 
@@ -162,7 +160,8 @@ E. and S. R. Curran, eds. 2006. A Handbook for Social Science Field Research: Es
 
 [Social Research Methods](/files/357/12-15.pdf) 
 
+
 ### 成績評価
 
-Term paper (70%) and contribution to classroom discussions (30%)
 
+Term paper (70%) and contribution to classroom discussions (30%)

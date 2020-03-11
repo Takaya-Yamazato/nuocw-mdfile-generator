@@ -79,24 +79,31 @@ featuredimage: /img/common/thumbnail.png
 featuredmovie: 
 
 # 記事投稿日
-date: 2015-12-03 11:24:52
+date: 2020-02-19 12:55:46
 ---
 
 This course will deal with ethnicity-related issues. Starting from key concepts (ethnicity, nationalism, etc.), it will cover various topics and cases of nation-state building and majority-minority relations mainly from sociological viewpoint. Students may be requested to make presentations on case studies depending on their research interests.
 
 ### 授業の工夫
 
+
 Because background of students (what they learned in their undergraduate days) varies from person to person, it is difficult to set an appropriate level of discussion and choose relevant topics every session. I encourage students to extend their own perspectives after understanding different approaches to similar issue.
+
 
 ### テキスト・参考文献
 
+
 Will be distributed by the instructor.
+
 
 ### 授業での使用言語
 
+
 English
 
+
 ### 講義ノート
+
 
 第2回
 
@@ -146,7 +153,8 @@ English
 
 [Case study (2)](/files/491/s_notes14.pdf) 
 
+
 ### 成績評価
 
-Attendance (60%) + term paper (40%)
 
+Attendance (60%) + term paper (40%)
