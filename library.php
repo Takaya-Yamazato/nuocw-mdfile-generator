@@ -75,6 +75,7 @@ function entities2text($text)
 }
 
 
+
 function get_contents ($sql) {
 
     $result = pg_query($sql);
@@ -102,7 +103,7 @@ function get_contents ($sql) {
         $contents_tag = $contents_tag = '/\#+\s(\S+)/';
         if ( preg_match_all($contents_tag, $contents) == NULL ){
             // $md = new Markdownify\Converter() ;
-            $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, false);
+            $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, true);
             // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
             $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
             unset($md);
@@ -121,17 +122,17 @@ function get_contents ($sql) {
         //     }
         // }
         // ### タイトル　を抜き出す
-        $contents_tag = '/\#+\s(\S+)\s/';
-        if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-          $ii = 0;
-          // print_r($tag_match);
-          // echo "<br>";
-          foreach ($tag_match[0] as $value){
-            $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
-              $ii++;
-              // echo "<br>".$ii." contents: ".$contents."<br>" ;
-            }
-        }
+        // $contents_tag = '/\#+\s(\S+)\s/';
+        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+        //   $ii = 0;
+        //   // print_r($tag_match);
+        //   // echo "<br>";
+        //   foreach ($tag_match[0] as $value){
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
+        //       $ii++;
+        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+        //     }
+        // }
         // // ###タイトル　を抜き出す（### の後にスペースが無い）        
         // $contents_tag = '/\#+(\S+)\s/';
         // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -144,30 +145,105 @@ function get_contents ($sql) {
         //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
         //     }
         // }
-            // * タイトル　を抜き出す
-            $contents_tag_asterisk = '/\*+\s(\S+)\s/';
-            if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
-              $ii = 0;
-              // print_r($tag_match);
-              // echo "<br>";
-              foreach ($tag_match_asterisk[0] as $value){
-                $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
-                  $ii++;
-                }
-            }
+            // // * タイトル　を抜き出す
+            // $contents_tag_asterisk = '/\*+\s(\S+)\s/';
+            // if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
+            //   $ii = 0;
+            //   // print_r($tag_match);
+            //   // echo "<br>";
+            //   foreach ($tag_match_asterisk[0] as $value){
+            //     $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
+            //       $ii++;
+            //     }
+            // }
 
         }
     
-    // 残っている <dd> タグを削除
-    $contents = strip_tags ($contents) ;
 
     // なぜだかバックスラッシュ「\」が残るので削る
     $contents = str_replace('\\', '' , $contents) ;
 
+    // なぜだか残っている「{tr}」を「<tr>」へ変換
+    $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+    // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+    // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+    // <dl> タグを削除
+    $contents = str_replace('<dl>', '' , $contents) ;
+    // </dl> タグを削除
+    $contents = str_replace('</dl>', '' , $contents) ;
+
+    // <dt> タグを「- 」へ変換
+    $contents = str_replace('<dt>', "- " , $contents) ;
+    // </dt> タグを削除
+    $contents = str_replace('</dt>', '' , $contents) ;
+
+    // <dd> タグを「- 」へ変換
+    $contents = str_replace('<dd>', "- " , $contents) ;
+    // </dd> タグを削除
+    $contents = str_replace('</dd>', '' , $contents) ;
+
+    // {#hr#} タグを「---」へ変換
+    $contents = str_replace('{#hr#}', '---' , $contents) ;  
+    
+    // 残っている html タグを削除
+    $contents = strip_tags ($contents) ;
+
     return $contents ;
 }
 
+function get_contents_without_Markdownify ($sql) {
 
+  $result = pg_query($sql);
+  if (!$result) {
+  die('クエリーが失敗しました。'.pg_last_error());
+  }
+  $array = pg_fetch_all($result);
+  if (!mbTrim($array[0]['contents'])){
+      // echo "データがありません！" ;
+      $contents ="" ;
+  }else{
+      // echo $array[0]['contents']."array<br>" ;
+      // print_r($array);
+      $contents = $array[0]['contents'] ;
+
+      // 改行コードを LF(\n) に統一
+      $contents = preg_replace("/\r\n|\r/","\n",$contents);
+      // $line = str_replace("\r\n","\n",$line);
+      // $line = str_replace("\r","\n",$line);
+
+      // {#pdf#} を削除
+      $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+
+      // なぜだかバックスラッシュ「\」が残るので削る
+      $contents = str_replace('\\', '' , $contents) ;
+
+      // なぜだか残っている「{tr}」を「<tr>」へ変換
+      $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+      // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+      // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+      // <dl> タグを削除
+      $contents = str_replace('<dl>', '' , $contents) ;
+      // </dl> タグを削除
+      $contents = str_replace('</dl>', '' , $contents) ;
+
+      // <dt> タグを「####」へ変換
+      $contents = str_replace('<dt>', "- " , $contents) ;
+      // </dt> タグを削除
+      $contents = str_replace('</dt>', '' , $contents) ;
+
+      // <dd> タグを「- 」へ変換
+      $contents = str_replace('<dd>', "- " , $contents) ;
+      // </dd> タグを削除
+      $contents = str_replace('</dd>', '' , $contents) ;  
+
+      // {#hr#} タグを「---」へ変換
+      $contents = str_replace('{#hr#}', '---' , $contents) ;  
+
+  return $contents ;
+  }
+}
 
 // function convert_ocwlink ($resources, $sort_key){
 
@@ -219,6 +295,161 @@ function get_contents ($sql) {
 
 //   return $resources ;
 // }
+
+function category ($division_code){
+
+  switch ($division_code) {
+    case 100:
+        $category = " - \"教養\"" ;
+        break;
+    case 110:
+        $category = " - \"文学\"" ;
+        break;
+    case 111:
+        $category = " - \"文学\"" ;
+        break;
+    case 120:
+        $category = " - \"教育学\"" ;
+        break;
+    case 121:
+        $category = " - \"教育学\"" ;
+        break;
+    case 130:
+        $category = " - \"法学\"" ;
+        break;
+    case 140:
+		    $category = " - \"経済学\"" ;
+        break;
+    case 150:
+        $category = " - \"情報と文化\"" ;
+        break;
+    case 151:
+        $category = " - \"情報と文化\"" ;
+        break;
+    case 160:
+		    $category = " - \"理学\"" ;
+        break;
+    case 170:
+		    $category = " - \"医学\"" ;
+        break;
+    case 180:
+		    $category = " - \"工学\"" ;
+        break;
+    case 190:
+		    $category = " - \"農学\"" ;
+        break;
+    case 151:
+      $category = " - \"情報学\"" ;
+          break;
+    case 110:
+      $category = " - \"文学\"" ;
+          break;
+    case 61:
+      $category = " - \"情報学\"" ;
+          break;
+    case "1A0":
+        $category = " - \"情報と科学\"" ;
+        break;
+    case "1B0":
+        $category = " - \"国際開発\"" ;
+        break;
+    case "1C0":
+        $category = " - \"数学\"" ;
+        break;
+    case "1D0":
+        $category = " - \"言語と文化\"" ;
+        break;
+    case "1E0":
+        $category = " - \"環境学\"" ;
+        break;
+    case "1E1":
+        $category = " - \"薬学\"" ;
+        break;
+    case "1F0":
+        $category = " - \"言語\"" ;
+        break;
+    case 200:
+        $category = " - \"医学\"" ;
+        break;
+    case 210:
+        $category = " - \"宇宙と地球環境\"" ;
+        break;
+    case 220:
+        $category = " - \"科学\"" ;
+        break;
+    case 300:
+        $category = " - \"地球水循環\"" ;
+        break;
+    case 310:
+        $category = " - \"情報学\"" ;
+        break;
+    case 400:
+        $category = " - \"高等研究\"" ;
+        break;
+    case 410:
+        $category = " - \"保健体育\"" ;
+        break;
+    case 420:
+        $category = " - \"図書\"" ;
+        break;
+    case 430:
+        $category = " - \"アイソトープ\"" ;
+        break;
+    case 440:
+        $category = " - \"遺伝子\"" ;
+        break;
+    case 450:
+        $category = " - \"物質科学\"" ;
+        break;
+    case 460:
+        $category = " - \"高等教育\"" ;
+        break;
+    case 470:
+        $category = " - \"農学\"" ;
+        break;
+    case 480:
+        $category = " - \"年代測定\"" ;
+        break;
+    case 490:
+        $category = " - \"博物館\"" ;
+        break;
+    case 500:
+        $category = " - \"心理学\"" ;
+        break;
+    case 510:
+        $category = " - \"法学\"" ;
+        break;
+    case 520:
+        $category = " - \"生物学\"" ;
+        break;
+    case 530:
+        $category = " - \"情報学\"" ;
+        break;
+    case 540:
+        $category = " - \"小型シンクロトロン\"" ;
+        break;
+    case 550:
+        $category = " - \"図書\"" ;
+        break;
+    case 570:
+        $category = " - \"国際交流\"" ;
+        break;
+    case 580:
+        $category = " - \"電子\"" ;
+        break;
+    case 590:
+        $category = " - \"医学\"" ;
+        break;
+    case 635:
+        $category = " - \"国際交流\"" ;
+        break;
+    case 640:
+        $category = " - \"国際交流\"" ;
+        break;
+  }
+
+  return $category;
+}
 
 
 ?>

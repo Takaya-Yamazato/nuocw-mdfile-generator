@@ -10,10 +10,10 @@ title: "最終講義-Searching-for-the-Sphinx-of-the-Lipid-(Sphingolipid)"
 
 # 簡単な説明
 description: >-
-  私は、本年3月31日をもって名古屋大学を定年で退職します。 平成10年4月に、名古屋大学医学部附属病院の第一内科学講座から新設された医学部保健学科に赴任し、以来17年間をここ大幸地区で過ご...
+  私は、本年3月31日をもって名古屋大学を定年で退職します。 平成10年4月に、名古屋大学医学部附属病院の第一内科学講座から新設された医学部保健学科に赴任し、以来17年間をここ大幸地区で過ごしま...
 
 # 講師名
-lecturer: "村手隆"
+lecturer: "村手隆 教授"
 
 # 部局名
 department: "医学部／医学系研究"
@@ -36,6 +36,7 @@ attachments:
 
 # 関連するタグ
 tags:
+ - "医学"
 
 # 色付けのロールにするか
 featuredpost: true
@@ -48,14 +49,14 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-featuredmovie: 
+movie: 
 
 # 記事投稿日
 date: 2017-02-15 14:08:22
 ---
 
-### 名古屋大学を去るにあたって
 
+### 名古屋大学を去るにあたって
 
 私は、本年3月31日をもって名古屋大学を定年で退職します。
 
@@ -70,65 +71,44 @@ date: 2017-02-15 14:08:22
 
 ## 講師紹介
 
-
 村手 隆 (むらて・たかし) 大学院医学系研究科 医療技術学専攻教授
-
 
 ### 学歴
 
-
-
 * 1950年 名古屋大学 医学部 医学科 卒業
-
 * 1957年 名古屋大学大学院 医学研究科 内科学 博士課程 修了
-
 
 ### 取得学位
 
-
-
 * 医学博士 , 名古屋大学 , 課程
-
 
 ### 研究分野を表すキーワード
 
-
-
 * 血液検査学 , 造血障害 , スフィンゴ脂質代謝
-
 
 ### 専門分野
 
-
-
 * 病態検査学
-
 * 血液内科学
-
 
 ### 所属学会等
 
-
-
 * 日本内科学会
-
 * 日本生化学会
-
 * 日本癌学会
-
 * 日本網内系学会
 * 日本輪血学会
 
 
-### 講義ビデオ
+<h3>講義ビデオ</h3>
+<p>
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86" target="blank">最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)</a> (Flashvideo, 1:29:56)
+<br>Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+<br>Google ChromeやSafari、Mozilla FireFoxでお試しください。
+</p>
 
-
-[最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86) (Flashvideo, 1:29:56)
-Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
-Google ChromeやSafari、Mozilla FireFoxでお試しください。
-
-
-### 講義資料
-
-
+<h3>講義資料</h3>
+<p>
 [Searching for the Sphinx of the Lipid (Sphingolipid)](/files/488/lecture.pdf) 
+</p>
+

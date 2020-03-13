@@ -10,10 +10,10 @@ title: "最終講義-Characters,-character-sheaves-and-beyond"
 
 # 簡単な説明
 description: >-
-  私が大学院生だった1970年代の中頃、ドリーニュトルスティックによるプレプリントが廻ってきた。電子メールなどなかった当時、コピーを重ねて薄汚れたその論文は、有限簡約群の表現論に関する重要な予想...
+  私が大学院生だった1970年代の中頃、ドリーニュトルスティックによるプレプリントが廻ってきた。電子メールなどなかった当時、コピーを重ねて薄汚れたその論文は、有限簡約群の表現論に関する重要な予想を全...
 
 # 講師名
-lecturer: "庄司俊明"
+lecturer: "庄司俊明 教授"
 
 # 部局名
 department: "多元数理科学研究科"
@@ -36,6 +36,7 @@ attachments:
 
 # 関連するタグ
 tags:
+ - "数学"
 
 # 色付けのロールにするか
 featuredpost: true
@@ -48,14 +49,14 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-featuredmovie: 
+movie: 
 
 # 記事投稿日
 date: 2017-02-15 15:20:48
 ---
 
-### 表現論の流れに身をまかせ
 
+### 表現論の流れに身をまかせ
 
 私が大学院生だった1970年代の中頃、ドリーニュトルスティックによるプレプリントが廻ってきた。電子メールなどなかった当時、コピーを重ねて薄汚れたその論文は、有限簡約群の表現論に関する重要な予想を全く新しい手法で解決した劃期的な論文だった。そこで使われた幾何的手法は当時の有限群の表現論の常識を打ち破る斬新なもので、我々にはまるで天上の世界の論理のように思えたのだった。有限簡約群の表現論の最も重要な問題である、既約表現の分類とその指標の記述は、その後ルスティックの主導のもと1980年代から1990年代にかけておおむね完成した。
 
@@ -64,59 +65,44 @@ date: 2017-02-15 15:20:48
 私はこの3月で定年だが、数学者に定年はない。数学者は死ぬまで数学者でいるしかないだろうから、私は自分の夢を追い続けることにしよう。
 
 
+
 ![庄司 俊明 教授](/files/329/s_shoji.png) 
-
 ## 講師紹介
-
 
 庄司 俊明（しょうじ・としあき）多元数理科学研究科教授
 
-
 ### 学歴
 
-
-
 * 1970年03月 東京大学 理学部 数学科 卒業
-
 * 1972年03月 東京大学大学院 理学研究科 数学 修士課程 修了
-
 
 ### 取得学位
 
-
-
 * 理学博士 , 東京大学 , 論文 , 1981年
-
 
 ### 専門分野
 
-
-
 * 代数学
-
 
 ### 受賞学術賞
 
-
-
 * 代数学賞 , 2001年03月28日 , 日本数学会
 
-
 ### 所属学会
-
 
 * 日本数学会
 
 
-### 講義ビデオ
+<h3>講義ビデオ</h3>
+<p>
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28" target="blank">Characters, character sheaves and beyond</a>
+<br>Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+<br>Google ChromeやSafari、Mozilla FireFoxでお試しください。
+</p>
 
+<h3>講義資料</h3>
 
-[Characters, character sheaves and beyond](https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28)
-Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
-Google ChromeやSafari、Mozilla FireFoxでお試しください。
-
-
-### 講義資料
-
-
+<p>
 [Characters,character sheaves and beyond](/files/329/lshoji.pdf) 
+</p>
+

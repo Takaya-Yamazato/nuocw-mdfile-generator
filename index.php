@@ -25,7 +25,7 @@ exec('/bin/rm ./src/pages/farewell/*' );
 $sort_key = "course_id";
 // $sort_key = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 230" ;
+$limit = "LIMIT 100 OFFSET 300" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -80,12 +80,12 @@ $courselist_sql = "SELECT c.course_id, c.course_name as course_name,
                    d.department_id, d.department_name as department_name, division,
                    array_to_string(array(
                       SELECT
-                        i.instructor_name
+                        i.instructor_id
                       FROM course_instructor ci, instructor i
                       WHERE ci.course_id = c.course_id AND
                             ci.instructor_id = i.instructor_id
                       ORDER BY ci.disp_order ASC
-                     ), '／') as instructor_name
+                     ), '／') as instructor_id
             FROM course c, department d, term_code_master tcm
             WHERE c.department_id = d.department_id AND
                   c.term = tcm.term_code AND
@@ -151,6 +151,7 @@ $course_name = str_replace('/', '／' , $course_name );
 $course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // $course_name = preg_replace("/(-|---)/", "-", $course_name );
+// $course_name = $course_name."-".$courselist_rows['year'] ;
 // $course_name = $course_name."-".$sort_key."-".$courselist_rows['year'] ;
 // $course_name = $course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'] ;
 
@@ -170,7 +171,21 @@ $course_date_array = pg_fetch_all($course_date_result);
 
 $course_date = $course_date_array[0]['time'];
 
-$lecturer = space_trim($courselist_rows['instructor_name']) ;
+// 講師　
+$lecturer_sql = "SELECT instructor_name, instructor_position 
+            FROM instructor WHERE instructor_id IN 
+            (SELECT instructor_id FROM course_instructor 
+            WHERE course_id = $sort_key) ";
+$lecturer_result = pg_query($lecturer_sql);
+if (!$lecturer_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+}
+
+$lecturer_array = pg_fetch_all($lecturer_result);
+// print_r($lecturer_array) ;
+
+$lecturer = space_trim($lecturer_array[0]['instructor_name'])." ".space_trim($lecturer_array[0]['instructor_position']) ;
+// echo "<br>".$lecturer ;
 
 // SQL文の作成
 // $course_sql = "SELECT * FROM course WHERE course.course_id = $sort_key " ;
@@ -218,6 +233,9 @@ $division = $division_code_master_array[0]['division_name'] ;
 $division = str_replace('/', '／' , $division );
 // echo "<br>".$division."<br>" ;
 
+$category = category ($division_code) ;
+$tags = category ($division_code) ;
+
 // 開講時限　term
 $term_code_master_sql = "SELECT name 
                             FROM term_code_master 
@@ -255,7 +273,7 @@ $file_directory_result = glob( $file_directory );
 // echo "<br>"; var_dump($attachments_array);
 $attaches = "";
 if (!$attachments_array){
-    echo "データがありません！" ;
+    // echo "データがありません！" ;
     // $attachments = "" ;
     $attaches = "";
 }else{
@@ -372,11 +390,12 @@ $course_home_sql = "SELECT contents.contents
                     AND pages.page_type = '51' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1301' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $course_home = get_contents($course_home_sql);
+
 // $course_home = convert_ocwlink ($course_home , $sort_key) ;
 
 // 52             | シラバス     | Syllabus              | syllabus         |        520
@@ -386,8 +405,8 @@ $syllabus_sql = "SELECT contents.contents
                     AND pages.page_type = '52' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $syllabus = get_contents ($syllabus_sql) ;
@@ -400,11 +419,14 @@ $calendar_sql = "SELECT contents.contents
                     AND pages.page_type = '53' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1301' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$calendar = get_contents ($calendar_sql) ;
+// $calendar = get_contents ($calendar_sql) ;
+$calendar = get_contents_without_Markdownify ($calendar_sql) ;
+
+
 // $calendar = convert_ocwlink ($calendar, $sort_key) ;
 
 // 54             | 講義ノート   | Lecture Notes         | lecturenotes     |        540
@@ -415,11 +437,12 @@ $lecture_notes_sql = "SELECT contents.contents
                     AND pages.page_type = '54' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$lecture_notes = get_contents ($lecture_notes_sql) ;
+// $lecture_notes = get_contents ($lecture_notes_sql) ;
+$lecture_notes = get_contents_without_Markdownify ($lecture_notes_sql) ;
 // $lecture_notes = convert_ocwlink ($lecture_notes, $sort_key) ;
 
 // 55             | 課題         | Assignments           | assignments      |        550
@@ -430,11 +453,11 @@ $assignments_sql = "SELECT contents.contents
                     AND pages.page_type = '55' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$assignment = get_contents($assignments_sql) ;
+$assignment = get_contents_without_Markdownify($assignments_sql) ;
 // $assignment = convert_ocwlink ($assignments, $sort_key) ;
 
 // 56             | 成績評価     | Evaluation            | evaluation       |        560
@@ -444,11 +467,11 @@ $evaluation_sql = "SELECT contents.contents
                     AND pages.page_type = '56' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101'
-                    AND NOT (page_status.status = '07' OR page_status.status = '08') 
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' ) 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$evaluation = get_contents($evaluation_sql);
+$evaluation = get_contents_without_Markdownify($evaluation_sql);
 // $evaluation = convert_ocwlink ($evaluation, $sort_key) ;
 
 // 57             | 学習成果     | Achievement           | achievement      |        570
@@ -458,11 +481,11 @@ $achievement_sql = "SELECT contents.contents
                     AND pages.page_type = '57' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
-$achievement = get_contents($achievement_sql);
+$achievement = get_contents_without_Markdownify($achievement_sql);
 // $achievement = convert_ocwlink ($achievement, $sort_key) ;
 
 // 58             | 参考資料     | Related Resources     | relatedresources |        580
@@ -472,11 +495,11 @@ $achievement = get_contents($achievement_sql);
                         AND pages.page_type = '58' 
                         AND pages.page_id = page_contents.page_id 
                         AND contents.pid = page_contents.contents_id 
-                        AND contents.type = '1101' 
-                        AND NOT (page_status.status = '07' OR page_status.status = '08')
+                        AND (contents.type = '1101' OR contents.type = '1301')
+                        AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                         ORDER BY contents.id DESC LIMIT 1; ";
 
-$related_resources = get_contents($related_resources_sql);
+$related_resources = get_contents_without_Markdownify($related_resources_sql);
 // $related_resources = convert_ocwlink ($related_resources, $sort_key) ;
 
 // 59             | 授業の工夫   | Teaching Tips         | teachingtips     |        590
@@ -486,8 +509,8 @@ $teaching_tips_sql = "SELECT contents.contents
                     AND pages.page_type = '59' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $teaching_tips = get_contents($teaching_tips_sql);
@@ -500,8 +523,8 @@ $farewell_lecture_home_sql = "SELECT contents.contents
                     AND pages.page_type = '71' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101'
-                    AND NOT (page_status.status = '07' OR page_status.status = '08') 
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' ) 
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // echo "<br>farewell_lecture_home_sql ".$farewell_lecture_home_sql."<br>" ;
@@ -516,8 +539,8 @@ $farewell_lecture_introduction_sql = "SELECT contents.contents
                     AND pages.page_type = '72' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 $farewell_lecture_introduction = get_contents($farewell_lecture_introduction_sql);
@@ -530,12 +553,12 @@ $farewell_lecture_resources_sql = "SELECT contents.contents
                     AND pages.page_type = '73' 
                     AND pages.page_id = page_contents.page_id 
                     AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1101' 
-                    AND NOT (page_status.status = '07' OR page_status.status = '08')
+                    AND (contents.type = '1101' OR contents.type = '1301')
+                    AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // $farewell_lecture_resources = "\n" ;
-$farewell_lecture_resources = get_contents($farewell_lecture_resources_sql);
+$farewell_lecture_resources = get_contents_without_Markdownify($farewell_lecture_resources_sql);
 // $farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $sort_key) ;
 
 // 講義映像
@@ -641,7 +664,9 @@ $templateKey = "farewell" ;
 $main_text = "
 ".$farewell_lecture_home."
 
+
 ".$farewell_lecture_introduction."
+
 
 ".$farewell_lecture_resources ;
 
@@ -687,6 +712,7 @@ attachments:
 
 # 関連するタグ
 tags:
+".$tags."
 
 # 色付けのロールにするか
 featuredpost: true
@@ -699,7 +725,7 @@ featuredimage: ".$featuredimage."
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-featuredmovie: ".$movie."
+movie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
@@ -709,21 +735,39 @@ date: ".$course_date."
 
   }else{
 
+$course_name = $course_name."-".$courselist_rows['year'] ;
 // 授業のファイル名
-$file_name = "./src/pages/courses/".$sort_key."-".$course_name."-".$division."-".$courselist_rows['year'].".md" ;
+// $file_name = "./src/pages/courses/".$sort_key."-".$course_name."-".$division."-".$courselist_rows['year'].".md" ;
+$file_name = "./src/pages/courses/".$sort_key."-".$course_name."-".$division.".md" ;
 
 $templateKey = "courses" ;
 
 // 以下、フルに出力する場合
 $main_text = "
 ".$course_home."
+
+
 ".$teaching_tips."
+
+
 ".$achievement."
+
+
 ".$syllabus."
+
+
 ".$calendar."
+
+
 ".$lecture_notes."
+
+
 ".$assignment."
+
+
 ".$evaluation."
+
+
 ".$related_resources ;
 
 // 以下、授業ホーム、授業の工夫、シラバス、スケジュール、講義ノート、成績評価のみを出力
@@ -779,12 +823,15 @@ credit: \"\"
 # pdfなどの追加資料
 attachments: 
 ".$attaches."
+
 # 関連するタグ
+# （取り急ぎ、カテゴリと同じにしてあります。）
 tags:
+".$tags."
 
 # カテゴリ
 category:
-  - culture
+".$category."
 
 # 色付けのロールにするか
 featuredpost: true
@@ -797,7 +844,7 @@ featuredimage: ".$featuredimage."
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-featuredmovie: ".$movie."
+movie: ".$movie."
 
 # 記事投稿日
 date: ".$course_date."
@@ -825,6 +872,9 @@ $fp_tmp2 = fopen('tmp2.md', 'w');
 $ocwlink = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
 
+$ocwpagelink = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
+$ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
+
 $ocwimg = '/(?<=\{ocwimg file=\").+?(?=\")/';
 $ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
 
@@ -834,6 +884,7 @@ $contents_desc = '/\#+\s(\S+)\s/';
 $studio_url = 'https://nuvideo.media.nagoya-u.ac.jp/embed/' ;
 $studio_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/embed\//' ;
 $studio_media = '/http:\/\/studio.media.nagoya-u.ac.jp\/videos\/watch.php\?\v\=/' ;
+
 
 while ($line = fgets($fp_tmp)) {
 
@@ -871,8 +922,14 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>line : ".$line."<br>";
     }
 
-
-    
+    // ocwpagelink
+    if( preg_match_all($ocwpagelink, $line, $ocwpagelink_match) ){
+        // echo "<br>ocwpagelink : ".$ocwpagelink." ocwpagelink_match : ".$ocwpagelink_match[0][0]."<br>" ;
+        preg_match_all($ocwpagelink_desc, $line, $desc_match);
+        // print_r($desc_match);
+        $line = "[".$desc_match[0][0]."](#".$desc_match[0][0].") \n" ;
+        // echo "<br>line : ".$line."<br>";
+    }    
     // スタジオ動画配信サーバ URL の変更
     $line = preg_replace($studio_media, $studio_url, $line);
     // echo "<br>line : ".$line."<br>";
@@ -889,7 +946,13 @@ while ($line = fgets($fp_tmp)) {
         // $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
         // $resources = preg_replace('/\{\}/', '' , $resources);
         // $resources = str_replace('\\', '' , $resources) ;
-    
+
+    // 残っている html たとえば <dd> タグを削除
+    // $line = strip_tags ($line) ;
+
+    // なぜだか残っている「{tr}」を改行へ変換
+    // $line = str_replace('{tr}', "\n" , $line) ;
+
     //$line = convert_ocwlink ($line) ;
     // echo "<br>line : ".$line."<br>";
     fwrite($fp_tmp2, $line);
@@ -904,14 +967,18 @@ fclose($fp_tmp2);
 // fclose($fp_tmp2);
 
 $main_text = file_get_contents('tmp2.md');
+
 // 改行が3連続する場合、ひとつにまとめる
 // $main_text = preg_replace('/(\n\n\n)+/us',"\n", $main_text );
 
-$courselist_text .= ltrim( $main_text ) ;
-// $courselist_text .= $main_text ;
+// 最後に、よく分からない タグを「# 」で協調
+// $main_text = str_replace('{', '# ' , $main_text) ;  
+
+// $courselist_text .= ltrim( $main_text ) ;
+$courselist_text .= $main_text ;
 
 
-    // echo "<br><br>" ; var_dump($courselist_text) ;
+// echo "<br><br>" ; var_dump($courselist_text) ;
 
 $fp = fopen($file_name, "w");
 fwrite($fp,$courselist_text);
