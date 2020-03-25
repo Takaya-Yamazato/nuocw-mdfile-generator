@@ -30,9 +30,9 @@ credit:
 # pdfなどの追加資料
 attachments:
   - name: "素材１"
-    path: env_fujimae.jpg
+    path: materials/assets.zip
   - name: "素材２"
-    path: env_tahara.jpg
+    path: materials/presentation.pdf"
 
 # 関連するタグ
 tags:

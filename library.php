@@ -74,9 +74,39 @@ function entities2text($text)
       }, $text);
 }
 
+function check_page_status ($course_id, $page_type){
 
+    // echo "<br>course_id : ".$course_id." page_type : ".$page_type."<br>" ;
 
-function get_contents ($sql) {
+    $page_id_sql = "SELECT p.page_id FROM pages p 
+        WHERE p.course_id = $course_id AND p.page_type = '$page_type'
+        AND NOT EXISTS 
+        ( SELECT p_s.status FROM page_status p_s 
+          WHERE p_s.page_id = p.page_id AND 
+          ( p_s.status = '06' OR p_s.status = '07' 
+            OR p_s.status = '08' OR p_s.status = '09') )
+        ORDER BY page_id ASC LIMIT 1 ; " ;
+    // echo $page_id_sql."<br>" ;
+
+    $page_id_result = pg_query($page_id_sql);
+
+    if (!$page_id_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+    }
+    $page_id_array = pg_fetch_all_columns($page_id_result);
+    return $page_id_array[0] ;
+
+    // echo "<br>page_id : ".$page_id."<br>" ;
+    // var_dump($page_id_sql) ;
+    // var_dump($page_id_array);
+}
+
+function get_contents ($page_id, $contents_type) {
+    $sql = "SELECT contents.contents FROM page_contents, contents 
+    WHERE contents.pid = page_contents.contents_id 
+    AND contents.type = '$contents_type'
+    AND page_contents.page_id = $page_id 
+    ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     $result = pg_query($sql);
     if (!$result) {
@@ -192,7 +222,12 @@ function get_contents ($sql) {
     return $contents ;
 }
 
-function get_contents_without_Markdownify ($sql) {
+function get_contents_without_Markdownify ($page_id, $contents_type) {
+    $sql = "SELECT contents.contents FROM page_contents, contents 
+                    WHERE contents.pid = page_contents.contents_id 
+                    AND contents.type = '$contents_type'
+                    AND page_contents.page_id = $page_id 
+                    ORDER BY contents.id DESC LIMIT 1 ; " ;
 
   $result = pg_query($sql);
   if (!$result) {
@@ -245,7 +280,7 @@ function get_contents_without_Markdownify ($sql) {
   }
 }
 
-// function convert_ocwlink ($resources, $sort_key){
+// function convert_ocwlink ($resources, $course_id){
 
 //   $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 //   preg_match_all($file, $resources, $file_match);
@@ -257,7 +292,7 @@ function get_contents_without_Markdownify ($sql) {
 //   $ii = 0;
 //   foreach ($desc_match[0] as $value){
 //       $resources .= 
-//       "- [".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//       "- [".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
 //       $ii++;
 //     }
 
@@ -268,7 +303,7 @@ function get_contents_without_Markdownify ($sql) {
 //   return $resources ;
 // }
 
-// function convert_ocwimg ($resources, $sort_key){
+// function convert_ocwimg ($resources, $course_id){
 
 //   $file = '/(?<=\{ocwimg file=\").+?(?=\")/';
 //   preg_match_all($file, $resources, $file_match);
@@ -281,7 +316,7 @@ function get_contents_without_Markdownify ($sql) {
 //   $temp = "";
 //   foreach ($desc_match[0] as $value){
 //       $temp .= 
-//       "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
+//       "\n\n ![".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
 //       $ii++;
 //     }
 
