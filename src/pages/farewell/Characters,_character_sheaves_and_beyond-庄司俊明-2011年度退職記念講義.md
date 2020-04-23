@@ -2,6 +2,9 @@
 # テンプレート指定
 templateKey: farewell
 
+# コースID
+course_id: "100102"
+
 # タイトル
 title: "最終講義 - Characters, character sheaves and beyond"
 

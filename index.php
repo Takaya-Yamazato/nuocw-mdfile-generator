@@ -27,9 +27,9 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/*'  
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 500" ;
+$limit = "LIMIT 00 OFFSET 500" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/tmp.html'  );
