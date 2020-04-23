@@ -10,7 +10,7 @@ title: "Markdownサンプルページ-2016"
 
 # 簡単な説明
 description: >-
-   ...
+   ....
 # 講師名
 lecturer: "大森博司 教授"
 
@@ -133,11 +133,11 @@ date: 2017-06-22 10:41:45
 コロンの後ろにスペースを入れ、前後に空白行を入れてください。
 
 第1回
-[説明文を入れます](http://ocw.nagoya-u.jp/files/398/アップロードしたファイル名を入れます) 
+[説明文を入れます](https://ocw.nagoya-u.jp/files/398/アップロードしたファイル名を入れます) 
 
 
 第3回
-[第3回講義資料](http://ocw.nagoya-u.jp/files/398/lecture2.pdf) 
+[第3回講義資料](https://ocw.nagoya-u.jp/files/398/lecture2.pdf) 
 
 
 

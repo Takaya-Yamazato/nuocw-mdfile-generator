@@ -10,7 +10,7 @@ title: "Introductory-Accounting-I-2014"
 
 # 簡単な説明
 description: >-
-   ...
+   ....
 # 講師名
 lecturer: "野口晃弘 教授"
 
@@ -32,6 +32,10 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "講義資料" 
+    path: /files/442/Noguchi_lec_note
+  - name: "" 
+    path: /files/442/Noguchi_lec_note.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -184,7 +188,7 @@ Ability to speak and discuss accounting and bookkeeping in English will be requi
 
 
 -
-[Introduction](http://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf) 
+[Introduction](https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf) 
 
 
 

@@ -10,7 +10,7 @@ title: "Development-Sociology-開発社会学-2015"
 
 # 簡単な説明
 description: >-
-  This lecture series will introduce students to basic theories and approaches in international development. We will begin by examining how development has been defined, measured, and approached by the ...
+  This lecture series will introduce students to basic theories and approaches in international development. We will begin by examining how development has been defined, measured, and approached by the ....
 # 講師名
 lecturer: "伊東早苗 教授"
 
@@ -32,6 +32,32 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "" 
+    path: /files/357/10.pdf
+  - name: "" 
+    path: /files/357/1.pdf
+  - name: "" 
+    path: /files/357/11.pdf
+  - name: "" 
+    path: /files/357/12-15.pdf
+  - name: "" 
+    path: /files/357/2.pdf
+  - name: "" 
+    path: /files/357/3.pdf
+  - name: "" 
+    path: /files/357/4.pdf
+  - name: "" 
+    path: /files/357/5.pdf
+  - name: "" 
+    path: /files/357/6.pdf
+  - name: "" 
+    path: /files/357/7.pdf
+  - name: "" 
+    path: /files/357/8.pdf
+  - name: "" 
+    path: /files/357/9.pdf
+  - name: "" 
+    path: /files/357/full.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -159,7 +185,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Development Sociology 2015 (Full Document)](http://ocw.nagoya-u.jp/files/357/full.pdf) 
+[Development Sociology 2015 (Full Document)](https://ocw.nagoya-u.jp/files/357/full.pdf) 
 
 
 
@@ -170,7 +196,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Introduction: what is development?](http://ocw.nagoya-u.jp/files/357/1.pdf) 
+[Introduction: what is development?](https://ocw.nagoya-u.jp/files/357/1.pdf) 
 
 
 
@@ -181,7 +207,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[History of development](http://ocw.nagoya-u.jp/files/357/2.pdf) 
+[History of development](https://ocw.nagoya-u.jp/files/357/2.pdf) 
 
 
 
@@ -192,7 +218,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Theories of development](http://ocw.nagoya-u.jp/files/357/3.pdf) 
+[Theories of development](https://ocw.nagoya-u.jp/files/357/3.pdf) 
 
 
 
@@ -203,7 +229,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Post-development and alternatives to development](http://ocw.nagoya-u.jp/files/357/4.pdf) 
+[Post-development and alternatives to development](https://ocw.nagoya-u.jp/files/357/4.pdf) 
 
 
 
@@ -214,7 +240,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Gender and development](http://ocw.nagoya-u.jp/files/357/5.pdf) 
+[Gender and development](https://ocw.nagoya-u.jp/files/357/5.pdf) 
 
 
 
@@ -225,7 +251,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Globalization and development](http://ocw.nagoya-u.jp/files/357/6.pdf) 
+[Globalization and development](https://ocw.nagoya-u.jp/files/357/6.pdf) 
 
 
 
@@ -236,7 +262,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[The state, development agencies, and bilateral aid](http://ocw.nagoya-u.jp/files/357/7.pdf) 
+[The state, development agencies, and bilateral aid](https://ocw.nagoya-u.jp/files/357/7.pdf) 
 
 
 
@@ -247,7 +273,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Multilateral actors in development](http://ocw.nagoya-u.jp/files/357/8.pdf) 
+[Multilateral actors in development](https://ocw.nagoya-u.jp/files/357/8.pdf) 
 
 
 
@@ -258,7 +284,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Civil society and development](http://ocw.nagoya-u.jp/files/357/9.pdf) 
+[Civil society and development](https://ocw.nagoya-u.jp/files/357/9.pdf) 
 
 
 
@@ -269,7 +295,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Enviroment and development](http://ocw.nagoya-u.jp/files/357/10.pdf) 
+[Enviroment and development](https://ocw.nagoya-u.jp/files/357/10.pdf) 
 
 
 
@@ -280,7 +306,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Rural development](http://ocw.nagoya-u.jp/files/357/11.pdf) 
+[Rural development](https://ocw.nagoya-u.jp/files/357/11.pdf) 
 
 
 
@@ -291,7 +317,7 @@ This lecture series will introduce students to basic theories and approaches in 
 
 
 -
-[Social Research Methods](http://ocw.nagoya-u.jp/files/357/12-15.pdf) 
+[Social Research Methods](https://ocw.nagoya-u.jp/files/357/12-15.pdf) 
 
 
 

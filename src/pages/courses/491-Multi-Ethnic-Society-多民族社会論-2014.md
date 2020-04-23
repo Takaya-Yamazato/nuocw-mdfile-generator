@@ -10,7 +10,7 @@ title: "Multi-Ethnic-Society-多民族社会論-2014"
 
 # 簡単な説明
 description: >-
-  This course will deal with ethnicity-related issues. Starting from key concepts (ethnicity, nationalism, etc.), it will cover various topics and cases of nation-state building and majority-minority re ...
+  This course will deal with ethnicity-related issues. Starting from key concepts (ethnicity, nationalism, etc.), it will cover various topics and cases of nation-state building and majority-minority re ....
 # 講師名
 lecturer: "東村岳史 教授"
 
@@ -32,6 +32,46 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "講義資料" 
+    path: /files/491/note10.pdf
+  - name: "講義資料" 
+    path: /files/491/note11.pdf
+  - name: "講義資料" 
+    path: /files/491/note12.pdf
+  - name: "講義資料" 
+    path: /files/491/notes3.pdf
+  - name: "講義資料" 
+    path: /files/491/note13.pdf
+  - name: "講義資料" 
+    path: /files/491/notes4.pdf
+  - name: "講義資料" 
+    path: /files/491/notes5.pdf
+  - name: "講義資料" 
+    path: /files/491/notes6.pdf
+  - name: "講義資料" 
+    path: /files/491/notes7.pdf
+  - name: "講義資料" 
+    path: /files/491/note14.pdf
+  - name: "" 
+    path: /files/491/note2.pdf
+  - name: "" 
+    path: /files/491/notes9_2.pdf
+  - name: "" 
+    path: /files/491/notes10_2.pdf
+  - name: "" 
+    path: /files/491/notes11_2.pdf
+  - name: "" 
+    path: /files/491/notes12_2.pdf
+  - name: "" 
+    path: /files/491/notes13_2.pdf
+  - name: "" 
+    path: /files/491/notes14_2.pdf
+  - name: "" 
+    path: /files/491/note9.pdf
+  - name: "著作権処理" 
+    path: /files/491/s_notes14.pdf
+  - name: "第9回のURIミスを修正" 
+    path: /files/491/notes9_3.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -174,7 +214,7 @@ English
 
 
 -
-[Comparing concepts: ethnic group, nation, race, etc.](http://ocw.nagoya-u.jp/files/491/note2.pdf) 
+[Comparing concepts: ethnic group, nation, race, etc.](https://ocw.nagoya-u.jp/files/491/note2.pdf) 
 
 
 
@@ -183,7 +223,7 @@ English
 
 
 -
-[Modern nation-state building (1)](http://ocw.nagoya-u.jp/files/491/notes3.pdf) 
+[Modern nation-state building (1)](https://ocw.nagoya-u.jp/files/491/notes3.pdf) 
 
 
 
@@ -192,7 +232,7 @@ English
 
 
 -
-[Modern nation-state building (2)](http://ocw.nagoya-u.jp/files/491/notes4.pdf) 
+[Modern nation-state building (2)](https://ocw.nagoya-u.jp/files/491/notes4.pdf) 
 
 
 
@@ -201,7 +241,7 @@ English
 
 
 -
-[Pluralism (1)](http://ocw.nagoya-u.jp/files/491/notes5.pdf) 
+[Pluralism (1)](https://ocw.nagoya-u.jp/files/491/notes5.pdf) 
 
 
 
@@ -210,7 +250,7 @@ English
 
 
 -
-[Pluralism (2)](http://ocw.nagoya-u.jp/files/491/notes6.pdf) 
+[Pluralism (2)](https://ocw.nagoya-u.jp/files/491/notes6.pdf) 
 
 
 
@@ -219,7 +259,7 @@ English
 
 
 -
-[Nationality and citizenship](http://ocw.nagoya-u.jp/files/491/notes7.pdf) 
+[Nationality and citizenship](https://ocw.nagoya-u.jp/files/491/notes7.pdf) 
 
 
 
@@ -228,7 +268,7 @@ English
 
 
 -
-[Ethnic groups in mass media](http://ocw.nagoya-u.jp/files/491/notes9_3.pdf) 
+[Ethnic groups in mass media](https://ocw.nagoya-u.jp/files/491/notes9_3.pdf) 
 
 
 
@@ -237,7 +277,7 @@ English
 
 
 -
-[National integration and languages](http://ocw.nagoya-u.jp/files/491/notes10_2.pdf) 
+[National integration and languages](https://ocw.nagoya-u.jp/files/491/notes10_2.pdf) 
 
 
 
@@ -246,7 +286,7 @@ English
 
 
 -
-[Indigenous peoples, states and development (1)](http://ocw.nagoya-u.jp/files/491/notes11_2.pdf) 
+[Indigenous peoples, states and development (1)](https://ocw.nagoya-u.jp/files/491/notes11_2.pdf) 
 
 
 
@@ -255,7 +295,7 @@ English
 
 
 -
-[Indigenous peoples, states and development (2)](http://ocw.nagoya-u.jp/files/491/notes12_2.pdf) 
+[Indigenous peoples, states and development (2)](https://ocw.nagoya-u.jp/files/491/notes12_2.pdf) 
 
 
 
@@ -264,7 +304,7 @@ English
 
 
 -
-[Case study (1)](http://ocw.nagoya-u.jp/files/491/notes13_2.pdf) 
+[Case study (1)](https://ocw.nagoya-u.jp/files/491/notes13_2.pdf) 
 
 
 
@@ -273,7 +313,7 @@ English
 
 
 -
-[Case study (2)](http://ocw.nagoya-u.jp/files/491/s_notes14.pdf) 
+[Case study (2)](https://ocw.nagoya-u.jp/files/491/s_notes14.pdf) 
 
 
 

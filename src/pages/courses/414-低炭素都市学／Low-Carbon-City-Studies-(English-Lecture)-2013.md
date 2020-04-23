@@ -10,7 +10,7 @@ title: "低炭素都市学／Low-Carbon-City-Studies-(English-Lecture)-2013"
 
 # 簡単な説明
 description: >-
-   ...
+   ....
 # 講師名
 lecturer: "谷川寛樹 教授"
 

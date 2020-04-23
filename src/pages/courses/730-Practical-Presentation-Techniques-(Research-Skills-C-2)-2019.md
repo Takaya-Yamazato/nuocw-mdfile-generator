@@ -10,7 +10,7 @@ title: "Practical-Presentation-Techniques-(Research-Skills-C-2)-2019"
 
 # 簡単な説明
 description: >-
-  In an informal atmosphere, this course provides students with important skills, practice and confidence in communicating research effectively through presentations, as well as in writing abstracts/pro ...
+  In an informal atmosphere, this course provides students with important skills, practice and confidence in communicating research effectively through presentations, as well as in writing abstracts/pro ....
 # 講師名
 lecturer: "Mark WEEKS 准教授"
 
@@ -32,6 +32,8 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "text book" 
+    path: /files/730/book.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -114,7 +116,7 @@ Most lessons include a short interactive lecture. Students discuss issues raised
 
 ### 講義ノート
 
-[Presentation Skills/Techniques](http://ocw.nagoya-u.jp/files/730/book.pdf) 
+[Presentation Skills/Techniques](https://ocw.nagoya-u.jp/files/730/book.pdf) 
 
 
 

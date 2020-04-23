@@ -10,7 +10,7 @@ title: "Word-and-Image-in-Japanese-Narrative-I〜lV-2013"
 
 # 簡単な説明
 description: >-
-   ...
+   ....
 # 講師名
 lecturer: "ミギー・ディラン・パトリック 特任准教授"
 

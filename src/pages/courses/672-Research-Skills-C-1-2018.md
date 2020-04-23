@@ -10,7 +10,7 @@ title: "Research-Skills-C-1-2018"
 
 # 簡単な説明
 description: >-
-  The aims of this course are to help students/researchers in any field to: 1. acquire skills in creating logical, clear and persuasively effective academic presentations 2. develop confidence and compe ...
+  The aims of this course are to help students/researchers in any field to: 1. acquire skills in creating logical, clear and persuasively effective academic presentations 2. develop confidence and compe ....
 # 講師名
 lecturer: "Mark WEEKS 准教授"
 
@@ -32,6 +32,20 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "2019年版" 
+    path: /files/672/OCW Presentations book 2019.pdf
+  - name: "" 
+    path: /files/672/PRESENTATION SKILLS/TECHNIQUES Research Skills C1 & C2 Combined Course Materials
+  - name: "" 
+    path: /files/672/presentationskills
+  - name: "" 
+    path: /files/672/presentationskillstechniques
+  - name: "" 
+    path: /files/672/Presentations.png
+  - name: "" 
+    path: /files/672/OCW Presentations Collection 4-17.pdf
+  - name: "" 
+    path: /files/672/OCWPresentationsCollection.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -56,7 +70,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2019-07-11 10:20:35
+date: 2020-04-18 22:11:11
 ---
 
 ### 授業の内容
@@ -107,10 +121,10 @@ The combined central aims of these 2 courses include helping students/researcher
 3. write presentation/abstracts that will be accepted by conference selection committees.
 4. understand how to design and present effective research poster presentations.
 
-教科書・参考書
+### 教科書・参考書
 There is not textbook. All materials are provided by the instructor. Most materials are created by the instructor and can be accessed through this website.
 
-履修条件
+### 履修条件
 Simply be an enrolled student or designated researcher at this university.
 English skills sufficient to undertake classes conducted in English.
 
@@ -122,9 +136,8 @@ English skills sufficient to undertake classes conducted in English.
 
 
 ### 講義ノート
+[講義資料(2019年版)](https://ocw.nagoya-u.jp/files/672/presentationskillstechniques) 
 
-
-![](http://ocw.nagoya-u.jp/files/672/Presentations.png) 講義資料（2019年版）
 
 
 

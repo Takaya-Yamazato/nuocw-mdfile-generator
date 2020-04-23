@@ -10,7 +10,7 @@ title: "Academic-Writing(A)-Logical-Thinking-Skills-In-Academic-Writing-2013"
 
 # 簡単な説明
 description: >-
-   ...
+   ....
 # 講師名
 lecturer: "ポール・ライ・ウェイリン 准教授"
 
@@ -32,6 +32,10 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "" 
+    path: /files/409/Thesis statement recipe (30April13).pdf
+  - name: "" 
+    path: /files/409/Thesis Statement template 2014.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -178,9 +182,9 @@ This is a highly interactive course! You will be asked a lot of questions, and y
 
 ### 講義資料
 
-[What Is A Thesis Statement And How To Build One From Scratch](http://ocw.nagoya-u.jp/files/409/Thesis statement recipe (30April13).pdf) 
+[What Is A Thesis Statement And How To Build One From Scratch](https://ocw.nagoya-u.jp/files/409/Thesis statement recipe (30April13).pdf) 
 
-[How to build a clear thesis statement](http://ocw.nagoya-u.jp/files/409/Thesis Statement template 2014.pdf) 
+[How to build a clear thesis statement](https://ocw.nagoya-u.jp/files/409/Thesis Statement template 2014.pdf) 
 
 
 ### 講義映像

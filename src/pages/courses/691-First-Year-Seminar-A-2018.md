@@ -10,7 +10,7 @@ title: "First-Year-Seminar-A-2018"
 
 # 簡単な説明
 description: >-
-  This is one-semester long discussion-based seminar course. Students work in teams to research specific topics of interest and present them in class. The aim of this course is to widen students` perspe ...
+  This is one-semester long discussion-based seminar course. Students work in teams to research specific topics of interest and present them in class. The aim of this course is to widen students` perspe ....
 # 講師名
 lecturer: "VASSILEVA Maria Niko Associate Professor"
 
@@ -31,6 +31,8 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
+  - name: "" 
+    path: /files/691/video_thumb.png
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -55,18 +57,18 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2019-11-14 19:55:01
+date: 2020-04-19 18:17:01
 ---
 
 
 
-![](http://ocw.nagoya-u.jp/files/691/video_thumb.png) 
+![](https://ocw.nagoya-u.jp/files/691/video_thumb.png) 
 ### Course Overview
 
 This is one-semester long discussion-based seminar course. Students work in teams to research specific topics of interest and present them in class.
-The aim of this course is to widen students` perspective on biology-related issues.
+The aim of this course is to widen students' perspective on biology-related issues.
 The course is centered on several themes connecting biology with other sciences and social issues.
-The course will provide practice opportunities to organize and present one`s viewpoint, and debate it at an open forum. Special emphasis is given to teamwork skills development and ability to provide feedback in a respectful manner.
+The course will provide practice opportunities to organize and present one' s viewpoint, and debate it at an open forum. Special emphasis is given to teamwork skills development and ability to provide feedback in a respectful manner.
 One more integrated experience in this course is reading a book on a theme connecting biology with society (books provided by course instructor), and developing a book review to present in class.
 
 

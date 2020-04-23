@@ -11,8 +11,9 @@ require_once('lib/class/OCWDB.class.php');
 
 $nuocw_new_site_directory = '/Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/' ;
 
-exec('/bin/rm ./src/pages/courses/*'  );
-exec('/bin/rm ./src/pages/farewell/*' );
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*'  );
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*' );
+
 // 看板画像フォルダの初期化
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/*'  );
 // DBに接続
@@ -26,7 +27,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/*'  
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 40" ;
+$limit = "LIMIT 100 OFFSET 500" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -156,6 +157,8 @@ $course_name = space_trim( $course_name ) ;
 // $course_name = preg_replace('/\s(?=\s)/', '', $course_name );
 $course_name = preg_replace("/( |　)/", "-", $course_name );
 $course_name = str_replace('/', '／' , $course_name );
+$course_name = str_replace('?', '？' , $course_name );
+$course_name = str_replace('!', '！' , $course_name );
 $course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // $course_name = preg_replace("/(-|---)/", "-", $course_name );
@@ -289,6 +292,7 @@ $file_directory_result = glob( $file_directory );
 
 // echo "<br>"; var_dump($attachments_array);
 $attaches = "";
+$featuredimage = "/img/common/thumbnail.png";
 
 if (!$attachments_array){
     // echo "データがありません！" ;
@@ -310,6 +314,7 @@ if (!$attachments_array){
         // if ($attachment['description'] == '看板画像'){
             // echo $attachment['name']."    " ;
             // echo $attachment['description']."<br>" ;
+            // echo "<br>".$featuredimage ;
 
             $featuredimage = sprintf('%03d', $course_id)."-".trim( $attachment['name'] ) ; 
             $image_transfer  = "/bin/cp " ;
@@ -317,7 +322,7 @@ if (!$attachments_array){
             $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/".$featuredimage ;
             exec($image_transfer);
             $featuredimage = "/kanban/".$featuredimage ; 
-            // echo "<br>".$image_transfer."  ".$featuredimage ;
+            // echo "<br>".$featuredimage ;
 
             // foreach ( $file_directory_result as $file_directory_result_name) {
             //     if ( strcasecmp(basename($file_directory_result_name), trim( $attachment['name'] )) == 0 ) {
@@ -331,8 +336,8 @@ if (!$attachments_array){
             //     }
             // }
         }else{
-            // $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
-            // $attaches .= "    path: /files/".$course_id."/".$attachment['name'].= "\n" ;
+            $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
+            $attaches .= "    path: /files/".$course_id."/".$attachment['name'].= "\n" ;
             // $attache_file_name = trim ( $attachment['name'] ) ;
             
             foreach ( $file_directory_result as $file_directory_result_name) {
@@ -896,9 +901,12 @@ if(preg_match('/FlvPlayer/',$movie)){
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
 
+    $farewell_delete_name = array("最終講義-", "最終講義ー", "最終講義－");
+    $course_name = str_replace($farewell_delete_name, "", $course_name);
+
 // 最終講義のファイル名
 // $file_name = "./src/pages/farewell/".$course_id."-".$course_name."-".$courselist_rows['department_name'].".md" ;
-$file_name = "farewell/".$course_id."-".$course_name ;
+$file_name = "farewell/".sprintf('%03d', $course_id)."-".$course_name ;
 $templateKey = "farewell" ;
 
 $main_text = "
@@ -934,7 +942,7 @@ title: \"".$course_name."\"
 
 # 簡単な説明
 description: >-
-  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,200))) )." ...
+  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,200))) )." ....
 
 # 講師名
 lecturer: \"".$lecturer."\"
@@ -987,7 +995,7 @@ $course_name = $course_name."-".$courselist_rows['year'] ;
 // 授業のファイル名
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division."-".$courselist_rows['year'].".md" ;
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division.".md" ;
-$file_name = "courses/".$course_id."-".$course_name ;
+$file_name = "courses/".sprintf('%03d', $course_id)."-".$course_name ;
 
 $templateKey = "courses" ;
 
@@ -1050,7 +1058,7 @@ title: \"".$course_name."\"
 
 # 簡単な説明
 description: >-
-  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,200))) )." ...
+  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,200))) )." ....
 # 講師名
 lecturer: \"".$lecturer."\"
 
@@ -1171,7 +1179,7 @@ while ($line = fgets($fp_tmp)) {
         //print_r($file_match);
           preg_match_all($ocwimg_desc, $line, $desc_match);
         //print_r($desc_match);
-        $line = "\n![".$desc_match[0][0]."](http://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+        $line = "\n![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
      }    
 
      // ocwlink
@@ -1179,7 +1187,7 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>ocwlink : ".$ocwlink." ocwlink_match : ".$ocwlink_match[0][0]."<br>" ;
         preg_match_all($ocwlink_desc, $line, $desc_match);
         // print_r($desc_match);
-        $line = "[".$desc_match[0][0]."](http://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
+        $line = "[".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
         // echo "<br>line : ".$line."<br>";
     }
 
@@ -1192,7 +1200,11 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>line : ".$line."<br>";
     }    
 
-           
+    // stormvideo は削除
+    if(preg_match('/stormvideo_link/',$line)){
+        $line = "\n" ;
+      }
+
     // var_dump($nu_topics_link);
 
            
@@ -1287,11 +1299,21 @@ exec('/bin/rm tmp2.md'  );
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/courses/*.md') ;
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/farewell/*.md') ;
 
+// 以下、サンプルページ
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/course-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/') ;
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/') ;
 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/courses/') ;
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/farewell/') ;
+
+// adeos
+exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/*.md') ;
+exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
+
+exec('/bin/cp /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/* /Volumes/yamazato/Sites/nuocw-new-site/static/kanban/'  );
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+
 
 
 ?>
