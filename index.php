@@ -9,13 +9,13 @@ require_once('library.php');
 // require_once('lib/ocw_init.php') ;
 require_once('lib/class/OCWDB.class.php');
 
-$nuocw_new_site_directory = '/Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/' ;
+$nuocw_new_site_directory = '/Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/' ;
 
 exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*'  );
 exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*' );
 
 // 看板画像フォルダの初期化
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/*'  );
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'  );
 // DBに接続
 // $ocwpdb = pg_connect(ocwpdb);
 // if (!ocwpdb) {
@@ -27,15 +27,19 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/*'  
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 00 OFFSET 500" ;
+$limit = "LIMIT 100 OFFSET 500" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // htmlへ書き出し
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/tmp.html'  );
-$html_file_name = "/Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/tmp.html"; 
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
+$html_file_name = "/Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html"; 
 $fp_html = fopen($html_file_name, "w");
-$check_list = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><title>新旧OCWデータチェック</title></head>
+$check_list = "<html>
+<head>
+<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+    <title>新旧OCWデータチェック</title>
+</head>
 <body>" ;
 
 // // SQL文の作成
@@ -319,7 +323,7 @@ if (!$attachments_array){
             $featuredimage = sprintf('%03d', $course_id)."-".trim( $attachment['name'] ) ; 
             $image_transfer  = "/bin/cp " ;
             $image_transfer .= "/Users/yamazato/Sites/NUOCW-Project/files/".$course_id."/".$attachment['name'] ;
-            $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/".$featuredimage ;
+            $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/".$featuredimage ;
             exec($image_transfer);
             $featuredimage = "/kanban/".$featuredimage ; 
             // echo "<br>".$featuredimage ;
@@ -330,7 +334,7 @@ if (!$attachments_array){
             //         $featuredimage = $course_id."-".trim( $attachment['name'] ) ; 
             //         $image_transfer  = "/bin/cp " ;
             //         $image_transfer .= "/Users/yamazato/Sites/files/".$featuredimage ;
-            //         $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/".$featuredimage ;
+            //         $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/".$featuredimage ;
             //         exec('$image_transfer');
             //         echo "<br>".$image_transfer ;
             //     }
@@ -1123,7 +1127,7 @@ echo "<br>ID: ".$course_id."\t".$file_name ;
 
 // tmp.html へも出力
 $check_list .="<br>".$course_id."-".$course_name."\t&emsp;<a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a>" ;
-$check_list .="\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n" ;
+$check_list .="\t&emsp;<a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
@@ -1296,23 +1300,23 @@ fclose($fp_html);
 exec('/bin/rm tmp.md'  );
 exec('/bin/rm tmp2.md'  );
 
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/courses/*.md') ;
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/farewell/*.md') ;
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/courses/*.md') ;
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/*.md') ;
 
 // 以下、サンプルページ
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/course-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/') ;
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/') ;
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/course-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/') ;
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/') ;
 
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/courses/') ;
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/ocw-preview/src/pages/farewell/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/courses/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/') ;
 
 // adeos
-exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/*.md') ;
-exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
+// exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/*.md') ;
+// exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/*.md') ;
 
-exec('/bin/cp /Users/yamazato/Sites/NUOCW-Project/ocw-preview/static/kanban/* /Volumes/yamazato/Sites/nuocw-new-site/static/kanban/'  );
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
+// exec('/bin/cp /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/* /Volumes/yamazato/Sites/nuocw-new-site/static/kanban/'  );
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/') ;
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Volumes/yamazato/Sites/nuocw-new-site/src/pages/farewell/') ;
 
 
 
