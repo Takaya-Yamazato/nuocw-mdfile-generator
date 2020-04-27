@@ -292,7 +292,7 @@ None are required, but an English dictionary may be useful.
 
 ### 成績評価
 
-Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and self-study using e-learning (20%).
+Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">self-study using e-learning </a>(20%).
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
 

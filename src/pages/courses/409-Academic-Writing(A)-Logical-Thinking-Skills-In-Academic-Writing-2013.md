@@ -189,7 +189,7 @@ This is a highly interactive course! You will be asked a lot of questions, and y
 
 ### 講義映像
 
-Academic Writing2015:Introduction
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/4f48418da449dfbbc561ecf755d688fc3b4a7144" target="blank">Academic Writing2015:Introduction</a>
 
 
 

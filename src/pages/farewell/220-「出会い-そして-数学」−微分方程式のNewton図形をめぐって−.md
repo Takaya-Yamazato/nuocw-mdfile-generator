@@ -113,7 +113,7 @@ date: 2017-02-15 15:50:32
 
 ### 講義ビデオ
 
-「出会い そして 数学」−微分方程式のNewton図形をめぐって−
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/92bd622ea7a2be20f196ff85a46aa4ec87d8a4eb" target="blank">「出会い そして 数学」−微分方程式のNewton図形をめぐって−</a>
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 

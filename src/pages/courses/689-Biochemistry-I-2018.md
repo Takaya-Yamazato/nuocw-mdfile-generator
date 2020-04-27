@@ -125,7 +125,7 @@ movie:
 date: 2020-04-19 00:00:49
 ---
 
-
+<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/407f39f08be416a6ec61a50e70b17c73fb7be84e"><img width="400" src="http://nuvideo.media.nagoya-u.ac.jp/thumbs/4463/4861" alt="" /></a>
 
 ### Course Overview
 
@@ -146,9 +146,9 @@ This course covers thermodynamics of a system, building blocks of principle biom
 Lehninger Principles of Biochemistry, the 7th edition Principles of Biochemistry Voet & Voet, the 4th edition Biochemistry Stryer, the 8th edition
 
 ### Evaluation
-Midterm and final exam each  &nbsp;40 × 2 = 80%
-Quizzes &nbsp;10%
-Activities + Participation &nbsp;10%
+Midterm and final exam each  &nbsp;40 × 2 = 80%<br>
+Quizzes &nbsp;10%<br>
+Activities + Participation &nbsp;10%<br>
 
 
 ### Class schedule

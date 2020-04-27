@@ -217,7 +217,7 @@ function get_contents ($page_id, $contents_type) {
     $contents = str_replace('{#hr#}', '---' , $contents) ;  
     
     // 残っている html タグを削除
-    $contents = strip_tags ($contents) ;
+    // $contents = strip_tags ($contents) ;
 
     return $contents ;
 }

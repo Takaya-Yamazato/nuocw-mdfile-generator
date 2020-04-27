@@ -108,7 +108,7 @@ date: 2017-06-22 10:41:45
 4. 最後に空白行を入れてください。
 
 ### その他
-リンクを貼る時にはリンク先このように
+リンクを貼る時には<a href="http://www.ocw.nagoya-u.ac.jp" target="blank">リンク先</a>このように
 ダブルクオートの中にアドレスを入れてください。
 
 
@@ -140,10 +140,10 @@ date: 2017-06-22 10:41:45
 [第3回講義資料](https://ocw.nagoya-u.jp/files/398/lecture2.pdf) 
 
 
-
-
-
-この作品はクリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンスの下に提供されています。資料中の引用した部分は含みません。
+<br />
+<div align="right">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
+この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンスの下に提供されています。</a>資料中の引用した部分は含みません。</div>
 
 
 

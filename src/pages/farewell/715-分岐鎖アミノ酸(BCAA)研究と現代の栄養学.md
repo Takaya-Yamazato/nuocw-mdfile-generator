@@ -66,9 +66,9 @@ date: 2019-07-17 13:05:21
 
 
 
+<p>
 
-
-![下村吉治 教授](https://ocw.nagoya-u.jp/files/715/simomura.jpg) 
+![下村吉治 教授](https://ocw.nagoya-u.jp/files/715/simomura.jpg) </p>
 
 ## 講師紹介
 

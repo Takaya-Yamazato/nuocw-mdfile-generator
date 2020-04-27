@@ -109,7 +109,8 @@ date: 2020-04-13 22:01:19
 
 ### 講義ビデオ
 
-[最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
+<!--
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86" target="blank">最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)</a>--> [最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
 
 
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
