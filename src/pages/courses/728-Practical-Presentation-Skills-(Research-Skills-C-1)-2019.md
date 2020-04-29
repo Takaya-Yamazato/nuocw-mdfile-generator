@@ -33,7 +33,7 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "text book foe class" 
-    path: /files/728/book.pdf
+    path: https://ocw.nagoya-u.jp/files/728/book.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -58,7 +58,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2020-04-19 19:05:57
+date: 2020-04-28 22:51:50
 ---
 
 ### 授業の内容
@@ -97,17 +97,27 @@ The central aims of this course are to help students/researchers in any field to
 ### スケジュール
 Most lessons include a short interactive lecture by the instructor on themes listed below, with related group or class discussions and exercises. Here is a tentative schedule:
 
-1. Introduction: various aims and pleasures of presentations
-2. Reducing nervousness, finding your main idea and significance
-3. Creating logical flow, considering the audience’s knowledge and motivations
-4. Effective slide design principles
-5. Delivery: voice, body language, interaction with slides
-6. Question time strategies and language
-7-9. 1st presentations
-10. Communicating at the right level for different audiences
-11. Editing and delivery techniques for adapting to situations
-12-14. 2nd presentations
-15. Course review
+(1)  Introduction: various aims and pleasures of presentations
+
+(2) Reducing nervousness, finding your main idea and significance
+
+(3) Creating logical flow, considering the audience’s knowledge and motivations
+
+(4) Effective slide design principles
+
+(5) Delivery: voice, body language, interaction with slides
+
+(6) Question time strategies and language
+
+(7)-(9) 1st presentations
+
+(10) Communicating at the right level for different audiences
+
+(11) Editing and delivery techniques for adapting to situations
+
+(12)-(14) 2nd presentations
+
+(15) Course review
 
 * Students give 2 short presentations of 7-10 minutes using their own research or other research material.
 

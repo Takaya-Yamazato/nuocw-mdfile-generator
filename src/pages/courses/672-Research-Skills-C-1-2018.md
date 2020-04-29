@@ -33,19 +33,19 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "2019年版" 
-    path: /files/672/OCW Presentations book 2019.pdf
+    path: https://ocw.nagoya-u.jp/files/672/OCW Presentations book 2019.pdf
   - name: "" 
-    path: /files/672/PRESENTATION SKILLS/TECHNIQUES Research Skills C1 & C2 Combined Course Materials
+    path: https://ocw.nagoya-u.jp/files/672/PRESENTATION SKILLS/TECHNIQUES Research Skills C1 & C2 Combined Course Materials
   - name: "" 
-    path: /files/672/presentationskills
+    path: https://ocw.nagoya-u.jp/files/672/presentationskills
   - name: "" 
-    path: /files/672/presentationskillstechniques
+    path: https://ocw.nagoya-u.jp/files/672/Presentations.png
   - name: "" 
-    path: /files/672/Presentations.png
+    path: https://ocw.nagoya-u.jp/files/672/OCW Presentations Collection 4-17.pdf
   - name: "" 
-    path: /files/672/OCW Presentations Collection 4-17.pdf
+    path: https://ocw.nagoya-u.jp/files/672/OCWPresentationsCollection.pdf
   - name: "" 
-    path: /files/672/OCWPresentationsCollection.pdf
+    path: https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -70,7 +70,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2020-04-18 22:11:11
+date: 2020-04-29 11:42:58
 ---
 
 ### 授業の内容
@@ -136,7 +136,8 @@ English skills sufficient to undertake classes conducted in English.
 
 
 ### 講義ノート
-[講義資料(2019年版)](https://ocw.nagoya-u.jp/files/672/presentationskillstechniques) 
+
+[講義資料(2019年版)](https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf) 
 
 
 

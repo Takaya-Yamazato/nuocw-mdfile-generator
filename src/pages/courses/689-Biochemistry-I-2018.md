@@ -33,71 +33,71 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "" 
-    path: /files/689/1_Introduction.pdf
+    path: https://ocw.nagoya-u.jp/files/689/1_Introduction.pdf
   - name: "" 
-    path: /files/689/2_Thermodynamics.pdf
+    path: https://ocw.nagoya-u.jp/files/689/2_Thermodynamics.pdf
   - name: "" 
-    path: /files/689/3_Water.pdf
+    path: https://ocw.nagoya-u.jp/files/689/3_Water.pdf
   - name: "" 
-    path: /files/689/4_amino acids.pdf
+    path: https://ocw.nagoya-u.jp/files/689/4_amino acids.pdf
   - name: "" 
-    path: /files/689/5_Protein structures 2D.pdf
+    path: https://ocw.nagoya-u.jp/files/689/5_Protein structures 2D.pdf
   - name: "" 
-    path: /files/689/6_Protein structures 3D.pdf
+    path: https://ocw.nagoya-u.jp/files/689/6_Protein structures 3D.pdf
   - name: "" 
-    path: /files/689/7_HG.pdf
+    path: https://ocw.nagoya-u.jp/files/689/7_HG.pdf
   - name: "" 
-    path: /files/689/8-01_Chromatography.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-01_Chromatography.pdf
   - name: "" 
-    path: /files/689/8-02_Affinity Chromatography.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-02_Affinity Chromatography.pdf
   - name: "" 
-    path: /files/689/8-03_BIOCHEM.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-03_BIOCHEM.pdf
   - name: "" 
-    path: /files/689/8-04_ELISA.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-04_ELISA.pdf
   - name: "" 
-    path: /files/689/8-05_NMR
+    path: https://ocw.nagoya-u.jp/files/689/8-05_NMR
   - name: "" 
-    path: /files/689/8-05_NMR.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-05_NMR.pdf
   - name: "" 
-    path: /files/689/8-06_Protein NMR.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-06_Protein NMR.pdf
   - name: "" 
-    path: /files/689/8-07_PROTEIN SEQUENCING.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-07_PROTEIN SEQUENCING.pdf
   - name: "" 
-    path: /files/689/8-08_Protein sequencing(2).pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-08_Protein sequencing(2).pdf
   - name: "" 
-    path: /files/689/8-09_western blot.pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-09_western blot.pdf
   - name: "" 
-    path: /files/689/8-10_western blot(2).pdf
+    path: https://ocw.nagoya-u.jp/files/689/8-10_western blot(2).pdf
   - name: "" 
-    path: /files/689/9_enzymes I.pdf
+    path: https://ocw.nagoya-u.jp/files/689/9_enzymes I.pdf
   - name: "" 
-    path: /files/689/12-01_Biochem 1 PCR.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-01_Biochem 1 PCR.pdf
   - name: "" 
-    path: /files/689/12-02_biochem II (DNA sequencing).pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-02_biochem II (DNA sequencing).pdf
   - name: "" 
-    path: /files/689/12-03_Recombinant DNA and cloning.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-03_Recombinant DNA and cloning.pdf
   - name: "" 
-    path: /files/689/12-04_Biochem_recombination and cloning.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-04_Biochem_recombination and cloning.pdf
   - name: "" 
-    path: /files/689/12-05_DNA sequencing.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-05_DNA sequencing.pdf
   - name: "" 
-    path: /files/689/12-06_Gene Editing.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-06_Gene Editing.pdf
   - name: "" 
-    path: /files/689/12-07_PCR.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-07_PCR.pdf
   - name: "" 
-    path: /files/689/12-08_Gene Editing.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-08_Gene Editing.pdf
   - name: "" 
-    path: /files/689/12-09_RNA interfernce.pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-09_RNA interfernce.pdf
   - name: "" 
-    path: /files/689/12-10_RNA-interference(2).pdf
+    path: https://ocw.nagoya-u.jp/files/689/12-10_RNA-interference(2).pdf
   - name: "" 
-    path: /files/689/13_review.pdf
+    path: https://ocw.nagoya-u.jp/files/689/13_review.pdf
   - name: "" 
-    path: /files/689/answers for HW.pdf
+    path: https://ocw.nagoya-u.jp/files/689/answers for HW.pdf
   - name: "" 
-    path: /files/689/10_enzyme II.pdf
+    path: https://ocw.nagoya-u.jp/files/689/10_enzyme II.pdf
   - name: "" 
-    path: /files/689/11_nucleic acids.pdf
+    path: https://ocw.nagoya-u.jp/files/689/11_nucleic acids.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -119,13 +119,13 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: 
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/407f39f08be416a6ec61a50e70b17c73fb7be84e
 
 # 記事投稿日
-date: 2020-04-19 00:00:49
+date: 2020-04-29 11:18:52
 ---
 
-<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/407f39f08be416a6ec61a50e70b17c73fb7be84e"><img width="400" src="http://nuvideo.media.nagoya-u.ac.jp/thumbs/4463/4861" alt="" /></a>
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/407f39f08be416a6ec61a50e70b17c73fb7be84e" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 ### Course Overview
 
@@ -153,41 +153,56 @@ Activities + Participation &nbsp;10%<br>
 
 ### Class schedule
 | Month | Day | Topic |
-|:--:|------------------------------------------------------------|
+|:--:|:--:|:--------------------------------|
 | 10 | 15 | Introduction: chemical and cellular foundations of life|
-|    | 22 | Thermodynamics: physical foundation of life |
-|    | 29 | Water: Physical & chemical properties of water |
+| 10 | 22 | Thermodynamics: physical foundation of life |
+| 10 | 29 | Water: Physical & chemical properties of water |
 | 11 | 5 | Amino Acids |
-|    | 12 | Proteins: 2D structures |
-|    | 19 | Proteins: 3D structures |
-|    | 26 | Review session |
-|    | 29 | EXAM |
+| 11 | 12 | Proteins: 2D structures |
+| 11 | 19 | Proteins: 3D structures |
+| 11 | 26 | Review session |
+| 11 | 29 | EXAM |
 | 12 | 3 | Proteins in action: Hemoglobin |
-|    | 10 | Tools to study protein functions |
-|    | 17 | Protein function: enzyme I |
-|    | 26 | Protein function: enzyme II |
+| 12 | 10 | Tools to study protein functions |
+| 12 | 17 | Protein function: enzyme I |
+| 12 | 26 | Protein function: enzyme II |
 | 1 | 8 | Nucleic acids |
-|    | 21 | Nucleic acids: tools to understand |
-|    | 28 | Review session |
+| 1 | 21 | Nucleic acids: tools to understand |
+| 1 | 28 | Review session |
 | 2 | 4 | EXAM |
 
 
 ### 講義ノート
 
+----
 [01_Introduction](https://ocw.nagoya-u.jp/files/689/1_Introduction.pdf) 
 
+
+----
 [02_Thermodynamics](https://ocw.nagoya-u.jp/files/689/2_Thermodynamics.pdf) 
 
+
+----
 [03_Water](https://ocw.nagoya-u.jp/files/689/3_Water.pdf) 
 
+
+----
 [04_amino acids](https://ocw.nagoya-u.jp/files/689/4_amino acids.pdf) 
 
+
+----
 [05_Protein structures 2D](https://ocw.nagoya-u.jp/files/689/5_Protein structures 2D.pdf) 
 
+
+----
 [06_Protein structures 3D](https://ocw.nagoya-u.jp/files/689/6_Protein structures 3D.pdf) 
 
+
+----
 [07_HG](https://ocw.nagoya-u.jp/files/689/7_HG.pdf) 
 
+
+----
 [08-01_Chromatography](https://ocw.nagoya-u.jp/files/689/8-01_Chromatography.pdf) 
 
 [08-02_Affinity Chromatography](https://ocw.nagoya-u.jp/files/689/8-02_Affinity Chromatography.pdf) 
@@ -208,12 +223,20 @@ Activities + Participation &nbsp;10%<br>
 
 [08-10_western blot may](https://ocw.nagoya-u.jp/files/689/8-10_western blot(2).pdf) 
 
+
+----
 [09_enzymes I](https://ocw.nagoya-u.jp/files/689/9_enzymes I.pdf) 
 
+
+----
 [10_enzyme II](https://ocw.nagoya-u.jp/files/689/10_enzyme II.pdf) 
 
+
+----
 [11_nucleic acids](https://ocw.nagoya-u.jp/files/689/11_nucleic acids.pdf) 
 
+
+----
 [12-01_Biochem 1 PCR](https://ocw.nagoya-u.jp/files/689/12-01_Biochem 1 PCR.pdf) 
 
 [12-02_biochem ppt (DNA sequencing)](https://ocw.nagoya-u.jp/files/689/12-02_biochem II (DNA sequencing).pdf) 
@@ -234,10 +257,16 @@ Activities + Participation &nbsp;10%<br>
 
 [12-10_RNA-interference](https://ocw.nagoya-u.jp/files/689/12-10_RNA-interference(2).pdf) 
 
+
+----
 [13_review](https://ocw.nagoya-u.jp/files/689/13_review.pdf) 
 
+
+----
 [Answers for HW](https://ocw.nagoya-u.jp/files/689/answers for HW.pdf) 
 
+
+----
 
 
 

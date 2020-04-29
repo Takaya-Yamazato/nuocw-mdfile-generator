@@ -33,13 +33,13 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "Nilep先生　フィードバック資料" 
-    path: /files/631/feedback_sheet.pdf
+    path: https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf
   - name: "Nilep先生　Dealing" 
-    path: /files/631/Dealing with questions - Chad Nilep.pdf
+    path: https://ocw.nagoya-u.jp/files/631/Dealing with questions - Chad Nilep.pdf
   - name: "" 
-    path: /files/631/Intonation_for_Presentation_mobile.pdf
+    path: https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf
   - name: "" 
-    path: /files/631/Dealing_with_questions_ChadNilep.pdf
+    path: https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -64,7 +64,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2020-04-08 19:47:19
+date: 2020-04-29 12:19:27
 ---
 
 ### Course Content
@@ -111,20 +111,26 @@ Weekly quizzes, based on the textbook exercises, help students focus appropriate
 学会や社会で求められるプレゼンテーションを行えるよう、リーディング・スピーキング・リスニング・ライティングの各能力を高め、また４技能の統合を目指すことを目的とする。研究拠点大学たる名古屋大学の学生に相応しい学術英語を使いこなす能力を、実際の運用を前提とした学習活動を通して養う。自分の考えをその根拠とともにいかに説得力ある論理的な英文に組み立てるかというこれまで英語（基礎）・（中級）で養った知識・技能と、英語（コミュニケーション）で培ったコミュニケーション能力に加え、プレゼンテーションに必要な知識や技能を習得し、学術英語を使いこなす能力を更に発展させる。
 
 ### 履修条件あるいは関連する科目等
+
 Be sure to comply with all university requirements.
 
 ### 教科書
+
 Present Yourself 2. Steven Gershon. Cambridge. ISBN 978-1-107-43578-0
-Videos are available from:[www.cambridge.org/presentyourself](http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition"target="blank)
+
+Videos are available from: [www.cambridge.org/presentyourself](http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition)
 
 ### 参考書
+
 None are required, but an English dictionary may be useful.
 
 ### 注意事項
+
 対面授業に加え、課外学習教材[「eFace」](http://eface.ilas.nagoya-u.ac.jp/moodle/login/index.php)を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
 
 
 ### 担当者からの言葉
+
 初回の授業を欠席した場合は、課外学習の説明資料を[アカデミック・イングリッシュ支援室のサイト](http://elearn.ilas.nagoya-u.ac.jp/access/)からダウンロードすること。
 
 
@@ -207,7 +213,6 @@ None are required, but an English dictionary may be useful.
 </ul>
 [Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf) 
 
-			</td>
 </tr>
 <tr>
 <td>9</td>
@@ -228,7 +233,6 @@ None are required, but an English dictionary may be useful.
 </ul>
 [Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf) 
 
-				</td>
 </tr>
 <tr>
 <td>11</td>
@@ -292,9 +296,11 @@ None are required, but an English dictionary may be useful.
 
 ### 成績評価
 
-Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">self-study using e-learning </a>(20%).
+Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and [self-study using e-learning](http://elearn.ilas.nagoya-u.ac.jp/) (20%).
+
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
 
 
 

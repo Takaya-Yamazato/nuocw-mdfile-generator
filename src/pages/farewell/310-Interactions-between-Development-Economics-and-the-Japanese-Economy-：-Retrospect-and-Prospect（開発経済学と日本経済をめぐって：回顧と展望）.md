@@ -6,7 +6,7 @@ templateKey: "farewell"
 course_id: "310"
 
 # タイトル
-title: "Interactions-between-Development-Economics-and-the-Japanese-Economy-:-Retrospect-and-Prospect（開発経済学と日本経済をめぐって：回顧と展望）"
+title: "Interactions-between-Development-Economics-and-the-Japanese-Economy-：-Retrospect-and-Prospect（開発経済学と日本経済をめぐって：回顧と展望）"
 
 # 簡単な説明
 description: >-
@@ -118,5 +118,5 @@ date: 2017-02-23 15:08:43
 ### 講義ビデオ
 
 
-<a href="http://ocw.nagoya-u.jp/resource/2011_lastlecture_osada/" target="blank"> 最終講義ビデオ・スライドを見る (新しいウィンドウが開きます) (Flashvideo, 1:03:20)</a>
+<a href="http://ocw.nagoya-u.jp/resource/2011_lastlecture_osada/" target="blank" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 -----

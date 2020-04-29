@@ -33,45 +33,45 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "講義資料" 
-    path: /files/491/note10.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note10.pdf
   - name: "講義資料" 
-    path: /files/491/note11.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note11.pdf
   - name: "講義資料" 
-    path: /files/491/note12.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note12.pdf
   - name: "講義資料" 
-    path: /files/491/notes3.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes3.pdf
   - name: "講義資料" 
-    path: /files/491/note13.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note13.pdf
   - name: "講義資料" 
-    path: /files/491/notes4.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes4.pdf
   - name: "講義資料" 
-    path: /files/491/notes5.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes5.pdf
   - name: "講義資料" 
-    path: /files/491/notes6.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes6.pdf
   - name: "講義資料" 
-    path: /files/491/notes7.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes7.pdf
   - name: "講義資料" 
-    path: /files/491/note14.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note14.pdf
   - name: "" 
-    path: /files/491/note2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note2.pdf
   - name: "" 
-    path: /files/491/notes9_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes9_2.pdf
   - name: "" 
-    path: /files/491/notes10_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes10_2.pdf
   - name: "" 
-    path: /files/491/notes11_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes11_2.pdf
   - name: "" 
-    path: /files/491/notes12_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes12_2.pdf
   - name: "" 
-    path: /files/491/notes13_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes13_2.pdf
   - name: "" 
-    path: /files/491/notes14_2.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes14_2.pdf
   - name: "" 
-    path: /files/491/note9.pdf
+    path: https://ocw.nagoya-u.jp/files/491/note9.pdf
   - name: "著作権処理" 
-    path: /files/491/s_notes14.pdf
+    path: https://ocw.nagoya-u.jp/files/491/s_notes14.pdf
   - name: "第9回のURIミスを修正" 
-    path: /files/491/notes9_3.pdf
+    path: https://ocw.nagoya-u.jp/files/491/notes9_3.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）

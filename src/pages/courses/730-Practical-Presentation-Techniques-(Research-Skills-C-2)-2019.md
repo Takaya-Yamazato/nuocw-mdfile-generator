@@ -33,7 +33,7 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "text book" 
-    path: /files/730/book.pdf
+    path: https://ocw.nagoya-u.jp/files/730/book.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）

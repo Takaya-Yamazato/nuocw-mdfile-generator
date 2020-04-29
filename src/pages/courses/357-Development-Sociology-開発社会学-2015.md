@@ -33,31 +33,31 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "" 
-    path: /files/357/10.pdf
+    path: https://ocw.nagoya-u.jp/files/357/10.pdf
   - name: "" 
-    path: /files/357/1.pdf
+    path: https://ocw.nagoya-u.jp/files/357/1.pdf
   - name: "" 
-    path: /files/357/11.pdf
+    path: https://ocw.nagoya-u.jp/files/357/11.pdf
   - name: "" 
-    path: /files/357/12-15.pdf
+    path: https://ocw.nagoya-u.jp/files/357/12-15.pdf
   - name: "" 
-    path: /files/357/2.pdf
+    path: https://ocw.nagoya-u.jp/files/357/2.pdf
   - name: "" 
-    path: /files/357/3.pdf
+    path: https://ocw.nagoya-u.jp/files/357/3.pdf
   - name: "" 
-    path: /files/357/4.pdf
+    path: https://ocw.nagoya-u.jp/files/357/4.pdf
   - name: "" 
-    path: /files/357/5.pdf
+    path: https://ocw.nagoya-u.jp/files/357/5.pdf
   - name: "" 
-    path: /files/357/6.pdf
+    path: https://ocw.nagoya-u.jp/files/357/6.pdf
   - name: "" 
-    path: /files/357/7.pdf
+    path: https://ocw.nagoya-u.jp/files/357/7.pdf
   - name: "" 
-    path: /files/357/8.pdf
+    path: https://ocw.nagoya-u.jp/files/357/8.pdf
   - name: "" 
-    path: /files/357/9.pdf
+    path: https://ocw.nagoya-u.jp/files/357/9.pdf
   - name: "" 
-    path: /files/357/full.pdf
+    path: https://ocw.nagoya-u.jp/files/357/full.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）

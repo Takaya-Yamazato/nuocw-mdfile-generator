@@ -32,9 +32,9 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "安井先生、青松先生" 
-    path: /files/362/s_yasui-aomatsu.png
+    path: https://ocw.nagoya-u.jp/files/362/s_yasui-aomatsu.png
   - name: "講義ノート" 
-    path: /files/362/aomatsu.pdf
+    path: https://ocw.nagoya-u.jp/files/362/aomatsu.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）

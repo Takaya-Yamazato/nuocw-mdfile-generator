@@ -33,9 +33,9 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "講義資料" 
-    path: /files/442/Noguchi_lec_note
+    path: https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note
   - name: "" 
-    path: /files/442/Noguchi_lec_note.pdf
+    path: https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）

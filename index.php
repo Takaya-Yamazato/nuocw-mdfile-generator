@@ -27,7 +27,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 500" ;
+$limit = "LIMIT 300 OFFSET 400" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -163,6 +163,7 @@ $course_name = preg_replace("/( |　)/", "-", $course_name );
 $course_name = str_replace('/', '／' , $course_name );
 $course_name = str_replace('?', '？' , $course_name );
 $course_name = str_replace('!', '！' , $course_name );
+$course_name = str_replace(':', '：' , $course_name );
 $course_name = preg_replace('/-+/', '-', $course_name) ;
 
 // $course_name = preg_replace("/(-|---)/", "-", $course_name );
@@ -341,7 +342,7 @@ if (!$attachments_array){
             // }
         }else{
             $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
-            $attaches .= "    path: /files/".$course_id."/".$attachment['name'].= "\n" ;
+            $attaches .= "    path: https://ocw.nagoya-u.jp/files/".$course_id."/".$attachment['name'].= "\n" ;
             // $attache_file_name = trim ( $attachment['name'] ) ;
             
             foreach ( $file_directory_result as $file_directory_result_name) {
@@ -740,7 +741,8 @@ $farewell_place = "| 場所 | ".$farewell_place." |" ;
 $page_id = check_page_status ($course_id, $page_type = '71') ;
 if(!empty($page_id)){
 
-    $farewell_lecture_home = get_contents($page_id, $contents_type = '1101');
+    $farewell_lecture_home = get_contents_without_Markdownify($page_id, $contents_type = '1101');
+    $farewell_lecture_home = get_contents($page_id, $contents_type = '1101');    
     $farewell_lecture_home_del_firstline = preg_replace('/\###.*/um', '' , $farewell_lecture_home);
 
 }else{
@@ -1154,6 +1156,11 @@ $studio_url = 'https://nuvideo.media.nagoya-u.ac.jp/embed/' ;
 $studio_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/embed\//' ;
 $studio_media = '/http:\/\/studio.media.nagoya-u.ac.jp\/videos\/watch.php\?\v\=/' ;
 
+$studio_thumbs_url = 'https://nuvideo.media.nagoya-u.ac.jp/thumbs/' ;
+$studio_thumbs_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/thumbs\//' ;
+
+
+
 // 名大トピックス
 $nu_topics_link = '/名大トピックス/';
 $nu_topics_desc = '[名大トピックス](http://www.nagoya-u.ac.jp/about-nu/public-relations/publication/topics-archive.html)' ;
@@ -1184,6 +1191,7 @@ while ($line = fgets($fp_tmp)) {
           preg_match_all($ocwimg_desc, $line, $desc_match);
         //print_r($desc_match);
         $line = "\n![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+        // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
      }    
 
      // ocwlink
@@ -1192,6 +1200,7 @@ while ($line = fgets($fp_tmp)) {
         preg_match_all($ocwlink_desc, $line, $desc_match);
         // print_r($desc_match);
         $line = "[".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
+        // $line = "[".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
         // echo "<br>line : ".$line."<br>";
     }
 
@@ -1209,16 +1218,23 @@ while ($line = fgets($fp_tmp)) {
         $line = "\n" ;
       }
 
-    // var_dump($nu_topics_link);
-
-           
-  
+    // vsyllabus_direct_link
+    if (preg_match('/<a target=\"_blank\" href=/', $line)){
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);    
+    }
+    $vsyllabus_direct_link_to = ' width="640" height="360" frameborder="0" allowfullscreen></iframe>' ;
+    if (preg_match('/(?<=>).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
+        $vsyllabus_match = ">".$vsyllabus_direct_link_match[0]."</a>";
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
+            // echo "<br>line : ".$line."<br>";       
+    }
     // スタジオ動画配信サーバ URL の変更
     $line = preg_replace($studio_media, $studio_url, $line);
     // echo "<br>line : ".$line."<br>";
     $line = preg_replace($studio_url_old, $studio_url, $line);
     // echo "<br>line : ".$line."<br>";
-
+    $line = preg_replace($studio_thumbs_url_old, $studio_thumbs_url, $line);
+    
     // 名大トピックス
     $line = preg_replace( $nu_topics_link , $nu_topics_desc ,$line ) ;
 

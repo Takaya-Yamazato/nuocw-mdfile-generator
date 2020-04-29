@@ -33,9 +33,9 @@ credit: ""
 # pdfなどの追加資料
 attachments:
   - name: "" 
-    path: /files/409/Thesis statement recipe (30April13).pdf
+    path: https://ocw.nagoya-u.jp/files/409/Thesis statement recipe (30April13).pdf
   - name: "" 
-    path: /files/409/Thesis Statement template 2014.pdf
+    path: https://ocw.nagoya-u.jp/files/409/Thesis Statement template 2014.pdf
 
 # 関連するタグ
 # （取り急ぎ、カテゴリと同じにしてあります。）
@@ -189,7 +189,7 @@ This is a highly interactive course! You will be asked a lot of questions, and y
 
 ### 講義映像
 
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/4f48418da449dfbbc561ecf755d688fc3b4a7144" target="blank">Academic Writing2015:Introduction</a>
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/4f48418da449dfbbc561ecf755d688fc3b4a7144" target="blank" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 
 

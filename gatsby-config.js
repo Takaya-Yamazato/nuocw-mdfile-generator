@@ -18,14 +18,14 @@ module.exports = {
         name: "uploads",
       },
     },
-    {
-      // ocw-system の files 
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/static/files`,
-        name: "uploads",
-      },
-    },
+    // {
+    //   // ocw-system の files 
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/static/files`,
+    //     name: "uploads",
+    //   },
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
