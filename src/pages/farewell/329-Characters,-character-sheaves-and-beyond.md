@@ -102,7 +102,7 @@ date: 2017-02-15 15:20:48
 
 ### 講義ビデオ
 
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28" target="blank" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28" target="blank">Characters, character sheaves and beyond</a>
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 

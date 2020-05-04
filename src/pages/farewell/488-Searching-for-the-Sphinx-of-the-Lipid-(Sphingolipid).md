@@ -50,7 +50,7 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: 
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86
 
 # 記事投稿日
 date: 2020-04-13 22:01:19
@@ -110,7 +110,7 @@ date: 2020-04-13 22:01:19
 ### 講義ビデオ
 
 <!--
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86" target="blank" width="640" height="360" frameborder="0" allowfullscreen></iframe>--> [最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86" target="blank">最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)</a>--> [最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
 
 
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
