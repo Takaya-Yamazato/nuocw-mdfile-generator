@@ -929,7 +929,7 @@ $key_pharase = str_ireplace("####", " ", $key_pharase);
 $key_pharase = str_ireplace("###", " ", $key_pharase);
 
 
-echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
+// echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
 
 if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_pharase) ){
     //日本語文字列が含まれている
