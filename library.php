@@ -74,8 +74,39 @@ function entities2text($text)
       }, $text);
 }
 
+function check_page_status ($course_id, $page_type){
 
-function get_contents ($sql) {
+    // echo "<br>course_id : ".$course_id." page_type : ".$page_type."<br>" ;
+
+    $page_id_sql = "SELECT p.page_id FROM pages p 
+        WHERE p.course_id = $course_id AND p.page_type = '$page_type'
+        AND NOT EXISTS 
+        ( SELECT p_s.status FROM page_status p_s 
+          WHERE p_s.page_id = p.page_id AND 
+          ( p_s.status = '06' OR p_s.status = '07' 
+            OR p_s.status = '08' OR p_s.status = '09') )
+        ORDER BY page_id ASC LIMIT 1 ; " ;
+    // echo $page_id_sql."<br>" ;
+
+    $page_id_result = pg_query($page_id_sql);
+
+    if (!$page_id_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+    }
+    $page_id_array = pg_fetch_all_columns($page_id_result);
+    return $page_id_array[0] ;
+
+    // echo "<br>page_id : ".$page_id."<br>" ;
+    // var_dump($page_id_sql) ;
+    // var_dump($page_id_array);
+}
+
+function get_contents ($page_id, $contents_type) {
+    $sql = "SELECT contents.contents FROM page_contents, contents 
+    WHERE contents.pid = page_contents.contents_id 
+    AND contents.type = '$contents_type'
+    AND page_contents.page_id = $page_id 
+    ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     $result = pg_query($sql);
     if (!$result) {
@@ -92,28 +123,46 @@ function get_contents ($sql) {
 
         // 改行コードを LF(\n) に統一
         $contents = preg_replace("/\r\n|\r/","\n",$contents);
-        $contents = str_replace("\r\n","\n",$contents);
-        $contents = str_replace("\r","\n",$contents);
-        // print_r($contents);
+        // $line = str_replace("\r\n","\n",$line);
+        // $line = str_replace("\r","\n",$line);
 
-        // 全角スペースを半角へ変換
-        $contents = mb_convert_kana($contents, 's');
-        
-        // 文字列の先頭、末尾の半角全角スペース削除
-        $contents = space_trim($contents) ;
+        // {#pdf#} を削除
+        $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
 
-        // ### タイトル　を抜き出す
-        $contents_tag = '/\#+\s(\S+)\s/';
-        if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-          $ii = 0;
-          // print_r($tag_match);
-          // echo "<br>";
-          foreach ($tag_match[0] as $value){
-            $contents = str_replace( $tag_match[0][$ii] , "<br>".$tag_match[0][$ii]."<br>" , $contents ) ;
-              $ii++;
-              // echo "<br>".$ii." contents: ".$contents."<br>" ;
-            }
+        // ### タイトル　が　NULL なら html タグを markdown へ変換
+        $contents_tag = $contents_tag = '/\#+\s(\S+)/';
+        if ( preg_match_all($contents_tag, $contents) == NULL ){
+            // $md = new Markdownify\Converter() ;
+            $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, true);
+            // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
+            $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
+            unset($md);
         }
+
+        // // #で改行
+        // $contents_tag = $contents_tag = '/\#+(\S+)/';
+        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+        //   $ii = 0;
+        //   // print_r($tag_match);
+        //   // echo "<br>";
+        //   foreach ($tag_match[0] as $value){
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
+        //       $ii++;
+        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+        //     }
+        // }
+        // ### タイトル　を抜き出す
+        // $contents_tag = '/\#+\s(\S+)\s/';
+        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+        //   $ii = 0;
+        //   // print_r($tag_match);
+        //   // echo "<br>";
+        //   foreach ($tag_match[0] as $value){
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
+        //       $ii++;
+        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+        //     }
+        // }
         // // ###タイトル　を抜き出す（### の後にスペースが無い）        
         // $contents_tag = '/\#+(\S+)\s/';
         // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -121,98 +170,320 @@ function get_contents ($sql) {
         //   // print_r($tag_match);
         //   // echo "<br>";
         //   foreach ($tag_match[0] as $value){
-        //     $contents = str_replace( $tag_match[0][$ii] , "<br>".$tag_match[0][$ii]."<br>" , $contents ) ;
+        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
         //       $ii++;
         //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
         //     }
         // }
-            // * タイトル　を抜き出す
-            $contents_tag_asterisk = '/\*+\s(\S+)\s/';
-            if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
-              $ii = 0;
-              // print_r($tag_match);
-              // echo "<br>";
-              foreach ($tag_match_asterisk[0] as $value){
-                $contents = str_replace( $tag_match_asterisk[0][$ii] , "<br>".$tag_match_asterisk[0][$ii], $contents ) ;
-                  $ii++;
-                }
-            }            
-    }
+            // // * タイトル　を抜き出す
+            // $contents_tag_asterisk = '/\*+\s(\S+)\s/';
+            // if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
+            //   $ii = 0;
+            //   // print_r($tag_match);
+            //   // echo "<br>";
+            //   foreach ($tag_match_asterisk[0] as $value){
+            //     $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
+            //       $ii++;
+            //     }
+            // }
 
-    
-    // {#pdf#} を削除
-    if ( $contents = preg_replace('/\{#pdf#\}/', "", $contents) ){
-      // echo "<br>{#pdf#}<br>" ;
-      // print_r($contents);
         }
-
-    // html タグを markdown へ変換
-    // $md = new Markdownify\Converter() ;
-    $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, false);
-    // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
-    $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
-    unset($md);
-
-    // 残っている <dd> タグを削除
-    $contents = strip_tags ($contents) ;
+    
 
     // なぜだかバックスラッシュ「\」が残るので削る
     $contents = str_replace('\\', '' , $contents) ;
 
+    // なぜだか残っている「{tr}」を「<tr>」へ変換
+    $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+    // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+    // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+    // <dl> タグを削除
+    $contents = str_replace('<dl>', '' , $contents) ;
+    // </dl> タグを削除
+    $contents = str_replace('</dl>', '' , $contents) ;
+
+    // <dt> タグを「- 」へ変換
+    $contents = str_replace('<dt>', "- " , $contents) ;
+    // </dt> タグを削除
+    $contents = str_replace('</dt>', '' , $contents) ;
+
+    // <dd> タグを「- 」へ変換
+    $contents = str_replace('<dd>', "- " , $contents) ;
+    // </dd> タグを削除
+    $contents = str_replace('</dd>', '' , $contents) ;
+
+    // {#hr#} タグを「---」へ変換
+    $contents = str_replace('{#hr#}', '---' , $contents) ;  
+    
+    // 残っている html タグを削除
+    // $contents = strip_tags ($contents) ;
+
     return $contents ;
 }
 
+function get_contents_without_Markdownify ($page_id, $contents_type) {
+    $sql = "SELECT contents.contents FROM page_contents, contents 
+                    WHERE contents.pid = page_contents.contents_id 
+                    AND contents.type = '$contents_type'
+                    AND page_contents.page_id = $page_id 
+                    ORDER BY contents.id DESC LIMIT 1 ; " ;
 
+  $result = pg_query($sql);
+  if (!$result) {
+  die('クエリーが失敗しました。'.pg_last_error());
+  }
+  $array = pg_fetch_all($result);
+  if (!mbTrim($array[0]['contents'])){
+      // echo "データがありません！" ;
+      $contents ="" ;
+  }else{
+      // echo $array[0]['contents']."array<br>" ;
+      // print_r($array);
+      $contents = $array[0]['contents'] ;
 
-function convert_ocwlink ($resources, $sort_key){
+      // 改行コードを LF(\n) に統一
+      $contents = preg_replace("/\r\n|\r/","\n",$contents);
+      // $line = str_replace("\r\n","\n",$line);
+      // $line = str_replace("\r","\n",$line);
 
-  $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
-  preg_match_all($file, $resources, $file_match);
-  //print_r($file_match);
-  $desc = '/(?<=desc=\").+?(?=\")/';
-  preg_match_all($desc, $resources, $desc_match);
-  //print_r($desc_match);
-    
-  $ii = 0;
-  foreach ($desc_match[0] as $value){
-      $resources .= 
-      "- [".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-      $ii++;
-    }
+      // {#pdf#} を削除
+      $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
 
-  $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
-  $resources = preg_replace('/\{\}/', '' , $resources);
-  $resources = str_replace('\\', '' , $resources) ;
+      // なぜだかバックスラッシュ「\」が残るので削る
+      $contents = str_replace('\\', '' , $contents) ;
 
-  return $resources ;
+      // なぜだか残っている「{tr}」を「<tr>」へ変換
+      $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+      // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+      // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+      // <dl> タグを削除
+      $contents = str_replace('<dl>', '' , $contents) ;
+      // </dl> タグを削除
+      $contents = str_replace('</dl>', '' , $contents) ;
+
+      // <dt> タグを「####」へ変換
+      $contents = str_replace('<dt>', "- " , $contents) ;
+      // </dt> タグを削除
+      $contents = str_replace('</dt>', '' , $contents) ;
+
+      // <dd> タグを「- 」へ変換
+      $contents = str_replace('<dd>', "- " , $contents) ;
+      // </dd> タグを削除
+      $contents = str_replace('</dd>', '' , $contents) ;  
+
+      // {#hr#} タグを「---」へ変換
+      $contents = str_replace('{#hr#}', '---' , $contents) ;  
+
+  return $contents ;
+  }
 }
 
-function convert_ocwimg ($resources, $sort_key){
+// function convert_ocwlink ($resources, $course_id){
 
-  $file = '/(?<=\{ocwimg file=\").+?(?=\")/';
-  preg_match_all($file, $resources, $file_match);
-  //print_r($file_match);
-  $desc = '/(?<=alt=\").+?(?=\")/';
-  preg_match_all($desc, $resources, $desc_match);
-  //print_r($desc_match);
+//   $file = '/(?<=\{ocwlink file=\").+?(?=\")/';
+//   preg_match_all($file, $resources, $file_match);
+//   //print_r($file_match);
+//   $desc = '/(?<=desc=\").+?(?=\")/';
+//   preg_match_all($desc, $resources, $desc_match);
+//   //print_r($desc_match);
     
-  $ii = 0;
-  $temp = "";
-  foreach ($desc_match[0] as $value){
-      $temp .= 
-      "\n\n ![".$desc_match[0][$ii]."](/files/".$sort_key."/".$file_match[0][$ii].")\n" ;
-      $ii++;
-    }
+//   $ii = 0;
+//   foreach ($desc_match[0] as $value){
+//       $resources .= 
+//       "- [".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
+//       $ii++;
+//     }
 
-  // {〜} までを削除
-  $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
-  // 上で残った {} を削除
-  $resources = preg_replace('/\{\}/', '' , $resources);
-  // 半角バックスラッシュを削除
-  $resources = str_replace('\\', '' , $resources) ;
-  $resources = $temp."\n".$resources ;
+//   $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
+//   $resources = preg_replace('/\{\}/', '' , $resources);
+//   $resources = str_replace('\\', '' , $resources) ;
 
-  return $resources ;
+//   return $resources ;
+// }
+
+// function convert_ocwimg ($resources, $course_id){
+
+//   $file = '/(?<=\{ocwimg file=\").+?(?=\")/';
+//   preg_match_all($file, $resources, $file_match);
+//   //print_r($file_match);
+//   $desc = '/(?<=alt=\").+?(?=\")/';
+//   preg_match_all($desc, $resources, $desc_match);
+//   //print_r($desc_match);
+    
+//   $ii = 0;
+//   $temp = "";
+//   foreach ($desc_match[0] as $value){
+//       $temp .= 
+//       "\n\n ![".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
+//       $ii++;
+//     }
+
+//   // {〜} までを削除
+//   $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
+//   // 上で残った {} を削除
+//   $resources = preg_replace('/\{\}/', '' , $resources);
+//   // 半角バックスラッシュを削除
+//   $resources = str_replace('\\', '' , $resources) ;
+//   $resources = $temp."\n".$resources ;
+
+//   return $resources ;
+// }
+
+function category ($division_code){
+
+  switch ($division_code) {
+    case 100:
+        $category = " - \"教養\"" ;
+        break;
+    case 110:
+        $category = " - \"文学\"" ;
+        break;
+    case 111:
+        $category = " - \"文学\"" ;
+        break;
+    case 120:
+        $category = " - \"教育学\"" ;
+        break;
+    case 121:
+        $category = " - \"教育学\"" ;
+        break;
+    case 130:
+        $category = " - \"法学\"" ;
+        break;
+    case 140:
+		    $category = " - \"経済学\"" ;
+        break;
+    case 150:
+        $category = " - \"情報と文化\"" ;
+        break;
+    case 151:
+        $category = " - \"情報と文化\"" ;
+        break;
+    case 160:
+		    $category = " - \"理学\"" ;
+        break;
+    case 170:
+		    $category = " - \"医学\"" ;
+        break;
+    case 180:
+		    $category = " - \"工学\"" ;
+        break;
+    case 190:
+		    $category = " - \"農学\"" ;
+        break;
+    case 151:
+      $category = " - \"情報学\"" ;
+          break;
+    case 110:
+      $category = " - \"文学\"" ;
+          break;
+    case 61:
+      $category = " - \"情報学\"" ;
+          break;
+    case "1A0":
+        $category = " - \"情報と科学\"" ;
+        break;
+    case "1B0":
+        $category = " - \"国際開発\"" ;
+        break;
+    case "1C0":
+        $category = " - \"数学\"" ;
+        break;
+    case "1D0":
+        $category = " - \"言語と文化\"" ;
+        break;
+    case "1E0":
+        $category = " - \"環境学\"" ;
+        break;
+    case "1E1":
+        $category = " - \"薬学\"" ;
+        break;
+    case "1F0":
+        $category = " - \"言語\"" ;
+        break;
+    case 200:
+        $category = " - \"医学\"" ;
+        break;
+    case 210:
+        $category = " - \"宇宙と地球環境\"" ;
+        break;
+    case 220:
+        $category = " - \"科学\"" ;
+        break;
+    case 300:
+        $category = " - \"地球水循環\"" ;
+        break;
+    case 310:
+        $category = " - \"情報学\"" ;
+        break;
+    case 400:
+        $category = " - \"高等研究\"" ;
+        break;
+    case 410:
+        $category = " - \"保健体育\"" ;
+        break;
+    case 420:
+        $category = " - \"図書\"" ;
+        break;
+    case 430:
+        $category = " - \"アイソトープ\"" ;
+        break;
+    case 440:
+        $category = " - \"遺伝子\"" ;
+        break;
+    case 450:
+        $category = " - \"物質科学\"" ;
+        break;
+    case 460:
+        $category = " - \"高等教育\"" ;
+        break;
+    case 470:
+        $category = " - \"農学\"" ;
+        break;
+    case 480:
+        $category = " - \"年代測定\"" ;
+        break;
+    case 490:
+        $category = " - \"博物館\"" ;
+        break;
+    case 500:
+        $category = " - \"心理学\"" ;
+        break;
+    case 510:
+        $category = " - \"法学\"" ;
+        break;
+    case 520:
+        $category = " - \"生物学\"" ;
+        break;
+    case 530:
+        $category = " - \"情報学\"" ;
+        break;
+    case 540:
+        $category = " - \"小型シンクロトロン\"" ;
+        break;
+    case 550:
+        $category = " - \"図書\"" ;
+        break;
+    case 570:
+        $category = " - \"国際交流\"" ;
+        break;
+    case 580:
+        $category = " - \"電子\"" ;
+        break;
+    case 590:
+        $category = " - \"医学\"" ;
+        break;
+    case 635:
+        $category = " - \"国際交流\"" ;
+        break;
+    case 640:
+        $category = " - \"国際交流\"" ;
+        break;
+  }
+
+  return $category;
 }
 
 
