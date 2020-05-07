@@ -486,5 +486,57 @@ function category ($division_code){
   return $category;
 }
 
+/**
+ * Yahoo! JAPAN Web APIのご利用には、アプリケーションIDの登録が必要です。
+ * あなたが登録したアプリケーションIDを $appid に設定してお使いください。
+ * アプリケーションIDの登録URLは、こちらです↓
+ * http://e.developer.yahoo.co.jp/webservices/register_application
+ */
+$appid = 'dj00aiZpPTN4TVpRVXRKUjZzNiZzPWNvbnN1bWVyc2VjcmV0Jng9MWU-'; // <-- ここにあなたのアプリケーションIDを設定してください。
+
+function escapestring($str) {
+    return htmlspecialchars($str, ENT_QUOTES);
+}
+        
+if(isset($_REQUEST['sentence'])){
+  $sentence = mb_convert_encoding($_REQUEST['sentence'], 'utf-8', 'auto');
+ }else{
+  $sentence = "";
+}
+
+function show_keyphrase($appid, $sentence){
+  
+  $output = "xml";
+  $request  = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?";
+  $request .= "appid=".$appid."&sentence=".urlencode($sentence)."&output=".$output;
+  
+  $responsexml = simplexml_load_file($request);
+  
+  $result_num = count($responsexml->Result);
+
+  if($result_num > 0){
+    // echo "<table>";
+    // echo "<tr><td><b>キーフレーズ</b></td><td><b>スコア</b></td></tr>";
+
+    // for($i = 0; $i < $result_num; $i++){
+    $num = $result_num ;
+    if ( $result_num > 10){
+      $num = 10;
+    }else{
+      $num = $result_num ;  
+    }
+     for($i = 0; $i < $result_num; $i++){      
+      $result = $responsexml->Result[$i];
+      // var_dump($result);
+      if ( $result->Score >= 50){
+      // echo "<tr><td>".escapestring($result->Keyphrase)."</td><td>".escapestring($result->Score)."</td></tr>";
+$tags .= "
+  - \"".($result->Keyphrase)."\"" ;
+    }}
+    // echo "</table>";
+  }
+  return $tags;
+}
+
 
 ?>
