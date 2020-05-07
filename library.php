@@ -528,7 +528,7 @@ function show_keyphrase($appid, $sentence){
      for($i = 0; $i < $result_num; $i++){      
       $result = $responsexml->Result[$i];
       // var_dump($result);
-      if ( $result->Score > 50){
+      if ( $result->Score >= 50){
       // echo "<tr><td>".escapestring($result->Keyphrase)."</td><td>".escapestring($result->Score)."</td></tr>";
 $tags .= "
   - \"".($result->Keyphrase)."\"" ;
