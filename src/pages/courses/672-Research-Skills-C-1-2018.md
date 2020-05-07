@@ -48,9 +48,10 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "教養"
+  - "Research-Skills-C-1"
+  - "教養教育院"
 
 # カテゴリ
 category:

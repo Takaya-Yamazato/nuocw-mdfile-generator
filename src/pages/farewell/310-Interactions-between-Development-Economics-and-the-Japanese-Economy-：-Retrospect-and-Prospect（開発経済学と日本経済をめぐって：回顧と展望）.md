@@ -36,8 +36,22 @@ attachments:
 
 
 # 関連するタグ
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "国際開発"
+  - "アカウンタビリティ"
+  - "Retrospect-and-Prospect"
+  - "Interactions-between-Development-Economics-and-the-Japanese-Economy"
+  - "自戒"
+  - "凡人"
+  - "回顧"
+  - "ごらん"
+  - "教員"
+  - "新設"
+  - "物事"
+  - "深い母校"
+  - "展望"
+  - "本質"
+  - "発想"
 
 # 色付けのロールにするか
 featuredpost: true

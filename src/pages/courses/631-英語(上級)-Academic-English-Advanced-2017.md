@@ -42,9 +42,11 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "教養"
+  - "Academic-English-Advanced"
+  - "上級"
+  - "教養教育院"
 
 # カテゴリ
 category:

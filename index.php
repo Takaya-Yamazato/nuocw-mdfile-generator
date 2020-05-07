@@ -906,20 +906,38 @@ if(preg_match('/FlvPlayer/',$movie)){
 // echo "<br><br>";
 
 // Tags (key_phrase を Yahoo API から取得)
-$key_pharase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
-$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home,0,500))) ) ;
-$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+$key_pharase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
 
+if(preg_match( "/名大トピックス/", $farewell_lecture_home_del_firstline ) ){
+    //名大トピックスが含まれている
+    $key_pharase = $key_pharase_title ;
+    }else{
+    //名大トピックスが含まれていない
+    $key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+    }
+
+$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,500))) ) ;
+
+// Tagsに相応しくない文字を削除
 // $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
-$key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
-$key_pharase = str_replace("最終講義-", " ", $key_pharase);
-$key_pharase = str_replace("最終講義ー", " ", $key_pharase);
-// $key_pharase = str_ireplace("####", " ", $key_pharase);
-// $key_pharase = str_ireplace("###", " ", $key_pharase);
+// $key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
+$key_pharase_title = str_replace("最終講義-", "", $key_pharase_title);
+$key_pharase_title = str_replace("最終講義ー", "", $key_pharase_title);
+$key_pharase_title = str_replace("II", "", $key_pharase_title);
+$key_pharase_titel = str_replace("I", "", $key_pharase_title);
+$key_pharase = str_ireplace("####", " ", $key_pharase);
+$key_pharase = str_ireplace("###", " ", $key_pharase);
 
-// echo "<br> key_phrase = ".$key_pharase ;
 
-$tags = show_keyphrase($appid, $key_pharase);
+echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
+
+if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_pharase) ){
+    //日本語文字列が含まれている
+    $tags = show_keyphrase($appid, $key_pharase_title." ".$key_pharase );
+    }else{
+    //日本語文字列が含まれていない
+    $tags = show_keyphrase($appid, $key_pharase_title );
+    }
 
 echo "<br> tags = ".$tags ;
 
@@ -992,8 +1010,8 @@ attachments:
 
 
 # 関連するタグ
-tags:
-".$tags."
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+tags:".$tags."
 
 # 色付けのロールにするか
 featuredpost: true
@@ -1105,9 +1123,8 @@ credit: \"\"
 attachments:
 ".$attaches."
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
-tags:
-".$tags."
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+tags:".$tags."
 
 # カテゴリ
 category:

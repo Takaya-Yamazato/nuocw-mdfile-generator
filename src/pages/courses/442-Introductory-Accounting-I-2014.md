@@ -38,9 +38,10 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "経済学"
+  - "Introductory-Accounting-I"
+  - "経済学部"
 
 # カテゴリ
 category:

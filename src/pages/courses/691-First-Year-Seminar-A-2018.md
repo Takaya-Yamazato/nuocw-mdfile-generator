@@ -35,9 +35,9 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/691/video_thumb.png
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "国際交流"
+  - "First-Year-Seminar"
 
 # カテゴリ
 category:

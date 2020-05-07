@@ -74,9 +74,10 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/491/notes9_3.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "国際開発"
+  - "Multi-Ethnic-Society-多民族社会論"
+  - "国際開発研究科"
 
 # カテゴリ
 category:

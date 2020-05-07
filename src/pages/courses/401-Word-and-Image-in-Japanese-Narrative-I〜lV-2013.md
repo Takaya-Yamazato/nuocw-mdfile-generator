@@ -35,9 +35,10 @@ attachments:
     path: /img/common/thumbnail.png
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "国際交流"
+  - "Word-and-Image-in-Japanese-Narrative-I〜lV"
+  - "国際言語文化研究科"
 
 # カテゴリ
 category:

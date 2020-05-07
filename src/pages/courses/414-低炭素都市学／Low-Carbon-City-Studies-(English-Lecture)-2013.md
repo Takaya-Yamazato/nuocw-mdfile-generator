@@ -34,9 +34,11 @@ credit: ""
 attachments:
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "環境学"
+  - "English-Lecture"
+  - "Low-Carbon-City-Studies"
+  - "低炭素都市学"
 
 # カテゴリ
 category:

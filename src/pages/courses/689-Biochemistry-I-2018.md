@@ -100,9 +100,10 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/689/11_nucleic acids.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "国際交流"
+  - "Biochemistry-I"
+  - "名古屋大学国際プログラムG"
 
 # カテゴリ
 category:

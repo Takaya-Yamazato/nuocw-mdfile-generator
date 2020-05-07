@@ -37,9 +37,14 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/362/aomatsu.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "教育学"
+  - "Clinician-at-the-crossroads"
+  - "目前"
+  - "一連"
+  - "中津川プロジェクト"
+  - "診療"
+  - "患者"
 
 # カテゴリ
 category:

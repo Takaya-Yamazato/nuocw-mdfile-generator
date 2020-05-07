@@ -38,9 +38,10 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/409/Thesis Statement template 2014.pdf
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "教養"
+  - "Logical-Thinking-Skills-In-Academic-Writing"
+  - "Academic-Writing"
 
 # カテゴリ
 category:

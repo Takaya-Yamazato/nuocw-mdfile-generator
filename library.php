@@ -505,7 +505,7 @@ if(isset($_REQUEST['sentence'])){
 }
 
 function show_keyphrase($appid, $sentence){
-  
+  $sentence = escapestring($sentence) ;
   $output = "xml";
   $request  = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?";
   $request .= "appid=".$appid."&sentence=".urlencode($sentence)."&output=".$output;
@@ -528,7 +528,7 @@ function show_keyphrase($appid, $sentence){
      for($i = 0; $i < $result_num; $i++){      
       $result = $responsexml->Result[$i];
       // var_dump($result);
-      if ( $result->Score >= 50){
+      if ( $result->Score > 50){
       // echo "<tr><td>".escapestring($result->Keyphrase)."</td><td>".escapestring($result->Score)."</td></tr>";
 $tags .= "
   - \"".($result->Keyphrase)."\"" ;

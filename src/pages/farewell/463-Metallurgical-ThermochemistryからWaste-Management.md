@@ -36,8 +36,25 @@ attachments:
 
 
 # 関連するタグ
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "工学"
+  - "Metallurgical-Thermochemistry"
+  - "Waste-Management"
+  - "お陰"
+  - "若い戦友"
+  - "定年"
+  - "東山キャンパス"
+  - "ご厚誼"
+  - "エキス"
+  - "御礼"
+  - "大半"
+  - "手厚いサポート"
+  - "若い学生諸君"
+  - "新人"
+  - "長年"
+  - "退職記念講義"
+  - "一生"
+  - "大学教員"
 
 # 色付けのロールにするか
 featuredpost: true

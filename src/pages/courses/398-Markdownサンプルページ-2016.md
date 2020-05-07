@@ -35,9 +35,10 @@ attachments:
     path: /img/common/thumbnail.png
 
 # 関連するタグ
-# （取り急ぎ、カテゴリと同じにしてあります。）
+# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
- - "情報と科学"
+  - "test"
+  - "Markdownサンプルページ"
 
 # カテゴリ
 category:
