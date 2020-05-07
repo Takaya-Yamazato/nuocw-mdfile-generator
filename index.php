@@ -905,6 +905,24 @@ if(preg_match('/FlvPlayer/',$movie)){
     
 // echo "<br><br>";
 
+// Tags (key_phrase を Yahoo API から取得)
+$key_pharase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
+$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home,0,500))) ) ;
+$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+
+// $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
+$key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
+$key_pharase = str_replace("最終講義-", " ", $key_pharase);
+$key_pharase = str_replace("最終講義ー", " ", $key_pharase);
+// $key_pharase = str_ireplace("####", " ", $key_pharase);
+// $key_pharase = str_ireplace("###", " ", $key_pharase);
+
+// echo "<br> key_phrase = ".$key_pharase ;
+
+$tags = show_keyphrase($appid, $key_pharase);
+
+echo "<br> tags = ".$tags ;
+
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
 
     $farewell_delete_name = array("最終講義-", "最終講義ー", "最終講義－");
