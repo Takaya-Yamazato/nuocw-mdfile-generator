@@ -1233,7 +1233,7 @@ while ($line = fgets($fp_tmp)) {
         //print_r($file_match);
           preg_match_all($ocwimg_desc, $line, $desc_match);
         //print_r($desc_match);
-        $line = "\n![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+        $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
         // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
      }    
 
@@ -1242,7 +1242,7 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>ocwlink : ".$ocwlink." ocwlink_match : ".$ocwlink_match[0][0]."<br>" ;
         preg_match_all($ocwlink_desc, $line, $desc_match);
         // print_r($desc_match);
-        $line = "[".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
+        $line = "[".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") " ;
         // $line = "[".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
         // echo "<br>line : ".$line."<br>";
     }
@@ -1252,7 +1252,7 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br>ocwpagelink : ".$ocwpagelink." ocwpagelink_match : ".$ocwpagelink_match[0][0]."<br>" ;
         preg_match_all($ocwpagelink_desc, $line, $desc_match);
         // print_r($desc_match);
-        $line = "[".$desc_match[0][0]."](#".$desc_match[0][0].") \n" ;
+        $line = "[".$desc_match[0][0]."](#".$desc_match[0][0].") " ;
         // echo "<br>line : ".$line."<br>";
     }    
 
