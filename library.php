@@ -506,6 +506,10 @@ if(isset($_REQUEST['sentence'])){
 
 function show_keyphrase($appid, $sentence){
   $sentence = escapestring($sentence) ;
+//   $sentence = htmlspecialchars_decode($sentence);
+
+//   echo "<br><br>".$sentence ;
+
   $output = "xml";
   $request  = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?";
   $request .= "appid=".$appid."&sentence=".urlencode($sentence)."&output=".$output;

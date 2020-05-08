@@ -27,7 +27,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 300 OFFSET 400" ;
+$limit = "LIMIT 50 OFFSET 350" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -916,20 +916,25 @@ if(preg_match( "/名大トピックス/", $farewell_lecture_home_del_firstline )
     }else{
     //名大トピックスが含まれていない
     $key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+    // $key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($farewell_lecture_home_del_firstline)) ) ;
     }
 
 $key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,500))) ) ;
+// $key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($description)) ) ;
 
 // Tagsに相応しくない文字を削除
 // $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
 // $key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
 $key_pharase_title = str_replace("最終講義-", "", $key_pharase_title);
 $key_pharase_title = str_replace("最終講義ー", "", $key_pharase_title);
+$key_pharase_title = str_replace("最終講義―", "", $key_pharase_title);
+
 $key_pharase_title = str_replace("II", "", $key_pharase_title);
 $key_pharase_titel = str_replace("I", "", $key_pharase_title);
 $key_pharase = str_ireplace("####", " ", $key_pharase);
 $key_pharase = str_ireplace("###", " ", $key_pharase);
 
+$key_pharase = preg_replace('/\&oslash\;/', 'o', $key_pharase);
 
 // echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
 
@@ -941,11 +946,11 @@ if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_pharase) ){
     $tags = show_keyphrase($appid, $key_pharase_title );
     }
 
-echo "<br> tags = ".$tags ;
+// echo "<br> tags = ".$tags ;
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
 
-    $farewell_delete_name = array("最終講義-", "最終講義ー", "最終講義－");
+    $farewell_delete_name = array("最終講義-", "最終講義ー", "最終講義－", "最終講義―");
     $course_name = str_replace($farewell_delete_name, "", $course_name);
 
 // 最終講義のファイル名
