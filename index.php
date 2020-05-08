@@ -40,7 +40,9 @@ $check_list = "<html>
 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
     <title>新旧OCWデータチェック</title>
 </head>
-<body>" ;
+<body>
+<table>
+<tr><td><b>ファイル名</b></td><td><b>現OCW</b></td><td><b>新OCW</b></td></tr>" ;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
@@ -1163,8 +1165,8 @@ echo "<br>ID: ".$course_id."\t".$file_name ;
 // echo htmlspecialchars("\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n") ;
 
 // tmp.html へも出力
-$check_list .="<br>".$course_id."-".$course_name."\t&emsp;<a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a>" ;
-$check_list .="\t&emsp;<a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n" ;
+$check_list .="<tr><td>".$course_id."-".$course_name."</td><td><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
+$check_list .="<td><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
@@ -1350,7 +1352,7 @@ if ($close_ocwdb){
     print('<br><br>ocwdb：切断に成功しました。<br>');
     }
 
-$check_list .="<br></body></html>" ;
+$check_list .="</table><br></body></html>" ;
 fwrite($fp_html,$check_list);
 fclose($fp_html);
     
