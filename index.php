@@ -41,8 +41,8 @@ $check_list = "<html>
     <title>新旧OCWデータチェック</title>
 </head>
 <body>
-<table>
-<tr><td><b>ファイル名</b></td><td><b>現OCW</b></td><td><b>新OCW</b></td></tr>" ;
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" bordercolor=\"#C0C0C0\">
+<tr><td><b>現OCW</b></td><td><b>新OCW</b></td><td width=\"200\"><b>ファイル名</b></td></tr>" ;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
@@ -928,9 +928,9 @@ $key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_su
 $key_pharase_title = str_replace("最終講義-", "", $key_pharase_title);
 $key_pharase_title = str_replace("最終講義ー", "", $key_pharase_title);
 $key_pharase_title = str_replace("最終講義―", "", $key_pharase_title);
-
 $key_pharase_title = str_replace("II", "", $key_pharase_title);
 $key_pharase_titel = str_replace("I", "", $key_pharase_title);
+
 $key_pharase = str_ireplace("####", " ", $key_pharase);
 $key_pharase = str_ireplace("###", " ", $key_pharase);
 
@@ -1170,8 +1170,9 @@ echo "<br>ID: ".$course_id."\t".$file_name ;
 // echo htmlspecialchars("\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n") ;
 
 // tmp.html へも出力
-$check_list .="<tr><td>".$course_id."-".$course_name."</td><td><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
-$check_list .="<td><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td></tr>\n" ;
+$check_list .="<tr><td><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
+$check_list .="<td><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
+$check_list .="<td>".$course_id."-".$course_name."</td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;

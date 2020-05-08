@@ -542,5 +542,13 @@ $tags .= "
   return $tags;
 }
 
-
+function mb_wordwrap( $str, $width=20, $break=PHP_EOL )
+{
+    $c = mb_strlen($str);
+    $arr = [];
+    for ($i=0; $i<=$c; $i+=$width) {
+        $arr[] = mb_substr($str, $i, $width);
+    }
+    return implode($break, $arr);
+}
 ?>
