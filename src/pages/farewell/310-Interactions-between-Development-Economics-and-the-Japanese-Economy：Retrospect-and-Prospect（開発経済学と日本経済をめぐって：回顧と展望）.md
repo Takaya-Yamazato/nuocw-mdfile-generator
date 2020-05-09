@@ -6,7 +6,7 @@ templateKey: "farewell"
 course_id: "310"
 
 # タイトル
-title: "Interactions-between-Development-Economics-and-the-Japanese-Economy-：-Retrospect-and-Prospect（開発経済学と日本経済をめぐって：回顧と展望）"
+title: "Interactions-between-Development-Economics-and-the-Japanese-Economy：Retrospect-and-Prospect（開発経済学と日本経済をめぐって：回顧と展望）"
 
 # 簡単な説明
 description: >-
@@ -20,15 +20,6 @@ department: "国際開発研究科"
 
 # 開講時限
 term: "2011年度	退職記念講義"
-
-# 対象者、単位数、授業回数
-target: ""
-
-# 授業回数
-classes: ""
-
-# 単位数
-credit: ""
 
 # pdfなどの追加資料
 ## rootフォルダはstaticになっている

@@ -16,6 +16,7 @@ exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*'
 
 // 看板画像フォルダの初期化
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'  );
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*' );
 // DBに接続
 // $ocwpdb = pg_connect(ocwpdb);
 // if (!ocwpdb) {
@@ -167,6 +168,52 @@ $course_name = str_replace('?', '？' , $course_name );
 $course_name = str_replace('!', '！' , $course_name );
 $course_name = str_replace(':', '：' , $course_name );
 $course_name = preg_replace('/-+/', '-', $course_name) ;
+
+$course_name = str_replace('基礎セミナー-', '基礎セミナー' , $course_name );
+$course_name = str_replace('図書館情報リテラシー：-', '図書館情報リテラシー：' , $course_name );
+$course_name = str_replace('-—授業分析と教育の科学化—-', 'I-授業分析と教育の科学化-' , $course_name );
+$course_name = str_replace('-—産業・組織の心理学—-', '-産業・組織の心理学-' , $course_name );
+$course_name = str_replace('情報リテラシー-', '情報リテラシー' , $course_name );
+$course_name = str_replace('-—教育方法概論—-', '-教育方法概論-' , $course_name );
+$course_name = str_replace('−人間発達と社会の持続的発展の視点から−', '人間発達と社会の持続的発展の視点から' , $course_name );
+$course_name = str_replace('—国分寺瓦を題材として—-', '国分寺瓦を題材として-' , $course_name );
+$course_name = str_replace('—名大建築３年生が考える附属学校の校舎—-', '名大建築３年生が考える附属学校の校舎-' , $course_name );
+$course_name = str_replace('−-食と健康', '−食と健康' , $course_name );
+$course_name = str_replace('−内生的貨幣供給論および信用先行説の視点を取り込んで', '内生的貨幣供給論および信用先行説の視点を取り込んで' , $course_name );
+$course_name = str_replace('―現代の学力とカリキュラム―', '―現代の学力とカリキュラム' , $course_name );
+$course_name = str_replace('−-「法」と紛争解決―', '-「法」と紛争解決―' , $course_name );
+$course_name = str_replace('-韓流ドラマから「パッチギ」まで-', '韓流ドラマから「パッチギ」まで' , $course_name );
+$course_name = str_replace('-クリープ損傷力学から均質化法へ', 'クリープ損傷力学から均質化法へ' , $course_name );
+$course_name = str_replace('教育に魅せられて-', '教育に魅せられて' , $course_name );
+$course_name = str_replace('正義と法-', '正義と法' , $course_name );
+$course_name = str_replace('-変成岩-', '-変成岩' , $course_name );
+$course_name = str_replace('–-ワクワクしながら瞬き３回-–', 'ワクワクしながら瞬き３回-' , $course_name );
+$course_name = str_replace('－過去・現在・未来－', '過去・現在・未来' , $course_name );
+$course_name = str_replace('—コミュニケーション行為の歴史的考察(1)—-', '—コミュニケーション行為の歴史的考察(1)-' , $course_name );
+$course_name = str_replace('-—授業分析と教育の科学化—', '-授業分析と教育の科学化' , $course_name );
+$course_name = str_replace('—産業・組織の心理学—', '産業・組織の心理学' , $course_name );
+$course_name = str_replace('-：-', '：' , $course_name );
+$course_name = str_replace('—名大建築３年生が考える附属学校の校舎—', '—名大建築３年生が考える附属学校の校舎' , $course_name );
+$course_name = str_replace('—中津川市加子母地区のムラづくりを体験—', '—中津川市加子母地区のムラづくりを体験' , $course_name );
+$course_name = str_replace('生物リズムと行動研究-〜自由な学風と良き隣人に恵まれて〜', '生物リズムと行動研究〜自由な学風と良き隣人に恵まれて〜' , $course_name );
+$course_name = str_replace('韓流ドラマから「パッチギ」まで-−日韓関係を考える', '韓流ドラマから「パッチギ」まで−日韓関係を考える' , $course_name );
+$course_name = str_replace('—教育方法概論—', '教育方法概論' , $course_name );
+$course_name = str_replace('−名大形成外科の道−', '名大形成外科の道-' , $course_name );
+$course_name = str_replace('光は光速を超えて-', '光は光速を超えて' , $course_name );
+$course_name = str_replace('動機づけ研究の歩みと到達点-〜さて、上がってきたのか、', '動機づけ研究の歩みと到達点〜さて、上がってきたのか、' , $course_name );
+$course_name = str_replace('基礎セミナー-「法」と紛争解決', '基礎セミナー「法」と紛争解決' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
+// $course_name = str_replace('', '' , $course_name );
 
 // $course_name = preg_replace("/(-|---)/", "-", $course_name );
 // $course_name = $course_name."-".$courselist_rows['year'] ;
