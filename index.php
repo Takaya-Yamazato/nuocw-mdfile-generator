@@ -29,7 +29,7 @@ $course_id = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 50 OFFSET 350" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
@@ -917,12 +917,6 @@ $key_pharase = str_replace("最終講義ー", " ", $key_pharase);
 // $key_pharase = str_ireplace("####", " ", $key_pharase);
 // $key_pharase = str_ireplace("###", " ", $key_pharase);
 
-// echo "<br> key_phrase = ".$key_pharase ;
-
-$tags = show_keyphrase($appid, $key_pharase);
-
-echo "<br> tags = ".$tags ;
-
 // Tags (key_phrase を Yahoo API から取得)
 $key_pharase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
 
@@ -952,17 +946,19 @@ $key_pharase = str_ireplace("###", " ", $key_pharase);
 
 $key_pharase = preg_replace('/\&oslash\;/', 'o', $key_pharase);
 
-// echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
+$key_pharase = remove_accent($key_pharase);
+
+echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
 
 if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_pharase) ){
-    //日本語文字列が含まれている
+    //日本語文字列が含まれている（キーフレーズは日本語のみに適用）
     $tags = show_keyphrase($appid, $key_pharase_title." ".$key_pharase );
     }else{
     //日本語文字列が含まれていない
     $tags = show_keyphrase($appid, $key_pharase_title );
     }
 
-// echo "<br> tags = ".$tags ;
+echo "<br> tags = ".$tags ;
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
 
