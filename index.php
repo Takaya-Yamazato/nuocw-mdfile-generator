@@ -421,9 +421,9 @@ if (!($class_is_for_array[0]['contents'])){
     // echo "データがありません！" ;
     $class_is_for = "" ;
 }else{
-    // echo "class_is_for_array<br>" ;
-    // print_r($class_is_for_array);
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
+    echo "<br>class_is_for_array : ".$class_is_for."<br>" ;
+    // print_r($class_is_for_array);
 }
 
 $class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
@@ -906,6 +906,22 @@ if(preg_match('/FlvPlayer/',$movie)){
 // print('url_flv='.$courselist_rows['url_flv'].'<br>');
     
 // echo "<br><br>";
+$key_pharase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
+$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home,0,500))) ) ;
+$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+
+// $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
+$key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
+$key_pharase = str_replace("最終講義-", " ", $key_pharase);
+$key_pharase = str_replace("最終講義ー", " ", $key_pharase);
+// $key_pharase = str_ireplace("####", " ", $key_pharase);
+// $key_pharase = str_ireplace("###", " ", $key_pharase);
+
+// echo "<br> key_phrase = ".$key_pharase ;
+
+$tags = show_keyphrase($appid, $key_pharase);
+
+echo "<br> tags = ".$tags ;
 
 // Tags (key_phrase を Yahoo API から取得)
 $key_pharase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;

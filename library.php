@@ -494,16 +494,6 @@ function category ($division_code){
  */
 $appid = 'dj00aiZpPTN4TVpRVXRKUjZzNiZzPWNvbnN1bWVyc2VjcmV0Jng9MWU-'; // <-- ここにあなたのアプリケーションIDを設定してください。
 
-function escapestring($str) {
-    return htmlspecialchars($str, ENT_QUOTES);
-}
-        
-if(isset($_REQUEST['sentence'])){
-  $sentence = mb_convert_encoding($_REQUEST['sentence'], 'utf-8', 'auto');
- }else{
-  $sentence = "";
-}
-
 function show_keyphrase($appid, $sentence){
   $sentence = escapestring($sentence) ;
 //   $sentence = htmlspecialchars_decode($sentence);
