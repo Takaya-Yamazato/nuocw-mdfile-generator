@@ -122,7 +122,7 @@ function get_contents ($page_id, $contents_type) {
         $contents = $array[0]['contents'] ;
 
         // 改行コードを LF(\n) に統一
-        $contents = preg_replace("/\r\n|\r/","\n",$contents);
+        $contents = preg_replace("/\r\n|\r/s","\n",$contents);
         // $line = str_replace("\r\n","\n",$line);
         // $line = str_replace("\r","\n",$line);
 
@@ -203,25 +203,99 @@ function get_contents ($page_id, $contents_type) {
     // </dl> タグを削除
     $contents = str_replace('</dl>', '' , $contents) ;
 
-    // <dt> タグを「- 」へ変換
-    $contents = str_replace('<dt>', "- " , $contents) ;
-    // </dt> タグを削除
+    // // <dt> タグを「- 」へ変換
+    $contents = str_replace('<dt>', '' , $contents) ;
+    // // </dt> タグを削除
     $contents = str_replace('</dt>', '' , $contents) ;
 
     // <dd> タグを「- 」へ変換
-    $contents = str_replace('<dd>', "- " , $contents) ;
+    // $contents = str_replace('<dd>', "- " , $contents) ;
     // </dd> タグを削除
-    $contents = str_replace('</dd>', '' , $contents) ;
+    // $contents = str_replace('</dd>', '' , $contents) ;
 
     // {#hr#} タグを「---」へ変換
     $contents = str_replace('{#hr#}', '---' , $contents) ;  
     
     // 残っている html タグを削除
     // $contents = strip_tags ($contents) ;
+    
+     $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
+     if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
 
+        // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+
+        $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+        ['options' => function ($value) {
+            return "- ".$value ;
+        }]);
+        $ii = 0;
+        foreach ($dd_tag2[0] as $value) {
+            // echo "<br> key: " ; var_dump($value);
+            // echo "<br> ii: ".$ii; 
+            $value = str_replace("
+","",$value);           
+            $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
+            $contents = str_replace("<dd>","",$contents);      
+            $contents = str_replace("</dd>","",$contents);            
+            $ii ++ ;
+        }
+        unset($value);
+
+        // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
+        // $contents = array_map('ddcalc', $dd_tag_match);
+        // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
+        // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+
+      } 
+
+      $dt_tag = '/(?<=\<dt\>).+?(?=\<\/dt\>)/s';
+      if( preg_match_all($dt_tag, $contents, $dt_tag_match) ){
+ 
+         // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+ 
+         $dt_tag2 = filter_var($dt_tag_match, FILTER_CALLBACK, 
+         ['options' => function ($value) {
+             return "- ".$value ;
+         }]);
+         $ii = 0;
+         foreach ($dt_tag2[0] as $value) {
+             // echo "<br> key: " ; var_dump($value);
+             // echo "<br> ii: ".$ii; 
+             $value = str_replace("
+ ","",$value);           
+             $contents = str_replace($dt_tag_match[0][$ii],trim($value),$contents);
+             $contents = str_replace("<dt>","",$contents);      
+             $contents = str_replace("</dt>","",$contents);            
+             $ii ++ ;
+         }
+         unset($value);
+ 
+         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
+         // $contents = array_map('ddcalc', $dd_tag_match);
+         // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
+         // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+ 
+       } 
+      
     return $contents ;
 }
 
+function ddcalc($n){
+    //コールバック関数
+    return( ":  ".$n);
+}
+
+function dtcalc($n){
+    //コールバック関数
+    return( "- ".$n);
+}
+
+function array_map_recursive(callable $func, array $arr) {
+    array_walk_recursive($arr, function(&$v) use ($func) {
+        $v = $func($v);
+    });
+    return $arr;
+}
 function get_contents_without_Markdownify ($page_id, $contents_type) {
     $sql = "SELECT contents.contents FROM page_contents, contents 
                     WHERE contents.pid = page_contents.contents_id 
@@ -264,17 +338,46 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
       $contents = str_replace('</dl>', '' , $contents) ;
 
       // <dt> タグを「####」へ変換
-      $contents = str_replace('<dt>', "- " , $contents) ;
+      $contents = str_replace('<dt>', "" , $contents) ;
       // </dt> タグを削除
       $contents = str_replace('</dt>', '' , $contents) ;
 
       // <dd> タグを「- 」へ変換
-      $contents = str_replace('<dd>', "- " , $contents) ;
+    //   $contents = str_replace('<dd>', "" , $contents) ;
       // </dd> タグを削除
-      $contents = str_replace('</dd>', '' , $contents) ;  
+    //   $contents = str_replace('</dd>', '' , $contents) ;  
 
       // {#hr#} タグを「---」へ変換
       $contents = str_replace('{#hr#}', '---' , $contents) ;  
+
+      $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
+      if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
+ 
+         // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+ 
+         $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+         ['options' => function ($value) {
+             return "- ".$value ;
+         }]);
+         $ii = 0;
+         foreach ($dd_tag2[0] as $value) {
+             // echo "<br> key: " ; var_dump($value);
+             // echo "<br> ii: ".$ii; 
+             $value = str_replace("
+ ","",$value);           
+             $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
+             $contents = str_replace("<dd>","",$contents);      
+             $contents = str_replace("</dd>","",$contents);            
+             $ii ++ ;
+         }
+         unset($value);
+ 
+         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
+         // $contents = array_map('ddcalc', $dd_tag_match);
+         // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
+         // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+ 
+       } 
 
   return $contents ;
   }

@@ -210,101 +210,77 @@ English
 ### 講義ノート
 
 
--
+
 第2回
 
 
--
-[Comparing concepts: ethnic group, nation, race, etc.](https://ocw.nagoya-u.jp/files/491/note2.pdf) 
+-     [Comparing concepts: ethnic group, nation, race, etc.](https://ocw.nagoya-u.jp/files/491/note2.pdf) 
 
 
--
 第3回
 
 
--
-[Modern nation-state building (1)](https://ocw.nagoya-u.jp/files/491/notes3.pdf) 
+-     [Modern nation-state building (1)](https://ocw.nagoya-u.jp/files/491/notes3.pdf) 
 
 
--
 第4回
 
 
--
-[Modern nation-state building (2)](https://ocw.nagoya-u.jp/files/491/notes4.pdf) 
+-     [Modern nation-state building (2)](https://ocw.nagoya-u.jp/files/491/notes4.pdf) 
 
 
--
 第5回
 
 
--
-[Pluralism (1)](https://ocw.nagoya-u.jp/files/491/notes5.pdf) 
+-     [Pluralism (1)](https://ocw.nagoya-u.jp/files/491/notes5.pdf) 
 
 
--
 第6回
 
 
--
-[Pluralism (2)](https://ocw.nagoya-u.jp/files/491/notes6.pdf) 
+-     [Pluralism (2)](https://ocw.nagoya-u.jp/files/491/notes6.pdf) 
 
 
--
 第7回
 
 
--
-[Nationality and citizenship](https://ocw.nagoya-u.jp/files/491/notes7.pdf) 
+-     [Nationality and citizenship](https://ocw.nagoya-u.jp/files/491/notes7.pdf) 
 
 
--
 第9回
 
 
--
-[Ethnic groups in mass media](https://ocw.nagoya-u.jp/files/491/notes9_3.pdf) 
+-     [Ethnic groups in mass media](https://ocw.nagoya-u.jp/files/491/notes9_3.pdf) 
 
 
--
 第10回
 
 
--
-[National integration and languages](https://ocw.nagoya-u.jp/files/491/notes10_2.pdf) 
+-     [National integration and languages](https://ocw.nagoya-u.jp/files/491/notes10_2.pdf) 
 
 
--
 第11回
 
 
--
-[Indigenous peoples, states and development (1)](https://ocw.nagoya-u.jp/files/491/notes11_2.pdf) 
+-     [Indigenous peoples, states and development (1)](https://ocw.nagoya-u.jp/files/491/notes11_2.pdf) 
 
 
--
 第12回
 
 
--
-[Indigenous peoples, states and development (2)](https://ocw.nagoya-u.jp/files/491/notes12_2.pdf) 
+-     [Indigenous peoples, states and development (2)](https://ocw.nagoya-u.jp/files/491/notes12_2.pdf) 
 
 
--
 第13回
 
 
--
-[Case study (1)](https://ocw.nagoya-u.jp/files/491/notes13_2.pdf) 
+-     [Case study (1)](https://ocw.nagoya-u.jp/files/491/notes13_2.pdf) 
 
 
--
 第14回
 
 
--
-[Case study (2)](https://ocw.nagoya-u.jp/files/491/s_notes14.pdf) 
-
+-     [Case study (2)](https://ocw.nagoya-u.jp/files/491/s_notes14.pdf) 
 
 
 

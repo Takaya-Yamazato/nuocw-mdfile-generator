@@ -27,7 +27,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 350" ;
+$limit = "LIMIT 10 OFFSET 0" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -1195,14 +1195,20 @@ $fp_tmp = fopen('tmp.md', 'r');
 $fp_tmp2 = fopen('tmp2.md', 'w');
 // $fp = fopen($file_name, "w");
 
-$ocwlink = '/(?<=\{ocwlink file=\").+?(?=\")/';
+$ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
+$ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
+$ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
+$ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
+
+
+$ocwlink_file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
+// $ocwlink_all = '/(?<=\{ocwlink file=\").+?(?=\")/';
+$ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
 
-$ocwpagelink = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
+$ocwpagelink_file = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
 $ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
-
-$ocwimg = '/(?<=\{ocwimg file=\").+?(?=\")/';
-$ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
+$ocwpagelink_all  = '/(?<=\{ocwpagelink type=\").+?(?=\"\})/';     
 
 $contents_tag = '/\#+\s(\S+)\s/';
 $contents_desc = '/\#+\s(\S+)\s/';
@@ -1244,12 +1250,7 @@ while ($line = fgets($fp_tmp)) {
         : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
         : {ocwimg file=\"画像の名前\" alt=\"画像の説明\" ocwlink=\"講義ファイルの名前\"}";
 
-    // ocwimg test
-    $ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
-    $ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
-    $ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
-    $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
-    
+    // ocwimg 
         if( preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ){
                 //print_r($file_match);
                 // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
@@ -1277,99 +1278,42 @@ while ($line = fgets($fp_tmp)) {
                 // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
                 // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
              }            
-        
-    // ocwimg
-    // $ocwimg = '/(?<=\{ocwimg file=\").+?(?=\")/';
-    // $ocwimg_desc = '/(?<=alt=\").+?(?=\")/';
-    // if( preg_match_all($ocwimg, $line, $ocwimg_match) ){
-    //     //print_r($file_match);
-    //     echo "<br> line : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-    //     echo "<br> ocwimg_match: " ; var_dump($ocwimg_match) ;
-    //     $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-    //     preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $line ) ;
-    //     echo "<br> ocwimg_line : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-    //     preg_match_all($ocwimg_desc, $line, $desc_match);
-    //     //print_r($desc_match);
-    //     echo "<br>   desc_match: " ; var_dump($desc_match) ;
-    //     $ocwimg_desc_match = "![".$desc_match[0][0]."]" ;
-    //     preg_replace($ocwimg,$ocwimg_file_link,$line) ;
-    //     echo "<br> ocwimg_line : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-    //     // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-    //     // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-    //  }    
-
-    $ocwlink_file = '/(?<=\{ocwlink file=\").+?(?=\")/';
-    $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
-    // $ocwlink_all = '/(?<=\{ocwlink file=\").+?(?=\")/';
-    $ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';        
-        
-            if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
-                    //print_r($file_match);
-                    // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                    // echo "<br> ocwlink_file_match: " ; var_dump($ocwlink_file_match) ;
-                    $ocwlink_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_file_match[0][0].") " ;
-                    preg_match_all($ocwlink_desc, $line, $ocwlink_desc_match);                
-                    // echo "<br>   ocwlink_desc_match: " ; var_dump($ocwlink_desc_match) ;
-                    $ocwlink_file_link = "[".$ocwlink_desc_match[0][0]."]".$ocwlink_file_link ;
-                    // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
-                    // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
-                    preg_match_all($ocwlink_all, $line, $ocwlink_all_match);
-                    // echo "<br>   ocwlink_all_match: " ; var_dump($ocwlink_all_match) ; 
-                    $ocwlink_match = $ocwlink_all_match[0][0]."\"}" ;               
-                    $test2 = str_replace( $ocwlink_match,"", $line ) ;
-                    // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
-                    $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
-                    //print_r($desc_match); 
+         
     
-                    // echo "<br> test3 : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                    
-                    }
-     // ocwlink
-    // if( preg_match_all($ocwlink, $line, $ocwlink_match) ){
-    //     // echo "<br>ocwlink : ".$ocwlink." ocwlink_match : ".$ocwlink_match[0][0]."<br>" ;
-    //     // echo "<br> line: ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-    //     // echo "<br> ocwimg_match: " ; var_dump($ocwlink_match) ;        
-    //     preg_match_all($ocwlink_desc, $line, $desc_match);
-    //     // print_r($desc_match);
-    //     // echo "<br>   desc_match: " ; var_dump($desc_match) ;     
-    //     $line = "[".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n" ;
-    //     // $line = "[".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwlink_match[0][0].") \n\n" ;
-    //     // echo "<br>line : ".$line."<br>";
-    // }
-        // ocwpagelink
-    $ocwpagelink_file = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
-    $ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
-    $ocwpagelink_all  = '/(?<=\{ocwpagelink type=\").+?(?=\"\})/';     
-           
-            if( preg_match_all($ocwpagelink_file, $line, $ocwpagelink_file_match) ){
-                        //print_r($file_match);
-                        echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                        echo "<br> ocwpagelink_file_match: " ; var_dump($ocwpagelink_file_match) ;
-                        $ocwpagelink_file_link = "(#".$ocwpagelink_file_match[0][0].") " ;
-                        preg_match_all($ocwpagelink_desc, $line, $ocwpagelink_desc_match);                
-                        echo "<br>   ocwpagelink_desc_match: " ; var_dump($ocwpagelink_desc_match) ;
-                        $ocwpagelink_file_link = "[".$ocwpagelink_desc_match[0][0]."]".$ocwpagelink_file_link ;
-                        // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
-                        // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
-                        preg_match_all($ocwpagelink_all, $line, $ocwpagelink_all_match);
-                        echo "<br>   ocwpagelink_all_match: " ; var_dump($ocwpagelink_all_match) ; 
-                        $ocwpagelink_match = $ocwpagelink_all_match[0][0]."\"}" ;               
-                        $test2 = str_replace( $ocwpagelink_match,"", $line ) ;
-                        echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
-                        $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
-                        //print_r($desc_match); 
+        // ocwlink
+        if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
         
-                        echo "<br> test3 : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                        
-                        }
+            $ocwlink_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_file_match[0][0].") " ;
+            preg_match_all($ocwlink_desc, $line, $ocwlink_desc_match);                
+        
+            $ocwlink_file_link = "[".$ocwlink_desc_match[0][0]."]".$ocwlink_file_link ;
+            preg_match_all($ocwlink_all, $line, $ocwlink_all_match);
+        
+            $ocwlink_match = $ocwlink_all_match[0][0]."\"}" ;               
+            $test2 = str_replace( $ocwlink_match,"", $line ) ;
+        
+            $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
+                            
+            }
 
-    // if( preg_match_all($ocwpagelink, $line, $ocwpagelink_match) ){
-    //     // echo "<br>ocwpagelink : ".$ocwpagelink." ocwpagelink_match : ".$ocwpagelink_match[0][0]."<br>" ;
-    //     preg_match_all($ocwpagelink_desc, $line, $desc_match);
-    //     // print_r($desc_match);
-    //     $line = "[".$desc_match[0][0]."](#".$desc_match[0][0].") \n" ;
-    //     // echo "<br>line : ".$line."<br>";
-    // }    
+
+    // ocwpagelink
+
+           
+        if( preg_match_all($ocwpagelink_file, $line, $ocwpagelink_file_match) ){
+
+            $ocwpagelink_file_link = "(#".$ocwpagelink_file_match[0][0].") " ;
+            preg_match_all($ocwpagelink_desc, $line, $ocwpagelink_desc_match);                
+
+            $ocwpagelink_file_link = "[".$ocwpagelink_desc_match[0][0]."]".$ocwpagelink_file_link ;
+            preg_match_all($ocwpagelink_all, $line, $ocwpagelink_all_match);
+
+            $ocwpagelink_match = $ocwpagelink_all_match[0][0]."\"}" ;               
+            $test2 = str_replace( $ocwpagelink_match,"", $line ) ;
+
+            $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
+                        
+            }
 
     // stormvideo は削除
     if(preg_match('/stormvideo_link/',$line)){
