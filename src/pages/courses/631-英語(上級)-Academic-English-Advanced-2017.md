@@ -34,10 +34,12 @@ credit: ""
 attachments:
   - name: "Nilep先生　フィードバック資料" 
     path: https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf
-  - name: "Nilep先生　イントネーション" 
-    path: https://ocw.nagoya-u.jp/files/631/Intonation for Presentation (mobile).pdf
   - name: "Nilep先生　Dealing" 
     path: https://ocw.nagoya-u.jp/files/631/Dealing with questions - Chad Nilep.pdf
+  - name: "" 
+    path: https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf
+  - name: "" 
+    path: https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf
 
 # 関連するタグ
 # （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
@@ -64,29 +66,43 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2017-09-22 11:03:44
+date: 2020-04-29 12:19:27
 ---
 
 ### Course Content
 
-We will study techniques for planning and delivering oral presentations. All students will complete homework introducing basic topics, and discuss these topics in more depth during class time. Students are required to use English as much as they can during class, and to contribute actively to discussions.
+We will study techniques for planning and delivering oral presentations.
+All students will complete homework introducing basic topics, and discuss these topics in more depth during class time.
+Students are required to use English as much as they can during class, and to contribute actively to discussions.
 
-Each student will prepare, write, and deliver oral presentations based on topics discussed during the course. Students will listen to presentations from their classmates each week. Participants are required to listen attentively and be prepared to ask questions.
+Each student will prepare, write, and deliver oral presentations based on topics discussed during the course.
+Students will listen to presentations from their classmates each week.
+Participants are required to listen attentively and be prepared to ask questions.
 
-The course will be taught entirely in English. Use English as much as you can during class discussions and in your presentations.
+The course will be taught entirely in English.
+Use English as much as you can during class discussions and in your presentations.
 
 You must complete the homework assignments before class and be prepared to talk about them during class.
 
-In addition, students must complete the  <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">"eFace" </a> out-of-class learning materials. The eFace materials focus on vocabulary and reading improvement, while in-class presentations help improve speaking and listening skills. A mid-term exam and a final exam will focus on eFace material.
+In addition, students must complete the [ "eFace" ](http://elearn.ilas.nagoya-u.ac.jp/) out-of-class learning materials.
+The eFace materials focus on vocabulary and reading improvement, while in-class presentations help improve speaking and listening skills.
+A mid-term exam and a final exam will focus on eFace material.
 
 
 ### Key features
 
-Each student researches, prepares, and delivers multiple oral presentations. Topics for the presentations develop from personal interests, to description and evaluation of a recommended vacation, to presentation of original survey research, and finally a persuasive presentation on a topic of the student’s own choice.
+Each student researches, prepares, and delivers multiple oral presentations.
+Topics for the presentations develop from personal interests, to description and evaluation of a recommended vacation, to presentation of original survey research, and finally a persuasive presentation on a topic of the student’s own choice.
 
-Presentation skills developed include brainstorming, planning and writing effective speeches. A presentation requires a strong introduction, logically and rhetorically sound structure, and a clear and memorable conclusion. In addition, delivery skills including voice, eye contact, and body language are developed. Students create and use visual aids of various types as appropriate to each presentation’s topic. They also work on dealing effectively and confidently with questions from the audience.
+Presentation skills developed include brainstorming, planning and writing effective speeches.
+A presentation requires a strong introduction, logically and rhetorically sound structure, and a clear and memorable conclusion.
+In addition, delivery skills including voice, eye contact, and body language are developed.
+Students create and use visual aids of various types as appropriate to each presentation’s topic.
+They also work on dealing effectively and confidently with questions from the audience.
 
-In addition to students’ own presentations, textbook exercises and videos of model presentations allow for additional study and understanding. Students work in groups or in pairs to evaluate exercises or model presentations. Weekly quizzes, based on the textbook exercises, help students focus appropriately.
+In addition to students’ own presentations, textbook exercises and videos of model presentations allow for additional study and understanding.
+Students work in groups or in pairs to evaluate exercises or model presentations.
+Weekly quizzes, based on the textbook exercises, help students focus appropriately.
 
 
 
@@ -103,7 +119,8 @@ Be sure to comply with all university requirements.
 ### 教科書
 
 Present Yourself 2. Steven Gershon. Cambridge. ISBN 978-1-107-43578-0
-Videos are available from: <a href="http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition"target="blank">www.cambridge.org/presentyourself </a>
+
+Videos are available from: [www.cambridge.org/presentyourself](http://www.cambridge.org/jp/cambridgeenglish/catalog/skills/present-yourself-2nd-edition)
 
 ### 参考書
 
@@ -111,14 +128,19 @@ None are required, but an English dictionary may be useful.
 
 ### 注意事項
 
-対面授業に加え、課外学習教材 <a href="http://eface.ilas.nagoya-u.ac.jp/moodle/login/index.php" target="_blank">「eFace」 </a>を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+対面授業に加え、課外学習教材[「eFace」](http://eface.ilas.nagoya-u.ac.jp/moodle/login/index.php)を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
 
 ### 担当者からの言葉
 
-初回の授業を欠席した場合は、課外学習の説明資料を<a href="http://elearn.ilas.nagoya-u.ac.jp/access/" target="_blank">アカデミック・イングリッシュ支援室のサイト </a>からダウンロードすること。
+初回の授業を欠席した場合は、課外学習の説明資料を[アカデミック・イングリッシュ支援室のサイト](http://elearn.ilas.nagoya-u.ac.jp/access/)からダウンロードすること。
 
 
-<h3>Schedule  </h3>
+
+
+
+### Schedule
+
 <table width="100%" border="1" cellpadding="1">
 <tr>
 <th width="7%" scope="col">Week</th>
@@ -191,8 +213,7 @@ None are required, but an English dictionary may be useful.
 <li>Video 33 (p. 52)</li>
 <li>Video e35 ~ e37  (p. 86)</li>
 </ul>
-[Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing with questions - Chad Nilep.pdf) 
-			</td>
+[Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf) </td>
 </tr>
 <tr>
 <td>9</td>
@@ -211,8 +232,7 @@ None are required, but an English dictionary may be useful.
 <ul>
 <li>Video 41 ~ 42</li>
 </ul>
-[Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation for Presentation (mobile).pdf) 
-				</td>
+[Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf) </td>
 </tr>
 <tr>
 <td>11</td>
@@ -250,12 +270,22 @@ None are required, but an English dictionary may be useful.
 </tr>
 </table>
 
-<p>*PY: <em>Present Yourself 2</em> (<span class="japanese">教科書</span>). Read and write the excercises on the pages listed.<br />
-&dagger;Videos are available from: <a href="http://www.cambridge.org/presentyourself" target="_blank">www.cambridge.org/presentyourself</a></p>
+
+*PY: _Present Yourself 2_ (教科書). Read and write the excercises on the pages listed.
+
+†Videos are available from:
+[www.cambridge.org/presentyourself](http://www.cambridge.org/presentyourself)
 
 
 
-### 講義資料 [feedback_sheet](https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf)  </br> [feedback_sheet](https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf) Dealing with questions - Chad Nilep.pdf" desc="Dealing with questions"} </br> [feedback_sheet](https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf) Intonation for Presentation (mobile).pdf" desc="Intonation for Presentation"}
+
+### 講義資料
+
+[feedback_sheet](https://ocw.nagoya-u.jp/files/631/feedback_sheet.pdf) 
+
+[Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf) 
+
+[Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf) 
 
 
 
@@ -263,9 +293,11 @@ None are required, but an English dictionary may be useful.
 
 ### 成績評価
 
-Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and <a href="http://elearn.ilas.nagoya-u.ac.jp/" target="_blank">self-study using e-learning </a>(20%).
+Course grade is based on presentations (60%), feedback and questions during other student’s presentations (10%), participation and attendance in class (10%), and [self-study using e-learning](http://elearn.ilas.nagoya-u.ac.jp/) (20%).
+
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
 
 
 

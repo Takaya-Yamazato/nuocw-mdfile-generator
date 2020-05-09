@@ -6,7 +6,7 @@ templateKey: "courses"
 course_id: "401"
 
 # タイトル
-title: "Word-and-Image-in-Japanese-Narrative-I&#xFF5E;lV-2013"
+title: "Word-and-Image-in-Japanese-Narrative-I〜lV-2013"
 
 # 簡単な説明
 description: >-
@@ -37,7 +37,7 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
-  - "Word-and-Image-in-Japanese-Narrative-I～lV"
+  - "Word-and-Image-in-Japanese-Narrative-I〜lV"
   - "国際言語文化研究科"
 
 # カテゴリ
@@ -58,7 +58,7 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/5c69bcc9e0b995d17b9f500c2e6fdbdceb3629c9
 
 # 記事投稿日
-date: 2015-12-07 16:51:19
+date: 2020-03-11 13:47:47
 ---
 
 ### 授業の内容
@@ -86,191 +86,24 @@ In each class, I aim for an optimal balance of lecture and lively class discussi
 
 Semester 1
 
-<table class="basic" width="500">
-<tr>
-<th width="20" class="center">
-</th>
-
-<th width="460" class="center">
-Topic
-</th>
-
-<th width="20" class="center">
-Weeks
-</th>
-</tr>
-
-<tr>
-<td width="20" class="center">
-1
-</td>
-
-<td width="460" class="center">
-Tale of <i>Genji</i> Scrolls (including museum visit)
-</td>
-
-<td width="20" class="center">
-4
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-2
-</td>
-
-<td width="460" class="center">
-Medieval Military Tale Scrolls
-</td>
-
-<td width="20" class="center">
-2
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-3
-</td>
-
-<td width="460" class="center">
-Buddhist Picture Scrolls
-</td>
-
-<td width="20" class="center">
-3
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-4
-</td>
-
-<td width="460" class="center">
-Late Medieval Picture Books
-</td>
-
-<td width="20" class="center">
-1
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-5
-</td>
-
-<td width="460" class="center">
-Early Modern Printed Books (including museum visit)
-</td>
-
-<td width="20" class="center">
-5
-</td>
-</tr>
-</table>
+|  | Topic                                              |  Weeks|
+|-:|:--------------------------------------------------- |:-----|
+|1 | Tale of _Genji_ Scrolls (including museum visit)    | 4 |
+|2 | Medieval Military Tale Scrolls                      | 2 |
+|3 | Buddhist Picture Scrolls                            | 3 |
+|4 | Late Medieval Picture Books                         | 1 |
+|5 | Early Modern Printed Books (including museum visit) | 5 |
 
 Semester 2
 
-<table class="basic" width="500">
-<tr>
-<th width="20" class="center">
-</th>
-
-<th width="460" class="center">
-Topic
-</th>
-
-<th width="20" class="center">
-Weeks
-</th>
-</tr>
-
-<tr>
-<td width="20" class="center">
-1
-</td>
-
-<td width="460" class="center">
-Early Photography in Japan
-</td>
-
-<td width="20" class="center">
-2
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-2
-</td>
-
-<td width="460" class="center">
-Early Film in Japan
-</td>
-
-<td width="20" class="center">
-2
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-3
-</td>
-
-<td width="460" class="center">
-Wartime and Early Postwar <i>Manga, Kami-shibai</i>, and Animation
-</td>
-
-<td width="20" class="center">
-6
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-4
-</td>
-
-<td width="460" class="center">
-Postwar Film
-</td>
-
-<td width="20" class="center">
-2
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-5
-</td>
-
-<td width="460" class="center">
-Contemporary <i>Anime</i>
-</td>
-
-<td width="20" class="center">
-2
-</td>
-</tr>
-
-<tr>
-<td width="20" class="center">
-6
-</td>
-
-<td width="460" class="center">
-New Technologies of Narration
-</td>
-
-<td width="20" class="center">
-1
-</td>
-</tr>
-</table>
+|  | Topic                                                         | Weeks|
+|-:|:------------------------------------------------------------- | -----|
+|1 | Early Photography in Japan                                    | 2 |
+|2 | Early Film in Japan                                           | 2 |
+|3 | Wartime and Early Postwar _Manga, Kami-shibai_, and Animation | 6 |
+|4 | Postwar Film                                                  | 2 |
+|5 | Contemporary _Anime_                                          | 2 |
+|6 | New Technologies of Narration                                 | 1 |
 
 ### 教科書
 
@@ -279,6 +112,7 @@ None.
 ### 参考書
 
 None.
+
 
 
 

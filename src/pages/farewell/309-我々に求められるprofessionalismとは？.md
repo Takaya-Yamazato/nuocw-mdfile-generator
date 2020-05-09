@@ -16,7 +16,7 @@ description: >-
 lecturer: "上田裕一 教授"
 
 # 部局名
-department: "医学部／医学系研究"
+department: "医学部／医学系研究科"
 
 # 開講時限
 term: "2011年度	退職記念講義"
@@ -65,7 +65,7 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a
 
 # 記事投稿日
-date: 2015-06-25 14:48:10
+date: 2020-03-13 17:21:23
 ---
 
 |   |   |
@@ -117,11 +117,11 @@ date: 2015-06-25 14:48:10
 * 医療の質・安全学会  理事 , 2009年04月 〜 2010年03月
 
 
-### 講義ビデオ
-
-<a href="http://ocw.nagoya-u.jp/resource/2011_lastlecture_ueda" target="blank">最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）</a>
 
 ### 講義資料
 
 [我々に求められるprofessionalismとは？](https://ocw.nagoya-u.jp/files/309/ueda_lastLecture_v2-1.pdf) 
+
+
+
 -----

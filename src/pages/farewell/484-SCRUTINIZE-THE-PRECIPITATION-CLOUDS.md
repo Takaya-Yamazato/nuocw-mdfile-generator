@@ -66,10 +66,10 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: https://nuvideo.media.nagoya-u.ac.jp/embed/3cca5a539bbcac3b5f9b6da4aad4105578120030
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089
 
 # 記事投稿日
-date: 2017-02-15 14:09:42
+date: 2020-05-02 17:08:45
 ---
 
 |   |   |
@@ -127,11 +127,23 @@ date: 2017-02-15 14:09:42
 
 ### 講義ビデオ
 
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089" target="blank">最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）</a> (Flashvideo, 1:23:03)
+
+<!--
+<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089" target="blank">最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）</a>-->
+[最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）](https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089)
+(1:23:03)
+
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
+
+
 
 ### 講義資料
 
 [SCRUTINIZE THE PRECIPITATION CLOUDS](https://ocw.nagoya-u.jp/files/484/lect.pdf) 
+
+### 後輩へのメッセージ
+
+<a target="blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 -----

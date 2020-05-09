@@ -945,7 +945,7 @@ $key_pharase = str_ireplace("####", " ", $key_pharase);
 $key_pharase = str_ireplace("###", " ", $key_pharase);
 
 $key_pharase = preg_replace('/\&oslash\;/', 'o', $key_pharase);
-
+$key_pharase = preg_replace('/\&emsp\;/', '  ' , $key_pharase);
 $key_pharase = remove_accent($key_pharase);
 
 // echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
@@ -1013,15 +1013,6 @@ department: \"".$division."\"
 
 # 開講時限
 term: \"".$term."\"
-
-# 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for )."\"
-
-# 授業回数
-classes: \"\"
-
-# 単位数
-credit: \"\"
 
 # pdfなどの追加資料
 ## rootフォルダはstaticになっている

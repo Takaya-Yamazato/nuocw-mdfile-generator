@@ -61,7 +61,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2015-11-09 17:11:54
+date: 2020-03-05 15:16:13
 ---
 
 ### 授業の内容

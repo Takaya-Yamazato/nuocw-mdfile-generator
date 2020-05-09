@@ -70,7 +70,7 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: 
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/8386b0abea46464ab1e82310ff770e0e01877c28
 
 # 記事投稿日
 date: 2017-02-15 15:20:48

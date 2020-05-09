@@ -39,13 +39,13 @@ attachments:
   - name: "" 
     path: https://ocw.nagoya-u.jp/files/672/presentationskills
   - name: "" 
-    path: https://ocw.nagoya-u.jp/files/672/presentationskillstechniques
-  - name: "" 
     path: https://ocw.nagoya-u.jp/files/672/Presentations.png
   - name: "" 
     path: https://ocw.nagoya-u.jp/files/672/OCW Presentations Collection 4-17.pdf
   - name: "" 
     path: https://ocw.nagoya-u.jp/files/672/OCWPresentationsCollection.pdf
+  - name: "" 
+    path: https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf
 
 # 関連するタグ
 # （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
@@ -71,7 +71,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2019-07-11 10:20:35
+date: 2020-04-29 11:42:58
 ---
 
 ### 授業の内容
@@ -122,10 +122,10 @@ About humor in presentations<br>
 3. write presentation/abstracts that will be accepted by conference selection committees.<br>
 4. understand how to design and present effective research poster presentations.<br>
 
-<h3>教科書・参考書</h3>
+### 教科書・参考書
 There is not textbook. All materials are provided by the instructor. Most materials are created by the instructor and can be accessed through this website.
 
-<h3>履修条件 </h3>
+### 履修条件
 Simply be an enrolled student or designated researcher at this university.
 English skills sufficient to undertake classes conducted in English.
 
@@ -137,10 +137,9 @@ English skills sufficient to undertake classes conducted in English.
 
 
 ### 講義ノート
-<p>
-<a href="http://ocw.nagoya-u.jp/files/672/OCWPresentationsCollection.pdf" target="blank">![](https://ocw.nagoya-u.jp/files/672/Presentations.png) <br>講義資料</a>
-<a href="OCW Presentations book 2019.pdf" target="blank"><br>講義資料（2019年版）</a>
-</p>
+
+: [講義資料(2019年版)](https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf) 
+
 
 
 
