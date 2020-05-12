@@ -28,7 +28,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 0" ;
+$limit = "LIMIT 100 OFFSET 0" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -1067,7 +1067,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:".$tags."
 
 # 色付けのロールにするか
@@ -1180,7 +1180,7 @@ credit: \"\"
 attachments:
 ".$attaches."
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:".$tags."
 
 # カテゴリ
@@ -1220,9 +1220,9 @@ echo "<br>ID: ".$course_id."\t".$file_name ;
 // echo htmlspecialchars("\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n") ;
 
 // tmp.html へも出力
-$check_list .="<tr><td><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
-$check_list .="<td><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
-$check_list .="<td>".$course_id."-".$course_name."</td></tr>\n" ;
+$check_list .="<tr><td width=\"100\"><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
+$check_list .="<td width=\"100\"><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
+$check_list .="<td>".sprintf('%03d', $course_id)."-".$course_name."</td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
@@ -1286,11 +1286,76 @@ while ($line = fgets($fp_tmp)) {
         $test = "
         第2回
         : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
-        : {ocwimg file=\"画像の名前\" alt=\"画像の説明\" ocwlink=\"講義ファイルの名前\"}";
+        : {ocwimg file=\"temporary.img\" alt=\"画像の説明\" ocwlink=\"lecture.pdf\"}
+        : {ocwimg file=\"temporary2.img\" alt=\"画像の説明2\" }";
+        $ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
+        $ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
+        $ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
+        $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
 
-    // ocwimg 
-        if( preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ){
+        $ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
+
+        // $mystring = $test ;
+        // $findme   = 'ocwimg file=';
+        // $pos = strpos($mystring, $findme);
+        
+        // // !== 演算子も使用可能です。ここで != を使っても期待通りに動作しません。
+        // // なぜなら 'a' が 0 番目の文字だからです。(0 != false) を評価すると
+        // // false になってしまいます。
+        // if ($pos !== false) {
+        //      echo "文字列 '$findme' が文字列 '$mystring' の中で見つかりました";
+        //          echo " 見つかった位置は $pos です";
+        // } else {
+        //      echo "文字列 '$findme' は、文字列 '$mystring' の中で見つかりませんでした";
+        // }
+    // ocwimg with ocwlink
+        if(  (strpos($line, 'ocwimg file=') !== FALSE)
+          && (strpos($line, 'alt=')         !== FALSE )
+          && (strpos($line, 'ocwlink=')     !== FALSE ) ){
+
+                preg_match_all($ocwimg_link, $line, $ocwimg_link_match) ;
                 //print_r($file_match);
+                // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                // echo "<br> ocwimg_link_match: " ; var_dump($ocwimg_link_match) ;
+                $ocwimg_link_file = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_link_match[0][0].") " ;
+
+                preg_match_all($ocwimg_file, $line, $ocwimg_file_match);
+                // echo "<br>   ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
+                $ocwimg_file_embed = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
+
+                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+                // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+                $ocwimg_file_link = "![".$ocwimg_alt_match[0][0]."]".$ocwimg_file_embed ;
+
+                $ocwimg_all_link = "[ ".$ocwimg_file_link." ]".$ocwimg_link_file;
+                // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+                // echo "<br> ocwimg_all_link : ".htmlspecialchars_decode($ocwimg_all_link, ENT_NOQUOTES);
+
+                preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
+                // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+
+                $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+                $test2 = str_replace( $ocwimg_match,"", $line ) ;
+                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);   
+
+                // $test3 = str_replace( $ocwimg_match,"", $test2 ) ;
+                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);                
+                $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_all_link, $test2 ) ;
+                //print_r($desc_match); 
+                // echo "<br> ocwimg_all_link: " ; var_dump($ocwimg_link_match) ;
+                echo "<br> ocwimg with link : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                
+
+                // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
+                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
+                // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+                // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+             }            
+    // ocwimg        
+        if(  (strpos($line, 'ocwimg file=') !== FALSE)
+          && (strpos($line, 'alt=')         !== FALSE ) ){
+
+                preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
                 // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
                 // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
                 $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
@@ -1307,7 +1372,7 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
                 //print_r($desc_match); 
 
-                // echo "<br> test3 : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                echo "<br> ocwimg : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
                 
                 
                 
@@ -1317,7 +1382,6 @@ while ($line = fgets($fp_tmp)) {
                 // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
              }            
          
-    
         // ocwlink
         if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
         
@@ -1394,6 +1458,13 @@ while ($line = fgets($fp_tmp)) {
         $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
             // echo "<br>line : ".$line."<br>";       
     }    
+
+    if (preg_match('/Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。/', $line)){        
+        
+        $line = "\n\nInternet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。\n\n" ;  
+            // echo "<br>line : ".$line."<br>";       
+    }   
+    
 
     // 残っている html たとえば <dd> タグを削除
     // $line = strip_tags ($line) ;
