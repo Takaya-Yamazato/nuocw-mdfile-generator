@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "シュワルツ"
   - "白尾恒吉先生"
@@ -61,7 +61,7 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: 
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/92bd622ea7a2be20f196ff85a46aa4ec87d8a4eb
 
 # 記事投稿日
 date: 2017-02-15 15:50:32
@@ -125,7 +125,10 @@ date: 2017-02-15 15:50:32
 ### 講義ビデオ
 
 <a href="https://nuvideo.media.nagoya-u.ac.jp/embed/92bd622ea7a2be20f196ff85a46aa4ec87d8a4eb" target="blank">「出会い そして 数学」−微分方程式のNewton図形をめぐって−</a>
+
+
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
 ### 講義資料

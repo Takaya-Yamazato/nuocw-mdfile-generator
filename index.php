@@ -469,7 +469,6 @@ if (!($class_is_for_array[0]['contents'])){
     $class_is_for = "" ;
 }else{
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
-    echo "<br><br>元　　 : ".$class_is_for ;
     // print_r($class_is_for_array);
 }
 
@@ -543,9 +542,10 @@ if($course_id == '703'){
     $classes = "" ;
 }
 
-echo "<br>対象者 : ".$target ;
-echo "<br>単位数 : ".$credit ;
-echo "<br>授業回数 : ".$classes."<br>" ;
+// echo "<br><br>元　　 : ".$class_is_for ;
+// echo "<br>対象者 : ".$target ;
+// echo "<br>単位数 : ".$credit ;
+// echo "<br>授業回数 : ".$classes."<br>" ;
 
 // 51             | 授業ホーム   | Course Home           | index            |        510
 $page_id = check_page_status ($course_id, $page_type = '51') ;

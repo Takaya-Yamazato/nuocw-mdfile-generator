@@ -20,7 +20,10 @@ department: "G30"
 # 開講時限
 term: "2013年度	後期"
 
-# 対象者、単位数、授業回数
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: ""
+
+# 対象者
 target: ""
 
 # 授業回数
@@ -35,7 +38,7 @@ attachments:
     path: /img/common/thumbnail.png
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Word-and-Image-in-Japanese-Narrative-I〜lV"
   - "国際言語文化研究科"
