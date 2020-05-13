@@ -469,13 +469,83 @@ if (!($class_is_for_array[0]['contents'])){
     $class_is_for = "" ;
 }else{
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
-    // echo "<br>class_is_for_array : ".$class_is_for."<br>" ;
+    echo "<br><br>元　　 : ".$class_is_for ;
     // print_r($class_is_for_array);
 }
 
 $class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
+$class_is_for = preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for );
 
 // echo "<br>".$class_is_for;
+
+if(strpos($class_is_for,'単位') !== false){
+    //$class_is_for のなかに'単位'が含まれている場合
+
+    if(strpos($class_is_for,'.5') !== false){
+        //$class_is_for のなかに'.5'が含まれている場合
+        $class_is_for_offset = '4';
+    }else{
+        $class_is_for_offset = '2';
+    }
+
+    $end = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
+    $target = mb_substr($class_is_for, 0, $end);
+
+    // # 単位数
+    // credit: "2単位"
+
+    $start = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
+    $credit = mb_substr($class_is_for, $start, $class_is_for_offset + 2);
+
+    $start = mb_strpos($class_is_for,'単位')+3;
+    $classes = mb_substr($class_is_for, $start);
+
+
+}else{
+    $target = $class_is_for ;
+    $credit = '' ;
+    $classes = '' ;
+}
+
+if($course_id == '5'){
+    $target = "理学部数理学科3年生 多元数理科学研究科" ;
+    $credit = "学部生: 3単位 大学院生: 2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '259'){
+    $target = "情報文化学部自然情報学科・社会システム情報学科" ;
+    $credit = "必修2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if( $course_id =='297' || $course_id =='352' ){
+    $target = "国際言語文化研究科および文学研究科の大学院生" ;
+    $credit = "a,bそれぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '360'){
+    $target = "全学部" ;
+    $credit = "前期・後期それぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '406'){
+    $target = "国際言語文化研究科" ;
+    $credit = "前期・後期それぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '680'){
+    $target = "情報学部" ;
+    $credit = "必修1単位" ;
+    $classes = "週1回 全7回" ;
+}
+if($course_id == '703'){
+    $target = "基盤創薬学専攻（1年次通年集中博士課程前期課程）" ;
+    $credit = "必修・「演習」１単位「実習」２単位" ;
+    $classes = "" ;
+}
+
+echo "<br>対象者 : ".$target ;
+echo "<br>単位数 : ".$credit ;
+echo "<br>授業回数 : ".$classes."<br>" ;
 
 // 51             | 授業ホーム   | Course Home           | index            |        510
 $page_id = check_page_status ($course_id, $page_type = '51') ;
@@ -1167,14 +1237,17 @@ department: \"".$division."\"
 # 開講時限
 term: \"".$term."\"
 
-# 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for )."\"
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: \"".$class_is_for."\"
+
+# 対象者
+target: \"".$target."\"
 
 # 授業回数
-classes: \"\"
+classes: \"".$classes."\"
 
 # 単位数
-credit: \"\"
+credit: \"".$credit."\"
 
 # pdfなどの追加資料
 attachments:
