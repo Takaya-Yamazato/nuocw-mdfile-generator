@@ -28,9 +28,9 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 0" ;
+$limit = "LIMIT 10 OFFSET 0" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
@@ -469,9 +469,12 @@ if (!($class_is_for_array[0]['contents'])){
     $class_is_for = "" ;
 }else{
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
-    // echo "<br>class_is_for_array : ".$class_is_for."<br>" ;
+    echo "<br>class_is_for_array : ".$class_is_for."<br>" ;
     // print_r($class_is_for_array);
 }
+
+echo "<br>before : ".mb_strstr ( $class_is_for , '単位' , true ) ;
+echo "<br>after : ".mb_strstr ( $class_is_for , '単位' ) ;
 
 $class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
 
