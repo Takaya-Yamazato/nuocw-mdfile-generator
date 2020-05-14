@@ -1446,13 +1446,8 @@ while ($line = fgets($fp_tmp)) {
                 //print_r($desc_match); 
 
                 echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                
-                
-                
-                // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
-                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
-                // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-                // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+
+
              }            
     // ocwimg        
     if(  strpos($line, 'ocwimg file=') !== FALSE ){
