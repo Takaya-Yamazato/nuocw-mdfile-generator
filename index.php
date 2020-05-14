@@ -30,7 +30,7 @@ $course_id = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 10 OFFSET 370" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
@@ -1410,13 +1410,9 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_all_link, $test2 ) ;
                 //print_r($desc_match); 
                 // echo "<br> ocwimg_all_link: " ; var_dump($ocwimg_link_match) ;
-                echo "<br> ocwimg with link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                
+                // echo "<br> ocwimg with link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
-                // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
-                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
-                // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-                // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+
              }            
     // ocwimg        
         if(  (strpos($line, 'ocwimg file=') !== FALSE)
@@ -1439,7 +1435,7 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
                 //print_r($desc_match); 
 
-                echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                // echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
 
              }            
@@ -1463,14 +1459,8 @@ while ($line = fgets($fp_tmp)) {
           $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
           //print_r($desc_match); 
 
-          echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+        //   echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
           
-          
-          
-          // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
-          // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
-          // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-          // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
        }                
         // ocwlink
         if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
@@ -1486,7 +1476,7 @@ while ($line = fgets($fp_tmp)) {
         
             $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
 
-            echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);     
+            // echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);     
 
             }
 
@@ -1506,7 +1496,7 @@ while ($line = fgets($fp_tmp)) {
 
             $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
 
-            echo "<br> ocwpagelink type ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+            // echo "<br> ocwpagelink type ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
             }
 
