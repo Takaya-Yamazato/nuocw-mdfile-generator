@@ -129,6 +129,9 @@ function get_contents ($page_id, $contents_type) {
         // {#pdf#} を削除
         $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
 
+        // コメントアウト（<!-- ...  -->）を削除
+        $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
+
         // ### タイトル　が　NULL なら html タグを markdown へ変換
         $contents_tag = $contents_tag = '/\#+\s(\S+)/';
         if ( preg_match_all($contents_tag, $contents) == NULL ){
@@ -138,7 +141,7 @@ function get_contents ($page_id, $contents_type) {
             $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
             unset($md);
         }
-
+           
         // // #で改行
         // $contents_tag = $contents_tag = '/\#+(\S+)/';
         // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
@@ -323,6 +326,9 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
 
       // {#pdf#} を削除
       $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+
+      // コメントアウト（<!-- ...  -->）を削除
+      $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
 
       // なぜだかバックスラッシュ「\」が残るので削る
       $contents = str_replace('\\', '' , $contents) ;

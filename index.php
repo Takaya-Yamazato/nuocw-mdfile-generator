@@ -28,9 +28,9 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 0" ;
+$limit = "LIMIT 10 OFFSET 370" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
@@ -1316,12 +1316,6 @@ $ocwlink_file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
 // $ocwlink_all = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
-
-// $ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
-// $ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
-// $ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
-// $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
-
 
 $ocwpagelink_file = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
 $ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
