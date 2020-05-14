@@ -1317,6 +1317,12 @@ $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
 // $ocwlink_all = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
 
+// $ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
+// $ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
+// $ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
+// $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
+
+
 $ocwpagelink_file = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
 $ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
 $ocwpagelink_all  = '/(?<=\{ocwpagelink type=\").+?(?=\"\})/';     
@@ -1330,8 +1336,6 @@ $studio_media = '/http:\/\/studio.media.nagoya-u.ac.jp\/videos\/watch.php\?\v\=/
 
 $studio_thumbs_url = 'https://nuvideo.media.nagoya-u.ac.jp/thumbs/' ;
 $studio_thumbs_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/thumbs\//' ;
-
-
 
 // 名大トピックス
 $nu_topics_link = '/名大トピックス/';
@@ -1356,17 +1360,11 @@ while ($line = fgets($fp_tmp)) {
     // 文字列の先頭、末尾の半角全角スペース削除
         $line = space_trim($line) ;
 
-        $test = "
-        第2回
-        : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
-        : {ocwimg file=\"temporary.img\" alt=\"画像の説明\" ocwlink=\"lecture.pdf\"}
-        : {ocwimg file=\"temporary2.img\" alt=\"画像の説明2\" }";
-        $ocwimg_file = '/(?<=\{ocwimg file=\").+?(?=\")/';
-        $ocwimg_alt  = '/(?<=alt=\").+?(?=\")/';
-        $ocwimg_link = '/(?<=ocwlink=\").+?(?=\")/';
-        $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
-
-        $ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
+        // $test = "
+        // 第2回
+        // : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
+        // : {ocwimg file=\"temporary.img\" alt=\"画像の説明\" ocwlink=\"lecture.pdf\"}
+        // : {ocwimg file=\"temporary2.img\" alt=\"画像の説明2\" }";
 
         // $mystring = $test ;
         // $findme   = 'ocwimg file=';
@@ -1381,6 +1379,8 @@ while ($line = fgets($fp_tmp)) {
         // } else {
         //      echo "文字列 '$findme' は、文字列 '$mystring' の中で見つかりませんでした";
         // }
+
+
     // ocwimg with ocwlink
         if(  (strpos($line, 'ocwimg file=') !== FALSE)
           && (strpos($line, 'alt=')         !== FALSE )
@@ -1416,7 +1416,7 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_all_link, $test2 ) ;
                 //print_r($desc_match); 
                 // echo "<br> ocwimg_all_link: " ; var_dump($ocwimg_link_match) ;
-                echo "<br> ocwimg with link : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                echo "<br> ocwimg with link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
                 
 
                 // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
@@ -1445,7 +1445,7 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
                 //print_r($desc_match); 
 
-                echo "<br> ocwimg : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
                 
                 
                 
@@ -1454,7 +1454,35 @@ while ($line = fgets($fp_tmp)) {
                 // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
                 // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
              }            
-         
+    // ocwimg        
+    if(  strpos($line, 'ocwimg file=') !== FALSE ){
+
+          preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
+          // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
+          // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
+          $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
+        //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+        //   // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+          $ocwimg_file_link = "![&nbsp;]".$ocwimg_file_link ;
+        //   // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+        //   // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+          preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
+          // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+          $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+          $test2 = str_replace( $ocwimg_match,"", $line ) ;
+          // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
+          $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+          //print_r($desc_match); 
+
+          echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+          
+          
+          
+          // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
+          // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
+          // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+          // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+       }                
         // ocwlink
         if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
         
@@ -1468,12 +1496,13 @@ while ($line = fgets($fp_tmp)) {
             $test2 = str_replace( $ocwlink_match,"", $line ) ;
         
             $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
-                            
+
+            echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);     
+
             }
 
 
     // ocwpagelink
-
            
         if( preg_match_all($ocwpagelink_file, $line, $ocwpagelink_file_match) ){
 
@@ -1487,8 +1516,12 @@ while ($line = fgets($fp_tmp)) {
             $test2 = str_replace( $ocwpagelink_match,"", $line ) ;
 
             $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
-                        
+
+            echo "<br> ocwpagelink type ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+
             }
+
+            // echo "<br>" ;
 
     // stormvideo は削除
     if(preg_match('/stormvideo_link/',$line)){
