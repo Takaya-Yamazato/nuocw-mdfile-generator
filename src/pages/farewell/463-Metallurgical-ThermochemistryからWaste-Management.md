@@ -140,4 +140,6 @@ Google ChromeやSafari、Mozilla FireFoxでお試しください。
 ### 講義資料
 
 [Metallurgical ThermochemistryからWaste Management](https://ocw.nagoya-u.jp/files/463/fujisawa.pdf) 
+
+
 -----

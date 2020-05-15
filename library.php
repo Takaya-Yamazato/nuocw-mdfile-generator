@@ -132,6 +132,12 @@ function get_contents ($page_id, $contents_type) {
         // コメントアウト（<!-- ...  -->）を削除
         $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
 
+    // stormvideo は削除
+    if(preg_match('/stormvideo_link/s',$contents)){
+        // $line = "\n" ;
+        echo "<br> stormvideo_link ".htmlspecialchars_decode($contents, ENT_NOQUOTES);
+      }
+
         // ### タイトル　が　NULL なら html タグを markdown へ変換
         $contents_tag = $contents_tag = '/\#+\s(\S+)/';
         if ( preg_match_all($contents_tag, $contents) == NULL ){

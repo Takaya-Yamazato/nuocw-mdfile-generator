@@ -123,4 +123,6 @@ Google ChromeやSafari、Mozilla FireFoxでお試しください。
 ### 講義資料
 
 [Characters,character sheaves and beyond](https://ocw.nagoya-u.jp/files/329/lshoji.pdf) 
+
+
 -----

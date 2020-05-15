@@ -1508,6 +1508,7 @@ while ($line = fgets($fp_tmp)) {
     // stormvideo は削除
     if(preg_match('/stormvideo_link/',$line)){
         $line = "\n" ;
+        // echo "<br> stormvideo_link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
       }
 
     // スタジオ動画配信サーバ URL の変更
@@ -1532,18 +1533,29 @@ while ($line = fgets($fp_tmp)) {
         // $resources = str_replace('\\', '' , $resources) ;
         
     // vsyllabus_direct_link
-    if (preg_match('/<a target=\"_blank\" href=/', $line)){
-        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);    
-    }
+    // if (preg_match('/<a target=\"_blank\" href=/', $line)){
+    //     $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+    //     echo "<br>line : ".$line."<br>"; 
+    // }
+    // vsyllabus_direct_link
+    // if (preg_match('/<a target=\"blank\" href=/', $line)){
+    //     $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
+    //     echo "<br>line : ".$line."<br>"; 
+    // }
     $vsyllabus_direct_link_to = ' width="640" height="360" frameborder="0" allowfullscreen></iframe>' ;
     if (preg_match('/(?<=><img).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
         $vsyllabus_match = "><img".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
+
             // echo "<br>line : ".$line."<br>";       
     }
     if (preg_match('/(?<=>後輩へのメッセージビデオ).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
         $vsyllabus_match = ">後輩へのメッセージビデオ".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);        
             // echo "<br>line : ".$line."<br>";       
     }    
 
@@ -1553,6 +1565,8 @@ while ($line = fgets($fp_tmp)) {
             // echo "<br>line : ".$line."<br>";       
     }   
     
+    // FlashVideo を削除
+    $line = preg_replace('/FlashVideo, /', '', $line);
 
     // 残っている html たとえば <dd> タグを削除
     // $line = strip_tags ($line) ;

@@ -152,6 +152,8 @@ date: 2020-05-12 17:41:22
 
 ### 後輩へのメッセージビデオ
 
-<a target="blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
+
 
 -----

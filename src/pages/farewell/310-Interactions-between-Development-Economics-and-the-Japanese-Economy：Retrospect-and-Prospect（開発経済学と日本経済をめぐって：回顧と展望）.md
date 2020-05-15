@@ -123,4 +123,6 @@ date: 2017-02-23 15:08:43
 
 
 <a href="http://ocw.nagoya-u.jp/resource/2011_lastlecture_osada/" target="blank"> 最終講義ビデオ・スライドを見る (新しいウィンドウが開きます) (Flashvideo, 1:03:20)</a>
+
+
 -----

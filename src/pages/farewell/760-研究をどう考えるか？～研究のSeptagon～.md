@@ -63,7 +63,7 @@ date: 2020-05-12 19:17:33
 
 ### 後輩へのメッセージ
 
-<a target="blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/80b6e594c5afa3b9c51509be7377a4f044008927" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/80b6e594c5afa3b9c51509be7377a4f044008927" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 
 ![山本 修一郎 教授](https://ocw.nagoya-u.jp/files/760/photo.jpg) 
@@ -110,7 +110,9 @@ date: 2020-05-12 19:17:33
 
 ### 講義映像
 
-<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) lecture_thumb.png" alt="" } </a>
+<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) lecture_thumb.png" alt="" } </a>
 
 (1:30:12)
+
+
 -----

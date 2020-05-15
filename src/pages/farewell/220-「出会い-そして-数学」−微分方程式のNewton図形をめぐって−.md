@@ -136,4 +136,6 @@ Google ChromeやSafari、Mozilla FireFoxでお試しください。
 [「出会い そして 数学」−微分方程式のNewton図形をめぐって−](https://ocw.nagoya-u.jp/files/220/miyakes.pdf) 
 
 [出会いと数学](https://ocw.nagoya-u.jp/files/220/deai.pdf) 
+
+
 -----

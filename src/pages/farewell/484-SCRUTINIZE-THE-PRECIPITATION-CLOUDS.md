@@ -138,5 +138,7 @@ Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
 ### 後輩へのメッセージ
 
-<a target="blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
+
 -----
