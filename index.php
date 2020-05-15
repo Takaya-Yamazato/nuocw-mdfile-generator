@@ -1102,6 +1102,8 @@ $main_text = "
 
 
 ".$farewell_lecture_resources."
+
+
 -----" ;
 
 // 改行が連続する場合、ひとつにまとめる
@@ -1195,6 +1197,8 @@ $main_text = "
 
 
 ".$related_resources."
+
+
 -----" ;
 
 // 以下、授業ホーム、授業の工夫、シラバス、スケジュール、講義ノート、成績評価のみを出力
@@ -1277,7 +1281,6 @@ movie: ".$movie."
 date: ".$course_date."
 ---
 " ;
-
   }
 
 
