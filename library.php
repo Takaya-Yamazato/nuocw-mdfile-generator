@@ -132,11 +132,6 @@ function get_contents ($page_id, $contents_type) {
         // コメントアウト（<!-- ...  -->）を削除
         $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
 
-    // stormvideo は削除
-    if(preg_match('/stormvideo_link/s',$contents)){
-        // $line = "\n" ;
-        echo "<br> stormvideo_link ".htmlspecialchars_decode($contents, ENT_NOQUOTES);
-      }
 
         // ### タイトル　が　NULL なら html タグを markdown へ変換
         $contents_tag = $contents_tag = '/\#+\s(\S+)/';
@@ -147,7 +142,21 @@ function get_contents ($page_id, $contents_type) {
             $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
             unset($md);
         }
-           
+
+    // stormvideo は削除
+    if(preg_match('/stormvideo_link/s',$contents)){
+
+        // echo "<br>" ;
+        // echo "<br> stormvideo_link ".htmlspecialchars_decode($contents, ENT_NOQUOTES);
+        // ### 講義ビデオ　を削除
+        $contents = preg_replace('/### 講義ビデオ/', '', $contents);
+        $contents = preg_replace('/^.*stormvideo_link.*$/um','',$contents);
+        $contents = preg_replace('/^.*Internet Explorer.*$/um','',$contents);
+        $contents = preg_replace('/^.*Google Chrome.*$/um','',$contents);        
+     
+        // echo "<br> stormvideo_del ".htmlspecialchars_decode($contents, ENT_NOQUOTES)."<br>";                       
+      }
+
         // // #で改行
         // $contents_tag = $contents_tag = '/\#+(\S+)/';
         // if ( preg_match_all($contents_tag, $contents, $tag_match) ){

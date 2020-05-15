@@ -146,7 +146,7 @@ date: 2020-05-12 17:41:22
 [](https://ocw.nagoya-u.jp/files/354/sakamoto_edited.pdf) sakamoto_edited.pdf" desc="基礎研究、Translational Research、臨床試験から医療行政へ
 "}
 
-### 講義ビデオ
+
 
 
 
