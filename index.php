@@ -30,7 +30,7 @@ $course_id = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 10 OFFSET 460" ;
 // 全てのファイルを出力する場合
-// $limit = "" ;
+$limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
