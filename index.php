@@ -28,9 +28,9 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 370" ;
+$limit = "LIMIT 10 OFFSET 460" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+// $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
@@ -698,7 +698,7 @@ if(!empty($page_id)){
 
 }else{
     $evaluation = '' ;
-}  
+}
 // $evaluation_sql = "SELECT contents.contents 
 //                     FROM pages, page_contents, contents, page_status 
 //                     WHERE pages.course_id = $course_id 
@@ -1355,7 +1355,7 @@ while ($line = fgets($fp_tmp)) {
         $line = mb_convert_kana($line, 's');
        
     // 文字列の先頭、末尾の半角全角スペース削除
-        $line = space_trim($line) ;
+        // $line = space_trim($line) ;
 
         // $test = "
         // 第2回
@@ -1513,14 +1513,21 @@ while ($line = fgets($fp_tmp)) {
 
     // スタジオ動画配信サーバ URL の変更
     $line = preg_replace($studio_media, $studio_url, $line);
+    // echo "<br>preg_replace : ".$line."<br>";
+    $line = str_ireplace("http://studio.media.nagoya-u.ac.jp/videos/watch.php?v=", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $line );
+    // echo "<br> str_replace : ".$line."<br>";
+
     // echo "<br>line : ".$line."<br>";
     $line = preg_replace($studio_url_old, $studio_url, $line);
+    $line = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/embed/", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $line );
     // echo "<br>line : ".$line."<br>";
     $line = preg_replace($studio_thumbs_url_old, $studio_thumbs_url, $line);
-    
+    $line = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/embed/", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $line );
+
     // 名大トピックス
     $line = preg_replace( $nu_topics_link , $nu_topics_desc ,$line ) ;
-
+    $line = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/thumbs/", "https://nuvideo.media.nagoya-u.ac.jp/thumbs/", $line );    
+    
         // $ii = 0;
         // foreach ($desc_match[0] as $value){
         //     $resources .= 
