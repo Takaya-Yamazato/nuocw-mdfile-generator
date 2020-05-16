@@ -20,7 +20,10 @@ department: "G30"
 # 開講時限
 term: "2018年度	後期"
 
-# 対象者、単位数、授業回数
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "1st-year G30 students from Science, Engineering and Agriculture."
+
+# 対象者
 target: "1st-year G30 students from Science, Engineering and Agriculture."
 
 # 授業回数
@@ -35,7 +38,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/691/video_thumb.png
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "First-Year-Seminar"
 
@@ -57,10 +60,10 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2
 
 # 記事投稿日
-date: 2020-05-08 11:09:35
+date: 2020-05-10 19:40:08
 ---
 
-[![](https://ocw.nagoya-u.jp/files/691/video_thumb.png) video_thumb.png" alt="" }](https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2)
+[![VASSILEVA Maria Niko Associate Professor](https://ocw.nagoya-u.jp/files/691/video_thumb.png) video_thumb.png" alt="VASSILEVA Maria Niko Associate Professor" }](https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2)
 
 
 ### Course Overview
@@ -179,6 +182,8 @@ Group and individual presentations form 40% of total grade for the course; indiv
 |      13      | 	Book review presentations |
 |      14      | 	Book review presentations |
 |      15      | 	Book review presentations |
+
+
 
 
 

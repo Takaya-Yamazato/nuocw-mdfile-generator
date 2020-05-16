@@ -20,7 +20,10 @@ department: "情報科学研究科"
 # 開講時限
 term: "2016年度	前期"
 
-# 対象者、単位数、授業回数
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: ""
+
+# 対象者
 target: ""
 
 # 授業回数
@@ -35,7 +38,7 @@ attachments:
     path: /img/common/thumbnail.png
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "test"
   - "Markdownサンプルページ"
@@ -58,7 +61,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2017-06-22 10:41:45
+date: 2020-05-13 10:40:39
 ---
 
 ### 見出し
@@ -143,6 +146,8 @@ date: 2017-06-22 10:41:45
 <div align="right">
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" width="640" height="360" frameborder="0" allowfullscreen></iframe><br />
 この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンスの下に提供されています。</a>資料中の引用した部分は含みません。</div>
+
+
 
 
 

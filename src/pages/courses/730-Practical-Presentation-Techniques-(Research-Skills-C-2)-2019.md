@@ -20,15 +20,19 @@ department: "教養教育院"
 # 開講時限
 term: "2019年度	後期"
 
-# 対象者、単位数、授業回数
-target: "大学院生共通科目
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "大学院生共通科目
 ２単位、週1回全15回"
 
+# 対象者
+target: "大学院生共通科目"
+
 # 授業回数
-classes: ""
+classes: "週1回全15回"
 
 # 単位数
-credit: ""
+credit: "
+２単位"
 
 # pdfなどの追加資料
 attachments:
@@ -36,7 +40,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/730/book.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Practical-Presentation-Techniques"
   - "Research-Skills-C-2"
@@ -128,6 +132,8 @@ Most lessons include a short interactive lecture. Students discuss issues raised
 Participation 60%
 Two presentations 40%
 * Students are required to attend a minimum of 10 lessons in order to receive credits for the course.
+
+
 
 
 

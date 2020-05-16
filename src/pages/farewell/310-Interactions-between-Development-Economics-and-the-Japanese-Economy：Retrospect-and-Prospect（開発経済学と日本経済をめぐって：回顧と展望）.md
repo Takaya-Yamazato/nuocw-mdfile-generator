@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "アカウンタビリティ"
   - "Retrospect-and-Prospect"
@@ -123,4 +123,6 @@ date: 2017-02-23 15:08:43
 
 
 <a href="http://ocw.nagoya-u.jp/resource/2011_lastlecture_osada/" target="blank"> 最終講義ビデオ・スライドを見る (新しいウィンドウが開きます) (Flashvideo, 1:03:20)</a>
+
+
 -----

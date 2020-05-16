@@ -20,15 +20,19 @@ department: "G30"
 # 開講時限
 term: "2018年度	後期"
 
-# 対象者、単位数、授業回数
-target: "G30
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "G30
 2単位、週1回"
 
+# 対象者
+target: "G30"
+
 # 授業回数
-classes: ""
+classes: "週1回"
 
 # 単位数
-credit: ""
+credit: "
+2単位"
 
 # pdfなどの追加資料
 attachments:
@@ -100,7 +104,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/689/11_nucleic acids.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Biochemistry-I"
   - "名古屋大学国際プログラムG"
@@ -236,6 +240,8 @@ Activities + Participation &nbsp;10%<br>
 * [Answers for HW](https://ocw.nagoya-u.jp/files/689/answers for HW.pdf) 
 
 ----
+
+
 
 
 

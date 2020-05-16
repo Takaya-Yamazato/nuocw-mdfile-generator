@@ -20,15 +20,19 @@ department: "経済学部／経済学研究科"
 # 開講時限
 term: "2014年度	後期"
 
-# 対象者、単位数、授業回数
-target: "経済学部1,2年生
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "経済学部1,2年生
 2単位、週1回全15回"
 
+# 対象者
+target: "経済学部1,2年生"
+
 # 授業回数
-classes: ""
+classes: "週1回全15回"
 
 # 単位数
-credit: ""
+credit: "
+2単位"
 
 # pdfなどの追加資料
 attachments:
@@ -38,7 +42,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Introductory-Accounting-I"
   - "経済学部"
@@ -202,6 +206,8 @@ Attendance (25%), homework (25%), and oral presentation (25%), essay (25%).
 A: 100-80 (as for undergraduate students S: 100-90), B: 79-70, C: 69-60, F 59-0
 
 The procedure for "withdrawing the course" will not be applied. Not submitting essay will be graded as "Absent".
+
+
 
 
 

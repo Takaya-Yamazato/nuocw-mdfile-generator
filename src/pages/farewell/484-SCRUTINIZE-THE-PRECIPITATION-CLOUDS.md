@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "SCRUTINIZE-THE-PRECIPITATION-CLOUDS"
   - "観測"
@@ -119,12 +119,14 @@ date: 2020-05-02 17:08:45
 ### 講義ビデオ
 
 
-<!--
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089" target="blank">最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）</a>-->
+
 [最終講義ビデオ・スライドを見る（新しいウィンドウが開きます）](https://nuvideo.media.nagoya-u.ac.jp/embed/dee4f39924e341d3dd351c5d41e4371a2c206089)
 (1:23:03)
 
+
+
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
@@ -136,5 +138,7 @@ Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
 ### 後輩へのメッセージ
 
-<a target="blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/8115f8c39895d32fa25f8d51d4ef7e44f8eefb2a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
+
 -----

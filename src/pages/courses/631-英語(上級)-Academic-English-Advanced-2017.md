@@ -20,7 +20,11 @@ department: "教養教育院"
 # 開講時限
 term: "2017年度	前期"
 
-# 対象者、単位数、授業回数
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "情・工・理・農学部
+週1回全15回"
+
+# 対象者
 target: "情・工・理・農学部
 週1回全15回"
 
@@ -42,7 +46,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Academic-English-Advanced"
   - "上級"
@@ -297,6 +301,8 @@ Course grade is based on presentations (60%), feedback and questions during othe
 
 
 対面授業に加え、課外学習教材「eFACE」を課し、その成績に基づく評価を授業全体の評価の２０％とする。なお、５回以上欠席をした場合、「欠席」の評価がつく。履修取り下げ制度は採用しない。
+
+
 
 
 

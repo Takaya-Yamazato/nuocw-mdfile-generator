@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "プロフェッショナリズム"
   - "professionalism"
@@ -112,6 +112,8 @@ date: 2020-03-13 17:21:23
 ### 講義資料
 
 [我々に求められるprofessionalismとは？](https://ocw.nagoya-u.jp/files/309/ueda_lastLecture_v2-1.pdf) 
+
+
 
 
 

@@ -10,7 +10,7 @@ title: "研究をどう考えるか？～研究のSeptagon～"
 
 # 簡単な説明
 description: >-
-   ....
+  2009年12月に企業の研究開発部門から母校である名古屋大学に赴任して以来，情報戦略室，情報科学研究科，情報学研究科と10年間在職させていただきました．この間，自由な環境で研究ができたことは大変幸せでした．情報戦略室では名古屋大学情報基盤サービスの信頼性評価指標の構築に取り組みました．その後，ITサービスの高信頼化の研究を進め，エンタープライズアーキテクチャ，デジタルビジネスなど，最近はデジタ ....
 
 # 講師名
 lecturer: "山本修一郎 教授"
@@ -27,10 +27,11 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
+  - "エンタープライズアーキテクチャ"
   - "Septagon"
-  - "退職記念講義"
+  - "母校"
 
 # 色付けのロールにするか
 featuredpost: true
@@ -43,10 +44,10 @@ featuredimage: /img/common/thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
-movie: 
+movie: https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4
 
 # 記事投稿日
-date: 2020-04-29 16:49:36
+date: 2020-05-12 19:17:33
 ---
 
 |   |   |
@@ -56,7 +57,13 @@ date: 2020-04-29 16:49:36
 |   |   |
 
 
+### 振返れば美しく楽しい想い出の10年間でした
 
+2009年12月に企業の研究開発部門から母校である名古屋大学に赴任して以来，情報戦略室，情報科学研究科，情報学研究科と10年間在職させていただきました．この間，自由な環境で研究ができたことは大変幸せでした．情報戦略室では名古屋大学情報基盤サービスの信頼性評価指標の構築に取り組みました．その後，ITサービスの高信頼化の研究を進め，エンタープライズアーキテクチャ，デジタルビジネスなど，最近はデジタル変革について研究しています．退職間際になって始めたデジタル変革の研究でこれからもまたしばらく忙しくなりそうです．また，在職中には研究会や国際会議を主催できたことや，多くの大学院生や社会人博士を指導できたことに感謝しています．研究科の皆さんにはこれまで大変お世話になり，無事定年まで勤めることができました．どうもありがとうございました．
+
+### 後輩へのメッセージ
+
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/80b6e594c5afa3b9c51509be7377a4f044008927" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 
 ![山本 修一郎 教授](https://ocw.nagoya-u.jp/files/760/photo.jpg) 
@@ -103,7 +110,9 @@ date: 2020-04-29 16:49:36
 
 ### 講義映像
 
-<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) lecture_thumb.png" alt="" } </a>
+<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) lecture_thumb.png" alt="" } </a>
 
 (1:30:12)
+
+
 -----

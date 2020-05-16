@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "勁草書房刊"
   - "Pursuing-the-Critical-Role-of-Government-in-Development"
@@ -110,4 +110,6 @@ date: 2012-09-05 12:28:44
 ### 講義資料
 
 [Pursuing the Critical Role of Government in Development](https://ocw.nagoya-u.jp/files/322/lkimura.pdf) 
+
+
 -----

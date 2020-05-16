@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "スローン"
   - "Lewisa"
@@ -64,7 +64,7 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6
 
 # 記事投稿日
-date: 2014-05-30 13:38:05
+date: 2020-05-12 17:41:22
 ---
 
 |   |   |
@@ -143,11 +143,17 @@ date: 2014-05-30 13:38:05
 
 ### 講義資料
 
-[基礎研究、Translational Research、臨床試験から医療行政へ ](https://ocw.nagoya-u.jp/files/354/sakamoto_edited.pdf) 
-
-### 講義ビデオ
-
+[](https://ocw.nagoya-u.jp/files/354/sakamoto_edited.pdf) sakamoto_edited.pdf" desc="基礎研究、Translational Research、臨床試験から医療行政へ
+"}
 
 
-※動画サイズが大きいため、表示されるまでに時間がかかる場合があります。
+
+
+
+### 後輩へのメッセージビデオ
+
+<iframe src="https://nuvideo.media.nagoya-u.ac.jp/embed/fd11d43cb8bb43c888034478f7171efb7a1cb5c6" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
+
+
 -----

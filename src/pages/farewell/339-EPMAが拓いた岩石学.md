@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "COE"
   - "EPMA"
@@ -141,4 +141,6 @@ date: 2017-02-15 15:06:39
 [『毎日新聞』2011.01.27「キツネのミイラで探る里山 天敵減ってイノシシ栄える？」](https://ocw.nagoya-u.jp/files/339/20110127mainichi.jpg) 
 
 [『朝日新聞』2011.02.10「1匹のキツネが伝えること 崩れゆく里山のバランス」](https://ocw.nagoya-u.jp/files/339/20110210asahi.jpg) 
+
+
 -----

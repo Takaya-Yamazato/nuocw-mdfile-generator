@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "進取"
   - "Sphingolipid"
@@ -118,14 +118,16 @@ date: 2020-04-13 22:01:19
 
 ### 講義ビデオ
 
-<!--
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86" target="blank">最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)</a>--> [最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
+[最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/52a5260040dc33592742ac357ad3fd81623b9b86)(Flashvideo, 1:29:56)
 
 
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
 ### 講義資料
 
 [Searching for the Sphinx of the Lipid (Sphingolipid)](https://ocw.nagoya-u.jp/files/488/lecture.pdf) 
+
+
 -----

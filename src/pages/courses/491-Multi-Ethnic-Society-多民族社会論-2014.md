@@ -20,15 +20,19 @@ department: "国際開発研究科"
 # 開講時限
 term: "2014年度	前期"
 
-# 対象者、単位数、授業回数
-target: "国際協力専攻
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "国際協力専攻
 2単位、週1回全15回"
 
+# 対象者
+target: "国際協力専攻"
+
 # 授業回数
-classes: ""
+classes: "週1回全15回"
 
 # 単位数
-credit: ""
+credit: "
+2単位"
 
 # pdfなどの追加資料
 attachments:
@@ -74,7 +78,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/491/notes9_3.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Multi-Ethnic-Society-多民族社会論"
   - "国際開発研究科"
@@ -290,6 +294,8 @@ English
 ### 成績評価
 
 Attendance (60%) + term paper (40%)
+
+
 
 
 

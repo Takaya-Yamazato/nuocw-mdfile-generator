@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "BCAA"
   - "生化学"
@@ -130,5 +130,7 @@ date: 2020-04-29 09:52:19
 
 
 [分岐鎖アミノ酸(BCAA)研究と現代の栄養学](https://ocw.nagoya-u.jp/files/715/shimomura_final_book.pdf) 
+
+
 
 -----

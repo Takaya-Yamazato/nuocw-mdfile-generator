@@ -27,7 +27,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Metallurgical-Thermochemistry"
   - "Waste-Management"
@@ -130,14 +130,16 @@ date: 2020-04-13 21:08:16
 
 ### 講義ビデオ
 
-<!--
-<a href="https://nuvideo.media.nagoya-u.ac.jp/embed/aca15e98507a86ca663505a762288252437c84f0" target="blank">最終講義ビデオ・スライドを見る (新しいウィンドウが開きます) </a>--> [最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/aca15e98507a86ca663505a762288252437c84f0) (Flashvideo, 1:27:32)
+[最終講義ビデオ・スライドを見る (新しいウィンドウが開きます)](https://nuvideo.media.nagoya-u.ac.jp/embed/aca15e98507a86ca663505a762288252437c84f0) (Flashvideo, 1:27:32)
 
 
 Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。
+
 Google ChromeやSafari、Mozilla FireFoxでお試しください。
 
 ### 講義資料
 
 [Metallurgical ThermochemistryからWaste Management](https://ocw.nagoya-u.jp/files/463/fujisawa.pdf) 
+
+
 -----

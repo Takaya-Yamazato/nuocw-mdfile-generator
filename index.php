@@ -28,7 +28,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 0" ;
+$limit = "LIMIT 10 OFFSET 370" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -469,13 +469,83 @@ if (!($class_is_for_array[0]['contents'])){
     $class_is_for = "" ;
 }else{
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
-    // echo "<br>class_is_for_array : ".$class_is_for."<br>" ;
     // print_r($class_is_for_array);
 }
 
 $class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
+$class_is_for = preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for );
 
 // echo "<br>".$class_is_for;
+
+if(strpos($class_is_for,'単位') !== false){
+    //$class_is_for のなかに'単位'が含まれている場合
+
+    if(strpos($class_is_for,'.5') !== false){
+        //$class_is_for のなかに'.5'が含まれている場合
+        $class_is_for_offset = '4';
+    }else{
+        $class_is_for_offset = '2';
+    }
+
+    $end = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
+    $target = mb_substr($class_is_for, 0, $end);
+
+    // # 単位数
+    // credit: "2単位"
+
+    $start = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
+    $credit = mb_substr($class_is_for, $start, $class_is_for_offset + 2);
+
+    $start = mb_strpos($class_is_for,'単位')+3;
+    $classes = mb_substr($class_is_for, $start);
+
+
+}else{
+    $target = $class_is_for ;
+    $credit = '' ;
+    $classes = '' ;
+}
+
+if($course_id == '5'){
+    $target = "理学部数理学科3年生 多元数理科学研究科" ;
+    $credit = "学部生: 3単位 大学院生: 2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '259'){
+    $target = "情報文化学部自然情報学科・社会システム情報学科" ;
+    $credit = "必修2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if( $course_id =='297' || $course_id =='352' ){
+    $target = "国際言語文化研究科および文学研究科の大学院生" ;
+    $credit = "a,bそれぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '360'){
+    $target = "全学部" ;
+    $credit = "前期・後期それぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '406'){
+    $target = "国際言語文化研究科" ;
+    $credit = "前期・後期それぞれ2単位" ;
+    $classes = "週1回 全15回" ;
+}
+if($course_id == '680'){
+    $target = "情報学部" ;
+    $credit = "必修1単位" ;
+    $classes = "週1回 全7回" ;
+}
+if($course_id == '703'){
+    $target = "基盤創薬学専攻（1年次通年集中博士課程前期課程）" ;
+    $credit = "必修・「演習」１単位「実習」２単位" ;
+    $classes = "" ;
+}
+
+// echo "<br><br>元　　 : ".$class_is_for ;
+// echo "<br>対象者 : ".$target ;
+// echo "<br>単位数 : ".$credit ;
+// echo "<br>授業回数 : ".$classes."<br>" ;
 
 // 51             | 授業ホーム   | Course Home           | index            |        510
 $page_id = check_page_status ($course_id, $page_type = '51') ;
@@ -1032,6 +1102,8 @@ $main_text = "
 
 
 ".$farewell_lecture_resources."
+
+
 -----" ;
 
 // 改行が連続する場合、ひとつにまとめる
@@ -1067,7 +1139,7 @@ attachments:
 
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:".$tags."
 
 # 色付けのロールにするか
@@ -1125,6 +1197,8 @@ $main_text = "
 
 
 ".$related_resources."
+
+
 -----" ;
 
 // 以下、授業ホーム、授業の工夫、シラバス、スケジュール、講義ノート、成績評価のみを出力
@@ -1167,20 +1241,23 @@ department: \"".$division."\"
 # 開講時限
 term: \"".$term."\"
 
-# 対象者、単位数、授業回数
-target: \"".preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for )."\"
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: \"".$class_is_for."\"
+
+# 対象者
+target: \"".$target."\"
 
 # 授業回数
-classes: \"\"
+classes: \"".$classes."\"
 
 # 単位数
-credit: \"\"
+credit: \"".$credit."\"
 
 # pdfなどの追加資料
 attachments:
 ".$attaches."
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:".$tags."
 
 # カテゴリ
@@ -1204,7 +1281,6 @@ movie: ".$movie."
 date: ".$course_date."
 ---
 " ;
-
   }
 
 
@@ -1220,9 +1296,9 @@ echo "<br>ID: ".$course_id."\t".$file_name ;
 // echo htmlspecialchars("\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n") ;
 
 // tmp.html へも出力
-$check_list .="<tr><td><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
-$check_list .="<td><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
-$check_list .="<td>".$course_id."-".$course_name."</td></tr>\n" ;
+$check_list .="<tr><td width=\"100\"><a href=\"http://ocw.nagoya-u.jp/index.php?lang=ja&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
+$check_list .="<td width=\"100\"><a href=\"https://nuocw-preview.netlify.app/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
+$check_list .="<td>".sprintf('%03d', $course_id)."-".$course_name."</td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
@@ -1258,8 +1334,6 @@ $studio_media = '/http:\/\/studio.media.nagoya-u.ac.jp\/videos\/watch.php\?\v\=/
 $studio_thumbs_url = 'https://nuvideo.media.nagoya-u.ac.jp/thumbs/' ;
 $studio_thumbs_url_old = '/http:\/\/nuvideo.media.nagoya-u.ac.jp\/thumbs\//' ;
 
-
-
 // 名大トピックス
 $nu_topics_link = '/名大トピックス/';
 $nu_topics_desc = '[名大トピックス](http://www.nagoya-u.ac.jp/about-nu/public-relations/publication/topics-archive.html)' ;
@@ -1283,14 +1357,71 @@ while ($line = fgets($fp_tmp)) {
     // 文字列の先頭、末尾の半角全角スペース削除
         $line = space_trim($line) ;
 
-        $test = "
-        第2回
-        : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
-        : {ocwimg file=\"画像の名前\" alt=\"画像の説明\" ocwlink=\"講義ファイルの名前\"}";
+        // $test = "
+        // 第2回
+        // : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
+        // : {ocwimg file=\"temporary.img\" alt=\"画像の説明\" ocwlink=\"lecture.pdf\"}
+        // : {ocwimg file=\"temporary2.img\" alt=\"画像の説明2\" }";
 
-    // ocwimg 
-        if( preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ){
+        // $mystring = $test ;
+        // $findme   = 'ocwimg file=';
+        // $pos = strpos($mystring, $findme);
+        
+        // // !== 演算子も使用可能です。ここで != を使っても期待通りに動作しません。
+        // // なぜなら 'a' が 0 番目の文字だからです。(0 != false) を評価すると
+        // // false になってしまいます。
+        // if ($pos !== false) {
+        //      echo "文字列 '$findme' が文字列 '$mystring' の中で見つかりました";
+        //          echo " 見つかった位置は $pos です";
+        // } else {
+        //      echo "文字列 '$findme' は、文字列 '$mystring' の中で見つかりませんでした";
+        // }
+
+
+    // ocwimg with ocwlink
+        if(  (strpos($line, 'ocwimg file=') !== FALSE)
+          && (strpos($line, 'alt=')         !== FALSE )
+          && (strpos($line, 'ocwlink=')     !== FALSE ) ){
+
+                preg_match_all($ocwimg_link, $line, $ocwimg_link_match) ;
                 //print_r($file_match);
+                // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+                // echo "<br> ocwimg_link_match: " ; var_dump($ocwimg_link_match) ;
+                $ocwimg_link_file = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_link_match[0][0].") " ;
+
+                preg_match_all($ocwimg_file, $line, $ocwimg_file_match);
+                // echo "<br>   ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
+                $ocwimg_file_embed = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
+
+                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+                // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+                $ocwimg_file_link = "![".$ocwimg_alt_match[0][0]."]".$ocwimg_file_embed ;
+
+                $ocwimg_all_link = "[ ".$ocwimg_file_link." ]".$ocwimg_link_file;
+                // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+                // echo "<br> ocwimg_all_link : ".htmlspecialchars_decode($ocwimg_all_link, ENT_NOQUOTES);
+
+                preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
+                // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+
+                $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+                $test2 = str_replace( $ocwimg_match,"", $line ) ;
+                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);   
+
+                // $test3 = str_replace( $ocwimg_match,"", $test2 ) ;
+                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);                
+                $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_all_link, $test2 ) ;
+                //print_r($desc_match); 
+                // echo "<br> ocwimg_all_link: " ; var_dump($ocwimg_link_match) ;
+                // echo "<br> ocwimg with link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+
+
+             }            
+    // ocwimg        
+        if(  (strpos($line, 'ocwimg file=') !== FALSE)
+          && (strpos($line, 'alt=')         !== FALSE ) ){
+
+                preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
                 // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
                 // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
                 $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
@@ -1307,17 +1438,33 @@ while ($line = fgets($fp_tmp)) {
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
                 //print_r($desc_match); 
 
-                // echo "<br> test3 : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-                
-                
-                
-                // $test3 = preg_replace('/alt=\"/',$ocwimg_alt_link,$test2) ;
-                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
-                // $line = "![".$desc_match[0][0]."](https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
-                // $line = "\n![".$desc_match[0][0]."](http://ocw.ilas.nagoya-u.ac.jp/files/".$course_id."/".$ocwimg_match[0][0].") " ;
+                // echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+
+
              }            
-         
-    
+    // ocwimg        
+    if(  strpos($line, 'ocwimg file=') !== FALSE ){
+
+          preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
+          // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
+          // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
+          $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
+        //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+        //   // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+          $ocwimg_file_link = "![&nbsp;]".$ocwimg_file_link ;
+        //   // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+        //   // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+          preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
+          // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+          $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+          $test2 = str_replace( $ocwimg_match,"", $line ) ;
+          // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
+          $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+          //print_r($desc_match); 
+
+        //   echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+          
+       }                
         // ocwlink
         if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
         
@@ -1331,7 +1478,9 @@ while ($line = fgets($fp_tmp)) {
             $test2 = str_replace( $ocwlink_match,"", $line ) ;
         
             $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
-                            
+
+            // echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);     
+
             }
 
 
@@ -1349,12 +1498,17 @@ while ($line = fgets($fp_tmp)) {
             $test2 = str_replace( $ocwpagelink_match,"", $line ) ;
 
             $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
-                        
+
+            // echo "<br> ocwpagelink type ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+
             }
+
+            // echo "<br>" ;
 
     // stormvideo は削除
     if(preg_match('/stormvideo_link/',$line)){
         $line = "\n" ;
+        // echo "<br> stormvideo_link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
       }
 
     // スタジオ動画配信サーバ URL の変更
@@ -1379,20 +1533,40 @@ while ($line = fgets($fp_tmp)) {
         // $resources = str_replace('\\', '' , $resources) ;
         
     // vsyllabus_direct_link
-    if (preg_match('/<a target=\"_blank\" href=/', $line)){
-        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);    
-    }
+    // if (preg_match('/<a target=\"_blank\" href=/', $line)){
+    //     $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+    //     echo "<br>line : ".$line."<br>"; 
+    // }
+    // vsyllabus_direct_link
+    // if (preg_match('/<a target=\"blank\" href=/', $line)){
+    //     $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
+    //     echo "<br>line : ".$line."<br>"; 
+    // }
     $vsyllabus_direct_link_to = ' width="640" height="360" frameborder="0" allowfullscreen></iframe>' ;
     if (preg_match('/(?<=><img).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
         $vsyllabus_match = "><img".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
+
             // echo "<br>line : ".$line."<br>";       
     }
     if (preg_match('/(?<=>後輩へのメッセージビデオ).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
         $vsyllabus_match = ">後輩へのメッセージビデオ".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;  
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);        
             // echo "<br>line : ".$line."<br>";       
     }    
+
+    if (preg_match('/Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。/', $line)){        
+        
+        $line = "\n\nInternet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。\n\n" ;  
+            // echo "<br>line : ".$line."<br>";       
+    }   
+    
+    // FlashVideo を削除
+    $line = preg_replace('/FlashVideo, /', '', $line);
 
     // 残っている html たとえば <dd> タグを削除
     // $line = strip_tags ($line) ;

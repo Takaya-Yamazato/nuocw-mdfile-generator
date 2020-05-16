@@ -20,15 +20,19 @@ department: "教養教育院"
 # 開講時限
 term: "2018年度	春1期"
 
-# 対象者、単位数、授業回数
-target: "大学院生共通科目
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "大学院生共通科目
 2単位、週1回全15回"
 
+# 対象者
+target: "大学院生共通科目"
+
 # 授業回数
-classes: ""
+classes: "週1回全15回"
 
 # 単位数
-credit: ""
+credit: "
+2単位"
 
 # pdfなどの追加資料
 attachments:
@@ -48,7 +52,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Research-Skills-C-1"
   - "教養教育院"
@@ -178,5 +182,7 @@ Researchers, and Wonks. Columbia University Press, 2017.<br>
 Wallwork, Adrian. English for Presentations at International Conferences. New York: Springer, 2010.<br>
 
 Weissman, Jerry. Presenting to Win: The Art of Telling Your Story. New Jersey: Pearson Education, 2009.<br>
+
+
 
 -----

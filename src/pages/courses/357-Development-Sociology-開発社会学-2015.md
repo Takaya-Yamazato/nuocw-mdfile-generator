@@ -20,15 +20,19 @@ department: "国際開発研究科"
 # 開講時限
 term: "2015年度	前期"
 
-# 対象者、単位数、授業回数
-target: "国際協力専攻
+# 対象者、単位数、授業回数（修正用の元データ）
+class_is_for: "国際協力専攻
 2単位、週1回全15回"
 
+# 対象者
+target: "国際協力専攻"
+
 # 授業回数
-classes: ""
+classes: "週1回全15回"
 
 # 単位数
-credit: ""
+credit: "
+2単位"
 
 # pdfなどの追加資料
 attachments:
@@ -60,7 +64,7 @@ attachments:
     path: https://ocw.nagoya-u.jp/files/357/full.pdf
 
 # 関連するタグ
-# （Yahoo API Key-Phase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
+# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
   - "Development-Sociology"
 
@@ -82,7 +86,7 @@ featuredimage: /img/common/thumbnail.png
 movie: 
 
 # 記事投稿日
-date: 2018-03-22 10:38:58
+date: 2020-05-10 12:54:22
 ---
 
 ### 目的・概要
@@ -290,6 +294,8 @@ This lecture series will introduce students to basic theories and approaches in 
 ### 成績評価
 
 Term paper (70%) and contribution to classroom discussions (30%)
+
+
 
 
 
