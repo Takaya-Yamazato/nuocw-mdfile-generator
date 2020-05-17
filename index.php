@@ -1511,6 +1511,12 @@ while ($line = fgets($fp_tmp)) {
         // echo "<br> stormvideo_link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
       }
 
+    // 行頭の「:」を「- 」へ変換
+    if(preg_match('/^:/',$line)){
+        $line = str_replace( ":" , "- " , $line) ;
+        // echo "<br>行頭の「:」を「- 」へ変換 ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+      }
+    
     // スタジオ動画配信サーバ URL の変更
     $line = preg_replace($studio_media, $studio_url, $line);
     // echo "<br>preg_replace : ".$line."<br>";

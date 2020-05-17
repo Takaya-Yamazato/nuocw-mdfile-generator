@@ -142,7 +142,7 @@ English skills sufficient to undertake classes conducted in English.
 
 ### 講義ノート
 
-: [講義資料(2019年版)](https://ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf) 
+-  [講義資料(2019年版)](https- //ocw.nagoya-u.jp/files/672/presentationskillstechniques.pdf) 
 
 
 

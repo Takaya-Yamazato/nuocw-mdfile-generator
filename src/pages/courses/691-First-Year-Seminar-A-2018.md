@@ -60,12 +60,12 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2
 
 # 記事投稿日
-date: 2020-05-17 00:55:50
+date: 2020-05-17 11:50:20
 ---
 
 ### Course Overview
 
-[![VASSILEVA Maria Niko Associate Professor](https://ocw.nagoya-u.jp/files/691/video_thumb.png) video_thumb.png" alt="VASSILEVA Maria Niko Associate Professor" }](https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2)
+[ ![VASSILEVA Maria Niko Associate Professor](https://ocw.nagoya-u.jp/files/691/video_thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/5428b1f92e4ff21a041b484c21e9b40f86716be2)  
 
 This is one-semester long discussion-based seminar course. Students work in teams to research specific topics of interest and present them in class.
 
@@ -76,7 +76,6 @@ The course is centered on several themes connecting biology with other sciences 
 The course will provide practice opportunities to organize and present one' s viewpoint, and debate it at an open forum. Special emphasis is given to teamwork skills development and ability to provide feedback in a respectful manner.
 
 One more integrated experience in this course is reading a book on a theme connecting biology with society (books provided by course instructor), and developing a book review to present in class.
-
 
 
 
