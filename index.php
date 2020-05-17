@@ -1605,18 +1605,14 @@ while ($line = fgets($fp_tmp)) {
 
     // ocwimg        
     if(    (strpos($line, '<a target=') !== FALSE) 
-        && (strpos($line, '}</a>') !== FALSE) ){
+        && ( (strpos($line, '}</a>') !== FALSE) || (strpos($line, '}</a>') !== FALSE) )){
 
         preg_match_all('/\).+?\}/', $line, $ocwimg_thumb_match) ;
-        echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-        // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_thumb_match) ;
-        $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
         // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-
-        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
-        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);        
-        $line = preg_replace('/<\/a>/', ' width="640" height="360" frameborder="0" allowfullscreen></iframe>', $line);        
-        echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
+        
+        $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
+    
+        // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
      }      
     // FlashVideo を削除
     $line = preg_replace('/FlashVideo, /', '', $line);
