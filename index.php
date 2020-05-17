@@ -1604,15 +1604,16 @@ while ($line = fgets($fp_tmp)) {
     }   
 
     // ocwimg        
-    if(    (strpos($line, '<a target=') !== FALSE) 
-        && ( (strpos($line, '}</a>') !== FALSE) || (strpos($line, '}</a>') !== FALSE) )){
+    if(    (strpos($line, '<a target=' ) !== FALSE) 
+        && (    (strpos($line, '}</a>' ) !== FALSE)
+             || (strpos($line, '} </a>') !== FALSE) )){
 
         preg_match_all('/\).+?\}/', $line, $ocwimg_thumb_match) ;
-        // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+        echo "<br> before  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
         
         $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
     
-        // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
+        echo "<br> after   : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
      }      
     // FlashVideo を削除
     $line = preg_replace('/FlashVideo, /', '', $line);
