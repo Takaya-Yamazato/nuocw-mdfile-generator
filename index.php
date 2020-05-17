@@ -28,7 +28,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 10 OFFSET 460" ;
+$limit = "LIMIT 10 OFFSET 530" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -1420,7 +1420,6 @@ while ($line = fgets($fp_tmp)) {
     // ocwimg        
         if(  (strpos($line, 'ocwimg file=') !== FALSE)
           && (strpos($line, 'alt=')         !== FALSE ) ){
-
                 preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
                 // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
                 // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
@@ -1441,7 +1440,32 @@ while ($line = fgets($fp_tmp)) {
                 // echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
 
-             }            
+             }          
+
+    // ocwimg        
+    if(  strpos($line, 'ocwimg file=') !== FALSE ){
+
+        preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
+        // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
+        // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
+        $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
+      //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+      //   // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+        $ocwimg_file_link = "![&nbsp;]".$ocwimg_file_link ;
+      //   // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+      //   // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+        preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
+        // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+        $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+        $test2 = str_replace( $ocwimg_match,"", $line ) ;
+        // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
+        $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+        //print_r($desc_match); 
+
+      //   echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+        
+     }   
+
     // ocwimg        
     if(  strpos($line, 'ocwimg file=') !== FALSE ){
 
@@ -1504,6 +1528,7 @@ while ($line = fgets($fp_tmp)) {
             }
 
             // echo "<br>" ;
+
 
     // stormvideo は削除
     if(preg_match('/stormvideo_link/',$line)){
@@ -1577,7 +1602,22 @@ while ($line = fgets($fp_tmp)) {
         $line = "\n\nInternet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。\n\n" ;  
             // echo "<br>line : ".$line."<br>";       
     }   
-    
+
+    // ocwimg        
+    if(    (strpos($line, '<a target=') !== FALSE) 
+        && (strpos($line, '}</a>') !== FALSE) ){
+
+        preg_match_all('/\).+?\}/', $line, $ocwimg_thumb_match) ;
+        echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+        // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_thumb_match) ;
+        $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
+        // echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+
+        $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);        
+        $line = preg_replace('/<\/a>/', ' width="640" height="360" frameborder="0" allowfullscreen></iframe>', $line);        
+        echo "<br> test  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
+     }      
     // FlashVideo を削除
     $line = preg_replace('/FlashVideo, /', '', $line);
 
