@@ -47,7 +47,7 @@ featuredimage: /img/common/thumbnail.png
 movie: https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4
 
 # 記事投稿日
-date: 2020-05-12 19:17:33
+date: 2020-05-17 12:42:54
 ---
 
 |   |   |
@@ -110,7 +110,7 @@ date: 2020-05-12 19:17:33
 
 ### 講義映像
 
-<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) </a>
+<a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/d545f32c5939ae0872eb492f11349a1ca5446da4">![&nbsp;](https://ocw.nagoya-u.jp/files/760/lecture_thumb.png) </a>
 
 (1:30:12)
 
