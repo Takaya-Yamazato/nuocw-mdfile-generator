@@ -240,7 +240,9 @@ function get_contents ($page_id, $contents_type) {
      $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
      if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
 
-        // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+        // $dd_tag_match = ltrim( $dd_tag_match ) ;
+        // echo "<br><br> dd_tag_match : " ; var_dump($dd_tag_match) ; echo "<br>" ;
+        // echo "<br><br> dd_tag_match : ".$dd_tag_match[0][0] ;
 
         $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
         ['options' => function ($value) {
@@ -248,21 +250,25 @@ function get_contents ($page_id, $contents_type) {
         }]);
         $ii = 0;
         foreach ($dd_tag2[0] as $value) {
-            // echo "<br> key: " ; var_dump($value);
+            // echo "<br> key: " ; var_dump(trim($value)) ;
             // echo "<br> ii: ".$ii; 
             $value = str_replace("
 ","",$value);           
             $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
-            $contents = str_replace("<dd>","",$contents);      
-            $contents = str_replace("</dd>","",$contents);            
+            // echo "<br> value: ".$value;
+            $contents = str_replace('<dd>','',$contents); 
+            // echo "<br> no-dd: ".$contents;            
+            $contents = str_replace("</dd>","",$contents);     
             $ii ++ ;
         }
         unset($value);
-
+        $contents = str_replace('    ','',$contents) ;
+        // echo "<br> dd_tag_match : " ; var_dump($contents) ;      
+        // $contents2 = array_map('ltrim', $contents);
         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
         // $contents = array_map('ddcalc', $dd_tag_match);
-        // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
-        // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+  
+        // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
 
       } 
 
@@ -287,7 +293,7 @@ function get_contents ($page_id, $contents_type) {
              $ii ++ ;
          }
          unset($value);
- 
+         $contents = str_replace('    ','',$contents) ;
          // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
          // $contents = array_map('ddcalc', $dd_tag_match);
          // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        

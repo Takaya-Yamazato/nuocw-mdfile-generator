@@ -189,10 +189,10 @@ Ability to speak and discuss accounting and bookkeeping in English will be requi
 
 
   
-    第1回
+第1回
   
   
-  -     [Introduction](https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf) 
+  - [Introduction](https://ocw.nagoya-u.jp/files/442/Noguchi_lec_note.pdf) 
 
 
 

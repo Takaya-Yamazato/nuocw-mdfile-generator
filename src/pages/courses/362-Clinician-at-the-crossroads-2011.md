@@ -114,7 +114,7 @@ date: 2020-05-16 19:56:39
 ### 講義ノート
 
 
-  -     [Clinician at the crossroads](https://ocw.nagoya-u.jp/files/362/aomatsu.pdf) 
+  - [Clinician at the crossroads](https://ocw.nagoya-u.jp/files/362/aomatsu.pdf) 
 
 
 
