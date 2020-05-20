@@ -1024,8 +1024,8 @@ if(preg_match('/FlvPlayer/',$movie)){
     
 // echo "<br><br>";
 $key_pharase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
-$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($course_home,0,500))) ) ;
-$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
+$key_pharase .= $course_home." ".$teaching_tips." ".$syllabus." ".$farewell_lecture_home_del_firstline ;
+$key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,500))) ) ;
 
 // $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
 $key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
