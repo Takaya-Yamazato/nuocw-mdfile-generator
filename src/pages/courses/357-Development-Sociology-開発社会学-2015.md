@@ -183,109 +183,57 @@ This lecture series will introduce students to basic theories and approaches in 
 
 ### 講義資料
 
-
-  
 第1~15回
-  
-  
-  - [Development Sociology 2015 (Full Document)](https://ocw.nagoya-u.jp/files/357/full.pdf) 
 
+- [Development Sociology 2015 (Full Document)](https://ocw.nagoya-u.jp/files/357/full.pdf) 
 
-
-  
 第1回
-  
-  
-  - [Introduction: what is development?](https://ocw.nagoya-u.jp/files/357/1.pdf) 
 
+- [Introduction: what is development?](https://ocw.nagoya-u.jp/files/357/1.pdf) 
 
-
-  
 第2回
-  
-  
-  - [History of development](https://ocw.nagoya-u.jp/files/357/2.pdf) 
 
+- [History of development](https://ocw.nagoya-u.jp/files/357/2.pdf) 
 
-
-  
 第3回
-  
-  
-  - [Theories of development](https://ocw.nagoya-u.jp/files/357/3.pdf) 
 
+- [Theories of development](https://ocw.nagoya-u.jp/files/357/3.pdf) 
 
-
-  
 第4回
-  
-  
-  - [Post-development and alternatives to development](https://ocw.nagoya-u.jp/files/357/4.pdf) 
 
+- [Post-development and alternatives to development](https://ocw.nagoya-u.jp/files/357/4.pdf) 
 
-
-  
 第5回
-  
-  
-  - [Gender and development](https://ocw.nagoya-u.jp/files/357/5.pdf) 
 
+- [Gender and development](https://ocw.nagoya-u.jp/files/357/5.pdf) 
 
-
-  
 第6回
-  
-  
-  - [Globalization and development](https://ocw.nagoya-u.jp/files/357/6.pdf) 
 
+- [Globalization and development](https://ocw.nagoya-u.jp/files/357/6.pdf) 
 
-
-  
 第7回
-  
-  
-  - [The state, development agencies, and bilateral aid](https://ocw.nagoya-u.jp/files/357/7.pdf) 
 
+- [The state, development agencies, and bilateral aid](https://ocw.nagoya-u.jp/files/357/7.pdf) 
 
-
-  
 第8回
-  
-  
-  - [Multilateral actors in development](https://ocw.nagoya-u.jp/files/357/8.pdf) 
 
+- [Multilateral actors in development](https://ocw.nagoya-u.jp/files/357/8.pdf) 
 
-
-  
 第9回
-  
-  
-  - [Civil society and development](https://ocw.nagoya-u.jp/files/357/9.pdf) 
 
+- [Civil society and development](https://ocw.nagoya-u.jp/files/357/9.pdf) 
 
-
-  
 第10回
-  
-  
-  - [Enviroment and development](https://ocw.nagoya-u.jp/files/357/10.pdf) 
 
+- [Enviroment and development](https://ocw.nagoya-u.jp/files/357/10.pdf) 
 
-
-  
 第11回
-  
-  
-  - [Rural development](https://ocw.nagoya-u.jp/files/357/11.pdf) 
 
+- [Rural development](https://ocw.nagoya-u.jp/files/357/11.pdf) 
 
-
-  
 第12回 - 第15回
-  
-  
-  - [Social Research Methods](https://ocw.nagoya-u.jp/files/357/12-15.pdf) 
 
+- [Social Research Methods](https://ocw.nagoya-u.jp/files/357/12-15.pdf) 
 
 
 

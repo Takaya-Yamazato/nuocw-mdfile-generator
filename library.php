@@ -17,6 +17,9 @@ function space_trim ($str) {
 
     return $str;
 }
+function break_trim ($str){
+$str = preg_replace('/\n{3,}/', "\n\n", $str);
+}
 function convertEOL($string, $to = "\n")
 {   
     return preg_replace("/\r\n|\r|\n/", $to, $string);
@@ -232,7 +235,8 @@ function get_contents ($page_id, $contents_type) {
     // $contents = str_replace('</dd>', '' , $contents) ;
 
     // {#hr#} タグを「---」へ変換
-    $contents = str_replace('{#hr#}', '---' , $contents) ;  
+    $contents = str_replace('{#hr#}', '
+    ---' , $contents) ;  
     
     // 残っている html タグを削除
     // $contents = strip_tags ($contents) ;
@@ -246,7 +250,7 @@ function get_contents ($page_id, $contents_type) {
 
         $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
         ['options' => function ($value) {
-            return "- ".$value ;
+            return "- ".trim($value) ;
         }]);
         $ii = 0;
         foreach ($dd_tag2[0] as $value) {
@@ -262,8 +266,16 @@ function get_contents ($page_id, $contents_type) {
             $ii ++ ;
         }
         unset($value);
-        $contents = str_replace('    ','',$contents) ;
-        // echo "<br> dd_tag_match : " ; var_dump($contents) ;      
+        // $contents = str_replace('    ','',$contents) ;
+
+        $array = explode("\n", $contents); // とりあえず行に分割
+        $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+        $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+        // $array = array_map('break_trim', $array); // 2行以上を取り除く
+        $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+        // echo implode("<br><br>", $array) ;
+        $contents = implode("\n\n", $array) ;
+        // echo "<br> dd_tag_match : " ; var_dump($array) ;      
         // $contents2 = array_map('ltrim', $contents);
         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
         // $contents = array_map('ddcalc', $dd_tag_match);
@@ -294,10 +306,14 @@ function get_contents ($page_id, $contents_type) {
          }
          unset($value);
          $contents = str_replace('    ','',$contents) ;
-         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
-         // $contents = array_map('ddcalc', $dd_tag_match);
-         // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
-         // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+
+         $array = explode("\n", $contents); // とりあえず行に分割
+         $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+         $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+         // $array = array_map('break_trim', $array); // 2行以上を取り除く
+         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+         // echo implode("<br><br>", $array) ;
+         $contents = implode("\n\n", $array) ;
  
        } 
       
@@ -399,10 +415,13 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
          }
          unset($value);
  
-         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
-         // $contents = array_map('ddcalc', $dd_tag_match);
-         // echo "<br> dd_tag_match2: " ; var_dump($dd_tag2) ;        
-         // echo "<br> dd_tag_match2: " ; var_dump($contents) ;
+        $array = explode("\n", $contents); // とりあえず行に分割
+        $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+        $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+        // $array = array_map('break_trim', $array); // 2行以上を取り除く
+        $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+        // echo implode("<br><br>", $array) ;
+        $contents = implode("\n\n", $array) ;
  
        } 
 
