@@ -116,69 +116,55 @@ This lecture series will introduce students to basic theories and approaches in 
 <th width="40" class="center">回</th>
 <th width="415" class="center">講義内容</th>
 </tr>
-
 <tr>
 <td width="40" class="center">1</td>
 <td width="415">Introduction: what is development?</td>
 </tr>
-
 <tr>
 <td width="40" class="center">2</td>
 <td width="415">History of development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">3</td>
 <td width="415">Theories of development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">4</td>
 <td width="415">Post-development and alternatives to development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">5</td>
 <td width="415">Gender and development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">6</td>
 <td width="415">Globalization and development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">7</td>
 <td width="415">The state, development agencies, and bilateral aid</td>
 </tr>
-
 <tr>
 <td width="40" class="center">8</td>
 <td width="415">Multilateral actors in development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">9</td>
 <td width="415">Civil society and development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">10</td>
 <td width="415">Environment and development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">11</td>
 <td width="415">Rural development</td>
 </tr>
-
 <tr>
 <td width="40" class="center">12-15</td>
 <td width="415">Social Research Methods</td>
 </tr>
-
 </table>
-
 
 
 ### 講義資料

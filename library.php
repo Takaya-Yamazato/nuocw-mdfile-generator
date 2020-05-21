@@ -275,6 +275,7 @@ function get_contents ($page_id, $contents_type) {
         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
         // echo implode("<br><br>", $array) ;
         $contents = implode("\n\n", $array) ;
+        // $contents = $array ;
         // echo "<br> dd_tag_match : " ; var_dump($array) ;      
         // $contents2 = array_map('ltrim', $contents);
         // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
@@ -313,10 +314,24 @@ function get_contents ($page_id, $contents_type) {
          // $array = array_map('break_trim', $array); // 2行以上を取り除く
          $array = array_values($array); // これはキーを連番に振りなおしてるだけ
          // echo implode("<br><br>", $array) ;
-         $contents = implode("\n\n", $array) ;
- 
+         $contents = implode("\n", $array) ;
+        //  $contents = $array ;
        } 
-      
+
+       if( preg_match('/\<table/', $contents) ){
+  
+        // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+
+       $array = explode("\n", $contents); // とりあえず行に分割
+       $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
+       $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+       // $array = array_map('break_trim', $array); // 2行以上を取り除く
+       $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+       // echo implode("<br><br>", $array) ;
+       $contents = implode("\n", $array) ;
+
+      } 
+            
     return $contents ;
 }
 
@@ -422,8 +437,22 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
         // echo implode("<br><br>", $array) ;
         $contents = implode("\n\n", $array) ;
- 
+         // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
        } 
+
+       if( preg_match('/\<table/', $contents) ){
+  
+          // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+  
+         $array = explode("\n", $contents); // とりあえず行に分割
+         $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
+         $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+         // $array = array_map('break_trim', $array); // 2行以上を取り除く
+         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+         // echo implode("<br><br>", $array) ;
+         $contents = implode("\n", $array) ;
+  
+        } 
 
   return $contents ;
   }

@@ -105,82 +105,66 @@ Ability to speak and discuss accounting and bookkeeping in English will be requi
 <th width="90" class="center">回(日付)</th>
 <th width="435" class="center">講義内容</th>
 </tr>
-
 <tr>
 <td width="90" class="center">1(10/6)</td>
 <td width="435">Introduction</td>
 </tr>
-
 <tr>
 <td width="90" class="center">2(10/13)</td>
 <td width="435">Language of Business</td>
 </tr>
-
 <tr>
 <td width="90" class="center">3(10/20)</td>
 <td width="435">Accounting Information System</td>
 </tr>
-
 <tr>
 <td width="90" class="center">4(10/27)</td>
 <td width="435">Accounting Cycle</td>
 </tr>
-
 <tr>
 <td width="90" class="center">5(11/10)</td>
 <td width="435">Financial Statements</td>
 </tr>
-
 <tr>
 <td width="90" class="center">6(11/17)</td>
 <td width="435">Accrual Basis Accounting</td>
 </tr>
-
 <tr>
 <td width="90" class="center">7(12/1)</td>
 <td width="435">Worksheet</td>
 </tr>
-
 <tr>
 <td width="90" class="center">8(12/8)</td>
 <td width="435">Income Statement</td>
 </tr>
-
 <tr>
 <td width="90" class="center">9(12/15)</td>
 <td width="435">Statement of Financial Position</td>
 </tr>
-
 <tr>
 <td width="90" class="center">10(12/22)</td>
 <td width="435">Statement of Cash Flow</td>
 </tr>
-
 <tr>
 <td width="90" class="center">11(12/24)</td>
 <td width="435">Accounting Standards</td>
 </tr>
-
 <tr>
 <td width="90" class="center">12(12/26-1)</td>
 <td width="435">International Accounting Convergence</td>
 </tr>
-
 <tr>
 <td width="90" class="center">13(12/26-2)</td>
 <td width="435">Conceptual Framework for Financial Reporting</td>
 </tr>
-
 <tr>
 <td width="90" class="center">14(1/8)</td>
 <td width="435">Accounting in Japan</td>
 </tr>
-
 <tr>
 <td width="90" class="center">15(1/19)</td>
 <td width="435">Summary</td>
 </tr>
-
 </table>
 
 

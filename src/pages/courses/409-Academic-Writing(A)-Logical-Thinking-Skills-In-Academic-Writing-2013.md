@@ -98,91 +98,72 @@ All these materials are free, and will be available for download at the course w
 <p>
 This is a highly interactive course! You will be asked a lot of questions, and you are encouraged to ask questions or give comments ANYTIME! There will be plenty of lectures, class works, and group works. And all these activities will be implemented based on YOUR OWN RESEARCH! In particular, the spring semester will cover the following!
 </p>
-
 <table class="basic" width="485">
 <tr>
 <th width="20" class="center">Session</th>
 <th width="465" class="center">Contents</th>
 </tr>
-
 <tr>
 <td width="20" class="center">1</td>
 <td width="465">Introduction to logical thinking and academic writing.<span class="i">(Lecture)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">2</td>
 <td width="465">A narrow but useful definition of academic writing.<span class="i">(Lecture)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">3</td>
 <td width="465">The role of thesis statement in academic writing.<span class="i">(Lecture)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">4</td>
 <td width="465">Step by step guide on how to build a thesis statement for your research.<span class="i">(Class & Group work)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">5</td>
 <td width="465">Student presentation on Thesis Statement.<span class="i">(Student presentation)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">6</td>
 <td width="465">Student presentation on Thesis Statement.<span class="i">(Student presentation)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">7</td>
 <td width="465">Introduction to logic, and how logic can be applied to your research.<span class="i">(Lecture)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">8</td>
 <td width="465">Step by step guide on how to build a logical argument for your research - Part.1<span class="i">(Class & Group work)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">9</td>
 <td width="465">Step by step guide on how to build a logical argument for your research - Part.2<span class="i">(Class & Group work)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">10</td>
 <td width="465">Step by step guide on how to build a logical argument for your research - Part.3<span class="i">(Class & Group work)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">11</td>
 <td width="465">Introduction to common logical fallacies.<span class="i">(Lecture)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">12</td>
 <td width="465">Student presentation on Logical argument.<span class="i">(Student presentation)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">13</td>
 <td width="465">Student presentation on Logical argument.<span class="i">(Student presentation)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">14</td>
 <td width="465">Student presentation on Logical argument.<span class="i">(Student presentation)</span class="i"></td>
 </tr>
-
 <tr>
 <td width="20" class="center">15</td>
 <td width="465">Review,reflection,and course evaluation.<span class="i">(Discussion)</span class="i"></td>
 </tr>
-
 </table>
-
-
 
 
 ### 講義資料

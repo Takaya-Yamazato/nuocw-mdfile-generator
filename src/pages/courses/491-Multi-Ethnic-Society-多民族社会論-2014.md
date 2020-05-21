@@ -132,82 +132,66 @@ English
 <th width="20" class="center">回</th>
 <th width="435" class="center">講義内容</th>
 </tr>
-
 <tr>
 <td width="20" class="center">1</td>
 <td width="435">Apr.16 Introduction</td>
 </tr>
-
 <tr>
 <td width="20" class="center">2</td>
 <td width="435">Apr.23 Comparing concepts: ethnic group, nation, race, etc. </td>
 </tr>
-
 <tr>
 <td width="20" class="center">3</td>
 <td width="435">Apr.30 Modern nation-state building (1)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">4</td>
 <td width="435">May.7 Modern nation-state building (2)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">5</td>
 <td width="435">May.14 Pluralism (1)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">6</td>
 <td width="435">May.21 Pluralism (2)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">7</td>
 <td width="435">May.28 Nationality and citizenship</td>
 </tr>
-
 <tr>
 <td width="20" class="center">8</td>
 <td width="435">Jun.4 Ethnic media, ethnic business</td>
 </tr>
-
 <tr>
 <td width="20" class="center">9</td>
 <td width="435">Jun.11 Ethnic groups in mass media</td>
 </tr>
-
 <tr>
 <td width="20" class="center">10</td>
 <td width="435">Jun.18 National integration and languages</td>
 </tr>
-
 <tr>
 <td width="20" class="center">11</td>
 <td width="435">Jun.25 Indigenous peoples, states and development (1)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">12</td>
 <td width="435">Jul.3 Indigenous peoples, states and development (2)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">13</td>
 <td width="435">Jul.9 Case study (1)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">14</td>
 <td width="435">Jul.16 Case study (2)</td>
 </tr>
-
 <tr>
 <td width="20" class="center">15</td>
 <td width="435">Wrap-up</td>
 </tr>
-
 </table>
 
 
