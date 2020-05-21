@@ -139,10 +139,10 @@ date: 2020-05-13 10:40:39
 コロンの後ろにスペースを入れ、前後に空白行を入れてください。
 
 第1回
--  [説明文を入れます](https- //ocw.nagoya-u.jp/files/154/アップロードしたファイル名を入れます) 
+-  [説明文を入れます](https- //ocw.nagoya-u.jp/files/398/アップロードしたファイル名を入れます) 
 
 第3回
--  [第3回講義資料](https- //ocw.nagoya-u.jp/files/154/lecture2.pdf) 
+-  [第3回講義資料](https- //ocw.nagoya-u.jp/files/398/lecture2.pdf) 
 
 <br />
 <div align="right">

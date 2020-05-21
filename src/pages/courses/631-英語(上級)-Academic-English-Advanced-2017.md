@@ -144,132 +144,132 @@ None are required, but an English dictionary may be useful.
 
 
 ### Schedule
-<table width="100%" border="1" cellpadding="1">
-<tr>
-<th width="7%" scope="col">Week</th>
-<th width="22%" scope="col">Presentation topic</th>
-<th width="22%" scope="col">Topics in class</th>
-<th width="22%" scope="col">Homework</th>
-</tr>
-<tr>
-<td>1</td>
-<td>none</td>
-<td>Introduction; Basic presentation structure, eye contact</td>
-<td>none (Reading in class)</td>
-</tr>
-<tr>
-<td>2</td>
-<td>none</td>
-<td>Presentation structure: Introduction, body, and conclusion</td>
-<td>*PY  7, 8-9, <em>and</em> 14-17
-<ul>
-<li>&dagger;Video 7, 8</li>
-</ul></td></tr>
-<tr>
-<td>3</td>
-<td rowspan="3">Give a 2-4 minute presentation about yourself and your interests. Include at least three interesting things about you in the body of the speech. Be sure to include a strong introduction and conclusion.</td>
-<td>Giving feedback on presentations; Vacation travel</td>
-<td>PY 20-21 <em>and</em> 24-25
-<ul>
-<li>Video 11</li>
-</ul>
+  <table width="100%" border="1" cellpadding="1">
+    <tr>
+      <th width="7%" scope="col">Week</th>
+      <th width="22%" scope="col">Presentation topic</th>
+      <th width="22%" scope="col">Topics in class</th>
+      <th width="22%" scope="col">Homework</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>none</td>
+      <td>Introduction; Basic presentation structure, eye contact</td>
+      <td>none (Reading in class)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>none</td>
+      <td>Presentation structure: Introduction, body, and conclusion</td>
+      <td>*PY  7, 8-9, <em>and</em> 14-17
+        <ul>
+           <li>&dagger;Video 7, 8</li>
+    </ul></td></tr>
+    <tr>
+      <td>3</td>
+      <td rowspan="3">Give a 2-4 minute presentation about yourself and your interests. Include at least three interesting things about you in the body of the speech. Be sure to include a strong introduction and conclusion.</td>
+      <td>Giving feedback on presentations; Vacation travel</td>
+      <td>PY 20-21 <em>and</em> 24-25
+       <ul>
+        <li>Video 11</li>
+       </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Presenting with visual information</td>
+      <td>PY 28-31</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Present details about travel destinations</td>
+      <td>PY 82-83, Expansion
+        <ul>
+          <li>Video e14 ~ e24</li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td rowspan="3">Give a 3-5 minute presentation recommending a vacation spot. You should include visual aids, such as printed photos or slides.</td>
+           <td>Surveys and interviews</td>
+      <td>PY 32-37
+       <ul>
+        <li>Video 16 ~ 18</li>
+       </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Research-based presenations<br />
+      <strong>First eFace exam</strong></td>
+      <td>PY 41-43
+             <ul>
+        <li>Video 24</li>
+       </ul>
+       </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Dealing with audience questions</td>
+      <td>PY 52-53, PY 86 part 2
+       <ul>
+        <li>Video 33 (p. 52)</li>
+        <li>Video e35 ~ e37  (p. 86)</li>
+       </ul>
+      [Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf) </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td rowspan="3">Give a 4-7 minute presentation about a survey you conducted. Be sure to include the survey topic and your analysis of the results. Don't include each answer; summarize what the answers mean. The audience may ask questions after your speech.</td>
+      <td>Expressing opinions</td>
+      <td>PY 56-61
+       <ul>
+        <li>Video 34 ~ 36</li>
+       </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Using your voice effectively</td>
+      <td>PY 64-67
+       <ul>
+        <li>Video 41 ~ 42</li>
+       </ul>
+        [Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf) </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Catch up and expansion</td>
+      <td>PY 88-89, Expansion
+       <ul>
+        <li>Video e43 ~ e54</li>
+       </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td rowspan="3">Give a 4-8 minute persuasive presentation about a topic of your choice. Choose an issue you feel strongly about. Give three or four good reasons for your opinion, and include facts or examples to support each reason.</td>
+      <td>News stories</td>
+      <td>PY 68-71
+       <ul>
+        <li>Video 43 ~ 44</li>
+       </ul>
 </td>
-</tr>
-<tr>
-<td>4</td>
-<td>Presenting with visual information</td>
-<td>PY 28-31</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Present details about travel destinations</td>
-<td>PY 82-83, Expansion
-<ul>
-<li>Video e14 ~ e24</li>
-</ul></td>
-</tr>
-<tr>
-<td>6</td>
-<td rowspan="3">Give a 3-5 minute presentation recommending a vacation spot. You should include visual aids, such as printed photos or slides.</td>
-<td>Surveys and interviews</td>
-<td>PY 32-37
-<ul>
-<li>Video 16 ~ 18</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Research-based presenations<br />
-<strong>First eFace exam</strong></td>
-<td>PY 41-43
-<ul>
-<li>Video 24</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Dealing with audience questions</td>
-<td>PY 52-53, PY 86 part 2
-<ul>
-<li>Video 33 (p. 52)</li>
-<li>Video e35 ~ e37  (p. 86)</li>
-</ul>
-[Dealing with questions](https://ocw.nagoya-u.jp/files/631/Dealing_with_questions_ChadNilep.pdf) </td>
-</tr>
-<tr>
-<td>9</td>
-<td rowspan="3">Give a 4-7 minute presentation about a survey you conducted. Be sure to include the survey topic and your analysis of the results. Don't include each answer; summarize what the answers mean. The audience may ask questions after your speech.</td>
-<td>Expressing opinions</td>
-<td>PY 56-61
-<ul>
-<li>Video 34 ~ 36</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Using your voice effectively</td>
-<td>PY 64-67
-<ul>
-<li>Video 41 ~ 42</li>
-</ul>
-[Intonation for Presentation](https://ocw.nagoya-u.jp/files/631/Intonation_for_Presentation_mobile.pdf) </td>
-</tr>
-<tr>
-<td>11</td>
-<td>Catch up and expansion</td>
-<td>PY 88-89, Expansion
-<ul>
-<li>Video e43 ~ e54</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>12</td>
-<td rowspan="3">Give a 4-8 minute persuasive presentation about a topic of your choice. Choose an issue you feel strongly about. Give three or four good reasons for your opinion, and include facts or examples to support each reason.</td>
-<td>News stories</td>
-<td>PY 68-71
-<ul>
-<li>Video 43 ~ 44</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>13</td>
-<td>Leading group discussions</td>
-<td>PY 76-77
-<ul>
-<li>Video 51 ~ 53</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Summary and review</td>
-<td><strong>Final eFace exam</strong><br /></td>
-</tr>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Leading group discussions</td>
+      <td>PY 76-77
+       <ul>
+        <li>Video 51 ~ 53</li>
+       </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Summary and review</td>
+      <td><strong>Final eFace exam</strong><br /></td>
+    </tr>
 </table>
 *PY: _Present Yourself 2_ (教科書). Read and write the excercises on the pages listed.
 †Videos are available from:
