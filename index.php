@@ -28,7 +28,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "41" ;
 $sort_order = "ASC";
-$limit = "LIMIT 100 OFFSET 0" ;
+$limit = "LIMIT 10 OFFSET 0" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -495,6 +495,7 @@ if(strpos($class_is_for,'単位') !== false){
 
     $start = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
     $credit = mb_substr($class_is_for, $start, $class_is_for_offset + 2);
+    $credit = preg_replace('/(\n|\r|\r\n)+/us',"", $credit );
 
     $start = mb_strpos($class_is_for,'単位')+3;
     $classes = mb_substr($class_is_for, $start);

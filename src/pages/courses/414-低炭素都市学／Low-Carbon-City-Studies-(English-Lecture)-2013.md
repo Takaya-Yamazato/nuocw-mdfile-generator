@@ -31,8 +31,7 @@ target: "環境学研究科 博士前期課程1年、2年"
 classes: "週1回全15回"
 
 # 単位数
-credit: "
-2単位"
+credit: "2単位"
 
 # pdfなどの追加資料
 attachments:

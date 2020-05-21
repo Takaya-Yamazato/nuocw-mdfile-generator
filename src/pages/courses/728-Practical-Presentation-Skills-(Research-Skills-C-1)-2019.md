@@ -31,8 +31,7 @@ target: "大学院生共通科目"
 classes: "週1回全15回"
 
 # 単位数
-credit: "
-2単位"
+credit: "2単位"
 
 # pdfなどの追加資料
 attachments:
