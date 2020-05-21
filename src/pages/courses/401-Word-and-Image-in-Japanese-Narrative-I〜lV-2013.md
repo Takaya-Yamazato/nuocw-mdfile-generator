@@ -40,8 +40,7 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
-  - "Word-and-Image-in-Japanese-Narrative-I〜lV"
-  - "国際言語文化研究科"
+  - "Word-and-mage-in-Japanese-Narrative-〜lV"
 
 # カテゴリ
 category:

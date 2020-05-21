@@ -44,8 +44,8 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
-  - "Logical-Thinking-Skills-In-Academic-Writing"
   - "Academic-Writing"
+  - "Logical-Thinking-Skills-n-Academic-Writing"
 
 # カテゴリ
 category:

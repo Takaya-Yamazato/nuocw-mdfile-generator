@@ -40,15 +40,15 @@ tags:
   - "Characters,-character-sheaves-and-beyond 退職記念講義"
   - "すべ"
   - "主導"
+  - "定年"
   - "論理"
   - "指標"
   - "論文"
   - "大学院"
-  - "研"
   - "記述"
   - "劃期的"
+  - "年代"
   - "有限群"
-  - "理論"
 
 # 色付けのロールにするか
 featuredpost: true

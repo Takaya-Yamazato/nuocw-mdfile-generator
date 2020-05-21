@@ -40,9 +40,16 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
+  - "ティーチングアシスタント"
   - "English-Lecture"
   - "Low-Carbon-City-Studies"
-  - "低炭素都市学"
+  - "配付"
+  - "一助"
+  - "ディスカッション"
+  - "マテリアルトリック"
+  - "プレゼンテーション"
+  - "炭素"
+  - "教員"
 
 # カテゴリ
 category:

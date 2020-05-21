@@ -40,8 +40,10 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
-  - "test"
-  - "Markdownサンプルページ"
+  - "ダブルクオート"
+  - "コンマ"
+  - "箇条書き"
+  - "最初"
 
 # カテゴリ
 category:

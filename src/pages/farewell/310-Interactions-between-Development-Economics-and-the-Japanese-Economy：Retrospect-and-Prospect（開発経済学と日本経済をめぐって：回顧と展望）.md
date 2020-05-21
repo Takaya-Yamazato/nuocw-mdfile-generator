@@ -31,7 +31,7 @@ attachments:
 tags:
   - "アカウンタビリティ"
   - "Retrospect-and-Prospect"
-  - "Interactions-between-Development-Economics-and-the-Japanese-Economy"
+  - "nteractions-between-Development-Economics-and-the-Japanese-Economy"
   - "自戒"
   - "凡人"
   - "回顧"

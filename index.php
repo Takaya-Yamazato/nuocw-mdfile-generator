@@ -1023,59 +1023,83 @@ if(preg_match('/FlvPlayer/',$movie)){
 // print('url_flv='.$courselist_rows['url_flv'].'<br>');
     
 // echo "<br><br>";
-$key_pharase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
-$key_pharase .= $course_home." ".$teaching_tips." ".$syllabus." ".$farewell_lecture_home_del_firstline ;
-$key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,500))) ) ;
+$key_phrase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
+$key_phrase .= $course_home." ".$teaching_tips." ".$syllabus." ".$farewell_lecture_home_del_firstline ;
+// $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,500))) ) ;
 
-// $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
-$key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
-$key_pharase = str_replace("最終講義-", " ", $key_pharase);
-$key_pharase = str_replace("最終講義ー", " ", $key_pharase);
-// $key_pharase = str_ireplace("####", " ", $key_pharase);
-// $key_pharase = str_ireplace("###", " ", $key_pharase);
+// $key_phrase = preg_replace('/最終講義/', '' , $key_phrase) ;
+$key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
+$key_phrase = str_replace("最終講義-", " ", $key_phrase);
+$key_phrase = str_replace("最終講義ー", " ", $key_phrase);
+// $key_phrase = str_ireplace("####", " ", $key_phrase);
+// $key_phrase = str_ireplace("###", " ", $key_phrase);
 
 // Tags (key_phrase を Yahoo API から取得)
-$key_pharase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
+$key_phrase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
 
-if(preg_match( "/名大トピックス/", $farewell_lecture_home_del_firstline ) ){
+if(preg_match( "/名大トピックス/", $key_phrase ) ){
     //名大トピックスが含まれている
-    $key_pharase = $key_pharase_title ;
+    $key_phrase = $key_phrase_title ;
     }else{
     //名大トピックスが含まれていない
-    $key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,500))) ) ;
-    // $key_pharase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($farewell_lecture_home_del_firstline)) ) ;
+    $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,800))) ) ;
+    // $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($farewell_lecture_home_del_firstline)) ) ;
     }
 
-$key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,500))) ) ;
-// $key_pharase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($description)) ) ;
+// $key_phrase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,500))) ) ;
+// $key_phrase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($description)) ) ;
 
 // Tagsに相応しくない文字を削除
-// $key_pharase = preg_replace('/最終講義/', '' , $key_pharase) ;
-// $key_pharase = preg_replace('/\#.*/um', '' , $key_pharase) ;
-$key_pharase_title = str_replace("最終講義-", "", $key_pharase_title);
-$key_pharase_title = str_replace("最終講義ー", "", $key_pharase_title);
-$key_pharase_title = str_replace("最終講義―", "", $key_pharase_title);
-$key_pharase_title = str_replace("II", "", $key_pharase_title);
-$key_pharase_titel = str_replace("I", "", $key_pharase_title);
+// $key_phrase = preg_replace('/最終講義/', '' , $key_phrase) ;
+// $key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
+$key_phrase_title = str_replace("最終講義-", " ", $key_phrase_title);
+$key_phrase_title = str_replace("最終講義ー", " ", $key_phrase_title);
+$key_phrase_title = str_replace("最終講義―", " ", $key_phrase_title);
+$key_phrase_title = str_replace("II", "", $key_phrase_title);
+$key_phrase_title = str_replace("I", "", $key_phrase_title);
 
-$key_pharase = str_ireplace("####", " ", $key_pharase);
-$key_pharase = str_ireplace("###", " ", $key_pharase);
+$key_phrase = str_ireplace("####", " ", $key_phrase);
+$key_phrase = str_ireplace("###", " ", $key_phrase);
 
-$key_pharase = preg_replace('/\&oslash\;/', 'o', $key_pharase);
-$key_pharase = preg_replace('/\&emsp\;/', '  ' , $key_pharase);
-$key_pharase = remove_accent($key_pharase);
+$key_phrase = preg_replace('/\&oslash\;/', 'o', $key_phrase);
+$key_phrase = preg_replace('/\&emsp\;/', '  ' , $key_phrase);
+$key_phrase = preg_replace('/\&/', ' ' , $key_phrase);
+$key_phrase = preg_replace('/\*/', ' ' , $key_phrase);
+$key_phrase = preg_replace('/\"/', ' ' , $key_phrase);
+$key_phrase = str_replace("{", "", $key_phrase);
+$key_phrase = str_replace("}", "", $key_phrase);    
+$key_phrase = str_replace("=", "", $key_phrase);
+$key_phrase = str_replace(",", "", $key_phrase);
+$key_phrase = str_replace(".", "", $key_phrase);
+$key_phrase = remove_accent($key_phrase);
+$key_phrase = strip_tags($key_phrase);
 
-// echo "<br><br> key_phrase = ".$key_pharase_title." ".$key_pharase ;
+// Strip HTML Tags
+$key_phrase = strip_tags($key_phrase);
+// Clean up things like &amp;
+$key_phrase = html_entity_decode($key_phrase);
+// Strip out any url-encoded stuff
+$key_phrase = urldecode($key_phrase);
+// Replace non-AlNum characters with space
+// $key_phrase = preg_replace('/[^A-Za-z0-9]/', ' ', $key_phrase);
+$key_phrase = preg_replace('/[A-Za-z0-9_]/', '',  $key_phrase) ;
+// Replace Multiple spaces with single space
+$key_phrase = preg_replace('/ +/', ' ', $key_phrase);
+// Trim the string of leading/trailing space
+$key_phrase = trim($key_phrase);
 
-if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_pharase) ){
+
+echo "<br><br> key_phrase = ".$key_phrase_title." ".$key_phrase ;
+
+if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_phrase) ){
     //日本語文字列が含まれている（キーフレーズは日本語のみに適用）
-    $tags = show_keyphrase($appid, $key_pharase_title." ".$key_pharase );
+    $tags = show_keyphrase($appid, $key_phrase_title." ".$key_phrase );
     }else{
     //日本語文字列が含まれていない
-    $tags = show_keyphrase($appid, $key_pharase_title );
+    $tags = show_keyphrase($appid, $key_phrase_title );
     }
 
-// echo "<br> tags = ".$tags ;
+echo "<br> tags = ".$tags ;
 
 if(strpos($courselist_rows['course_name'],'最終講義') !== false){
 

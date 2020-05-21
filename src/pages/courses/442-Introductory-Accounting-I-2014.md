@@ -44,8 +44,7 @@ attachments:
 # 関連するタグ
 # （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
 tags:
-  - "Introductory-Accounting-I"
-  - "経済学部"
+  - "ntroductory-Accounting"
 
 # カテゴリ
 category:
