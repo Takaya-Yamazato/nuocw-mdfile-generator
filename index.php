@@ -472,8 +472,8 @@ if (!($class_is_for_array[0]['contents'])){
     // print_r($class_is_for_array);
 }
 
-$class_is_for = preg_replace('/(\n|\r|\r\n)+/us',"\n", $class_is_for );
-$class_is_for = preg_replace('/(?:\n|\r|\r\n)/', "\n", $class_is_for );
+$class_is_for = space_trim( preg_replace('/(\n|\r|\r\n)+/us',", ", $class_is_for ) );
+$class_is_for = space_trim( preg_replace('/(?:\n|\r|\r\n)/', ", ", $class_is_for ) );
 
 // echo "<br>".$class_is_for;
 

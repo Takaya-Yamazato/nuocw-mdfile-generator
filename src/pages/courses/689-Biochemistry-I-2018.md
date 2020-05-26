@@ -21,11 +21,10 @@ department: "G30"
 term: "2018年度	後期"
 
 # 対象者、単位数、授業回数（修正用の元データ）
-class_is_for: "G30
-2単位、週1回"
+class_is_for: "G30, 2単位、週1回"
 
 # 対象者
-target: "G30"
+target: "G30,"
 
 # 授業回数
 classes: "週1回"
