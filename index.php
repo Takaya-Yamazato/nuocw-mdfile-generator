@@ -489,6 +489,7 @@ if(strpos($class_is_for,'単位') !== false){
 
     $end = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
     $target = mb_substr($class_is_for, 0, $end);
+    $target = preg_replace('/(\n|\r|\r\n)+/us',"", $target );    
 
     // # 単位数
     // credit: "2単位"
@@ -499,6 +500,7 @@ if(strpos($class_is_for,'単位') !== false){
 
     $start = mb_strpos($class_is_for,'単位')+3;
     $classes = mb_substr($class_is_for, $start);
+    $classes = preg_replace('/(\n|\r|\r\n)+/us',"", $classes );        
 
 
 }else{
