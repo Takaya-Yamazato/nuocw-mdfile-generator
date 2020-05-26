@@ -370,7 +370,7 @@ if (!$attachments_array){
             // echo $attachment['description']."<br>" ;
             // echo "<br>".$featuredimage ;
 
-            $featuredimage = sprintf('%03d', $course_id)."-".trim( $attachment['name'] ) ; 
+            $featuredimage = sprintf('%03d', $course_id)."-".space_trim( $attachment['name'] ) ; 
             $image_transfer  = "/bin/cp " ;
             $image_transfer .= "/Users/yamazato/Sites/NUOCW-Project/files/".$course_id."/".$attachment['name'] ;
             $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/".$featuredimage ;
@@ -395,7 +395,7 @@ if (!$attachments_array){
             // $attache_file_name = trim ( $attachment['name'] ) ;
             
             foreach ( $file_directory_result as $file_directory_result_name) {
-                if ( strcasecmp(basename($file_directory_result_name), trim( $attachment['name'] )) == 0 ) {
+                if ( strcasecmp(basename($file_directory_result_name), space_trim( $attachment['name'] )) == 0 ) {
                     // echo "A match was found.  ". basename($file_directory_result_name). " = ". trim ( $attachment['name'] ) . "<br>";
                     $attaches .= "  - name: \"".$attachment['description'].= "\"\n" ;
                     $attaches .= "    path: /files/".$course_id."/".$attachment['name'].= "\n" ;
@@ -1089,7 +1089,7 @@ $key_phrase = preg_replace('/[A-Za-z0-9_]/', '',  $key_phrase) ;
 // Replace Multiple spaces with single space
 $key_phrase = preg_replace('/ +/', ' ', $key_phrase);
 // Trim the string of leading/trailing space
-$key_phrase = trim($key_phrase);
+$key_phrase = space_trim($key_phrase);
 
 
 if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_phrase) ){
