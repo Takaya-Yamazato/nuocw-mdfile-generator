@@ -472,9 +472,6 @@ if (!($class_is_for_array[0]['contents'])){
     // print_r($class_is_for_array);
 }
 
-$class_is_for = space_trim( preg_replace('/(\n|\r|\r\n)+/us',", ", $class_is_for ) );
-$class_is_for = space_trim( preg_replace('/(?:\n|\r|\r\n)/', ", ", $class_is_for ) );
-
 // echo "<br>".$class_is_for;
 
 if(strpos($class_is_for,'単位') !== false){
@@ -508,6 +505,9 @@ if(strpos($class_is_for,'単位') !== false){
     $credit = '' ;
     $classes = '' ;
 }
+
+$class_is_for = space_trim( preg_replace('/(\n|\r|\r\n)+/us',"、", $class_is_for ) );
+$class_is_for = space_trim( preg_replace('/(?:\n|\r|\r\n)/', "、", $class_is_for ) );
 
 if($course_id == '5'){
     $target = "理学部数理学科3年生 多元数理科学研究科" ;
