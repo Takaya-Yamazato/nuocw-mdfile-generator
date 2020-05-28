@@ -544,6 +544,39 @@ if($course_id == '703'){
     $credit = "必修・「演習」１単位「実習」２単位" ;
     $classes = "" ;
 }
+if($course_id == '69'){
+    $target = "医学部医学科" ;
+    $credit = "" ;
+    $classes = "全12回" ;
+}
+if($course_id == '186'){
+    $class_is_for = "文系学部　情報文化学部（自然）、理学部　農学部　工学部（I・II・III系）、文系学部　情報文化学部（自然）、理学部　農学部　工学部（II・III・IV系）";
+    $target = "文系学部　情報文化学部（自然）、理学部　農学部　工学部（I・II・III系）、文系学部　情報文化学部（自然）、理学部　農学部　工学部（II・III・IV系）" ;
+    $credit = "" ;
+    $classes = "" ;
+}if($course_id == '193'){
+    $target = "教育学部2年生、教育学部以外の学生" ;
+    $credit = "" ;
+    $classes = "" ;
+}if($course_id == '596'){
+    $target = "名古屋大学の留学生" ;
+    $credit = "" ;
+    $classes = "週1回 全15回" ;
+}if($course_id == '631'){
+    $target = "情・工・理・農学部" ;
+    $credit = "" ;
+    $classes = "週1回 全15回" ;
+}if($course_id == '122'){
+    $class_is_for = "文学部２年生以上、文学研究科博士前期課程、他学部３年生以上、2単位、週1回全15回";
+    $target = "文学部２年生以上、文学研究科博士前期課程、他学部３年生以上" ;
+    $credit = "週1回 全15回" ;
+    $classes = "2単位" ;
+}
+// if($course_id == ''){
+//     $target = "" ;
+//     $credit = "" ;
+//     $classes = "" ;
+// }
 
 // echo "<br><br>元　　 : ".$class_is_for ;
 // echo "<br>対象者 : ".$target ;
