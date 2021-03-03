@@ -1,4 +1,4 @@
-FROM php:apache
+FROM php:7.0-apache
 
 RUN apt-get update
 
@@ -8,4 +8,4 @@ RUN set -ex apk --no-cache add postgresql-dev libpq-dev
 RUN apt-get install -y libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql mbstring
 
-COPY /Users/yamazato/Sites/nuocw-mdfile-generator/docker-files/php.ini /usr/local/etc/php/
+COPY ./php.ini /usr/local/etc/php/

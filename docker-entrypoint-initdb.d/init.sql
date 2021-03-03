@@ -1,0 +1,10 @@
+CREATE USER ocwuser;
+CREATE USER ocwadmin;
+CREATE DATABASE "ocwdb-u";
+CREATE DATABASE "ocwpdb-u";
+GRANT ALL PRIVILEGES ON DATABASE "ocwdb-u" TO ocwuser;
+GRANT ALL PRIVILEGES ON DATABASE "ocwdb-u" TO ocwadmin;
+GRANT ALL PRIVILEGES ON DATABASE "ocwpdb-u" TO ocwuser;
+GRANT ALL PRIVILEGES ON DATABASE "ocwpdb-u" TO ocwadmin;
+alter role ocwuser with superuser;
+alter role ocwadmin with superuser;

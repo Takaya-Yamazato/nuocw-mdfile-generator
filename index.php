@@ -3,7 +3,7 @@
 <body>
 
 <?php
-php_info();
+phpinfo();
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('config.php');
 require_once('library.php');
@@ -34,8 +34,8 @@ $limit = "LIMIT 1 OFFSET 0" ;
 //$limit = "" ;
 
 // htmlへ書き出し
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
-$html_file_name = "/Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html"; 
+exec('/bin/rm ./tmp.html'  );
+$html_file_name = "./tmp.html"; 
 $fp_html = fopen($html_file_name, "w");
 $check_list = "<html>
 <head>

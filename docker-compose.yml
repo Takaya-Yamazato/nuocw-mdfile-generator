@@ -12,8 +12,9 @@ services:
       - db
 
   db:
-    image: postgres:latest
+    image: postgres:9.3
     ports:
       - 5433:5432
     volumes:
       - /Users/yamazato/Sites/nuocw-mdfile-generator/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - /usr/local/var/postgres:/var/lib/postgresql/data
