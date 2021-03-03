@@ -5,9 +5,9 @@ services:
   web:
     build: ./docker-files/
     ports:
-      - 8080:8080
+      - 8080:80
     volumes:
-      - ./:/var/www/html
+      - /Users/yamazato/Sites/nuocw-mdfile-generator:/var/www/html
     depends_on:
       - db
 
@@ -16,4 +16,4 @@ services:
     ports:
       - 5433:5432
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - /Users/yamazato/Sites/nuocw-mdfile-generator/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
