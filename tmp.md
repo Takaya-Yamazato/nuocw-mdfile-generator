@@ -1,119 +1,5 @@
----
-# テンプレート指定
-templateKey: "courses"
 
-# コースID
-course_id: "001"
-
-# タイトル
-title: "生命農学基礎講義-2005"
-
-# 簡単な説明
-description: >-
-  Although lipids are used by humans since ancient times, they were studied only through the nineteenth century by scientists, probably because they are difficult to separate and identify. Lipids are on ....
-# 講師名
-lecturer: "岩崎雄吾 准教授"
-
-# 部局名
-department: "農学部・生命農学研究科"
-
-# 開講時限
-term: "2005年度	前期"
-
-# 対象者、単位数、授業回数（修正用の元データ）
-class_is_for: "大学院生命農学研究科、生物圏資源学専攻1年、1単位、週1回全15回"
-
-# 対象者
-target: "大学院生命農学研究科生物圏資源学専攻1年"
-
-# 授業回数
-classes: "週1回全15回"
-
-# 単位数
-credit: "1単位"
-
-# pdfなどの追加資料
-attachments:
-  - name: "Chapter 1. Basics On Lipid Chemistry" 
-    path: https://ocw.nagoya-u.jp/files/1/chap1.pdf
-  - name: "Chapter 2. Production Of Lipids From Natural Sources" 
-    path: https://ocw.nagoya-u.jp/files/1/chap2.pdf
-  - name: "Chapter 3. Chemical Modification Of Oils And Fats" 
-    path: https://ocw.nagoya-u.jp/files/1/chap3.pdf
-  - name: "Chapter 4. Enzymatic Modification Of Oils And Fats (I), (II)" 
-    path: https://ocw.nagoya-u.jp/files/1/chap4.pdf
-  - name: "Chapter 5" 
-    path: https://ocw.nagoya-u.jp/files/1/chap5.pdf
-  - name: "Chapter 6" 
-    path: https://ocw.nagoya-u.jp/files/1/chap6.pdf
-  - name: "assignment Chapter 1" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap1.pdf
-  - name: "assignment Chapter 2" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap2.pdf
-  - name: "assignment Chapter 3" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap3.pdf
-  - name: "assignment Chapter 4" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap4.pdf
-  - name: "assignment Chapter 5" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap5.pdf
-  - name: "assignment Chapter 6" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap6.pdf
-  - name: "assignment Chapter 7" 
-    path: https://ocw.nagoya-u.jp/files/1/test_chap7.pdf
-  - name: "fig7-1-1" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-1.gif
-  - name: "fig7-1-11" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-11.gif
-  - name: "fig7-1-16" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-16.gif
-  - name: "fig7-1-18" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-18.gif
-  - name: "fig7-1-2" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-2.gif
-  - name: "fig7-1-20" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-20.gif
-  - name: "fig7-1-3" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-3.gif
-  - name: "fig7-1-4" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-4.gif
-  - name: "fig7-1-5" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-5.gif
-  - name: "fig7-1-6" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-6.gif
-  - name: "fig7-1-7" 
-    path: https://ocw.nagoya-u.jp/files/1/FIG7-1-7.gif
-  - name: "Chapter 7 (2/7より動画付き)" 
-    path: https://ocw.nagoya-u.jp/files/1/chap7.pdf
-
-# 関連するタグ
-# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
-tags:
-  - "生命農学基礎講義"
-  - "農学部"
-  - "生命農学研究科"
-
-# カテゴリ
-category:
- - "農学"
-
-# 色付けのロールにするか
-featuredpost: true
-
-# 画像
-## rootフォルダはstaticになっている
-## なにも指定がない場合はデフォルトの画像が表示される
-## 映像がある場合は映像優先で表示する
-featuredimage: /kanban/001-home_iwasaki.jpg
-
-# 映像のURL
-## なにも指定がない場合は画像が表示される
-movie: https://nuvideo.media.nagoya-u.ac.jp/embed/e1549d44f467ae91d79e166c718b4d481213f354
-
-# 記事投稿日
-date: 2020-05-15 16:43:09
----
-
-### 授業の内容 
+### 授業の内容　
 
 Although lipids are used by humans since ancient times, they were studied only through the nineteenth century by scientists, probably because they are difficult to separate and identify. Lipids are one of the three main classes of food, along with carbohydrates and proteins, and are responsible for storing energy that animals do not immediately need.
 
@@ -166,19 +52,19 @@ The class is given mainly in English with the help of WEB learning system.
 
 各章の理解を確認するためのテストです。
 
-[Chapter 1. Basics On Lipid Chemistry](https://ocw.nagoya-u.jp/files/1/test_chap1.pdf) 
+{ocwlink file="test_chap1.pdf" desc="Chapter 1. Basics On Lipid Chemistry"}
 
-[Chapter 2. Production Of Lipids From Natural Sources](https://ocw.nagoya-u.jp/files/1/test_chap2.pdf) 
+{ocwlink file="test_chap2.pdf" desc="Chapter 2. Production Of Lipids From Natural Sources"}
 
-[Chapter 3. Chemical Modification Of Oils And Fats](https://ocw.nagoya-u.jp/files/1/test_chap3.pdf) 
+{ocwlink file="test_chap3.pdf" desc="Chapter 3. Chemical Modification Of Oils And Fats"}
 
-[Chapter 4. Enzymatic Modification Of Oils And Fats (I), (II)](https://ocw.nagoya-u.jp/files/1/test_chap4.pdf) 
+{ocwlink file="test_chap4.pdf" desc="Chapter 4. Enzymatic Modification Of Oils And Fats (I), (II)"}
 
-[Chapter 5. Enzymatic Modification Of Oils And Fats (III), (IV)](https://ocw.nagoya-u.jp/files/1/test_chap5.pdf) 
+{ocwlink file="test_chap5.pdf" desc="Chapter 5. Enzymatic Modification Of Oils And Fats (III), (IV)"}
 
-[Chapter 6. Biocatalytic Conversion Of Other Lipids](https://ocw.nagoya-u.jp/files/1/test_chap6.pdf) 
+{ocwlink file="test_chap6.pdf" desc="Chapter 6. Biocatalytic Conversion Of Other Lipids"}
 
-[Chapter 7. Use Of Lipases For Organic Syntheses](https://ocw.nagoya-u.jp/files/1/test_chap7.pdf) 
+{ocwlink file="test_chap7.pdf" desc="Chapter 7. Use Of Lipases For Organic Syntheses"}
 
 
 

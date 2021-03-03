@@ -3,6 +3,7 @@
 <body>
 
 <?php
+php_info();
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 require_once('config.php');
 require_once('library.php');
@@ -30,7 +31,7 @@ $course_id = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 1 OFFSET 0" ;
 // 全てのファイルを出力する場合
-$limit = "" ;
+//$limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/tmp.html'  );
