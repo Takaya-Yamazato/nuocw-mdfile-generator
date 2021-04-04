@@ -81,23 +81,23 @@ function check_page_status ($course_id, $page_type){
 
     // echo "<br>course_id : ".$course_id." page_type : ".$page_type."<br>" ;
 
-    $page_id_sql = "SELECT p.page_id FROM pages p 
-        WHERE p.course_id = $course_id AND p.page_type = '$page_type'
-        AND NOT EXISTS 
-        ( SELECT p_s.status FROM page_status p_s 
-          WHERE p_s.page_id = p.page_id AND 
-          ( p_s.status = '06' OR p_s.status = '07' 
-            OR p_s.status = '08' OR p_s.status = '09') )
-        ORDER BY page_id ASC LIMIT 1 ; " ;
+        $page_id_sql = "SELECT p.page_id FROM pages p 
+            WHERE p.course_id = $course_id AND p.page_type = '$page_type'
+            AND NOT EXISTS 
+            ( SELECT p_s.status FROM page_status p_s 
+            WHERE p_s.page_id = p.page_id AND 
+            ( p_s.status = '06' OR p_s.status = '07' 
+                OR p_s.status = '08' OR p_s.status = '09') )
+            ORDER BY page_id ASC LIMIT 1 ; " ;
     // echo $page_id_sql."<br>" ;
 
     $page_id_result = pg_query($page_id_sql);
 
-    if (!$page_id_result) {
-    die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $page_id_array = pg_fetch_all_columns($page_id_result);
-    return $page_id_array[0] ;
+    // if (!$page_id_result) {
+    // die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $page_id_array = pg_fetch_all_columns($page_id_result);
+    // return $page_id_array[0] ;
 
     // echo "<br>page_id : ".$page_id."<br>" ;
     // var_dump($page_id_sql) ;
