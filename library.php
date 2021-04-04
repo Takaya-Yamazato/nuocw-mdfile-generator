@@ -79,7 +79,7 @@ function entities2text($text)
 
 function check_page_status ($course_id, $page_type){
 
-    // echo "<br>course_id : ".$course_id." page_type : ".$page_type."<br>" ;
+    echo "<br>course_id : ".$course_id." page_type : ".$page_type ;
 
         $page_id_sql = "SELECT p.page_id FROM pages p 
             WHERE p.course_id = $course_id AND p.page_type = '$page_type'
@@ -93,15 +93,17 @@ function check_page_status ($course_id, $page_type){
 
     $page_id_result = pg_query($page_id_sql);
 
-    // if (!$page_id_result) {
-    // die('クエリーが失敗しました。'.pg_last_error());
-    // }
-    // $page_id_array = pg_fetch_all_columns($page_id_result);
-    // return $page_id_array[0] ;
-
-    // echo "<br>page_id : ".$page_id."<br>" ;
-    // var_dump($page_id_sql) ;
+    if (!$page_id_result) {
+    die('クエリーが失敗しました。'.pg_last_error());
+    }
+    $page_id_array = pg_fetch_all_columns($page_id_result);
     // var_dump($page_id_array);
+    echo "<br>page_id : ".$page_id_array[0]."<br><br>" ;
+
+    return $page_id_array[0] ;
+
+    // var_dump($page_id_sql) ;
+
 }
 
 function get_contents ($page_id, $contents_type) {
@@ -116,222 +118,226 @@ function get_contents ($page_id, $contents_type) {
     die('クエリーが失敗しました。'.pg_last_error());
     }
     $array = pg_fetch_all($result);
-    if (!mbTrim($array[0]['contents'])){
-        // echo "データがありません！" ;
-        $contents ="" ;
-    }else{
-        // echo $array[0]['contents']."array<br>" ;
-        // print_r($array);
-        $contents = $array[0]['contents'] ;
+    echo "<br> get_contents array: " ;
+    print_r($array);
 
-        // 改行コードを LF(\n) に統一
-        $contents = preg_replace("/\r\n|\r/s","\n",$contents);
-        // $line = str_replace("\r\n","\n",$line);
-        // $line = str_replace("\r","\n",$line);
+    if(!empty($array)){
+        if (!mbTrim($array[0]['contents'])){
+            // echo "データがありません！" ;
+            $contents ="" ;
+        }else{
+            // echo $array[0]['contents']."array<br>" ;
+            // print_r($array);
+            $contents = $array[0]['contents'] ;
 
-        // {#pdf#} を削除
-        $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+            // 改行コードを LF(\n) に統一
+            $contents = preg_replace("/\r\n|\r/s","\n",$contents);
+            // $line = str_replace("\r\n","\n",$line);
+            // $line = str_replace("\r","\n",$line);
 
-        // コメントアウト（<!-- ...  -->）を削除
-        $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
+            // {#pdf#} を削除
+            $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+
+            // コメントアウト（<!-- ...  -->）を削除
+            $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
 
 
-        // ### タイトル　が　NULL なら html タグを markdown へ変換
-        $contents_tag = $contents_tag = '/\#+\s(\S+)/';
-        if ( preg_match_all($contents_tag, $contents) == NULL ){
-            // $md = new Markdownify\Converter() ;
-            $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, true);
-            // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
-            $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
-            unset($md);
+            // ### タイトル　が　NULL なら html タグを markdown へ変換
+            $contents_tag = $contents_tag = '/\#+\s(\S+)/';
+            if ( preg_match_all($contents_tag, $contents) == NULL ){
+                // $md = new Markdownify\Converter() ;
+                $md = new Markdownify\Converter(Markdownify\Converter::LINK_IN_PARAGRAPH, false, true);
+                // $md = new Markdownify\Converter($linkPosition = LINK_IN_PARAGRAPH, $bodyWidth = MDFY_BODYWIDTH, $keepHTML = MDFY_KEEPHTML) ;
+                $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
+                unset($md);
+            }
+        
+        // stormvideo は削除
+        if(preg_match('/stormvideo_link/s',$contents)){
+
+            // echo "<br>" ;
+            // echo "<br> stormvideo_link ".htmlspecialchars_decode($contents, ENT_NOQUOTES);
+            // ### 講義ビデオ　を削除
+            $contents = preg_replace('/### 講義ビデオ/', '', $contents);
+            $contents = preg_replace('/^.*stormvideo_link.*$/um','',$contents);
+            $contents = preg_replace('/^.*Internet Explorer.*$/um','',$contents);
+            $contents = preg_replace('/^.*Google Chrome.*$/um','',$contents);        
+        
+            // echo "<br> stormvideo_del ".htmlspecialchars_decode($contents, ENT_NOQUOTES)."<br>";                       
         }
 
-    // stormvideo は削除
-    if(preg_match('/stormvideo_link/s',$contents)){
-
-        // echo "<br>" ;
-        // echo "<br> stormvideo_link ".htmlspecialchars_decode($contents, ENT_NOQUOTES);
-        // ### 講義ビデオ　を削除
-        $contents = preg_replace('/### 講義ビデオ/', '', $contents);
-        $contents = preg_replace('/^.*stormvideo_link.*$/um','',$contents);
-        $contents = preg_replace('/^.*Internet Explorer.*$/um','',$contents);
-        $contents = preg_replace('/^.*Google Chrome.*$/um','',$contents);        
-     
-        // echo "<br> stormvideo_del ".htmlspecialchars_decode($contents, ENT_NOQUOTES)."<br>";                       
-      }
-
-        // // #で改行
-        // $contents_tag = $contents_tag = '/\#+(\S+)/';
-        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-        //   $ii = 0;
-        //   // print_r($tag_match);
-        //   // echo "<br>";
-        //   foreach ($tag_match[0] as $value){
-        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
-        //       $ii++;
-        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
-        //     }
-        // }
-        // ### タイトル　を抜き出す
-        // $contents_tag = '/\#+\s(\S+)\s/';
-        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-        //   $ii = 0;
-        //   // print_r($tag_match);
-        //   // echo "<br>";
-        //   foreach ($tag_match[0] as $value){
-        //     $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
-        //       $ii++;
-        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
-        //     }
-        // }
-        // // ###タイトル　を抜き出す（### の後にスペースが無い）        
-        // $contents_tag = '/\#+(\S+)\s/';
-        // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
-        //   $ii = 0;
-        //   // print_r($tag_match);
-        //   // echo "<br>";
-        //   foreach ($tag_match[0] as $value){
-        //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
-        //       $ii++;
-        //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
-        //     }
-        // }
-            // // * タイトル　を抜き出す
-            // $contents_tag_asterisk = '/\*+\s(\S+)\s/';
-            // if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
+            // // #で改行
+            // $contents_tag = $contents_tag = '/\#+(\S+)/';
+            // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
             //   $ii = 0;
             //   // print_r($tag_match);
             //   // echo "<br>";
-            //   foreach ($tag_match_asterisk[0] as $value){
-            //     $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
+            //   foreach ($tag_match[0] as $value){
+            //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
             //       $ii++;
+            //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
             //     }
             // }
+            // ### タイトル　を抜き出す
+            // $contents_tag = '/\#+\s(\S+)\s/';
+            // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+            //   $ii = 0;
+            //   // print_r($tag_match);
+            //   // echo "<br>";
+            //   foreach ($tag_match[0] as $value){
+            //     $contents = str_replace( $tag_match[0][$ii] , "\n".$tag_match[0][$ii]."\n" , $contents ) ;
+            //       $ii++;
+            //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+            //     }
+            // }
+            // // ###タイトル　を抜き出す（### の後にスペースが無い）        
+            // $contents_tag = '/\#+(\S+)\s/';
+            // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
+            //   $ii = 0;
+            //   // print_r($tag_match);
+            //   // echo "<br>";
+            //   foreach ($tag_match[0] as $value){
+            //     $contents = str_replace( $tag_match[0][$ii] , "\n\n".$tag_match[0][$ii] , $contents ) ;
+            //       $ii++;
+            //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
+            //     }
+            // }
+                // // * タイトル　を抜き出す
+                // $contents_tag_asterisk = '/\*+\s(\S+)\s/';
+                // if ( preg_match_all($contents_tag_asterisk, $contents, $tag_match_asterisk) ){
+                //   $ii = 0;
+                //   // print_r($tag_match);
+                //   // echo "<br>";
+                //   foreach ($tag_match_asterisk[0] as $value){
+                //     $contents = str_replace( $tag_match_asterisk[0][$ii] , "\n".$tag_match_asterisk[0][$ii] , $contents ) ;
+                //       $ii++;
+                //     }
+                // }
 
-        }
+            }
+        
+
+        // なぜだかバックスラッシュ「\」が残るので削る
+        $contents = str_replace('\\', '' , $contents) ;
+
+        // なぜだか残っている「{tr}」を「<tr>」へ変換
+        $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+        // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+        // <dl> タグを削除
+        $contents = str_replace('<dl>', '' , $contents) ;
+        // </dl> タグを削除
+        $contents = str_replace('</dl>', '' , $contents) ;
+
+        // // <dt> タグを「- 」へ変換
+        $contents = str_replace('<dt>', '' , $contents) ;
+        // // </dt> タグを削除
+        $contents = str_replace('</dt>', '' , $contents) ;
+
+        // <dd> タグを「- 」へ変換
+        // $contents = str_replace('<dd>', "- " , $contents) ;
+        // </dd> タグを削除
+        // $contents = str_replace('</dd>', '' , $contents) ;
+
+        // {#hr#} タグを「---」へ変換
+        $contents = str_replace('{#hr#}', '
+        ---' , $contents) ;  
+        
+        // 残っている html タグを削除
+        // $contents = strip_tags ($contents) ;
+        
+        $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
+        if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
+
+            // $dd_tag_match = ltrim( $dd_tag_match ) ;
+            // echo "<br><br> dd_tag_match : " ; var_dump($dd_tag_match) ; echo "<br>" ;
+            // echo "<br><br> dd_tag_match : ".$dd_tag_match[0][0] ;
+
+            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+            ['options' => function ($value) {
+                return "- ".trim($value) ;
+            }]);
+            $ii = 0;
+            foreach ($dd_tag2[0] as $value) {
+                // echo "<br> key: " ; var_dump(trim($value)) ;
+                // echo "<br> ii: ".$ii; 
+                $value = str_replace("
+    ","",$value);           
+                $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
+                // echo "<br> value: ".$value;
+                $contents = str_replace('<dd>','',$contents); 
+                // echo "<br> no-dd: ".$contents;            
+                $contents = str_replace("</dd>","",$contents);     
+                $ii ++ ;
+            }
+            unset($value);
+            // $contents = str_replace('    ','',$contents) ;
+
+            $array = explode("\n", $contents); // とりあえず行に分割
+            $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+            $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+            // $array = array_map('break_trim', $array); // 2行以上を取り除く
+            $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+            // echo implode("<br><br>", $array) ;
+            $contents = implode("\n\n", $array) ;
+            // $contents = $array ;
+            // echo "<br> dd_tag_match : " ; var_dump($array) ;      
+            // $contents2 = array_map('ltrim', $contents);
+            // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
+            // $contents = array_map('ddcalc', $dd_tag_match);
     
+            // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
 
-    // なぜだかバックスラッシュ「\」が残るので削る
-    $contents = str_replace('\\', '' , $contents) ;
+        } 
 
-    // なぜだか残っている「{tr}」を「<tr>」へ変換
-    $contents = str_replace('{tr}', "<tr>" , $contents) ;
-
-    // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
-    // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
-    // <dl> タグを削除
-    $contents = str_replace('<dl>', '' , $contents) ;
-    // </dl> タグを削除
-    $contents = str_replace('</dl>', '' , $contents) ;
-
-    // // <dt> タグを「- 」へ変換
-    $contents = str_replace('<dt>', '' , $contents) ;
-    // // </dt> タグを削除
-    $contents = str_replace('</dt>', '' , $contents) ;
-
-    // <dd> タグを「- 」へ変換
-    // $contents = str_replace('<dd>', "- " , $contents) ;
-    // </dd> タグを削除
-    // $contents = str_replace('</dd>', '' , $contents) ;
-
-    // {#hr#} タグを「---」へ変換
-    $contents = str_replace('{#hr#}', '
-    ---' , $contents) ;  
+        $dt_tag = '/(?<=\<dt\>).+?(?=\<\/dt\>)/s';
+        if( preg_match_all($dt_tag, $contents, $dt_tag_match) ){
     
-    // 残っている html タグを削除
-    // $contents = strip_tags ($contents) ;
+            // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
     
-     $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
-     if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
+            $dt_tag2 = filter_var($dt_tag_match, FILTER_CALLBACK, 
+            ['options' => function ($value) {
+                return "- ".$value ;
+            }]);
+            $ii = 0;
+            foreach ($dt_tag2[0] as $value) {
+                // echo "<br> key: " ; var_dump($value);
+                // echo "<br> ii: ".$ii; 
+                $value = str_replace("
+    ","",$value);           
+                $contents = str_replace($dt_tag_match[0][$ii],trim($value),$contents);
+                $contents = str_replace("<dt>","",$contents);      
+                $contents = str_replace("</dt>","",$contents);            
+                $ii ++ ;
+            }
+            unset($value);
+            $contents = str_replace('    ','',$contents) ;
 
-        // $dd_tag_match = ltrim( $dd_tag_match ) ;
-        // echo "<br><br> dd_tag_match : " ; var_dump($dd_tag_match) ; echo "<br>" ;
-        // echo "<br><br> dd_tag_match : ".$dd_tag_match[0][0] ;
+            $array = explode("\n", $contents); // とりあえず行に分割
+            $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+            $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+            // $array = array_map('break_trim', $array); // 2行以上を取り除く
+            $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+            // echo implode("<br><br>", $array) ;
+            $contents = implode("\n", $array) ;
+            //  $contents = $array ;
+        } 
 
-        $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
-        ['options' => function ($value) {
-            return "- ".trim($value) ;
-        }]);
-        $ii = 0;
-        foreach ($dd_tag2[0] as $value) {
-            // echo "<br> key: " ; var_dump(trim($value)) ;
-            // echo "<br> ii: ".$ii; 
-            $value = str_replace("
-","",$value);           
-            $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
-            // echo "<br> value: ".$value;
-            $contents = str_replace('<dd>','',$contents); 
-            // echo "<br> no-dd: ".$contents;            
-            $contents = str_replace("</dd>","",$contents);     
-            $ii ++ ;
-        }
-        unset($value);
-        // $contents = str_replace('    ','',$contents) ;
+        if( preg_match('/\<table/', $contents) ){
+    
+            // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
 
         $array = explode("\n", $contents); // とりあえず行に分割
-        $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+        $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
         $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
         // $array = array_map('break_trim', $array); // 2行以上を取り除く
         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
         // echo implode("<br><br>", $array) ;
-        $contents = implode("\n\n", $array) ;
-        // $contents = $array ;
-        // echo "<br> dd_tag_match : " ; var_dump($array) ;      
-        // $contents2 = array_map('ltrim', $contents);
-        // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
-        // $contents = array_map('ddcalc', $dd_tag_match);
-  
-        // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
+        $contents = implode("\n", $array) ;
 
-      } 
-
-      $dt_tag = '/(?<=\<dt\>).+?(?=\<\/dt\>)/s';
-      if( preg_match_all($dt_tag, $contents, $dt_tag_match) ){
- 
-         // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
- 
-         $dt_tag2 = filter_var($dt_tag_match, FILTER_CALLBACK, 
-         ['options' => function ($value) {
-             return "- ".$value ;
-         }]);
-         $ii = 0;
-         foreach ($dt_tag2[0] as $value) {
-             // echo "<br> key: " ; var_dump($value);
-             // echo "<br> ii: ".$ii; 
-             $value = str_replace("
- ","",$value);           
-             $contents = str_replace($dt_tag_match[0][$ii],trim($value),$contents);
-             $contents = str_replace("<dt>","",$contents);      
-             $contents = str_replace("</dt>","",$contents);            
-             $ii ++ ;
-         }
-         unset($value);
-         $contents = str_replace('    ','',$contents) ;
-
-         $array = explode("\n", $contents); // とりあえず行に分割
-         $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
-         $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
-         // $array = array_map('break_trim', $array); // 2行以上を取り除く
-         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
-         // echo implode("<br><br>", $array) ;
-         $contents = implode("\n", $array) ;
-        //  $contents = $array ;
-       } 
-
-       if( preg_match('/\<table/', $contents) ){
-  
-        // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
-
-       $array = explode("\n", $contents); // とりあえず行に分割
-       $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
-       $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
-       // $array = array_map('break_trim', $array); // 2行以上を取り除く
-       $array = array_values($array); // これはキーを連番に振りなおしてるだけ
-       // echo implode("<br><br>", $array) ;
-       $contents = implode("\n", $array) ;
-
-      } 
-            
+        } 
+    }    
     return $contents ;
 }
 
@@ -351,6 +357,7 @@ function array_map_recursive(callable $func, array $arr) {
     });
     return $arr;
 }
+
 function get_contents_without_Markdownify ($page_id, $contents_type) {
     $sql = "SELECT contents.contents FROM page_contents, contents 
                     WHERE contents.pid = page_contents.contents_id 
@@ -664,6 +671,160 @@ function category ($division_code){
   return $category;
 }
 
+function category_e ($division_code){
+
+    switch ($division_code) {
+      case 100:
+          $category = " - \"Liberal Arts\"" ;
+          break;
+      case 110:
+          $category = " - \"literature\"" ;
+          break;
+      case 111:
+          $category = " - \"Literature\"" ;
+          break;
+      case 120:
+          $category = " - \"Education\"" ;
+          break;
+      case 121:
+          $category = " - \"Education\"" ;
+          break;
+      case 130:
+          $category = " - \"Law\"" ;
+          break;
+      case 140:
+              $category = " - \"Economics\"" ;
+          break;
+      case 150:
+          $category = " - \"Information science and culture\"" ;
+          break;
+      case 151:
+          $category = " - \"Information science and culture\"" ;
+          break;
+      case 160:
+              $category = " - \"Science\"" ;
+          break;
+      case 170:
+              $category = " - \"Medical science\"" ;
+          break;
+      case 180:
+              $category = " - \"Engineering\"" ;
+          break;
+      case 190:
+              $category = " - \"Agriculture\"" ;
+          break;
+      case 151:
+        $category = " - \"Infomatics\"" ;
+            break;
+      case 110:
+        $category = " - \"Literature\"" ;
+            break;
+      case 61:
+        $category = " - \"Infomatics\"" ;
+            break;
+      case "1A0":
+          $category = " - \"Information science and culture\"" ;
+          break;
+      case "1B0":
+          $category = " - \"International development\"" ;
+          break;
+      case "1C0":
+          $category = " - \"Mathmatics\"" ;
+          break;
+      case "1D0":
+          $category = " - \"Linguistics and culture\"" ;
+          break;
+      case "1E0":
+          $category = " - \"Environmental science\"" ;
+          break;
+      case "1E1":
+          $category = " - \"Pharmacology\"" ;
+          break;
+      case "1F0":
+          $category = " - \"Linguistics\"" ;
+          break;
+      case 200:
+          $category = " - \"Medical science\"" ;
+          break;
+      case 210:
+          $category = " - \"Space–Earth environmental research\"" ;
+          break;
+      case 220:
+          $category = " - \"Science\"" ;
+          break;
+      case 300:
+          $category = " - \"Hydrospheric atmospheric research\"" ;
+          break;
+      case 310:
+          $category = " - \"Informatics\"" ;
+          break;
+      case 400:
+          $category = " - \"Higher education\"" ;
+          break;
+      case 410:
+          $category = " - \"Physical education\"" ;
+          break;
+      case 420:
+          $category = " - \"Library science\"" ;
+          break;
+      case 430:
+          $category = " - \"Isotope\"" ;
+          break;
+      case 440:
+          $category = " - \"Gene science\"" ;
+          break;
+      case 450:
+          $category = " - \"Material science\"" ;
+          break;
+      case 460:
+          $category = " - \"Higher study\"" ;
+          break;
+      case 470:
+          $category = " - \"Agriculture\"" ;
+          break;
+      case 480:
+          $category = " - \"Chronological dating\"" ;
+          break;
+      case 490:
+          $category = " - \"Museum\"" ;
+          break;
+      case 500:
+          $category = " - \"Psychology\"" ;
+          break;
+      case 510:
+          $category = " - \"Law\"" ;
+          break;
+      case 520:
+          $category = " - \"Biology\"" ;
+          break;
+      case 530:
+          $category = " - \"Infomatics\"" ;
+          break;
+      case 540:
+          $category = " - \"Synchrotron\"" ;
+          break;
+      case 550:
+          $category = " - \"Library\"" ;
+          break;
+      case 570:
+          $category = " - \"International education &amp; exchange\"" ;
+          break;
+      case 580:
+          $category = " - \"Electronics\"" ;
+          break;
+      case 590:
+          $category = " - \"Medical science\"" ;
+          break;
+      case 635:
+          $category = " - \"International education &amp; exchange\"" ;
+          break;
+      case 640:
+          $category = " - \"International education &amp; exchange\"" ;
+          break;
+    }
+  
+    return $category;
+  }
 /**
  * Yahoo! JAPAN Web APIのご利用には、アプリケーションIDの登録が必要です。
  * あなたが登録したアプリケーションIDを $appid に設定してお使いください。
@@ -701,7 +862,7 @@ function show_keyphrase($appid, $sentence){
       $result = $responsexml->Result[$i];
       // var_dump($result);
       if ( $result->Score >= 50){
-      // echo "<tr><td>".escapestring($result->Keyphrase)."</td><td>".escapestring($result->Score)."</td></tr>";
+      echo "<tr><td>".escapestring($result->Keyphrase)."</td><td>".escapestring($result->Score)."</td></tr>";
 $tags .= "
   - \"".($result->Keyphrase)."\"" ;
     }}
