@@ -1126,13 +1126,13 @@ $key_phrase = preg_replace('/ +/', ' ', $key_phrase);
 $key_phrase = space_trim($key_phrase);
 
 
-if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_phrase) ){
-    //日本語文字列が含まれている（キーフレーズは日本語のみに適用）
-    $tags = show_keyphrase($appid, $key_phrase_title." ".$key_phrase );
-    }else{
-    //日本語文字列が含まれていない
-    $tags = show_keyphrase($appid, $key_phrase_title );
-    }
+// if(preg_match( "/[ぁ-ん]+|[ァ-ヴー]+/u", $key_phrase) ){
+//     //日本語文字列が含まれている（キーフレーズは日本語のみに適用）
+//     $tags = show_keyphrase($appid, $key_phrase_title." ".$key_phrase );
+//     }else{
+//     //日本語文字列が含まれていない
+//     $tags = show_keyphrase($appid, $key_phrase_title );
+//     }
 
 // echo "<br><br> key_phrase = ".$key_phrase_title." ".$key_phrase ;
 // echo "<br> tags = ".$tags ;

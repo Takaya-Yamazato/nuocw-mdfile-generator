@@ -31,7 +31,7 @@ $course_id = "course_id";
 $sort_order = "ASC";
 $limit = "LIMIT 20 OFFSET 130" ;
 // 全てのファイルを出力する場合
-//$limit = "" ;
+$limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm ./tmp.html'  );
@@ -150,9 +150,9 @@ $courselist_result = pg_query($courselist_sql);
 
 for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     $courselist_rows = pg_fetch_array($courselist_result, NULL, PGSQL_ASSOC);
-    echo "<br><br>courselist_rows : ";
-    print_r($courselist_rows);
-    echo "<br><br>";
+    // echo "<br><br>courselist_rows : ";
+    // print_r($courselist_rows);
+    // echo "<br><br>";
     //    echo $courselist_rows['contents'][0]; 
     //    echo $courselist_rows['course_id'];
 
@@ -223,6 +223,7 @@ $course_name = str_replace('基礎セミナー-「法」と紛争解決', '基�
 // $course_name = $course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'] ;
 
 // echo "<br>".$course_name ;
+echo "<br>".$course_id." " ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
@@ -261,7 +262,7 @@ $lecturer .= implode ( ", ", $value ).", ";
 $lecturer = mb_substr($lecturer, 0, -2);
 
 // $lecturer = space_trim($lecturer_array[0]['instructor_name'])." ".space_trim($lecturer_array[0]['instructor_position']) ;
-echo "<br>Lecturer: ".$lecturer ;
+// echo "<br>Lecturer: ".$lecturer ;
 
 // SQL文の作成
 // $course_sql = "SELECT * FROM course WHERE course.course_id = $course_id " ;
@@ -474,7 +475,7 @@ $class_is_for_array = pg_fetch_all($class_is_for_result);
 // print($class_is_for_sql_array) ;
 
 if (!($class_is_for_array[0]['contents'])){
-    echo "<br>データがありません！" ;
+    // echo "<br>データがありません！" ;
     $class_is_for = "" ;
 }else{
     $class_is_for = space_trim(strip_tags($class_is_for_array[0]['contents'])) ;
@@ -696,91 +697,95 @@ if($credit_result_array_e){
     $credit = $credit_result_array_e;
 }
 
-echo "<br><br>元　　 : ".$class_is_for ;
-echo "<br>対象者 : ".$target ;
-echo "<br>単位数 : ".$credit ;
-echo "<br>授業回数 : ".$classes."<br>" ;
+// echo "<br><br>元　　 : ".$class_is_for ;
+// echo "<br>対象者 : ".$target ;
+// echo "<br>単位数 : ".$credit ;
+// echo "<br>授業回数 : ".$classes."<br>" ;
 
 // 51             | 授業ホーム   | Course Home           | index            |        510
 $page_id = check_page_status ($course_id, $page_type = '51') ;
-echo "<br>page_type = '51' page_id: ".$page_id ;
+// echo "<br>page_type = '51' page_id (print_r): ".print_r($page_id) ;
+// $page_id = $page_id;
+// echo "<br>page_type = '51' page_id : ".$page_id ;
 
 if(!empty($page_id)){
-    $description_sql = "SELECT contents.type, contents.contents FROM page_contents, contents 
-                WHERE contents.pid = page_contents.contents_id 
-                AND (contents.type = '2301' OR contents.type = '2401' OR contents.type = '2483' OR contents.type = '2404')
-                AND page_contents.page_id = $page_id 
-                ORDER BY contents.id DESC LIMIT 1 ; " ;
+    // $description_sql = "SELECT contents.type, contents.contents FROM page_contents, contents 
+    //             WHERE contents.pid = page_contents.contents_id 
+    //             AND contents.type = '2101'
+    //             AND page_contents.page_id = $page_id 
+    //             ORDER BY contents.id DESC LIMIT 1 ; " ;
 
-    echo "<br>description_sql: ".$description_sql ;
+    // // echo "<br>description_sql: ".$description_sql ;
 
-    $description_result = pg_query($description_sql);
-    if (!$description_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $description_result_array = pg_fetch_all($description_result);
+    // $description_result = pg_query($description_sql);
+    // if (!$description_result) {
+    //     die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $description_result_array = pg_fetch_all($description_result);
 
-    // $description = get_contents($page_id, $contents_type = '2301');
-    echo "<br>description : ".print_r($description_result_array) ;
+    $description = get_contents($page_id, $contents_type = '2101');
+    // echo "<br>description : ".print_r($description_result_array) ;
 
-    $course_home_sql = "SELECT contents.contents FROM page_contents, contents 
-                WHERE contents.pid = page_contents.contents_id 
-                AND contents.type = '2301'
-                AND page_contents.page_id = $page_id 
-                ORDER BY contents.id DESC LIMIT 1 ; " ;
+    // $course_home_sql = "SELECT contents.contents FROM page_contents, contents 
+    //             WHERE contents.pid = page_contents.contents_id 
+    //             AND contents.type = '2101'
+    //             AND page_contents.page_id = $page_id 
+    //             ORDER BY contents.id DESC LIMIT 1 ; " ;
 
-    $course_home_result = pg_query($course_home_sql);
-    if (!$course_home_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $course_home_result_array = pg_fetch_all($course_home_result);
+    // $course_home_result = pg_query($course_home_sql);
+    // if (!$course_home_result) {
+    //     die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $course_home_result_array = pg_fetch_all($course_home_result);
 
-    // $course_home = get_contents($page_id, $contents_type = '2301');
-    echo "<br>course_home : ".print_r($course_home_result_array) ;
+    $course_home = get_contents($page_id, $contents_type = '2101');
+    // echo "<br>course_home : ".print_r($course_home_result_array) ;
 
 }else{
     $description = '';
     $course_home = '';
 }
 
-// // $course_home = convert_ocwlink ($course_home , $course_id) ;
-// $overview_header = '/(?<=\{overview header=\").+?(?=\"\})/';
+$description = str_replace('###','',$description);
 
-// if( preg_match_all('/(?<=\{overview header=\").+?(?=\"\})/', $course_home, $overview_header_match) ){
-//     // var_dump($overview_header_match);
-//     // echo "<br>overview_header : ".$overview_header." overview_header_match : ".$overview_header_match[0][0]."<br>" ;
-//     $course_home = "### ".$overview_header_match[0][0]."\n\n".$description ;
-// }
-// if( preg_match_all('/(?<=\{overview\})/', $course_home, $overview_header_match) ){
-//     // var_dump($overview_header_match);
-//     // echo "<br>overview_header : ".$overview_header." overview_header_match : ".$overview_header_match[0][0]."<br>" ;
-//     $course_home = "### 授業の内容\n\n".$description ;
-// }
-// if( empty($course_home) && !empty($description) ){
-//     $course_home = "### 授業の内容\n\n".$description ;
-// }
+// $course_home = convert_ocwlink ($course_home , $course_id) ;
+$overview_header = '/(?<=\{overview header=\").+?(?=\"\})/';
+
+if( preg_match_all('/(?<=\{overview header=\").+?(?=\"\})/', $course_home, $overview_header_match) ){
+    // var_dump($overview_header_match);
+    // echo "<br>overview_header : ".$overview_header." overview_header_match : ".$overview_header_match[0][0]."<br>" ;
+    $course_home = "### ".$overview_header_match[0][0]."\n\n".$description ;
+}
+if( preg_match_all('/(?<=\{overview\})/', $course_home, $overview_header_match) ){
+    // var_dump($overview_header_match);
+    // echo "<br>overview_header : ".$overview_header." overview_header_match : ".$overview_header_match[0][0]."<br>" ;
+    $course_home = "### Course Overview\n\n".$description ;
+}
+if( empty($course_home) && !empty($description) ){
+    $course_home = "### Course Overview\n\n".$description ;
+}
 
 // 52             | シラバス     | Syllabus              | syllabus         |        520
 $page_id = check_page_status ($course_id, $page_type = '52') ;
-echo "<br>page_type = '52' page_id: ".$page_id ;
+// echo "<br>page_type = '52' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
-    $syllabus_sql = "SELECT contents.contents FROM page_contents, contents 
-                    WHERE contents.pid = page_contents.contents_id 
-                    AND contents.type = '2101'
-                    AND page_contents.page_id = $page_id 
-                    ORDER BY contents.id DESC LIMIT 1 ; " ;
+    // $syllabus_sql = "SELECT contents.contents FROM page_contents, contents 
+    //                 WHERE contents.pid = page_contents.contents_id 
+    //                 AND contents.type = '2101'
+    //                 AND page_contents.page_id = $page_id 
+    //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
-    $syllabus_result = pg_query($syllabus_sql);
-    if (!$syllabus_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $syllabus_result_array = pg_fetch_all($syllabus_result);
+    // $syllabus_result = pg_query($syllabus_sql);
+    // if (!$syllabus_result) {
+    //     die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $syllabus_result_array = pg_fetch_all($syllabus_result);
 
-    echo "<br>syllabus_result_array : ".print_r($syllabus_result_array) ;
+    // echo "<br>syllabus_result_array : ".print_r($syllabus_result_array) ;
 
-    // $syllabus = get_contents($page_id, $contents_type = '2101');
+    $syllabus = get_contents($page_id, $contents_type = '2101');
 
 }else{
     $syllabus = '' ;
@@ -788,25 +793,25 @@ if(!empty($page_id)){
 
 // 53             | スケジュール | Calendar              | calendar         |        530
 $page_id = check_page_status ($course_id, $page_type = '53') ;
-echo "<br>page_type = '53' page_id: ".$page_id ;
+// echo "<br>page_type = '53' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
-    $calendar_sql = "SELECT contents.contents FROM page_contents, contents 
-                    WHERE contents.pid = page_contents.contents_id 
-                    AND contents.type = '2101'
-                    AND page_contents.page_id = $page_id 
-                    ORDER BY contents.id DESC LIMIT 1 ; " ;
+    // $calendar_sql = "SELECT contents.contents FROM page_contents, contents 
+    //                 WHERE contents.pid = page_contents.contents_id 
+    //                 AND contents.type = '2101'
+    //                 AND page_contents.page_id = $page_id 
+    //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
-    $calendar_result = pg_query($calendar_sql);
-    if (!$calendar_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $calendar_result_array = pg_fetch_all($calendar_result);
+    // $calendar_result = pg_query($calendar_sql);
+    // if (!$calendar_result) {
+    //     die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $calendar_result_array = pg_fetch_all($calendar_result);
 
-    echo "<br>calendar_result_array : ".print_r($calendar_result_array) ;
+    // echo "<br>calendar_result_array : ".print_r($calendar_result_array) ;
 
-    // $calendar = get_contents_without_Markdownify ($page_id, $contents_type = '2101'); ;
+    $calendar = get_contents_without_Markdownify ($page_id, $contents_type = '2101'); ;
 
 }else{
     $calendar = '' ;
@@ -829,25 +834,25 @@ if(!empty($page_id)){
 
 // 54             | 講義ノート   | Lecture Notes         | lecturenotes     |        540
 $page_id = check_page_status ($course_id, $page_type = '54') ;
-echo "<br>page_type = '54' page_id: ".$page_id ;
+// echo "<br>page_type = '54' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
-    $lecture_notes_sql = "SELECT contents.contents FROM page_contents, contents 
-                    WHERE contents.pid = page_contents.contents_id 
-                    AND contents.type = '2101'
-                    AND page_contents.page_id = $page_id 
-                    ORDER BY contents.id DESC LIMIT 1 ; " ;
+    // $lecture_notes_sql = "SELECT contents.contents FROM page_contents, contents 
+    //                 WHERE contents.pid = page_contents.contents_id 
+    //                 AND contents.type = '2101'
+    //                 AND page_contents.page_id = $page_id 
+    //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
-    $lecture_notes_result = pg_query($lecture_notes_sql);
-    if (!$lecture_notes_result) {
-        die('クエリーが失敗しました。'.pg_last_error());
-    }
-    $lecture_notes_result_array = pg_fetch_all($lecture_notes_result);
+    // $lecture_notes_result = pg_query($lecture_notes_sql);
+    // if (!$lecture_notes_result) {
+    //     die('クエリーが失敗しました。'.pg_last_error());
+    // }
+    // $lecture_notes_result_array = pg_fetch_all($lecture_notes_result);
 
-    echo "<br>lecture_notes_result_array : ".print_r($lecture_notes_result_array) ;
+    // echo "<br>lecture_notes_result_array : ".print_r($lecture_notes_result_array) ;
 
-    // $lecture_notes = get_contents ($page_id, $contents_type = '2101'); ;
+    $lecture_notes = get_contents ($page_id, $contents_type = '2101'); ;
 
 }else{
     $lecture_notes = '' ;
@@ -868,7 +873,7 @@ if(!empty($page_id)){
 
 // 55             | 課題         | Assignments           | assignments      |        550
 $page_id = check_page_status ($course_id, $page_type = '55') ;
-echo "<br>page_type = '55' page_id: ".$page_id ;
+// echo "<br>page_type = '55' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
@@ -892,7 +897,7 @@ if(!empty($page_id)){
 
 // 56             | 成績評価     | Evaluation            | evaluation       |        560
 $page_id = check_page_status ($course_id, $page_type = '56') ;
-echo "<br>page_type = '56' page_id: ".$page_id ;
+// echo "<br>page_type = '56' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
@@ -916,7 +921,7 @@ if(!empty($page_id)){
 
 // 57             | 学習成果     | Achievement           | achievement      |        570
 $page_id = check_page_status ($course_id, $page_type = '57') ;
-echo "<br>page_type = '57' page_id: ".$page_id ;
+// echo "<br>page_type = '57' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
@@ -940,7 +945,7 @@ if(!empty($page_id)){
 
 // 58             | 参考資料     | Related Resources     | relatedresources |        580
 $page_id = check_page_status ($course_id, $page_type = '58') ;
-echo "<br>page_type = '58' page_id: ".$page_id ;
+// echo "<br>page_type = '58' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
@@ -964,7 +969,7 @@ if(!empty($page_id)){
 
 // 59             | 授業の工夫   | Teaching Tips         | teachingtips     |        590
 $page_id = check_page_status ($course_id, $page_type = '59') ;
-echo "<br>page_type = '59' page_id: ".$page_id ;
+// echo "<br>page_type = '59' page_id: ".$page_id ;
 
 if(!empty($page_id)){
 
@@ -986,157 +991,7 @@ if(!empty($page_id)){
 // $teaching_tips = get_contents($teaching_tips_sql);
 // $teaching_tips = convert_ocwlink ($teaching_tips, $course_id) ;
 
-// 12a1               | 最終講義　日付
 
-$farewell_date_sql = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '12a1' 
-                    ORDER BY contents.id DESC LIMIT 1; ";
-
-$farewell_date_result = pg_query($farewell_date_sql);
-if (!$farewell_date_result) {
-    die('クエリーが失敗しました。'.pg_last_error());
-}
-$farewell_date_array = pg_fetch_all($farewell_date_result);
-if (!($farewell_date_array[0]['contents'])){
-    // echo "データがありません！" ;
-    $farewell_date = "" ;
-}else{
-    // echo "class_is_for_array<br>" ;
-    // print_r($class_is_for_array);
-    $farewell_date = space_trim(strip_tags($farewell_date_array[0]['contents'])) ;
-}
-
-// echo "<br> farewell_date ".$farewell_date ;
-
-// 12a2              |　最終講義　時間
-
-$farewell_time_sql = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '12a2' 
-                    ORDER BY contents.id DESC LIMIT 1; ";
-
-$farewell_time_result = pg_query($farewell_time_sql);
-if (!$farewell_time_result) {
-    die('クエリーが失敗しました。'.pg_last_error());
-}
-$farewell_time_array = pg_fetch_all($farewell_time_result);
-if (!($farewell_time_array[0]['contents'])){
-    // echo "データがありません！" ;
-    $farewell_time = "" ;
-}else{
-    // echo "class_is_for_array<br>" ;
-    // print_r($class_is_for_array);
-    $farewell_time = space_trim(strip_tags($farewell_time_array[0]['contents'])) ;
-}
-$farewell_date = "| 日時 | ".$farewell_date." 　".$farewell_time." |" ;
-// echo "<br> farewell_time ".$farewell_date ;
-
-// 12a3               | 最終講義　場所
-
-$farewell_place_sql = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '12a3' 
-                    ORDER BY contents.id DESC LIMIT 1; ";
-
-$farewell_place_result = pg_query($farewell_place_sql);
-if (!$farewell_place_result) {
-    die('クエリーが失敗しました。'.pg_last_error());
-}
-$farewell_place_array = pg_fetch_all($farewell_place_result);
-if (!($farewell_place_array[0]['contents'])){
-    // echo "データがありません！" ;
-    $farewell_place = "" ;
-}else{
-    // echo "class_is_for_array<br>" ;
-    // print_r($class_is_for_array);
-    $farewell_place = space_trim(strip_tags($farewell_place_array[0]['contents'])) ;
-}
-$farewell_place = "| 場所 | ".$farewell_place." |" ;
-// echo "<br> farewell_place ".$farewell_place ;
-
-// 71             | 最終講義・講義ホーム   | Farewell Lecture Home | f_index          |        515
-$page_id = check_page_status ($course_id, $page_type = '71') ;
-if(!empty($page_id)){
-
-    $farewell_lecture_home = get_contents_without_Markdownify($page_id, $contents_type = '1101');
-    $farewell_lecture_home = get_contents($page_id, $contents_type = '1101');    
-    $farewell_lecture_home_del_firstline = preg_replace('/\###.*/um', '' , $farewell_lecture_home);
-
-}else{
-    $farewell_lecture_home = '' ;
-    $farewell_lecture_home_del_firstline = '';
-} 
-
-
-// $farewell_lecture_home_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '71' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
-//                     AND (contents.type = '1101' OR contents.type = '1301')
-//                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' ) 
-//                     ORDER BY contents.id DESC LIMIT 1; ";
-
-// // echo "<br>farewell_lecture_home_sql ".$farewell_lecture_home_sql."<br>" ;
-// $farewell_lecture_home = get_contents($farewell_lecture_home_sql);
-// $farewell_lecture_home_del_firstline = preg_replace('/\###.*/um', '' , $farewell_lecture_home);
-// print_r($farewell_lecture_home);
-
-// 72             | 最終講義・講師紹介     | Introduction          | f_intro          |        525
-$page_id = check_page_status ($course_id, $page_type = '72') ;
-if(!empty($page_id)){
-
-    $farewell_lecture_introduction = get_contents($page_id, $contents_type = '1101');
-
-}else{
-    $farewell_lecture_introduction = '' ;
-} 
-// $farewell_lecture_introduction_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '72' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
-//                     AND (contents.type = '1101' OR contents.type = '1301')
-//                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
-//                     ORDER BY contents.id DESC LIMIT 1; ";
-
-// $farewell_lecture_introduction = get_contents($farewell_lecture_introduction_sql);
-// $farewell_lecture_introduction = convert_ocwimg ($farewell_lecture_introduction, $course_id);
-
-// 73             | 最終講義・講義資料     | Resources             | f_resources      |        585
-$page_id = check_page_status ($course_id, $page_type = '73') ;
-if(!empty($page_id)){
-
-    $farewell_lecture_resources = get_contents($page_id, $contents_type = '1101');
-
-}else{
-    $farewell_lecture_resources = '' ;
-} 
-// $farewell_lecture_resources_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '73' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
-//                     AND (contents.type = '1101' OR contents.type = '1301')
-//                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
-//                     ORDER BY contents.id DESC LIMIT 1; ";
-
-// // $farewell_lecture_resources = "\n" ;
-// $farewell_lecture_resources = get_contents_without_Markdownify($farewell_lecture_resources_sql);
-// $farewell_lecture_resources = convert_ocwlink ($farewell_lecture_resources, $course_id) ;
 
 // 講義映像
 $movie_sql = "SELECT url_flv FROM visual_syllabus 
@@ -1148,8 +1003,13 @@ if (!$movie_result) {
     die('クエリーが失敗しました。'.pg_last_error());
 }
 $movie = pg_fetch_row($movie_result);
-echo "<br>movie: "; print_r($movie);
-$movie = $movie[0] ;
+// echo "<br>movie: "; print_r($movie);
+
+if(!empty($movie)){
+    $movie = $movie[0] ;
+}else{
+    $movie = '' ;
+}
 
 
 $movie = str_ireplace("http://studio.media.nagoya-u.ac.jp/videos/watch.php?v=", "https://nuvideo.media.nagoya-u.ac.jp/embed/", $movie);
@@ -1234,69 +1094,99 @@ if(preg_match('/FlvPlayer/',$movie)){
     
 // echo "<br><br>";
 $key_phrase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
-$key_phrase .= $course_home." ".$teaching_tips." ".$syllabus." ".$farewell_lecture_home_del_firstline ;
+$key_phrase .= $course_home." ".$teaching_tips." ".$syllabus ;
+$key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', $key_phrase ) ;
 // $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,500))) ) ;
 
 // $key_phrase = preg_replace('/最終講義/', '' , $key_phrase) ;
-$key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
+// $key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
 $key_phrase = str_replace("最終講義-", " ", $key_phrase);
 $key_phrase = str_replace("最終講義ー", " ", $key_phrase);
-// $key_phrase = str_ireplace("####", " ", $key_phrase);
-// $key_phrase = str_ireplace("###", " ", $key_phrase);
+$key_phrase = str_ireplace("####", " ", $key_phrase);
+$key_phrase = str_ireplace("###", " ", $key_phrase);
+
+$key_phrase = strip_tags($key_phrase) ;
+
+// extractCommonWords($key_phrase);
+
+// echo "<br><br>key phrase : ".$key_phrase."<br><br>";
+// echo "<br><br>key phrase : ";
+$text = "This is some text. This is some text. Vending Machines are great.";
+$words = extractCommonWords($key_phrase);
+echo implode(', ', array_keys($words));
+// echo "<br>";
+// print_r(array_keys($words));
+
+$tag_array =[];
+$ii = 0;
+foreach (array_keys($words) as $name) {
+    // echo "{$name}<br />";
+    $tag_array[$ii] = $name ;
+    $ii++;
+}
+// print_r($tag_array);
+// echo $tag_array[0];
+
+// echo "<br><br>key phrase :<br>" ;
+// print implode(', ', extractKeyWords("This is some text. This is some text. Vending Machines are great."));
+// prints "this,text,some,great,are,vending,machines"
+// echo "<br><br>key phrase :<br>" ;
+// print implode(', ', extractKeyWords($key_phrase));
+
 
 // Tags (key_phrase を Yahoo API から取得)
-$key_phrase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
+// $key_phrase_title = space_trim($course_name)." ".$courselist_rows['department_name'] ;
 
-if(preg_match( "/名大トピックス/", $key_phrase ) ){
-    //名大トピックスが含まれている
-    $key_phrase = $key_phrase_title ;
-    }else{
-    //名大トピックスが含まれていない
-    $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,800))) ) ;
-    // $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($farewell_lecture_home_del_firstline)) ) ;
-    }
+// if(preg_match( "/名大トピックス/", $key_phrase ) ){
+//     //名大トピックスが含まれている
+//     $key_phrase = $key_phrase_title ;
+//     }else{
+//     //名大トピックスが含まれていない
+//     $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($key_phrase,0,800))) ) ;
+//     // $key_phrase = preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($farewell_lecture_home_del_firstline)) ) ;
+//     }
 
 // $key_phrase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($description,0,500))) ) ;
 // $key_phrase .= preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags($description)) ) ;
 
 // Tagsに相応しくない文字を削除
 // $key_phrase = preg_replace('/最終講義/', '' , $key_phrase) ;
-// $key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
-$key_phrase_title = str_replace("最終講義-", " ", $key_phrase_title);
-$key_phrase_title = str_replace("最終講義ー", " ", $key_phrase_title);
-$key_phrase_title = str_replace("最終講義―", " ", $key_phrase_title);
-$key_phrase_title = str_replace("II", "", $key_phrase_title);
-$key_phrase_title = str_replace("I", "", $key_phrase_title);
+// // $key_phrase = preg_replace('/\#.*/um', '' , $key_phrase) ;
+// $key_phrase_title = str_replace("最終講義-", " ", $key_phrase_title);
+// $key_phrase_title = str_replace("最終講義ー", " ", $key_phrase_title);
+// $key_phrase_title = str_replace("最終講義―", " ", $key_phrase_title);
+// $key_phrase_title = str_replace("II", "", $key_phrase_title);
+// $key_phrase_title = str_replace("I", "", $key_phrase_title);
 
-$key_phrase = str_ireplace("####", " ", $key_phrase);
-$key_phrase = str_ireplace("###", " ", $key_phrase);
+// $key_phrase = str_ireplace("####", " ", $key_phrase);
+// $key_phrase = str_ireplace("###", " ", $key_phrase);
 
-$key_phrase = preg_replace('/\&oslash\;/', 'o', $key_phrase);
-$key_phrase = preg_replace('/\&emsp\;/', '  ' , $key_phrase);
-$key_phrase = preg_replace('/\&/', ' ' , $key_phrase);
-$key_phrase = preg_replace('/\*/', ' ' , $key_phrase);
-$key_phrase = preg_replace('/\"/', ' ' , $key_phrase);
-$key_phrase = str_replace("{", "", $key_phrase);
-$key_phrase = str_replace("}", "", $key_phrase);    
-$key_phrase = str_replace("=", "", $key_phrase);
-$key_phrase = str_replace(",", "", $key_phrase);
-$key_phrase = str_replace(".", "", $key_phrase);
-$key_phrase = remove_accent($key_phrase);
-$key_phrase = strip_tags($key_phrase);
+// $key_phrase = preg_replace('/\&oslash\;/', 'o', $key_phrase);
+// $key_phrase = preg_replace('/\&emsp\;/', '  ' , $key_phrase);
+// $key_phrase = preg_replace('/\&/', ' ' , $key_phrase);
+// $key_phrase = preg_replace('/\*/', ' ' , $key_phrase);
+// $key_phrase = preg_replace('/\"/', ' ' , $key_phrase);
+// $key_phrase = str_replace("{", "", $key_phrase);
+// $key_phrase = str_replace("}", "", $key_phrase);    
+// $key_phrase = str_replace("=", "", $key_phrase);
+// $key_phrase = str_replace(",", "", $key_phrase);
+// $key_phrase = str_replace(".", "", $key_phrase);
+// $key_phrase = remove_accent($key_phrase);
+// $key_phrase = strip_tags($key_phrase);
 
-// Strip HTML Tags
-$key_phrase = strip_tags($key_phrase);
-// Clean up things like &amp;
-$key_phrase = html_entity_decode($key_phrase);
-// Strip out any url-encoded stuff
-$key_phrase = urldecode($key_phrase);
-// Replace non-AlNum characters with space
-// $key_phrase = preg_replace('/[^A-Za-z0-9]/', ' ', $key_phrase);
-$key_phrase = preg_replace('/[A-Za-z0-9_]/', '',  $key_phrase) ;
-// Replace Multiple spaces with single space
-$key_phrase = preg_replace('/ +/', ' ', $key_phrase);
-// Trim the string of leading/trailing space
-$key_phrase = space_trim($key_phrase);
+// // Strip HTML Tags
+// $key_phrase = strip_tags($key_phrase);
+// // Clean up things like &amp;
+// $key_phrase = html_entity_decode($key_phrase);
+// // Strip out any url-encoded stuff
+// $key_phrase = urldecode($key_phrase);
+// // Replace non-AlNum characters with space
+// // $key_phrase = preg_replace('/[^A-Za-z0-9]/', ' ', $key_phrase);
+// $key_phrase = preg_replace('/[A-Za-z0-9_]/', '',  $key_phrase) ;
+// // Replace Multiple spaces with single space
+// $key_phrase = preg_replace('/ +/', ' ', $key_phrase);
+// // Trim the string of leading/trailing space
+// $key_phrase = space_trim($key_phrase);
 
 // Yahoo API が無効になっている？
 // そもそも日本語なので，Keyphrase は取り急ぎ削除
@@ -1312,91 +1202,6 @@ $key_phrase = space_trim($key_phrase);
 
 // echo "<br><br> key_phrase = ".$key_phrase_title." ".$key_phrase ;
 // echo "<br> tags = ".$tags ;
-
-if(strpos($courselist_rows['course_name'],'最終講義') !== false){
-
-    $farewell_delete_name = array("最終講義-", "最終講義ー", "最終講義－", "最終講義―");
-    $course_name = str_replace($farewell_delete_name, "", $course_name);
-
-// 最終講義のファイル名
-// $file_name = "./src/pages/farewell/".$course_id."-".$course_name."-".$courselist_rows['department_name'].".md" ;
-$file_name = "farewell/".sprintf('%03d', $course_id)."-".$course_name ;
-$templateKey = "farewell" ;
-
-$main_text = "
-|   |   |
-|---|---|
-".$farewell_date."
-".$farewell_place."
-|   |   |
-
-
-".$farewell_lecture_home."
-
-
-".$farewell_lecture_introduction."
-
-
-".$farewell_lecture_resources."
-
-
------" ;
-
-// 改行が連続する場合、ひとつにまとめる
-// $main_text = preg_replace('/(\n|\r|\r\n)+/us',"\n", $main_text );    
-
-$courselist_text =
-"---
-# テンプレート指定
-templateKey: \"".$templateKey."\"
-
-# コースID
-course_id: \"".sprintf('%03d', $course_id)."\"
-
-# タイトル
-title: \"".$course_name."\"
-
-# 簡単な説明
-description: >-
-  ".preg_replace('/(?:\n|\r|\r\n)/', '', space_trim(strip_tags(mb_substr($farewell_lecture_home_del_firstline,0,200))) )." ....
-
-# 講師名
-lecturer: \"".$lecturer."\"
-
-# 部局名
-department: \"".$division."\"
-
-# 開講時限
-term: \"".$term."\"
-
-# pdfなどの追加資料
-## rootフォルダはstaticになっている
-attachments:
-
-
-# 関連するタグ
-# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
-tags:".$tags."
-
-# 色付けのロールにするか
-featuredpost: true
-
-# 画像
-## rootフォルダはstaticになっている
-## なにも指定がない場合はデフォルトの画像が表示される
-## 映像がある場合は映像優先で表示する
-featuredimage: ".$featuredimage."
-
-# 映像のURL
-## なにも指定がない場合は画像が表示される
-movie: ".$movie."
-
-# 記事投稿日
-date: ".$course_date."
----
-" ;
-
-  }else{
 
 $course_name = $course_name."-".$courselist_rows['year'] ;
 // 授業のファイル名
@@ -1493,9 +1298,13 @@ credit: \"".$credit."\"
 attachments:
 ".$attaches."
 # 関連するタグ
-# （Yahoo API Key-Phrase により取得。入力はタイトル、部局名と授業ホーム、出力はキーフレーズ（tags））
-tags:".$tags."
-
+# （頻度の高い単語を出力）
+tags:
+    - ".$tag_array[0]."
+    - ".$tag_array[1]."
+    - ".$tag_array[2]."
+    - ".$tag_array[3]."
+    - ".$tag_array[4]."    
 # カテゴリ
 category:
 ".$category."
@@ -1517,7 +1326,7 @@ movie: ".$movie."
 date: ".$course_date."
 ---
 " ;
-  }
+
 
 
 // テンポラリーファイルに書き込み
@@ -1525,7 +1334,7 @@ $fp_tmp = fopen('tmp.md', 'w');
 fwrite($fp_tmp,$main_text);
 fclose($fp_tmp);
 
-echo "<br>ID: ".$course_id."\t".$file_name ;
+// echo "<br>ID: ".$course_id."\t".$file_name ;
 
 // 以下は html へ吐き出す内容の表示
 // echo htmlspecialchars("<br>".$course_id."-".$course_name."\t&emsp;<a href=\"http://ocw.nagoya-u.jp/index.php?lang=en&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a>" );
@@ -1921,15 +1730,16 @@ fclose($fp_html);
 exec('/bin/rm tmp.md'  );
 exec('/bin/rm tmp2.md'  );
 
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/courses/*.md') ;
-exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/*.md') ;
+exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/*.md') ;
+// exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/*.md') ;
 
 // 以下、サンプルページ
 // exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/course-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/') ;
 // exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/farewell-sample/*.md /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/') ;
 
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/courses/') ;
-exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/') ;
+exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/Revised-MD-Files/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/') ;
+// exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/') ;
 
 // adeos
 // exec('/bin/rm /Volumes/yamazato/Sites/nuocw-new-site/src/pages/courses/*.md') ;

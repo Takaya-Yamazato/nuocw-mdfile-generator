@@ -5,6 +5,61 @@
  *
  **/
 
+function extractCommonWords($string){
+    $stopWords = array('i','a','about','an','and','are','as','at','be','by','com','de','en',
+    'for','from','how','in','is','it','la','of','on','or','that','the','this','to','was',
+    'what','when','where','who','will','with','und','the','www','students','student','hard',
+    'lecture','class','course','school','overview','problem','fundamentals','research', 
+    'topics','more', 'those', 'have', 'useful', 'your', 'their', 'other', 'does', 'help', 'cases',
+    'during', 'each', 'they', 'purpose', 'popular', 'accepted', 'understanding', 'problems', 'contents',
+    '- -', 'such', 'issues', 'ability', 'given', 'should', 'important', 'which', 'such','individually',
+    'entire', 'results', 'various', 'extensions', 'input', 'main', 'many', 'number', 'different', 'them',
+    'held', 'aims','would', 'like', '0', '0 ', 'aims', 'using', 'learning','give','make', 'best','ocwlink','into',
+    'way', 'available', 'large', 'certain', 'basic', 'possible', 'appropriate', 'controlled', 'actual',
+    '- - ', 'width25', 'used', 'going', 'deschomework', 'universitys', 'because', 'also', 'including',
+    'width20', 'were', 'some', 'universities',
+);
+    
+
+    $string = preg_replace('/\s\s+/i', '', $string); // replace whitespace
+    $string = trim($string); // trim the string
+    $string = preg_replace('/[^a-zA-Z0-9 -]/', '', $string); // only take alphanumerical characters, but keep the spaces and dashes too…
+    $string = strtolower($string); // make it lowercase
+
+    preg_match_all('/\b.*?\b/i', $string, $matchWords);
+    $matchWords = $matchWords[0];
+
+    foreach ( $matchWords as $key=>$item ) {
+        if ( $item == '' || in_array(strtolower($item), $stopWords) || strlen($item) <= 3 ) {
+            unset($matchWords[$key]);
+        }
+    }   
+    $wordCountArr = array();
+    if ( is_array($matchWords) ) {
+        foreach ( $matchWords as $key => $val ) {
+            $val = strtolower($val);
+            if ( isset($wordCountArr[$val]) ) {
+                $wordCountArr[$val]++;
+            } else {
+                $wordCountArr[$val] = 1;
+            }
+        }
+    }
+    arsort($wordCountArr);
+    $wordCountArr = array_slice($wordCountArr, 0, 5);
+    return $wordCountArr;
+}
+
+function extractKeyWords($string) {
+    mb_internal_encoding('UTF-8');
+    $stopwords = array();
+    $string = preg_replace('/[\pP]/u', '', trim(preg_replace('/\s\s+/iu', '', mb_strtolower($string))));
+    $matchWords = array_filter(explode(' ',$string) , function ($item) use ($stopwords) { return !($item == '' || in_array($item, $stopwords) || mb_strlen($item) <= 2 || is_numeric($item));});
+    $wordCountArr = array_count_values($matchWords);
+    arsort($wordCountArr);
+    return array_keys(array_slice($wordCountArr, 0, 5));
+  }
+
 // NOTICEを非表示
  error_reporting(E_ALL & ~E_NOTICE);
 
@@ -79,7 +134,7 @@ function entities2text($text)
 
 function check_page_status ($course_id, $page_type){
 
-    echo "<br>course_id : ".$course_id." page_type : ".$page_type ;
+    // echo "<br>course_id : ".$course_id." page_type : ".$page_type ;
 
         $page_id_sql = "SELECT p.page_id FROM pages p 
             WHERE p.course_id = $course_id AND p.page_type = '$page_type'
@@ -88,8 +143,8 @@ function check_page_status ($course_id, $page_type){
             WHERE p_s.page_id = p.page_id AND 
             ( p_s.status = '06' OR p_s.status = '07' 
                 OR p_s.status = '08' OR p_s.status = '09') )
-            ORDER BY page_id ASC LIMIT 1 ; " ;
-    // echo $page_id_sql."<br>" ;
+            ORDER BY page_id DESC LIMIT 1 ; " ;
+    // echo "<br>page_id_sql : ".$page_id_sql."<br>" ;
 
     $page_id_result = pg_query($page_id_sql);
 
@@ -97,12 +152,20 @@ function check_page_status ($course_id, $page_type){
     die('クエリーが失敗しました。'.pg_last_error());
     }
     $page_id_array = pg_fetch_all_columns($page_id_result);
-    // var_dump($page_id_array);
-    echo "<br>page_id : ".$page_id_array[0]."<br><br>" ;
 
-    return $page_id_array[0] ;
+    if (!empty($page_id_array)){
 
-    // var_dump($page_id_sql) ;
+        // var_dump($page_id_array);
+        // echo "<br>page_id : ".$page_id_array[0]."<br><br>" ;
+        // print_r($page_id_array);
+    
+        return $page_id_array[0] ;
+    
+        // var_dump($page_id_sql) ;
+    }else{
+        return '' ;
+    }
+    
 
 }
 
@@ -113,13 +176,17 @@ function get_contents ($page_id, $contents_type) {
     AND page_contents.page_id = $page_id 
     ORDER BY contents.id DESC LIMIT 1 ; " ;
 
+// echo "<br>get_contents_sql : ".$sql."<br>" ;
+
     $result = pg_query($sql);
     if (!$result) {
     die('クエリーが失敗しました。'.pg_last_error());
     }
     $array = pg_fetch_all($result);
-    echo "<br> get_contents array: " ;
-    print_r($array);
+    // echo "<br> get_contents array: " ;
+    // print_r($array);
+
+    $contents = '';
 
     if(!empty($array)){
         if (!mbTrim($array[0]['contents'])){
@@ -137,6 +204,13 @@ function get_contents ($page_id, $contents_type) {
 
             // {#pdf#} を削除
             $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+            // {#pdf_e#} を削除
+            $contents = preg_replace('/\{#pdf_e#\}/', "", $contents) ;
+            // {overview lang="en"} を削除
+            $contents = preg_replace('/\{overview lang=\"en\"\}/', "", $contents) ;       
+
+           // {overview lang="en" header="Course Aims"} を削除
+           $contents = preg_replace('/\{overview lang=\"en\" header=\"Course Aims\"\}/', "", $contents) ;
 
             // コメントアウト（<!-- ...  -->）を削除
             $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
@@ -370,98 +444,114 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
   die('クエリーが失敗しました。'.pg_last_error());
   }
   $array = pg_fetch_all($result);
-  if (!mbTrim($array[0]['contents'])){
-      // echo "データがありません！" ;
-      $contents ="" ;
-  }else{
-      // echo $array[0]['contents']."array<br>" ;
-      // print_r($array);
-      $contents = $array[0]['contents'] ;
-
-      // 改行コードを LF(\n) に統一
-      $contents = preg_replace("/\r\n|\r/","\n",$contents);
-      // $line = str_replace("\r\n","\n",$line);
-      // $line = str_replace("\r","\n",$line);
-
-      // {#pdf#} を削除
-      $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
-
-      // コメントアウト（<!-- ...  -->）を削除
-      $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
-
-      // なぜだかバックスラッシュ「\」が残るので削る
-      $contents = str_replace('\\', '' , $contents) ;
-
-      // なぜだか残っている「{tr}」を「<tr>」へ変換
-      $contents = str_replace('{tr}', "<tr>" , $contents) ;
-
-      // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
-      // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
-      // <dl> タグを削除
-      $contents = str_replace('<dl>', '' , $contents) ;
-      // </dl> タグを削除
-      $contents = str_replace('</dl>', '' , $contents) ;
-
-      // <dt> タグを「####」へ変換
-      $contents = str_replace('<dt>', "" , $contents) ;
-      // </dt> タグを削除
-      $contents = str_replace('</dt>', '' , $contents) ;
-
-      // <dd> タグを「- 」へ変換
-    //   $contents = str_replace('<dd>', "" , $contents) ;
-      // </dd> タグを削除
-    //   $contents = str_replace('</dd>', '' , $contents) ;  
-
-      // {#hr#} タグを「---」へ変換
-      $contents = str_replace('{#hr#}', '---' , $contents) ;  
-
-      $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
-      if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
- 
-         // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
- 
-         $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
-         ['options' => function ($value) {
-             return "- ".$value ;
-         }]);
-         $ii = 0;
-         foreach ($dd_tag2[0] as $value) {
-             // echo "<br> key: " ; var_dump($value);
-             // echo "<br> ii: ".$ii; 
-             $value = str_replace("
- ","",$value);           
-             $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
-             $contents = str_replace("<dd>","",$contents);      
-             $contents = str_replace("</dd>","",$contents);            
-             $ii ++ ;
-         }
-         unset($value);
- 
-        $array = explode("\n", $contents); // とりあえず行に分割
-        $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
-        $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
-        // $array = array_map('break_trim', $array); // 2行以上を取り除く
-        $array = array_values($array); // これはキーを連番に振りなおしてるだけ
-        // echo implode("<br><br>", $array) ;
-        $contents = implode("\n\n", $array) ;
-         // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
-       } 
-
-       if( preg_match('/\<table/', $contents) ){
   
-          // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
-  
-         $array = explode("\n", $contents); // とりあえず行に分割
-         $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
-         $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
-         // $array = array_map('break_trim', $array); // 2行以上を取り除く
-         $array = array_values($array); // これはキーを連番に振りなおしてるだけ
-         // echo implode("<br><br>", $array) ;
-         $contents = implode("\n", $array) ;
-  
+  if(!empty($array)){
+
+    if (!mbTrim($array[0]['contents'])){
+        // echo "データがありません！" ;
+        $contents ="" ;
+    }else{
+        // echo $array[0]['contents']."array<br>" ;
+        // print_r($array);
+        $contents = $array[0]['contents'] ;
+
+        // 改行コードを LF(\n) に統一
+        $contents = preg_replace("/\r\n|\r/","\n",$contents);
+        // $line = str_replace("\r\n","\n",$line);
+        // $line = str_replace("\r","\n",$line);
+
+        // {#pdf#} を削除
+        $contents = preg_replace('/\{#pdf#\}/', "", $contents) ;
+        // {#pdf_e#} を削除
+        $contents = preg_replace('/\{#pdf_e#\}/', "", $contents) ;
+        // {overview lang="en"} を削除
+        $contents = preg_replace('/\{overview lang=\"en\"\}/', "", $contents) ;
+
+        // {overview lang="en" header="Course Aims"} を削除
+        $contents = preg_replace('/\{overview lang=\"en\" header=\"Course Aims\"\}/', "", $contents) ;
+
+        // コメントアウト（<!-- ...  -->）を削除
+        $contents = preg_replace('/<!--[\s\S]*?-->/s', '', $contents);
+
+        // なぜだかバックスラッシュ「\」が残るので削る
+        $contents = str_replace('\\', '' , $contents) ;
+
+        // なぜだか残っている「{tr}」を「<tr>」へ変換
+        $contents = str_replace('{tr}', "<tr>" , $contents) ;
+
+
+
+        // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
+        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+        // <dl> タグを削除
+        $contents = str_replace('<dl>', '' , $contents) ;
+        // </dl> タグを削除
+        $contents = str_replace('</dl>', '' , $contents) ;
+
+        // <dt> タグを「####」へ変換
+        $contents = str_replace('<dt>', "" , $contents) ;
+        // </dt> タグを削除
+        $contents = str_replace('</dt>', '' , $contents) ;
+
+        // <dd> タグを「- 」へ変換
+        //   $contents = str_replace('<dd>', "" , $contents) ;
+        // </dd> タグを削除
+        //   $contents = str_replace('</dd>', '' , $contents) ;  
+
+        // {#hr#} タグを「---」へ変換
+        $contents = str_replace('{#hr#}', '---' , $contents) ;  
+
+        $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
+        if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
+    
+            // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+    
+            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+            ['options' => function ($value) {
+                return "- ".$value ;
+            }]);
+            $ii = 0;
+            foreach ($dd_tag2[0] as $value) {
+                // echo "<br> key: " ; var_dump($value);
+                // echo "<br> ii: ".$ii; 
+                $value = str_replace("
+    ","",$value);           
+                $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
+                $contents = str_replace("<dd>","",$contents);      
+                $contents = str_replace("</dd>","",$contents);            
+                $ii ++ ;
+            }
+            unset($value);
+    
+            $array = explode("\n", $contents); // とりあえず行に分割
+            $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
+            $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+            // $array = array_map('break_trim', $array); // 2行以上を取り除く
+            $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+            // echo implode("<br><br>", $array) ;
+            $contents = implode("\n\n", $array) ;
+            // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
         } 
 
-  return $contents ;
+        if( preg_match('/\<table/', $contents) ){
+    
+            // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
+    
+            $array = explode("\n", $contents); // とりあえず行に分割
+            $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
+            $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
+            // $array = array_map('break_trim', $array); // 2行以上を取り除く
+            $array = array_values($array); // これはキーを連番に振りなおしてるだけ
+            // echo implode("<br><br>", $array) ;
+            $contents = implode("\n", $array) ;
+    
+            }
+    }
+
+    return $contents ;
+
+  }else{
+    return '' ;
   }
 }
 
