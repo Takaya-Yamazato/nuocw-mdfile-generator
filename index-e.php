@@ -35,7 +35,7 @@ $limit = "" ;
 
 // htmlへ書き出し
 exec('/bin/rm ./tmp.html'  );
-$html_file_name = "./tmp.html"; 
+$html_file_name = "./tmp.html";
 $fp_html = fopen($html_file_name, "w");
 $check_list = "<html>
 <head>
@@ -77,18 +77,18 @@ print('ocwdb：接続に成功しました。<br>');
 
 
 // SQL文の作成
-    $courselist_sql = "SELECT c.course_id, c.course_name_e as course_name, 
+    $courselist_sql = "SELECT c.course_id, c.course_name_e as course_name,
                 year, term, d.department_id, d.department_name_e as department_name, division,
-                array_to_string(array( 
-                    SELECT i.instructor_name_e FROM course_instructor ci, instructor i 
-                    WHERE ci.course_id = c.course_id AND ci.instructor_id = i.instructor_id 
-                    ORDER BY ci.disp_order ASC ), '／') as instructor_name, time 
-                    FROM course c, department d, term_code_master tcm, course_status cs, event ev, 
-                    ((SELECT course_id FROM course_status WHERE status='02' AND lang='en') 
+                array_to_string(array(
+                    SELECT i.instructor_name_e FROM course_instructor ci, instructor i
+                    WHERE ci.course_id = c.course_id AND ci.instructor_id = i.instructor_id
+                    ORDER BY ci.disp_order ASC ), '／') as instructor_name, time
+                    FROM course c, department d, term_code_master tcm, course_status cs, event ev,
+                    ((SELECT course_id FROM course_status WHERE status='02' AND lang='en')
                     EXCEPT (SELECT course_id FROM course_status WHERE status='09')) AS cs02
-                    WHERE c.department_id = d.department_id AND 
-                    c.term = tcm.term_code AND c.course_id = cs.course_id 
-                    AND cs.event_id = ev.event_id AND cs02.course_id = c.course_id 
+                    WHERE c.department_id = d.department_id AND
+                    c.term = tcm.term_code AND c.course_id = cs.course_id
+                    AND cs.event_id = ev.event_id AND cs02.course_id = c.course_id
                     AND cs.status='02' AND cs.lang ='en'
                 ORDER BY c.course_id $sort_order $limit ";
 
@@ -120,7 +120,7 @@ $courselist_sql = "SELECT c.course_id, c.course_name_e as course_name,
                       SELECT c_s.status
                        FROM  course_status c_s
                        WHERE c_s.course_id = c.course_id AND
-                             ((c_s.status = '08' AND lang = 'en') OR 
+                             ((c_s.status = '08' AND lang = 'en') OR
                                c_s.status = '09')
                   )
             ORDER BY c.course_id $sort_order $limit ";
@@ -153,7 +153,7 @@ for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     // echo "<br><br>courselist_rows : ";
     // print_r($courselist_rows);
     // echo "<br><br>";
-    //    echo $courselist_rows['contents'][0]; 
+    //    echo $courselist_rows['contents'][0];
     //    echo $courselist_rows['course_id'];
 
 // 出力ソートキー
@@ -227,7 +227,7 @@ echo "<br>".$course_id." " ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
-             (SELECT event_id FROM course_status WHERE  course_id = $course_id) 
+             (SELECT event_id FROM course_status WHERE  course_id = $course_id)
              ORDER BY event_id DESC" ;
 $course_date_result = pg_query($course_date_sql);
 if (!$course_date_result) {
@@ -240,9 +240,9 @@ $course_date_array = pg_fetch_all($course_date_result);
 $course_date = $course_date_array[0]['time'];
 
 // 講師　
-$lecturer_sql = "SELECT instructor_name_e, instructor_position_e 
-            FROM instructor WHERE instructor_id IN 
-            (SELECT instructor_id FROM course_instructor 
+$lecturer_sql = "SELECT instructor_name_e, instructor_position_e
+            FROM instructor WHERE instructor_id IN
+            (SELECT instructor_id FROM course_instructor
             WHERE course_id = $course_id) ";
 $lecturer_result = pg_query($lecturer_sql);
 if (!$lecturer_result) {
@@ -253,7 +253,7 @@ $lecturer_array = pg_fetch_all_columns ($lecturer_result);
 $lecturer_array = pg_fetch_all ($lecturer_result);
 
 // var_dump($lecturer_array) ;
-// $lecturer_array = call_user_func_array("array_merge", $lecturer_array); 
+// $lecturer_array = call_user_func_array("array_merge", $lecturer_array);
 $lecturer = "";
 
 foreach($lecturer_array as $value){
@@ -266,11 +266,11 @@ $lecturer = mb_substr($lecturer, 0, -2);
 
 // SQL文の作成
 // $course_sql = "SELECT * FROM course WHERE course.course_id = $course_id " ;
-$course_sql = "SELECT * FROM course 
-            INNER JOIN course_status ON course.course_id = course_status.course_id 
-            WHERE course.archive = 'f' 
-            AND course_status.status='01' 
-            AND course_status.lang='en' 
+$course_sql = "SELECT * FROM course
+            INNER JOIN course_status ON course.course_id = course_status.course_id
+            WHERE course.archive = 'f'
+            AND course_status.status='01'
+            AND course_status.lang='en'
             AND course.course_id = $course_id; " ;
 $course_result = pg_query($course_sql);
 if (!$course_result) {
@@ -283,6 +283,7 @@ $course_array = pg_fetch_all($course_result);
 //     die('course_array NULL');
 // }
 
+if (!!$course_array){
 // echo "<br>course_array<br>" ;
 // print_r($course_array);
 // echo "<br>".$course_array[0]['course_name_e']."<br>" ;
@@ -291,13 +292,15 @@ $course_array = pg_fetch_all($course_result);
 
 $division_code = $course_array[0]['division'] ;
 // echo "<br>division code: ".$division_code."<br>" ;
+// print_r($course_array);
 
 $term_code = $course_array[0]['term'] ;
 // echo $term_code ;
+}
 
 // 部局 department
-$division_code_master_sql = "SELECT division_name_e 
-                            FROM division_code_master 
+$division_code_master_sql = "SELECT division_name_e
+                            FROM division_code_master
                             WHERE division_code = '$division_code' ; " ;
 $division_code_master_result = pg_query($division_code_master_sql);
 if (!$division_code_master_result) {
@@ -315,8 +318,8 @@ $category = category_e ($division_code) ;
 $tags = category_e ($division_code) ;
 
 // 開講時限　term
-$term_code_master_sql = "SELECT name_e 
-                            FROM term_code_master 
+$term_code_master_sql = "SELECT name_e
+                            FROM term_code_master
                             WHERE term_code = '$term_code' ; " ;
 $term_code_master_result = pg_query($term_code_master_sql);
 if (!$term_code_master_result) {
@@ -332,10 +335,10 @@ $term = $courselist_rows['year']."\t".$term_code_master_array[0]['name_e'] ;
 // pdfなどの追加資料　Attachments
 //$attachments_sql = "SELECT id, name, description, relation_type, relation_id, del_flg
 $attachments_sql = "SELECT name, description
-                    FROM file_group 
-                    INNER JOIN course 
-                    ON course.course_id = file_group.relation_id 
-                    WHERE course.course_id = $course_id 
+                    FROM file_group
+                    INNER JOIN course
+                    ON course.course_id = file_group.relation_id
+                    WHERE course.course_id = $course_id
                     AND del_flg = 'f' ; " ;
 $attachments_result = pg_query($attachments_sql);
 if (!$attachments_result) {
@@ -345,7 +348,7 @@ $attachments_array = pg_fetch_all($attachments_result);
 
 $file_directory = $nuocw_new_site_directory."files/".$course_id."/*" ;
 $file_directory_result = glob( $file_directory );
-// echo "<br>".dirname($file_directory)."<br>" ; 
+// echo "<br>".dirname($file_directory)."<br>" ;
 // var_dump($file_directory_result);
 
 // echo "<br>"; var_dump($attachments_array);
@@ -363,7 +366,7 @@ if (!$attachments_array){
     // echo "<br>" ;
     // print_r($attachments_array);
     // echo "<br>" ;
-    // $attachments = call_user_func_array('array_merge', $attachments_array); 
+    // $attachments = call_user_func_array('array_merge', $attachments_array);
     // print_r($attachments);
     // $ii = 0 ;
     $featuredimage = "/img/common/thumbnail.png";
@@ -374,18 +377,18 @@ if (!$attachments_array){
             // echo $attachment['description']."<br>" ;
             // echo "<br>".$featuredimage ;
 
-            $featuredimage = sprintf('%03d', $course_id)."-".space_trim( $attachment['name'] ) ; 
+            $featuredimage = sprintf('%03d', $course_id)."-".space_trim( $attachment['name'] ) ;
             $image_transfer  = "/bin/cp " ;
             $image_transfer .= "/Users/yamazato/Sites/NUOCW-Project/files/".$course_id."/".$attachment['name'] ;
             $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/".$featuredimage ;
             exec($image_transfer);
-            $featuredimage = "/kanban/".$featuredimage ; 
+            $featuredimage = "/img/kanban/".$featuredimage ;
             // echo "<br>".$featuredimage ;
 
             // foreach ( $file_directory_result as $file_directory_result_name) {
             //     if ( strcasecmp(basename($file_directory_result_name), trim( $attachment['name'] )) == 0 ) {
 
-            //         $featuredimage = $course_id."-".trim( $attachment['name'] ) ; 
+            //         $featuredimage = $course_id."-".trim( $attachment['name'] ) ;
             //         $image_transfer  = "/bin/cp " ;
             //         $image_transfer .= "/Users/yamazato/Sites/files/".$featuredimage ;
             //         $image_transfer .= " /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/".$featuredimage ;
@@ -397,14 +400,14 @@ if (!$attachments_array){
             $attaches .= "  - name: \"".$attachment['description'].= "\" \n" ;
             $attaches .= "    path: https://ocw.nagoya-u.jp/files/".$course_id."/".$attachment['name'].= "\n" ;
             // $attache_file_name = trim ( $attachment['name'] ) ;
-            
+
             foreach ( $file_directory_result as $file_directory_result_name) {
                 if ( strcasecmp(basename($file_directory_result_name), space_trim( $attachment['name'] )) == 0 ) {
                     // echo "A match was found.  ". basename($file_directory_result_name). " = ". trim ( $attachment['name'] ) . "<br>";
                     $attaches .= "  - name: \"".$attachment['description'].= "\"\n" ;
                     $attaches .= "    path: /files/".$course_id."/".$attachment['name'].= "\n" ;
                     // echo "<br>".$attaches."<br>" ;
-                } 
+                }
             }
         // echo "<br>" ;
         // foreach ($attachment as $attach){
@@ -418,7 +421,7 @@ if (!$attachments_array){
 
 
 // $jj = 0;
-// echo "<br><br>" ; 
+// echo "<br><br>" ;
 // foreach ( $file_directory_result as $filename) {
 //     echo basename($filename). "<br>";
 //     $file_directory_result[$jj] = basename($filename) ;
@@ -430,37 +433,37 @@ if (!$attachments_array){
 //     }
 //     $jj++ ;
 // }
-// echo "<br> file_directory_result <br>" ; 
+// echo "<br> file_directory_result <br>" ;
 // var_dump($file_directory_result);
 
-// echo "<br> attache_file_name <br>"; 
+// echo "<br> attache_file_name <br>";
 // var_dump($attache_file_name);
 
 // $attache_intersect = array_intersect( $file_directory_result , $attache_file_name ) ;
-// echo "<br>array_intersect(file_directory_result, attache_file_name)<br>"; 
+// echo "<br>array_intersect(file_directory_result, attache_file_name)<br>";
 // var_dump( $attache_intersect );
 
-// echo "<br>array_diff(file_directory_result, attache_file_name)<br>" ; 
+// echo "<br>array_diff(file_directory_result, attache_file_name)<br>" ;
 // var_dump( array_diff( $attache_file_name , $file_directory_result ) );
 
 
 
 // // 比較元の配列を変数に格納
 // $arr = array('b'=>'sano', 'd'=>'aoyama', 'momozono');
- 
+
 // // 比較対象の配列を変数に格納
 // $arr2 = array('a'=>'izumi', 'd'=>'aoyama', 'sano', 'momozono');
- 
+
 // // 「キー => 値」のペアで比較して重複していない要素のみ出力
 // print_r(array_diff_assoc($arr, $arr2));
 
 // 1281               | 対象者
-$class_is_for_sql = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '1281' 
+$class_is_for_sql = "SELECT contents.contents
+                    FROM pages, page_contents, contents
+                    WHERE pages.course_id = $course_id
+                    AND pages.page_id = page_contents.page_id
+                    AND contents.pid = page_contents.contents_id
+                    AND contents.type = '1281'
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // echo "<br>class_is_for_sql: <br>";
@@ -497,7 +500,7 @@ if(strpos($class_is_for,'単位') !== false){
 
     $end = mb_strpos($class_is_for,'単位') - $class_is_for_offset ;
     $target = mb_substr($class_is_for, 0, $end);
-    $target = space_trim(preg_replace('/(\n|\r|\r\n)+/us',"", $target )); 
+    $target = space_trim(preg_replace('/(\n|\r|\r\n)+/us',"", $target ));
 
     // # 単位数
     // credit: "2単位"
@@ -595,12 +598,12 @@ if($course_id == '186'){
 // echo "<br>授業回数 : ".$classes."<br>" ;
 
 // 2281               | 対象者（英語）
-$class_is_for_sql_e = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '2281' 
+$class_is_for_sql_e = "SELECT contents.contents
+                    FROM pages, page_contents, contents
+                    WHERE pages.course_id = $course_id
+                    AND pages.page_id = page_contents.page_id
+                    AND contents.pid = page_contents.contents_id
+                    AND contents.type = '2281'
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // echo "<br>class_is_for_sql_e: <br>";
@@ -632,12 +635,12 @@ if($class_is_for_e){
 
 
 // 2282               | Classes
-$lectures_sql_e = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '2282' 
+$lectures_sql_e = "SELECT contents.contents
+                    FROM pages, page_contents, contents
+                    WHERE pages.course_id = $course_id
+                    AND pages.page_id = page_contents.page_id
+                    AND contents.pid = page_contents.contents_id
+                    AND contents.type = '2282'
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // echo "<br>lectures_sql_e: <br>";
@@ -665,12 +668,12 @@ if($lectures_result_array_e){
 }
 
 // 2283               | Credits
-$credit_sql_e = "SELECT contents.contents 
-                    FROM pages, page_contents, contents 
-                    WHERE pages.course_id = $course_id 
-                    AND pages.page_id = page_contents.page_id 
-                    AND contents.pid = page_contents.contents_id 
-                    AND contents.type = '2283' 
+$credit_sql_e = "SELECT contents.contents
+                    FROM pages, page_contents, contents
+                    WHERE pages.course_id = $course_id
+                    AND pages.page_id = page_contents.page_id
+                    AND contents.pid = page_contents.contents_id
+                    AND contents.type = '2283'
                     ORDER BY contents.id DESC LIMIT 1; ";
 
 // echo "<br>credit_sql_e: <br>";
@@ -709,10 +712,10 @@ $page_id = check_page_status ($course_id, $page_type = '51') ;
 // echo "<br>page_type = '51' page_id : ".$page_id ;
 
 if(!empty($page_id)){
-    // $description_sql = "SELECT contents.type, contents.contents FROM page_contents, contents 
-    //             WHERE contents.pid = page_contents.contents_id 
+    // $description_sql = "SELECT contents.type, contents.contents FROM page_contents, contents
+    //             WHERE contents.pid = page_contents.contents_id
     //             AND contents.type = '2101'
-    //             AND page_contents.page_id = $page_id 
+    //             AND page_contents.page_id = $page_id
     //             ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     // // echo "<br>description_sql: ".$description_sql ;
@@ -726,10 +729,10 @@ if(!empty($page_id)){
     $description = get_contents($page_id, $contents_type = '2101');
     // echo "<br>description : ".print_r($description_result_array) ;
 
-    // $course_home_sql = "SELECT contents.contents FROM page_contents, contents 
-    //             WHERE contents.pid = page_contents.contents_id 
+    // $course_home_sql = "SELECT contents.contents FROM page_contents, contents
+    //             WHERE contents.pid = page_contents.contents_id
     //             AND contents.type = '2101'
-    //             AND page_contents.page_id = $page_id 
+    //             AND page_contents.page_id = $page_id
     //             ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     // $course_home_result = pg_query($course_home_sql);
@@ -771,10 +774,10 @@ $page_id = check_page_status ($course_id, $page_type = '52') ;
 
 if(!empty($page_id)){
 
-    // $syllabus_sql = "SELECT contents.contents FROM page_contents, contents 
-    //                 WHERE contents.pid = page_contents.contents_id 
+    // $syllabus_sql = "SELECT contents.contents FROM page_contents, contents
+    //                 WHERE contents.pid = page_contents.contents_id
     //                 AND contents.type = '2101'
-    //                 AND page_contents.page_id = $page_id 
+    //                 AND page_contents.page_id = $page_id
     //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     // $syllabus_result = pg_query($syllabus_sql);
@@ -797,10 +800,10 @@ $page_id = check_page_status ($course_id, $page_type = '53') ;
 
 if(!empty($page_id)){
 
-    // $calendar_sql = "SELECT contents.contents FROM page_contents, contents 
-    //                 WHERE contents.pid = page_contents.contents_id 
+    // $calendar_sql = "SELECT contents.contents FROM page_contents, contents
+    //                 WHERE contents.pid = page_contents.contents_id
     //                 AND contents.type = '2101'
-    //                 AND page_contents.page_id = $page_id 
+    //                 AND page_contents.page_id = $page_id
     //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     // $calendar_result = pg_query($calendar_sql);
@@ -816,12 +819,12 @@ if(!empty($page_id)){
 }else{
     $calendar = '' ;
 }
-// $calendar_sql = "SELECT contents.contents 
+// $calendar_sql = "SELECT contents.contents
 //                     FROM pages, page_contents, contents, page_status
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '53' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '53'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
 //                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
@@ -838,10 +841,10 @@ $page_id = check_page_status ($course_id, $page_type = '54') ;
 
 if(!empty($page_id)){
 
-    // $lecture_notes_sql = "SELECT contents.contents FROM page_contents, contents 
-    //                 WHERE contents.pid = page_contents.contents_id 
+    // $lecture_notes_sql = "SELECT contents.contents FROM page_contents, contents
+    //                 WHERE contents.pid = page_contents.contents_id
     //                 AND contents.type = '2101'
-    //                 AND page_contents.page_id = $page_id 
+    //                 AND page_contents.page_id = $page_id
     //                 ORDER BY contents.id DESC LIMIT 1 ; " ;
 
     // $lecture_notes_result = pg_query($lecture_notes_sql);
@@ -856,13 +859,13 @@ if(!empty($page_id)){
 
 }else{
     $lecture_notes = '' ;
-} 
-// $lecture_notes_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '54' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+}
+// $lecture_notes_sql = "SELECT contents.contents
+//                     FROM pages, page_contents, contents, page_status
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '54'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
 //                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
@@ -881,13 +884,13 @@ if(!empty($page_id)){
 
 }else{
     $assignment = '' ;
-}  
-// $assignments_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '55' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+}
+// $assignments_sql = "SELECT contents.contents
+//                     FROM pages, page_contents, contents, page_status
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '55'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
 //                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
@@ -906,14 +909,14 @@ if(!empty($page_id)){
 }else{
     $evaluation = '' ;
 }
-// $evaluation_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '56' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+// $evaluation_sql = "SELECT contents.contents
+//                     FROM pages, page_contents, contents, page_status
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '56'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
-//                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' ) 
+//                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
 // $evaluation = get_contents_without($evaluation_sql);
 // $evaluation = get_contents_without_Markdownify($evaluation_sql);
@@ -929,13 +932,13 @@ if(!empty($page_id)){
 
 }else{
     $achievement = '' ;
-} 
-// $achievement_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '57' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+}
+// $achievement_sql = "SELECT contents.contents
+//                     FROM pages, page_contents, contents, page_status
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '57'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
 //                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
@@ -953,13 +956,13 @@ if(!empty($page_id)){
 
 }else{
     $related_resources = '' ;
-} 
-//  $related_resources_sql = "SELECT contents.contents 
-//                         FROM pages, page_contents, contents, page_status 
-//                         WHERE pages.course_id = $course_id 
-//                         AND pages.page_type = '58' 
-//                         AND pages.page_id = page_contents.page_id 
-//                         AND contents.pid = page_contents.contents_id 
+}
+//  $related_resources_sql = "SELECT contents.contents
+//                         FROM pages, page_contents, contents, page_status
+//                         WHERE pages.course_id = $course_id
+//                         AND pages.page_type = '58'
+//                         AND pages.page_id = page_contents.page_id
+//                         AND contents.pid = page_contents.contents_id
 //                         AND (contents.type = '1101' OR contents.type = '1301')
 //                         AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                         ORDER BY contents.id DESC LIMIT 1; ";
@@ -977,13 +980,13 @@ if(!empty($page_id)){
 
 }else{
     $teaching_tips = '' ;
-} 
-// $teaching_tips_sql = "SELECT contents.contents 
-//                     FROM pages, page_contents, contents, page_status 
-//                     WHERE pages.course_id = $course_id 
-//                     AND pages.page_type = '59' 
-//                     AND pages.page_id = page_contents.page_id 
-//                     AND contents.pid = page_contents.contents_id 
+}
+// $teaching_tips_sql = "SELECT contents.contents
+//                     FROM pages, page_contents, contents, page_status
+//                     WHERE pages.course_id = $course_id
+//                     AND pages.page_type = '59'
+//                     AND pages.page_id = page_contents.page_id
+//                     AND contents.pid = page_contents.contents_id
 //                     AND (contents.type = '1101' OR contents.type = '1301')
 //                     AND (page_status.status = '01' OR page_status.status = '02' OR page_status.status = '03' OR page_status.status = '04' OR page_status.status = '05' )
 //                     ORDER BY contents.id DESC LIMIT 1; ";
@@ -994,9 +997,9 @@ if(!empty($page_id)){
 
 
 // 講義映像
-$movie_sql = "SELECT url_flv FROM visual_syllabus 
-            WHERE vsyllabus_id = 
-                (SELECT vsyllabus_id FROM course 
+$movie_sql = "SELECT url_flv FROM visual_syllabus
+            WHERE vsyllabus_id =
+                (SELECT vsyllabus_id FROM course
                  WHERE course_id = $course_id ) ; " ;
 $movie_result = pg_query($movie_sql);
 if (!$movie_result) {
@@ -1021,14 +1024,14 @@ if(preg_match('/FlvPlayer/',$movie)){
   }
 
 
-// $movie_description = "SELECT description FROM visual_syllabus 
-//             WHERE vsyllabus_id = 
-//                 (SELECT vsyllabus_id FROM course 
+// $movie_description = "SELECT description FROM visual_syllabus
+//             WHERE vsyllabus_id =
+//                 (SELECT vsyllabus_id FROM course
 //                 WHERE course_id = $course_id ) ; " ;
 
-// $movie_duration = "SELECT time FROM visual_syllabus 
-//             WHERE vsyllabus_id = 
-//                 (SELECT vsyllabus_id FROM course 
+// $movie_duration = "SELECT time FROM visual_syllabus
+//             WHERE vsyllabus_id =
+//                 (SELECT vsyllabus_id FROM course
 //                 WHERE course_id = $course_id ) ; " ;
 
 
@@ -1041,7 +1044,7 @@ if(preg_match('/FlvPlayer/',$movie)){
 
 // $ii = 0;
 // foreach ($desc_match[0] as $value){
-//     $farewell_lecture_resources .= 
+//     $farewell_lecture_resources .=
 //     "[".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
 //     $ii++;
 // }
@@ -1073,15 +1076,15 @@ if(preg_match('/FlvPlayer/',$movie)){
 
 // $farewell_lecture_resources = preg_replace('/\{ocwlink file="/', $destination , $farewell_lecture_resources);
 // $farewell_lecture_resources = preg_replace('/" desc="/', $output , $farewell_lecture_resources);
-// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources);     
+// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources);
 // $destination = "![/files/".$course_id."/" ;
 
 // $farewell_lecture_resources = preg_replace('/\{ocwimg file="/', $destination , $farewell_lecture_resources);
 // $farewell_lecture_resources = preg_replace('/" align="right" alt="/', $output , $farewell_lecture_resources);
-// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources); 
+// $farewell_lecture_resources = preg_replace('/"\}/', ")", $farewell_lecture_resources);
 
 // echo "<br><br>";
-    
+
 // print('course_id='.$courselist_rows['course_id'].'<br>');
 // print('course_name='.$courselist_rows['course_name'].'<br>');
 // print('year='.$courselist_rows['year'].'<br>');
@@ -1091,7 +1094,7 @@ if(preg_match('/FlvPlayer/',$movie)){
 // print('instructor_id='.$courselist_rows['instructor_id'].'<br>');
 // print('vsyllabus_id='.$courselist_rows['vsyllabus_id'].'<br>');
 // print('url_flv='.$courselist_rows['url_flv'].'<br>');
-    
+
 // echo "<br><br>";
 $key_phrase = space_trim($course_name)." ".$courselist_rows['department_name']." ";
 $key_phrase .= $course_home." ".$teaching_tips." ".$syllabus ;
@@ -1167,7 +1170,7 @@ foreach (array_keys($words) as $name) {
 // $key_phrase = preg_replace('/\*/', ' ' , $key_phrase);
 // $key_phrase = preg_replace('/\"/', ' ' , $key_phrase);
 // $key_phrase = str_replace("{", "", $key_phrase);
-// $key_phrase = str_replace("}", "", $key_phrase);    
+// $key_phrase = str_replace("}", "", $key_phrase);
 // $key_phrase = str_replace("=", "", $key_phrase);
 // $key_phrase = str_replace(",", "", $key_phrase);
 // $key_phrase = str_replace(".", "", $key_phrase);
@@ -1304,7 +1307,7 @@ tags:
     - ".$tag_array[1]."
     - ".$tag_array[2]."
     - ".$tag_array[3]."
-    - ".$tag_array[4]."    
+    - ".$tag_array[4]."
 # カテゴリ
 category:
 ".$category."
@@ -1363,11 +1366,11 @@ $ocwimg_all  = '/(?<=\{ocwimg file=\").+?(?=\"\})/';
 $ocwlink_file = '/(?<=\{ocwlink file=\").+?(?=\")/';
 $ocwlink_desc = '/(?<=desc=\").+?(?=\")/';
 // $ocwlink_all = '/(?<=\{ocwlink file=\").+?(?=\")/';
-$ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';    
+$ocwlink_all  = '/(?<=\{ocwlink file=\").+?(?=\"\})/';
 
 $ocwpagelink_file = '/(?<=\{ocwpagelink type=\").+?(?=\")/';
 $ocwpagelink_desc = '/(?<=desc=\").+?(?=\")/';
-$ocwpagelink_all  = '/(?<=\{ocwpagelink type=\").+?(?=\"\})/';     
+$ocwpagelink_all  = '/(?<=\{ocwpagelink type=\").+?(?=\"\})/';
 
 $contents_tag = '/\#+\s(\S+)\s/';
 $contents_desc = '/\#+\s(\S+)\s/';
@@ -1389,7 +1392,7 @@ while ($line = fgets($fp_tmp)) {
     // -----
     // ここに$lineに対して何かしらの処理を書く
     // -----
- 
+
     // 改行コードを LF(\n) に統一
         $line = preg_replace("/\r\n|\r/","\n",$line);
         // $line = str_replace("\r\n","\n",$line);
@@ -1398,20 +1401,20 @@ while ($line = fgets($fp_tmp)) {
 
     // 全角スペースを半角へ変換
         $line = mb_convert_kana($line, 's');
-       
+
     // 文字列の先頭、末尾の半角全角スペース削除
         // $line = space_trim($line) ;
 
         // $test = "
         // 第2回
-        // : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"} 
+        // : {ocwlink file=\"ファイル名2\" desc=\"タイトル2\"}
         // : {ocwimg file=\"temporary.img\" alt=\"画像の説明\" ocwlink=\"lecture.pdf\"}
         // : {ocwimg file=\"temporary2.img\" alt=\"画像の説明2\" }";
 
         // $mystring = $test ;
         // $findme   = 'ocwimg file=';
         // $pos = strpos($mystring, $findme);
-        
+
         // // !== 演算子も使用可能です。ここで != を使っても期待通りに動作しません。
         // // なぜなら 'a' が 0 番目の文字だからです。(0 != false) を評価すると
         // // false になってしまいます。
@@ -1438,7 +1441,7 @@ while ($line = fgets($fp_tmp)) {
                 // echo "<br>   ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
                 $ocwimg_file_embed = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
 
-                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);
                 // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
                 $ocwimg_file_link = "![".$ocwimg_alt_match[0][0]."]".$ocwimg_file_embed ;
 
@@ -1447,123 +1450,131 @@ while ($line = fgets($fp_tmp)) {
                 // echo "<br> ocwimg_all_link : ".htmlspecialchars_decode($ocwimg_all_link, ENT_NOQUOTES);
 
                 preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
-                // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
+                // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ;
 
-                $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
+                $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;
                 $test2 = str_replace( $ocwimg_match,"", $line ) ;
-                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);   
+                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
 
                 // $test3 = str_replace( $ocwimg_match,"", $test2 ) ;
-                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);                
+                // echo "<br> test3 : ".htmlspecialchars_decode($test3, ENT_NOQUOTES);
                 $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_all_link, $test2 ) ;
-                //print_r($desc_match); 
+                //print_r($desc_match);
                 // echo "<br> ocwimg_all_link: " ; var_dump($ocwimg_link_match) ;
                 // echo "<br> ocwimg with link ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
 
-             }            
-    // ocwimg        
+             }
+    // ocwimg
         if(  (strpos($line, 'ocwimg file=') !== FALSE)
           && (strpos($line, 'alt=')         !== FALSE ) ){
                 preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
                 // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
                 // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
                 $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
-                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
-                // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
-                $ocwimg_file_link = "![".$ocwimg_alt_match[0][0]."]".$ocwimg_file_link ;
-                // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
-                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+                preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);
+                if(!empty($ocwimg_alt_match[0][0])){
+                    // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
+                    $ocwimg_file_link = "![".$ocwimg_alt_match[0][0]."]".$ocwimg_file_link ;
+                    // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
+                    // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+                }
                 preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
-                // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
-                $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
-                $test2 = str_replace( $ocwimg_match,"", $line ) ;
-                // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
-                $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
-                //print_r($desc_match); 
-
+                if (!empty($ocwimg_all_match[0][0])){
+                    // echo "<br>   if ocwimg_all_match: " ; var_dump($ocwimg_all_match) ;
+                    $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;
+                    $test2 = str_replace( $ocwimg_match,"", $line ) ;
+                    // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+                    $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+                    //print_r($desc_match);
+                }else{
+                    // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ;
+                }
                 // echo "<br> ocwimg with alt ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
 
-             }          
+             }
 
-    // ocwimg        
+    // ocwimg
     if(  strpos($line, 'ocwimg file=') !== FALSE ){
 
         preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
         // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
         // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
         $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
-      //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+      //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);
       //   // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
         $ocwimg_file_link = "![&nbsp;]".$ocwimg_file_link ;
       //   // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
       //   // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
         preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
-        // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
-        $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
-        $test2 = str_replace( $ocwimg_match,"", $line ) ;
-        // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
-        $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
-        //print_r($desc_match); 
-
+        if(!empty($ocwimg_all_match[0][0])){
+            // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ;
+            $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;
+            $test2 = str_replace( $ocwimg_match,"", $line ) ;
+            // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+            $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+            //print_r($desc_match);
+        }
       //   echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-        
-     }   
 
-    // ocwimg        
+     }
+
+    // ocwimg
     if(  strpos($line, 'ocwimg file=') !== FALSE ){
 
           preg_match_all($ocwimg_file, $line, $ocwimg_file_match) ;
           // echo "<br> test  : ".htmlspecialchars_decode($test, ENT_NOQUOTES);
           // echo "<br> ocwimg_file_match: " ; var_dump($ocwimg_file_match) ;
           $ocwimg_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwimg_file_match[0][0].") " ;
-        //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);                
+        //   preg_match_all($ocwimg_alt, $line, $ocwimg_alt_match);
         //   // echo "<br>   ocwimg_alt_match: " ; var_dump($ocwimg_alt_match) ;
           $ocwimg_file_link = "![&nbsp;]".$ocwimg_file_link ;
         //   // $test2 = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test ) ;
         //   // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
           preg_match_all($ocwimg_all, $line, $ocwimg_all_match);
-          // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ; 
-          $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;               
-          $test2 = str_replace( $ocwimg_match,"", $line ) ;
-          // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);                
-          $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
-          //print_r($desc_match); 
-
+          if(!empty($ocwimg_all_match[0][0])){
+            // echo "<br>   ocwimg_all_match: " ; var_dump($ocwimg_all_match) ;
+            $ocwimg_match = $ocwimg_all_match[0][0]."\"}" ;
+            $test2 = str_replace( $ocwimg_match,"", $line ) ;
+            // echo "<br> test2 : ".htmlspecialchars_decode($test2, ENT_NOQUOTES);
+            $line = preg_replace('/\{ocwimg file=\"/', $ocwimg_file_link, $test2 ) ;
+            //print_r($desc_match);
+          }
         //   echo "<br> ocwimg only ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-          
-       }                
+
+       }
         // ocwlink
         if( preg_match_all($ocwlink_file, $line, $ocwlink_file_match) ){
-        
-            $ocwlink_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_file_match[0][0].") " ;
-            preg_match_all($ocwlink_desc, $line, $ocwlink_desc_match);                
-        
-            $ocwlink_file_link = "[".$ocwlink_desc_match[0][0]."]".$ocwlink_file_link ;
-            preg_match_all($ocwlink_all, $line, $ocwlink_all_match);
-        
-            $ocwlink_match = $ocwlink_all_match[0][0]."\"}" ;               
-            $test2 = str_replace( $ocwlink_match,"", $line ) ;
-        
-            $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
 
-            // echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);     
+            $ocwlink_file_link = "(https://ocw.nagoya-u.jp/files/".$course_id."/".$ocwlink_file_match[0][0].") " ;
+            preg_match_all($ocwlink_desc, $line, $ocwlink_desc_match);
+            if(!empty($ocwlink_desc_match[0][0])){
+                $ocwlink_file_link = "[".$ocwlink_desc_match[0][0]."]".$ocwlink_file_link ;
+            }
+            preg_match_all($ocwlink_all, $line, $ocwlink_all_match);
+            if(!empty($ocwlink_all_match[0][0])){
+                $ocwlink_match = $ocwlink_all_match[0][0]."\"}" ;
+                $test2 = str_replace( $ocwlink_match,"", $line ) ;
+
+                $line = preg_replace('/\{ocwlink file=\"/', $ocwlink_file_link, $test2 ) ;
+            }
+            // echo "<br> ocwlink file ".htmlspecialchars_decode($line, ENT_NOQUOTES);
 
             }
 
 
     // ocwpagelink
-           
+
         if( preg_match_all($ocwpagelink_file, $line, $ocwpagelink_file_match) ){
 
             $ocwpagelink_file_link = "(#".$ocwpagelink_file_match[0][0].") " ;
-            preg_match_all($ocwpagelink_desc, $line, $ocwpagelink_desc_match);                
+            preg_match_all($ocwpagelink_desc, $line, $ocwpagelink_desc_match);
 
             $ocwpagelink_file_link = "[".$ocwpagelink_desc_match[0][0]."]".$ocwpagelink_file_link ;
             preg_match_all($ocwpagelink_all, $line, $ocwpagelink_all_match);
 
-            $ocwpagelink_match = $ocwpagelink_all_match[0][0]."\"}" ;               
+            $ocwpagelink_match = $ocwpagelink_all_match[0][0]."\"}" ;
             $test2 = str_replace( $ocwpagelink_match,"", $line ) ;
 
             $line = preg_replace('/\{ocwpagelink type=\"/', $ocwpagelink_file_link, $test2 ) ;
@@ -1586,7 +1597,7 @@ while ($line = fgets($fp_tmp)) {
         $line = str_replace( ":" , "- " , $line) ;
         // echo "<br>行頭の「:」を「- 」へ変換 ".htmlspecialchars_decode($line, ENT_NOQUOTES);
       }
-    
+
     // スタジオ動画配信サーバ URL の変更
     $line = preg_replace($studio_media, $studio_url, $line);
     // echo "<br>preg_replace : ".$line."<br>";
@@ -1602,64 +1613,64 @@ while ($line = fgets($fp_tmp)) {
 
     // 名大トピックス
     $line = preg_replace( $nu_topics_link , $nu_topics_desc ,$line ) ;
-    $line = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/thumbs/", "https://nuvideo.media.nagoya-u.ac.jp/thumbs/", $line );    
-    
+    $line = str_ireplace("http://nuvideo.media.nagoya-u.ac.jp/thumbs/", "https://nuvideo.media.nagoya-u.ac.jp/thumbs/", $line );
+
         // $ii = 0;
         // foreach ($desc_match[0] as $value){
-        //     $resources .= 
+        //     $resources .=
         //     "- [".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
         //     $ii++;
         //   }
-      
+
         // $resources = preg_replace('/(?<={).*?(?=})/', '' , $resources);
         // $resources = preg_replace('/\{\}/', '' , $resources);
         // $resources = str_replace('\\', '' , $resources) ;
-        
+
     // vsyllabus_direct_link
     // if (preg_match('/<a target=\"_blank\" href=/', $line)){
     //     $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
-    //     echo "<br>line : ".$line."<br>"; 
+    //     echo "<br>line : ".$line."<br>";
     // }
     // vsyllabus_direct_link
     // if (preg_match('/<a target=\"blank\" href=/', $line)){
     //     $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
-    //     echo "<br>line : ".$line."<br>"; 
+    //     echo "<br>line : ".$line."<br>";
     // }
     $vsyllabus_direct_link_to = ' width="640" height="360" frameborder="0" allowfullscreen></iframe>' ;
-    if (preg_match('/(?<=><img).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
+    if (preg_match('/(?<=><img).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){
         $vsyllabus_match = "><img".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;
         $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
         $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
 
-            // echo "<br>line : ".$line."<br>";       
+            // echo "<br>line : ".$line."<br>";
     }
-    if (preg_match('/(?<=>後輩へのメッセージビデオ).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){        
+    if (preg_match('/(?<=>後輩へのメッセージビデオ).+?(?=<\/a>)/', $line, $vsyllabus_direct_link_match)){
         $vsyllabus_match = ">後輩へのメッセージビデオ".$vsyllabus_direct_link_match[0]."</a>";
-        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ; 
+        $line = str_replace($vsyllabus_match,$vsyllabus_direct_link_to,$line) ;
         $line = preg_replace('/<a target=\"_blank\" href=/', '<iframe src=', $line);
-        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);        
-            // echo "<br>line : ".$line."<br>";       
-    }    
+        $line = preg_replace('/<a target=\"blank\" href=/', '<iframe src=', $line);
+            // echo "<br>line : ".$line."<br>";
+    }
 
-    if (preg_match('/Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。/', $line)){        
-        
-        $line = "\n\nInternet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。\n\n" ;  
-            // echo "<br>line : ".$line."<br>";       
-    }   
+    if (preg_match('/Internet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。/', $line)){
 
-    // ocwimg        
-    if(    (strpos($line, '<a target=' ) !== FALSE) 
+        $line = "\n\nInternet ExplorerまたはMicrosoft Edgeからの閲覧の場合、動画が乱れることがございます。\n\n" ;
+            // echo "<br>line : ".$line."<br>";
+    }
+
+    // ocwimg
+    if(    (strpos($line, '<a target=' ) !== FALSE)
         && (    (strpos($line, '}</a>' ) !== FALSE)
              || (strpos($line, '} </a>') !== FALSE) )){
 
         preg_match_all('/\).+?\}/', $line, $ocwimg_thumb_match) ;
         // echo "<br> before  : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
-        
-        $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
-    
-        // echo "<br> after   : ".htmlspecialchars_decode($line, ENT_NOQUOTES);        
-     }      
+        if(!empty($ocwimg_thumb_match[0][0])){
+            $line = str_replace( $ocwimg_thumb_match[0][0],")", $line ) ;
+        }
+        // echo "<br> after   : ".htmlspecialchars_decode($line, ENT_NOQUOTES);
+     }
     // FlashVideo を削除
     $line = preg_replace('/FlashVideo, /', '', $line);
 
@@ -1688,7 +1699,7 @@ $main_text = file_get_contents('tmp2.md');
 // $main_text = preg_replace('/(\n\n\n)+/us',"\n", $main_text );
 
 // 最後に、よく分からない タグを「# 」で協調
-// $main_text = str_replace('{', '# ' , $main_text) ;  
+// $main_text = str_replace('{', '# ' , $main_text) ;
 
 // $courselist_text .= ltrim( $main_text ) ;
 $courselist_text .= $main_text ;
@@ -1696,7 +1707,7 @@ $courselist_text .= $main_text ;
 
 // echo "<br><br>" ; var_dump($courselist_text) ;
 
-$file_name = "./src/pages/".$file_name.".md"; 
+$file_name = "./src/pages/".$file_name.".md";
 $fp = fopen($file_name, "w");
 fwrite($fp,$courselist_text);
 fclose($fp);
@@ -1717,7 +1728,7 @@ fclose($fp);
 // $courselist_text .= ltrim( $main_text ) ;
 // echo "<br><br>" ; var_dump($courselist_text) ;
 
-// DBの切断        
+// DBの切断
 $close_ocwdb  = pg_close($ocwdb);
 if ($close_ocwdb){
     print('<br><br>ocwdb：切断に成功しました。<br>');
@@ -1726,7 +1737,7 @@ if ($close_ocwdb){
 $check_list .="</table><br></body></html>" ;
 fwrite($fp_html,$check_list);
 fclose($fp_html);
-    
+
 exec('/bin/rm tmp.md'  );
 exec('/bin/rm tmp2.md'  );
 
