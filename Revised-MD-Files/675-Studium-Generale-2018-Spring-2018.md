@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "675"
@@ -80,7 +80,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/thumbnail.png
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -91,8 +91,10 @@ date: 2020-02-27 12:46:32
 ---
 
 ### Course Overview
+
 Studium Generale is a unique immersion program into an English-based lecture environment.
 The course offers exposure to various academic topics presented in an accessible way, and in English.
+
 <table class="basic" width="455">
     <tr>
         <th>Date</th>
@@ -188,47 +190,23 @@ The course offers exposure to various academic topics presented in an accessible
     </tr>
 </table>
 
-
-
-
-
-
-
-
 ### Syllabus
 
-| Date | Topic | Lecturer |
-|:----:|:-----:|:--------:|
-| 5/08 | A reflecion on the name of "Bratislava" | Susumu Nagayo (Waseda University) |
-| 5/10 | Geographical information around us | Koichiro Nagamine (Graduate School of Informatics) |
-| 5/15 | Lawyer, author, diplomat, board game designer: life lessons learned... | Chenier LaSalle (Embassy of Canada) |
-| 5/17 | Towards autonomous sosial driving for personal mobility vehicles | Luis Yoichi Morales (Institute for Innovation for Future Society) |
-| 5/22 | Photography | Naoyuki Ogino (Artist, Stanford lecture, Kyoto) |
-| 5/24 | The sience of shampoo | Nicola Skoulding (Graduate School of Bioagricultural Sciences) |
-| 5/29 | Plato`s wax tablet | Yahei Kanayama (Graduate School of Letters) |
-| 5/31 | Introduction to game theory | Maria Martin Rodriguez (Graduate School of Economics) |
-| 6/05 | Symmetry and singularity | Yukari Ito (Graduate School of Mathematics) |
-| 6/12 | Critical thinking as collective inquiry | Masashi Kasaki (Institute of Liberal Arts and Sciences) |
-| 6/14 | I have a dream...that all students shall learn how to study much harder | Kosuke Shobatake (Professor Emeritus) |
-| 6/19 | See elegance in a worm brain | Kentaro Noma (Graduate School of Science) |
-| 6/21 | The Checksum: a trick to memorizing Japanese kanji?... | Markus Rude (Institute of Liberal Arts and Sciences) |
-| 6/26 | Plasma | Nagahiro Saito (Graduate School of Engineering) |
+| Date |                                  Topic                                  |                             Lecturer                              |
+| :--: | :---------------------------------------------------------------------: | :---------------------------------------------------------------: |
+| 5/08 |                 A reflecion on the name of "Bratislava"                 |                 Susumu Nagayo (Waseda University)                 |
+| 5/10 |                   Geographical information around us                    |        Koichiro Nagamine (Graduate School of Informatics)         |
+| 5/15 | Lawyer, author, diplomat, board game designer: life lessons learned...  |                Chenier LaSalle (Embassy of Canada)                |
+| 5/17 |    Towards autonomous sosial driving for personal mobility vehicles     | Luis Yoichi Morales (Institute for Innovation for Future Society) |
+| 5/22 |                               Photography                               |          Naoyuki Ogino (Artist, Stanford lecture, Kyoto)          |
+| 5/24 |                          The sience of shampoo                          |  Nicola Skoulding (Graduate School of Bioagricultural Sciences)   |
+| 5/29 |    Plato`s wax tablet | Yahei Kanayama (Graduate School of Letters)     |
+| 5/31 |                       Introduction to game theory                       |       Maria Martin Rodriguez (Graduate School of Economics)       |
+| 6/05 |                        Symmetry and singularity                         |            Yukari Ito (Graduate School of Mathematics)            |
+| 6/12 |                 Critical thinking as collective inquiry                 |      Masashi Kasaki (Institute of Liberal Arts and Sciences)      |
+| 6/14 | I have a dream...that all students shall learn how to study much harder |               Kosuke Shobatake (Professor Emeritus)               |
+| 6/19 |                      See elegance in a worm brain                       |             Kentaro Noma (Graduate School of Science)             |
+| 6/21 |         The Checksum: a trick to memorizing Japanese kanji?...          |       Markus Rude (Institute of Liberal Arts and Sciences)        |
+| 6/26 |                                 Plasma                                  |          Nagahiro Saito (Graduate School of Engineering)          |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------
+---

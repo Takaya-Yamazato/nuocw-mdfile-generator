@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "738"
@@ -76,7 +76,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/thumbnail.png
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -87,6 +87,7 @@ date: 2021-02-25 17:23:59
 ---
 
 ### Course Overview
+
 <p>Course format: discussions sessions and talks by invited speakers.</p>
 <p>Each lecture is different: invited speakers from Nagoya University or elsewhere. Lecture topics are renewed every semester.</p>
 <p>Some of the topics in Fall 2018 included:<br>
@@ -163,47 +164,24 @@ http://www.bio.nagoya-u.ac.jp/G30StudiumGenerale/
     </tr>
 </table>
 
-
-
-
-
-
-
-
 ### Syllabus
 
-| Date | Topic | Lecturer |
-|:----:|:-----:|:--------:|
-| 10/4 | Discussion Session | |
-| 10/11 | Discussion Session | |
-| 10/18 | Comfortable human-robot interaction: it's all about emotions!| Sarah Cosentino (Waseda University) |
-| 10/25 | Earthquakes in Japan | Ilona Sakaguchi (Graduate School of Science) |
-| 11/1 | Metaphor and the Power of Storytelling : A Cognitive Linguistic Approach | Gerry Yokota (Osaka University) |
-| 11/8 | From Playstation to Hospitals : Hidden mathematics in our daily life | Henrik Bachmann (Graduate School of Mathmatics) |
-| 11/15 | Let's listen to a melody from the universe! | Seiji Kawamura (Graduate School of Science, Physics) |
-| 11/22 | Introduction to Islamic finance | Mehriban Ahmadova (School of Economics) |
-| 11/29 | DiVE into diversity!! | Kanako Makino (DiVE.tv Nagoya NGO) |
-| 12/6 | Cultural Diffferences in Business | Wang Lin Lee (School of Economics) |
-| 12/13 | Enzyme Engineering - Improving on Nature | Osami Shoji (School of Science, Chemisty) |
-| 12/20 | What's Going on in Elementary School English Classes? | Toru Tatsumi (Gifu University) |
-| 1/10 | What Is Inside a Black Hole? | Masaki Shigemori (Graduate School of Science, Physics) |
-| 1/24 | "Right" or "Light"? Why do we Need to Study Phonetics? | Tetyana Sayenko (Department of English language) |
-| 1/31 | Discussion session |  |
+| Date  |                                  Topic                                   |                        Lecturer                        |
+| :---: | :----------------------------------------------------------------------: | :----------------------------------------------------: |
+| 10/4  |                            Discussion Session                            |                                                        |
+| 10/11 |                            Discussion Session                            |                                                        |
+| 10/18 |      Comfortable human-robot interaction: it's all about emotions!       |          Sarah Cosentino (Waseda University)           |
+| 10/25 |                           Earthquakes in Japan                           |      Ilona Sakaguchi (Graduate School of Science)      |
+| 11/1  | Metaphor and the Power of Storytelling : A Cognitive Linguistic Approach |            Gerry Yokota (Osaka University)             |
+| 11/8  |   From Playstation to Hospitals : Hidden mathematics in our daily life   |    Henrik Bachmann (Graduate School of Mathmatics)     |
+| 11/15 |               Let's listen to a melody from the universe!                |  Seiji Kawamura (Graduate School of Science, Physics)  |
+| 11/22 |                     Introduction to Islamic finance                      |        Mehriban Ahmadova (School of Economics)         |
+| 11/29 |                          DiVE into diversity!!                           |           Kanako Makino (DiVE.tv Nagoya NGO)           |
+| 12/6  |                    Cultural Diffferences in Business                     |           Wang Lin Lee (School of Economics)           |
+| 12/13 |                 Enzyme Engineering - Improving on Nature                 |       Osami Shoji (School of Science, Chemisty)        |
+| 12/20 |          What's Going on in Elementary School English Classes?           |             Toru Tatsumi (Gifu University)             |
+| 1/10  |                       What Is Inside a Black Hole?                       | Masaki Shigemori (Graduate School of Science, Physics) |
+| 1/24  |          "Right" or "Light"? Why do we Need to Study Phonetics?          |    Tetyana Sayenko (Department of English language)    |
+| 1/31  |                            Discussion session                            |                                                        |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------
+---

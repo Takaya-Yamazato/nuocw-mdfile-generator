@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "778"
@@ -92,7 +92,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/thumbnail.png
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -103,8 +103,10 @@ date: 2021-02-17 23:23:59
 ---
 
 ### Course Overview
+
 Studium Generale is a series of introductory level lectures in English by Nagoya University faculty members and external speakers. Topics cover any research field, arts, and business.
 The main purpose of Studium Generale is to expose students to topics (both academic and non-academic) that are outside of their major of study in an accessible way, as well as to offer practice in listening to lectures in English.
+
 <table class="basic" width="455">
     <tr>
         <th>Date</th>
@@ -192,48 +194,24 @@ The main purpose of Studium Generale is to expose students to topics (both acade
     </tr>
 </table>
 
-
-
-
-
-
-
-
 ### Syllabus
 
+| Date |                                     Topic                                      |                                          Lecturer                                           |
+| :--: | :----------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+| 4/10 |                                    No class                                    |                                                                                             |
+| 4/17 |                                    No class                                    |                                                                                             |
+| 4/24 |     From university to Antarctica, a story about glaciers and life choices     |                             Alexia fabiani (School of Science)                              |
+| 5/1  |            Plants and insects help us understand human infertility             |                              Mariana Costa (School of Science)                              |
+| 5/8  |                       Geographical information around us                       |                     Koichiro Nagamine (Graduate School of Informatics)                      |
+| 5/15 |                 Migration and Development: People on the Move                  |                                    Francis Peddie (GSID)                                    |
+| 5/22 |                   Science communication and public relations                   | Azusa Minamizaki (Kobayashi-Maskawa Institute for the Origin of Particles and the Universe) |
+| 6/5  |                  Happiness in philosophy, ethics and religion                  |                              Jakub Rajcani (Nanzan University)                              |
+| 6/19 |                          See elegance in a worm brain                          |                              Kentaro Noma (School of Science)                               |
+| 6/26 | Law and Literature: the Japanese legal system as seen through literary sources |                       Giorgio Fabio Colombo (Graduate School of Law)                        |
+| 7/3  |             What's Going on in Elementary School English Classes?              |                   Toru Tatsumi (Gifu University, Department of Education)                   |
+| 7/10 |           Corporate Law and Economic Inequality: A Beginner's Guide            |                            Sean McGinty (Graduate School of Law)                            |
+| 7/17 |     The Ins and Outs of Multi-Country, Long-Distance, Self-Powered Travel      |                               Richard Gregg (Gifu University)                               |
+| 7/31 |              Global Warming: Beyond the Hockey Stick Controversy               |                     Gabor Samjesk&eacute; (Graduate School of Science)                      |
+| 8/7  |                                Wrap up session                                 |                                                                                             |
 
-| Date | Topic | Lecturer |
-|:----:|:-----:|:--------:|
-| 4/10 | No class |  |
-| 4/17 | No class |  |
-| 4/24 | From university to Antarctica, a story about glaciers and life choices | Alexia fabiani (School of Science) |
-| 5/1 | Plants and insects help us understand human infertility | Mariana Costa	(School of Science) |
-| 5/8 | Geographical information around us | Koichiro Nagamine (Graduate School of Informatics) |
-| 5/15 | Migration and Development: People on the Move | Francis Peddie (GSID) |
-| 5/22 | Science communication and public relations	| Azusa Minamizaki (Kobayashi-Maskawa Institute for the Origin of Particles and the Universe) |
-| 6/5 | Happiness in philosophy, ethics and religion | Jakub Rajcani (Nanzan University) |
-| 6/19 | See elegance in a worm brain | Kentaro Noma (School of Science) |
-| 6/26 | Law and Literature: the Japanese legal system as seen through literary sources | Giorgio Fabio Colombo (Graduate School of Law) |
-| 7/3 | What's Going on in Elementary School English Classes? | Toru Tatsumi (Gifu University, Department of Education) |
-| 7/10 | Corporate Law and Economic Inequality: A Beginner's Guide | Sean McGinty	(Graduate School of Law) |
-| 7/17 | The Ins and Outs of Multi-Country, Long-Distance, Self-Powered Travel | Richard Gregg (Gifu University) |
-| 7/31 | Global Warming: Beyond the Hockey Stick Controversy | Gabor Samjesk&eacute;	(Graduate School of Science) |
-| 8/7 | Wrap up session |  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------
+---

@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "441"
@@ -664,7 +664,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/thumbnail.png
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -674,23 +674,13 @@ movie:
 date: 2020-05-08 11:07:00
 ---
 
-
-
-
 ### Key Features
 
 When discussing the challenges of studying Japanese, more than a few people bring up kanji. It is common for people studying the language to feel some uncertainty about just how many kanji they should learn, or how useful any particular kanji will turn out to be.
 
-There are many kanji characters, and it takes time to learn them. However, once you have made them your own, knowing kanji can be very useful, and will contribute to your understanding of Japanese and will help accelerate the speed with which the language can be learned. Learning kanji will also enhance your ability to reason and help you be both more expressive and creative. The use of one kanji will often lead to the use of another kanji and so help with building vocabulary. 
+There are many kanji characters, and it takes time to learn them. However, once you have made them your own, knowing kanji can be very useful, and will contribute to your understanding of Japanese and will help accelerate the speed with which the language can be learned. Learning kanji will also enhance your ability to reason and help you be both more expressive and creative. The use of one kanji will often lead to the use of another kanji and so help with building vocabulary.
 
 There are people who lament that they &lsquo;forget the kanji right away. &lsquo;We like to tell these folks that&rsquo; Forgetting is a good thing. Only people who have forgotten a character can recall it. People who never knew a character cannot bring it back to mind.&rsquo; Escaping from the sense of helplessness in thoughts like &lsquo;I&rsquo;ll be forgetting it at any rate&rsquo; may in fact be a hidden key to success when it comes to learning kanji. It is our sincere hope that this class will prove useful as part of a process in which students transition from learning frequently used kanji to a level where the feeling is that one &lsquo;couldn&rsquo;t possibly forget&rsquo; a particular character that has been encountered many times.
-
-
-
-
-
-
-
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">
@@ -792,271 +782,260 @@ There are people who lament that they &lsquo;forget the kanji right away. &lsquo
 </tr>
 </table>
 
-
 ### Lecture Notes
 
 Note:All files are in Japanese.
 
-- [Essential Kanji for Science and Engineering Students](https://ocw.nagoya-u.jp/files/441/00-examples.pdf) 
+- [Essential Kanji for Science and Engineering Students](https://ocw.nagoya-u.jp/files/441/00-examples.pdf)
 
 Reading & Writing #1-14
 
 Session #1
 
-- [1-80 Reading Question](https://ocw.nagoya-u.jp/files/441/1-80R.pdf) 
+- [1-80 Reading Question](https://ocw.nagoya-u.jp/files/441/1-80R.pdf)
 
-- [1-80 Reading Answer](https://ocw.nagoya-u.jp/files/441/1-80RA.pdf) 
+- [1-80 Reading Answer](https://ocw.nagoya-u.jp/files/441/1-80RA.pdf)
 
-- [1-80 Writing Question](https://ocw.nagoya-u.jp/files/441/1-80W.pdf) 
+- [1-80 Writing Question](https://ocw.nagoya-u.jp/files/441/1-80W.pdf)
 
-- [1-80 Writing Answer](https://ocw.nagoya-u.jp/files/441/1-80WA.pdf) 
+- [1-80 Writing Answer](https://ocw.nagoya-u.jp/files/441/1-80WA.pdf)
 
 Session #2
 
-- [81-160 Reading Question](https://ocw.nagoya-u.jp/files/441/81-160R.pdf) 
+- [81-160 Reading Question](https://ocw.nagoya-u.jp/files/441/81-160R.pdf)
 
-- [81-160 Reading Answer](https://ocw.nagoya-u.jp/files/441/81-160RA.pdf) 
+- [81-160 Reading Answer](https://ocw.nagoya-u.jp/files/441/81-160RA.pdf)
 
-- [81-160 Writing Question](https://ocw.nagoya-u.jp/files/441/81-160W.pdf) 
+- [81-160 Writing Question](https://ocw.nagoya-u.jp/files/441/81-160W.pdf)
 
-- [81-160 Writing Answer](https://ocw.nagoya-u.jp/files/441/81-160WA.pdf) 
+- [81-160 Writing Answer](https://ocw.nagoya-u.jp/files/441/81-160WA.pdf)
 
 Session #3
 
-- [161-240 Reading Question](https://ocw.nagoya-u.jp/files/441/161-240R.pdf) 
+- [161-240 Reading Question](https://ocw.nagoya-u.jp/files/441/161-240R.pdf)
 
-- [161-240 Reading Answer](https://ocw.nagoya-u.jp/files/441/161-240RA.pdf) 
+- [161-240 Reading Answer](https://ocw.nagoya-u.jp/files/441/161-240RA.pdf)
 
-- [161-240 Writing Question](https://ocw.nagoya-u.jp/files/441/161-240W.pdf) 
+- [161-240 Writing Question](https://ocw.nagoya-u.jp/files/441/161-240W.pdf)
 
-- [161-240 Writing Answer](https://ocw.nagoya-u.jp/files/441/161-240WA.pdf) 
+- [161-240 Writing Answer](https://ocw.nagoya-u.jp/files/441/161-240WA.pdf)
 
 Session #4
 
-- [241-320 Reading Question](https://ocw.nagoya-u.jp/files/441/241-320R.pdf) 
+- [241-320 Reading Question](https://ocw.nagoya-u.jp/files/441/241-320R.pdf)
 
-- [241-320 Reading Answer](https://ocw.nagoya-u.jp/files/441/241-320RA.pdf) 
+- [241-320 Reading Answer](https://ocw.nagoya-u.jp/files/441/241-320RA.pdf)
 
-- [241-320 Writing Question](https://ocw.nagoya-u.jp/files/441/241-320W.pdf) 
+- [241-320 Writing Question](https://ocw.nagoya-u.jp/files/441/241-320W.pdf)
 
-- [241-320 Writing Answer](https://ocw.nagoya-u.jp/files/441/241-320WA.pdf) 
+- [241-320 Writing Answer](https://ocw.nagoya-u.jp/files/441/241-320WA.pdf)
 
 Session #5
 
-- [321-400 Reading Question](https://ocw.nagoya-u.jp/files/441/321-400R.pdf) 
+- [321-400 Reading Question](https://ocw.nagoya-u.jp/files/441/321-400R.pdf)
 
-- [321-400 Reading Answer](https://ocw.nagoya-u.jp/files/441/321-400RA.pdf) 
+- [321-400 Reading Answer](https://ocw.nagoya-u.jp/files/441/321-400RA.pdf)
 
-- [321-400 Writing Question](https://ocw.nagoya-u.jp/files/441/321-400W.pdf) 
+- [321-400 Writing Question](https://ocw.nagoya-u.jp/files/441/321-400W.pdf)
 
-- [321-400 Writing Answer](https://ocw.nagoya-u.jp/files/441/321-400WA.pdf) 
+- [321-400 Writing Answer](https://ocw.nagoya-u.jp/files/441/321-400WA.pdf)
 
 Session #6
 
-- [401-480 Reading Question](https://ocw.nagoya-u.jp/files/441/401-480R.pdf) 
+- [401-480 Reading Question](https://ocw.nagoya-u.jp/files/441/401-480R.pdf)
 
-- [401-480 Reading Answer](https://ocw.nagoya-u.jp/files/441/401-480RA.pdf) 
+- [401-480 Reading Answer](https://ocw.nagoya-u.jp/files/441/401-480RA.pdf)
 
-- [401-480 Writing Question](https://ocw.nagoya-u.jp/files/441/401-480W.pdf) 
+- [401-480 Writing Question](https://ocw.nagoya-u.jp/files/441/401-480W.pdf)
 
-- [401-480 Writing Answer](https://ocw.nagoya-u.jp/files/441/401-480WA.pdf) 
+- [401-480 Writing Answer](https://ocw.nagoya-u.jp/files/441/401-480WA.pdf)
 
 Session #7
 
-- [481-560 Reading Question](https://ocw.nagoya-u.jp/files/441/481-560R.pdf) 
+- [481-560 Reading Question](https://ocw.nagoya-u.jp/files/441/481-560R.pdf)
 
-- [481-560 Reading Answer](https://ocw.nagoya-u.jp/files/441/481-560RA.pdf) 
+- [481-560 Reading Answer](https://ocw.nagoya-u.jp/files/441/481-560RA.pdf)
 
-- [481-560 Writing Question](https://ocw.nagoya-u.jp/files/441/481-560W.pdf) 
+- [481-560 Writing Question](https://ocw.nagoya-u.jp/files/441/481-560W.pdf)
 
-- [481-560 Writing Answer](https://ocw.nagoya-u.jp/files/441/481-560WA.pdf) 
+- [481-560 Writing Answer](https://ocw.nagoya-u.jp/files/441/481-560WA.pdf)
 
 Session #8
 
-- [561-640 Reading Question](https://ocw.nagoya-u.jp/files/441/561-640R.pdf) 
+- [561-640 Reading Question](https://ocw.nagoya-u.jp/files/441/561-640R.pdf)
 
-- [561-640 Reading Answer](https://ocw.nagoya-u.jp/files/441/561-640RA.pdf) 
+- [561-640 Reading Answer](https://ocw.nagoya-u.jp/files/441/561-640RA.pdf)
 
-- [561-640 Writing Question](https://ocw.nagoya-u.jp/files/441/561-640W.pdf) 
+- [561-640 Writing Question](https://ocw.nagoya-u.jp/files/441/561-640W.pdf)
 
-- [561-640 Writing Answer](https://ocw.nagoya-u.jp/files/441/561-640WA.pdf) 
+- [561-640 Writing Answer](https://ocw.nagoya-u.jp/files/441/561-640WA.pdf)
 
 Session #9
 
-- [641-720 Reading Question](https://ocw.nagoya-u.jp/files/441/641-720R.pdf) 
+- [641-720 Reading Question](https://ocw.nagoya-u.jp/files/441/641-720R.pdf)
 
-- [641-720 Reading Answer](https://ocw.nagoya-u.jp/files/441/641-720RA.pdf) 
+- [641-720 Reading Answer](https://ocw.nagoya-u.jp/files/441/641-720RA.pdf)
 
-- [641-720 Writing Question](https://ocw.nagoya-u.jp/files/441/641-720W.pdf) 
+- [641-720 Writing Question](https://ocw.nagoya-u.jp/files/441/641-720W.pdf)
 
-- [641-720 Writing Answer](https://ocw.nagoya-u.jp/files/441/641-720WA.pdf) 
+- [641-720 Writing Answer](https://ocw.nagoya-u.jp/files/441/641-720WA.pdf)
 
 Session #10
 
-- [721-800 Reading Question](https://ocw.nagoya-u.jp/files/441/721-800R.pdf) 
+- [721-800 Reading Question](https://ocw.nagoya-u.jp/files/441/721-800R.pdf)
 
-- [721-800 Reading Answer](https://ocw.nagoya-u.jp/files/441/721-800RA.pdf) 
+- [721-800 Reading Answer](https://ocw.nagoya-u.jp/files/441/721-800RA.pdf)
 
-- [721-800 Writing Question](https://ocw.nagoya-u.jp/files/441/721-800W.pdf) 
+- [721-800 Writing Question](https://ocw.nagoya-u.jp/files/441/721-800W.pdf)
 
-- [721-800 Writing Answer](https://ocw.nagoya-u.jp/files/441/721-800WA.pdf) 
+- [721-800 Writing Answer](https://ocw.nagoya-u.jp/files/441/721-800WA.pdf)
 
 Session #11
 
-- [801-880 Reading Question](https://ocw.nagoya-u.jp/files/441/801-880R.pdf) 
+- [801-880 Reading Question](https://ocw.nagoya-u.jp/files/441/801-880R.pdf)
 
-- [801-880 Reading Answer](https://ocw.nagoya-u.jp/files/441/801-880RA.pdf) 
+- [801-880 Reading Answer](https://ocw.nagoya-u.jp/files/441/801-880RA.pdf)
 
-- [801-880 Writing Question](https://ocw.nagoya-u.jp/files/441/801-880W.pdf) 
+- [801-880 Writing Question](https://ocw.nagoya-u.jp/files/441/801-880W.pdf)
 
-- [801-880 Writing Answer](https://ocw.nagoya-u.jp/files/441/801-880WA.pdf) 
+- [801-880 Writing Answer](https://ocw.nagoya-u.jp/files/441/801-880WA.pdf)
 
 Session #12
 
-- [881-960 Reading Question](https://ocw.nagoya-u.jp/files/441/881-960R.pdf) 
+- [881-960 Reading Question](https://ocw.nagoya-u.jp/files/441/881-960R.pdf)
 
-- [881-960 Reading Answer](https://ocw.nagoya-u.jp/files/441/881-960RA.pdf) 
+- [881-960 Reading Answer](https://ocw.nagoya-u.jp/files/441/881-960RA.pdf)
 
-- [881-960 Writing Question](https://ocw.nagoya-u.jp/files/441/881-960W.pdf) 
+- [881-960 Writing Question](https://ocw.nagoya-u.jp/files/441/881-960W.pdf)
 
-- [881-960 Writing Answer](https://ocw.nagoya-u.jp/files/441/881-960WA.pdf) 
+- [881-960 Writing Answer](https://ocw.nagoya-u.jp/files/441/881-960WA.pdf)
 
 Session #13
 
-- [961-1040 Reading Question](https://ocw.nagoya-u.jp/files/441/961-1040R.pdf) 
+- [961-1040 Reading Question](https://ocw.nagoya-u.jp/files/441/961-1040R.pdf)
 
-- [961-1040 Reading Answer](https://ocw.nagoya-u.jp/files/441/961-1040RA.pdf) 
+- [961-1040 Reading Answer](https://ocw.nagoya-u.jp/files/441/961-1040RA.pdf)
 
-- [961-1040 Writing Question](https://ocw.nagoya-u.jp/files/441/961-1040W.pdf) 
+- [961-1040 Writing Question](https://ocw.nagoya-u.jp/files/441/961-1040W.pdf)
 
-- [961-1040 Writing Answer](https://ocw.nagoya-u.jp/files/441/961-1040WA.pdf) 
+- [961-1040 Writing Answer](https://ocw.nagoya-u.jp/files/441/961-1040WA.pdf)
 
 Session #14
 
-- [1041-1120 Reading Question](https://ocw.nagoya-u.jp/files/441/1041-1120R.pdf) 
+- [1041-1120 Reading Question](https://ocw.nagoya-u.jp/files/441/1041-1120R.pdf)
 
-- [1041-1120 Reading Answer](https://ocw.nagoya-u.jp/files/441/1041-1120RA.pdf) 
+- [1041-1120 Reading Answer](https://ocw.nagoya-u.jp/files/441/1041-1120RA.pdf)
 
-- [1041-1120 Writing Question](https://ocw.nagoya-u.jp/files/441/1041-1120W.pdf) 
+- [1041-1120 Writing Question](https://ocw.nagoya-u.jp/files/441/1041-1120W.pdf)
 
-- [1041-1120 Writing Answer](https://ocw.nagoya-u.jp/files/441/1041-1120WA.pdf) 
+- [1041-1120 Writing Answer](https://ocw.nagoya-u.jp/files/441/1041-1120WA.pdf)
 
 Reading #1-28 (including English)
 
 Session #1
 
-- [1-40 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/1-40_RQ.pdf) 
+- [1-40 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/1-40_RQ.pdf)
 
-- [1-40 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/1-40_RA.pdf) 
+- [1-40 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/1-40_RA.pdf)
 
-- [41-80 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/41-80_RQ.pdf) 
+- [41-80 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/41-80_RQ.pdf)
 
-- [41-80 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/41-80_RA.pdf) 
+- [41-80 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/41-80_RA.pdf)
 
 Session #2
 
-- [81-120 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/81-120_RQ.pdf) 
+- [81-120 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/81-120_RQ.pdf)
 
-- [81-120 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/81-120_RA.pdf) 
+- [81-120 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/81-120_RA.pdf)
 
-- [121-160 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/121-160_RQ.pdf) 
+- [121-160 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/121-160_RQ.pdf)
 
-- [121-160 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/121-160_RA.pdf) 
+- [121-160 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/121-160_RA.pdf)
 
 Session #3
 
-- [161-200 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/161-200_RQ.pdf) 
+- [161-200 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/161-200_RQ.pdf)
 
-- [161-200 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/161-200_RA.pdf) 
+- [161-200 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/161-200_RA.pdf)
 
-- [201-240 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/201-240_RQ.pdf) 
+- [201-240 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/201-240_RQ.pdf)
 
-- [201-240 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/201-240_RA.pdf) 
+- [201-240 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/201-240_RA.pdf)
 
 Session #4
 
-- [241-280 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/241-280_RQ.pdf) 
+- [241-280 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/241-280_RQ.pdf)
 
-- [241-280 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/241-280_RA.pdf) 
+- [241-280 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/241-280_RA.pdf)
 
-- [281-320 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/281-320_RQ.pdf) 
+- [281-320 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/281-320_RQ.pdf)
 
-- [281-320 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/281-320_RA.pdf) 
+- [281-320 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/281-320_RA.pdf)
 
 Session #5
 
-- [321-360 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/321-360_RQ.pdf) 
+- [321-360 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/321-360_RQ.pdf)
 
-- [321-360 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/321-360_RA.pdf) 
+- [321-360 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/321-360_RA.pdf)
 
-- [361-400 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/361-400_RQ.pdf) 
+- [361-400 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/361-400_RQ.pdf)
 
-- [361-400 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/361-400_RA.pdf) 
+- [361-400 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/361-400_RA.pdf)
 
 Session #6
 
-- [401-440 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/401-440_RQ.pdf) 
+- [401-440 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/401-440_RQ.pdf)
 
-- [401-440 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/401-44-_RA.pdf) 
+- [401-440 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/401-44-_RA.pdf)
 
-- [441-480 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/441-480_RQ.pdf) 
+- [441-480 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/441-480_RQ.pdf)
 
-- [441-480 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/441-480_RA.pdf) 
+- [441-480 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/441-480_RA.pdf)
 
 Session #7
 
-- [481-520 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/481-520_RQ.pdf) 
+- [481-520 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/481-520_RQ.pdf)
 
-- [481-520 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/481-520_RA.pdf) 
+- [481-520 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/481-520_RA.pdf)
 
-- [521-560 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/521-560_RQ.pdf) 
+- [521-560 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/521-560_RQ.pdf)
 
-- [521-560 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/521-560_RA.pdf) 
+- [521-560 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/521-560_RA.pdf)
 
 Session #8
 
-- [561-600 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/561-600_RQ.pdf) 
+- [561-600 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/561-600_RQ.pdf)
 
-- [561-600 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/561-600_RA.pdf) 
+- [561-600 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/561-600_RA.pdf)
 
-- [601-640 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/601-640_RQ.pdf) 
+- [601-640 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/601-640_RQ.pdf)
 
-- [601-640 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/601-640_RA.pdf) 
+- [601-640 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/601-640_RA.pdf)
 
 Session #9
 
-- [641-680 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/641-680_RQ.pdf) 
+- [641-680 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/641-680_RQ.pdf)
 
-- [641-680 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/641-680_RA.pdf) 
+- [641-680 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/641-680_RA.pdf)
 
-- [681-720 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/681-720_RQ.pdf) 
+- [681-720 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/681-720_RQ.pdf)
 
-- [681-720 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/681-720_RA.pdf) 
+- [681-720 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/681-720_RA.pdf)
 
 Session #10
 
-- [721-760 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/721-760_RQ.pdf) 
+- [721-760 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/721-760_RQ.pdf)
 
-- [721-760 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/721-760_RA.pdf) 
+- [721-760 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/721-760_RA.pdf)
 
-- [761-800 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/761-800_RQ.pdf) 
+- [761-800 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/761-800_RQ.pdf)
 
-- [761-800 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/761-800_RA.pdf) 
+- [761-800 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/761-800_RA.pdf)
 
 Session #11
 
-- [801-840 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/801-840_RQ.pdf) 
+- [801-840 Reading Question (including English)](https://ocw.nagoya-u.jp/files/441/801-840_RQ.pdf)
 
-[801-840 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/801-840_RA.pdf) 
+[801-840 Reading Answer (including English)](https://ocw.nagoya-u.jp/files/441/801-840_RA.pdf)
 
-
-
-
-
-
-
-
-
-
-
------
+---

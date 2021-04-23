@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "075"
@@ -91,45 +91,39 @@ movie:
 date: 2020-05-08 10:46:53
 ---
 
-![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg)   {overview lang="en" header="Goals of the course"}
-
+![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg) {overview lang="en" header="Goals of the course"}
 
 ### Key Features
 
-One of my educational goals in this course is to help students to read academic texts written in English. The textbook for this course is <span class="i">Analysing Discourse</span> by Norman Fairclough. The author is one of the leading theorists of Critical Discourse Analysis and this is his newest and, in my opinion, best textbook. Unfortunately, this book has not been translated into Japanese yet. Therefore, to help my students to read this book I have made a paragraph-by-paragraph summary and commentary in simplified English of each chapter. I have also made sets of PowerPoint slides about each chapter. Using these supplementary materials, students are able to understand the textbook much more easily. 
+One of my educational goals in this course is to help students to read academic texts written in English. The textbook for this course is <span class="i">Analysing Discourse</span> by Norman Fairclough. The author is one of the leading theorists of Critical Discourse Analysis and this is his newest and, in my opinion, best textbook. Unfortunately, this book has not been translated into Japanese yet. Therefore, to help my students to read this book I have made a paragraph-by-paragraph summary and commentary in simplified English of each chapter. I have also made sets of PowerPoint slides about each chapter. Using these supplementary materials, students are able to understand the textbook much more easily.
 
 Another goal of this course is to help students to give high-quality presentations about the topic of the lessons. In each lesson, two students cooperate to give a presentation about part of the textbook. Every week, one or two days before the lesson, I meet with the students' whose turn it is to give a presentation. The students make their presentations and I give them feedback and advice in order to improve them. I also check their handouts and give them sets of Discussion Questions. In this way, students are more confident and are able to give better presentations and the lessons are more productive, interesting and enjoyable.
 
-
-
-
-
 ### Content of lesson
 
-Despite all the tremendous changes that have been happening in the various types of media in recent years, one thing that still remains an essential factor for every type of media is language or, more broadly, semiosis. Therefore, a theoretically-based understanding of media language is clearly an essential part of the education of media professionals. At the same time, the concept of `discourse' has become a very fashionable one in the academic fields of the humanities and social sciences, to such an extent indeed that it has almost replaced `ideology' as one of the most important analytical categories. But what exactly is `discourse' and how can we study it in media texts? 
+Despite all the tremendous changes that have been happening in the various types of media in recent years, one thing that still remains an essential factor for every type of media is language or, more broadly, semiosis. Therefore, a theoretically-based understanding of media language is clearly an essential part of the education of media professionals. At the same time, the concept of `discourse' has become a very fashionable one in the academic fields of the humanities and social sciences, to such an extent indeed that it has almost replaced`ideology' as one of the most important analytical categories. But what exactly is `discourse' and how can we study it in media texts?
 
-Like other approaches to the study of discourse, the aim of Critical Discourse Analysis (CDA) is to analyse how language is used in real social contexts. However, CDA differs from other approaches to discourse analysis in (1) its view of the relationship between language and society and (2) the relationship between analysis and the social practices analyzed. Firstly, CDA assumes that there is a dialectical relationship between discourse and context: a discursive event is shaped by the situations, institutions and social structures of which it forms a part, but at the same time it also shapes them. Because discourse is dialectically related to context, discursive practices may have major effects on other aspects of society. However, people are often unaware of the ideological loading of particular ways of using language and the relations of power that underlie them. CDA attempts to make these frequently obscured aspects of discourse more visible by applying a combination of linguistic and sociological theories to texts and contexts. However, secondly, CDA is not a dispassionate and objective form of social scientific or linguistic research. Rather, it is politically-engaged and committed to intervening on the side of dominated and oppressed groups. 
+Like other approaches to the study of discourse, the aim of Critical Discourse Analysis (CDA) is to analyse how language is used in real social contexts. However, CDA differs from other approaches to discourse analysis in (1) its view of the relationship between language and society and (2) the relationship between analysis and the social practices analyzed. Firstly, CDA assumes that there is a dialectical relationship between discourse and context: a discursive event is shaped by the situations, institutions and social structures of which it forms a part, but at the same time it also shapes them. Because discourse is dialectically related to context, discursive practices may have major effects on other aspects of society. However, people are often unaware of the ideological loading of particular ways of using language and the relations of power that underlie them. CDA attempts to make these frequently obscured aspects of discourse more visible by applying a combination of linguistic and sociological theories to texts and contexts. However, secondly, CDA is not a dispassionate and objective form of social scientific or linguistic research. Rather, it is politically-engaged and committed to intervening on the side of dominated and oppressed groups.
 
 ### Textbook
 
-Richardson, John. _Analysing Newspapers: An Approach From Critical Discourse Analysis._ Basingstoke and New York: Palgrave, 2007. 
+Richardson, John. _Analysing Newspapers: An Approach From Critical Discourse Analysis._ Basingstoke and New York: Palgrave, 2007.
 
 ### Reference Books
 
-These will be introduced during the course. 
+These will be introduced during the course.
 
 ### Notes
 
-In this course the media texts to be analysed will be selected from both English and Japanese media. 
+In this course the media texts to be analysed will be selected from both English and Japanese media.
 
 ### Assignments
 
-  * Discussion Questions for AD
-  * [Chapter 1](https://ocw.nagoya-u.jp/files/75/DQ_1.pdf) 
-  * [Chapter 2](https://ocw.nagoya-u.jp/files/75/DQ_2.pdf) 
-  * [Chapter 3](https://ocw.nagoya-u.jp/files/75/DQ_3.pdf) 
-  * [Chapter 4](https://ocw.nagoya-u.jp/files/75/DQ_4.pdf) 
-
+- Discussion Questions for AD
+- [Chapter 1](https://ocw.nagoya-u.jp/files/75/DQ_1.pdf)
+- [Chapter 2](https://ocw.nagoya-u.jp/files/75/DQ_2.pdf)
+- [Chapter 3](https://ocw.nagoya-u.jp/files/75/DQ_3.pdf)
+- [Chapter 4](https://ocw.nagoya-u.jp/files/75/DQ_4.pdf)
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">
@@ -155,7 +149,6 @@ In this course the media texts to be analysed will be selected from both English
 </tbody>
 </table>
 
-
 ### Lecture Handouts
 
 Lesson #3, 4 Chapter 1 <span class="i">Introduction</span>
@@ -172,29 +165,21 @@ Lesson #7, 8 Chapter 3 <span class="i">Intertextuality and assumptions</span>
 
 Lesson #9, 10 Chapter 4 <span class="i">Genres and generic structure</span>
 
-- <p>[Notes](https://ocw.nagoya-u.jp/files/75/notes_chap4.pdf) 
+- <p>[Notes](https://ocw.nagoya-u.jp/files/75/notes_chap4.pdf)
 
 </p>
 
-<p>[Slides](https://ocw.nagoya-u.jp/files/75/slides_chap4.pdf) 
+<p>[Slides](https://ocw.nagoya-u.jp/files/75/slides_chap4.pdf)
 
 </p>
-
-
-
-
 
 ### Grading
 
-Students will be assessed according to the following factors: 
+Students will be assessed according to the following factors:
 
-  * attendance;
-  * participation in in-class discussions;
-  * two mid-course presentations;
-  * and a final written report.
+- attendance;
+- participation in in-class discussions;
+- two mid-course presentations;
+- and a final written report.
 
-
-
-
-
------
+---

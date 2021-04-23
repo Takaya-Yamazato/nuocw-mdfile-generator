@@ -1,6 +1,6 @@
 ---
 # テンプレート指定
-templateKey: "courses"
+templateKey: "courses-en"
 
 # コースID
 course_id: "132"
@@ -120,58 +120,50 @@ movie: https://nuvideo.media.nagoya-u.ac.jp/embed/51b8d3ab77f360a4c325c0c682a347
 date: 2019-12-23 14:54:38
 ---
 
-![Algebraic Topology I ](https://ocw.nagoya-u.jp/files/132/diagram.jpg) 
-
-
-
-
-
-
-
+![Algebraic Topology I ](https://ocw.nagoya-u.jp/files/132/diagram.jpg)
 
 ### Object of the course
 
-To every category ![C](https://ocw.nagoya-u.jp/files/132/C.gif) , we associate a topological space ![C](https://ocw.nagoya-u.jp/files/132/C.gif) BC.gif" alt="BC"}. The space ![C](https://ocw.nagoya-u.jp/files/132/C.gif) BC.gif" alt="BC"} is called the classifying space of ![C](https://ocw.nagoya-u.jp/files/132/C.gif) . A functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) f.gif" alt="f: C to D"}</span> gives rise to a continuous map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bf_map.gif" alt="Bf: BC to BD"}</span>. Moreover, a natural transformation from the functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) f.gif" alt="f: C to D"}</span> to the functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) g.gif" alt="g: C to D"}</span> gives rise to a homotopy <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Ba.gif" alt="Balpha: BC times [0,1] to BD"}</span> from the map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bf.gif" alt="Bf"}</span> to the map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bg.gif" alt="Bg"}</span>. In short, the classifying space construction gives rise to a 2-functor from the 2-category of categories to the 2-category of topological spaces. In this way, properties of categories are reflected in the homotopy type of their classifying spaces. 
+To every category ![C](https://ocw.nagoya-u.jp/files/132/C.gif) , we associate a topological space ![C](https://ocw.nagoya-u.jp/files/132/C.gif) BC.gif" alt="BC"}. The space ![C](https://ocw.nagoya-u.jp/files/132/C.gif) BC.gif" alt="BC"} is called the classifying space of ![C](https://ocw.nagoya-u.jp/files/132/C.gif) . A functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) f.gif" alt="f: C to D"}</span> gives rise to a continuous map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bf_map.gif" alt="Bf: BC to BD"}</span>. Moreover, a natural transformation from the functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) f.gif" alt="f: C to D"}</span> to the functor <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) g.gif" alt="g: C to D"}</span> gives rise to a homotopy <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Ba.gif" alt="Balpha: BC times [0,1] to BD"}</span> from the map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bf.gif" alt="Bf"}</span> to the map <span style="vertical-align:-30%">![C](https://ocw.nagoya-u.jp/files/132/C.gif) Bg.gif" alt="Bg"}</span>. In short, the classifying space construction gives rise to a 2-functor from the 2-category of categories to the 2-category of topological spaces. In this way, properties of categories are reflected in the homotopy type of their classifying spaces.
 
 The classifying space is constructed by gluing together simplices  
-![Definition of Delta of n](https://ocw.nagoya-u.jp/files/132/simplex.gif)   
-The general recipe for constructing a topological space by gluing together simplices is called a simplicial set. The resulting topological space is called the geometric realization of the simplicial set. The first part of the course will focus on simplicial sets and their geometric realization along with the basic category theoretical notions of limits and colimits and adjoints functors which are needed to develop this theory. 
+![Definition of Delta of n](https://ocw.nagoya-u.jp/files/132/simplex.gif)  
+The general recipe for constructing a topological space by gluing together simplices is called a simplicial set. The resulting topological space is called the geometric realization of the simplicial set. The first part of the course will focus on simplicial sets and their geometric realization along with the basic category theoretical notions of limits and colimits and adjoints functors which are needed to develop this theory.
 
-The next part of the course focuses on homotopy theory. We introduce homotopy groups and define a continuous map between topological spaces to be a <span class="i">weak equivalence</span> if it induces an isomorphism of the associated homotopy groups. The <span class="i">homotopy category</span> of topological spaces to be the category obtained from the category of topological spaces and continuous maps by formally introducing an inverse map for every weak equivalence. The main techniques for studying the homotopy category are centered around two classes of maps called the <span class="i">fibrations</span> and the <span class="i">cofibrations</span>. The category of topological spaces together with the three classes of maps given by the weak equivalences, the fibrations, and the cofibrations form a <span class="i">model category</span>. In homotopy theory, theorems live in the homotopy category, but their proofs live in the model category. 
+The next part of the course focuses on homotopy theory. We introduce homotopy groups and define a continuous map between topological spaces to be a <span class="i">weak equivalence</span> if it induces an isomorphism of the associated homotopy groups. The <span class="i">homotopy category</span> of topological spaces to be the category obtained from the category of topological spaces and continuous maps by formally introducing an inverse map for every weak equivalence. The main techniques for studying the homotopy category are centered around two classes of maps called the <span class="i">fibrations</span> and the <span class="i">cofibrations</span>. The category of topological spaces together with the three classes of maps given by the weak equivalences, the fibrations, and the cofibrations form a <span class="i">model category</span>. In homotopy theory, theorems live in the homotopy category, but their proofs live in the model category.
 
-The final part of the course uses the techniques we have developed to define algebraic <span class="i">K</span>-theory. We prove the so-called additivity theorem from which many of the basic properties of algebraic <span class="i">K</span>-theory are readily derived. 
+The final part of the course uses the techniques we have developed to define algebraic <span class="i">K</span>-theory. We prove the so-called additivity theorem from which many of the basic properties of algebraic <span class="i">K</span>-theory are readily derived.
 
 ### Keywords
 
-Homotopy theory, model categories, algebraic <span class="i">K</span>-theory. 
+Homotopy theory, model categories, algebraic <span class="i">K</span>-theory.
 
 ### Required knowledge
 
-An introductory course in algebraic topology including the fundamental group and covering spaces. 
+An introductory course in algebraic topology including the fundamental group and covering spaces.
 
 ### Texts
 
-The course lecture notes. The following texts are also useful: 
+The course lecture notes. The following texts are also useful:
 
-  * Mark Hovey, <span class="i">Model Categories</span>, Mathematical Surveys and Monographs, vol. 63, American Mathematical Society. 
-  * Daniel G. Quillen, <span class="i">Homotopical Algebra</span>, Lecture Notes in Mathematics, vol. 43, Springer-Verlag, New York. 
-  * Friedhelm Waldhausen, <span class="i">Algebraic K-theory of spaces</span>, Lecture Notes in Mathematics, vol. 1126, Springer-Verlag, New York. 
+- Mark Hovey, <span class="i">Model Categories</span>, Mathematical Surveys and Monographs, vol. 63, American Mathematical Society.
+- Daniel G. Quillen, <span class="i">Homotopical Algebra</span>, Lecture Notes in Mathematics, vol. 43, Springer-Verlag, New York.
+- Friedhelm Waldhausen, <span class="i">Algebraic K-theory of spaces</span>, Lecture Notes in Mathematics, vol. 1126, Springer-Verlag, New York.
 
 ### Related Recources
 
-[The course lecture notes.](#lecturenotes)  
+[The course lecture notes.](#lecturenotes)
 
-Mark Hovey, <span class="i">Model Categories</span>, Mathematical Surveys and Monographs, vol. 63, American Mathematical Society. 
+Mark Hovey, <span class="i">Model Categories</span>, Mathematical Surveys and Monographs, vol. 63, American Mathematical Society.
 
-Daniel G. Quillen, <span class="i">Homotopical Algebra</span>, Lecture Notes in Mathematics, vol. 43, Springer-Verlag, New York. 
+Daniel G. Quillen, <span class="i">Homotopical Algebra</span>, Lecture Notes in Mathematics, vol. 43, Springer-Verlag, New York.
 
-Friedhelm Waldhausen, <span class="i">Algebraic K-theory of spaces</span>, Lecture Notes in Mathematics, vol. 1126, Springer-Verlag, New York. 
+Friedhelm Waldhausen, <span class="i">Algebraic K-theory of spaces</span>, Lecture Notes in Mathematics, vol. 1126, Springer-Verlag, New York.
 
 ### Assignments
 
-  * [Problem set 1.](https://ocw.nagoya-u.jp/files/132/ps1.pdf) 
-  * [Problem set 2.](https://ocw.nagoya-u.jp/files/132/ps2.pdf) 
-
+- [Problem set 1.](https://ocw.nagoya-u.jp/files/132/ps1.pdf)
+- [Problem set 2.](https://ocw.nagoya-u.jp/files/132/ps2.pdf)
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">
@@ -241,79 +233,70 @@ Friedhelm Waldhausen, <span class="i">Algebraic K-theory of spaces</span>, Lectu
 </tr>
 </table>
 
-
 ### Lecture Handouts
 
 Session #1
 
-- [The classifying space of a category.](https://ocw.nagoya-u.jp/files/132/lecture1.pdf) 
+- [The classifying space of a category.](https://ocw.nagoya-u.jp/files/132/lecture1.pdf)
 
 Session #2
 
-- [The geometric realization of a simplicial set.](https://ocw.nagoya-u.jp/files/132/lecture2.pdf) 
+- [The geometric realization of a simplicial set.](https://ocw.nagoya-u.jp/files/132/lecture2.pdf)
 
 Session #3
 
-- [Limits and colimit; filtered colimits and finite limits commute.](https://ocw.nagoya-u.jp/files/132/lecture3.pdf) 
+- [Limits and colimit; filtered colimits and finite limits commute.](https://ocw.nagoya-u.jp/files/132/lecture3.pdf)
 
 Session #4
 
-- [Adjoint functors, limits and colimits.](https://ocw.nagoya-u.jp/files/132/lecture4.pdf) 
+- [Adjoint functors, limits and colimits.](https://ocw.nagoya-u.jp/files/132/lecture4.pdf)
 
 Session #5
 
-- [Characterizing the geometric realization by maps from it.](https://ocw.nagoya-u.jp/files/132/lecture5.pdf) 
+- [Characterizing the geometric realization by maps from it.](https://ocw.nagoya-u.jp/files/132/lecture5.pdf)
 
 Session #6
 
-- [Geometric realization preserves finite products; k-spaces.](https://ocw.nagoya-u.jp/files/132/lecture6.pdf) 
+- [Geometric realization preserves finite products; k-spaces.](https://ocw.nagoya-u.jp/files/132/lecture6.pdf)
 
 Session #7
 
-- [Homotopy groups; mapping fiber; long-exact sequence.](https://ocw.nagoya-u.jp/files/132/lecture7.pdf) 
+- [Homotopy groups; mapping fiber; long-exact sequence.](https://ocw.nagoya-u.jp/files/132/lecture7.pdf)
 
 Session #8
 
-- [The classifying space of a finite group.](https://ocw.nagoya-u.jp/files/132/lecture8.pdf) 
+- [The classifying space of a finite group.](https://ocw.nagoya-u.jp/files/132/lecture8.pdf)
 
 Session #9
 
-- [Weak equivalences, Serre fibrations, Serre cofibrations; Quillen model categories.](https://ocw.nagoya-u.jp/files/132/lecture9.pdf) 
+- [Weak equivalences, Serre fibrations, Serre cofibrations; Quillen model categories.](https://ocw.nagoya-u.jp/files/132/lecture9.pdf)
 
 Session #10
 
-- [The homotopy category; Quillen functors.](https://ocw.nagoya-u.jp/files/132/lecture10.pdf) 
+- [The homotopy category; Quillen functors.](https://ocw.nagoya-u.jp/files/132/lecture10.pdf)
 
 Session #11
 
-- [Reedy model structure on the category of simplicial spaces; geometric realization is a left Quillen functor.](https://ocw.nagoya-u.jp/files/132/lecture11.pdf) 
+- [Reedy model structure on the category of simplicial spaces; geometric realization is a left Quillen functor.](https://ocw.nagoya-u.jp/files/132/lecture11.pdf)
 
 Session #12
 
-- [Bi-simplicial sets and their geometric realization; geometric realization and weak equivalences; Quillen's m A and B.](https://ocw.nagoya-u.jp/files/132/lecture12.pdf) 
+- [Bi-simplicial sets and their geometric realization; geometric realization and weak equivalences; Quillen's m A and B.](https://ocw.nagoya-u.jp/files/132/lecture12.pdf)
 
 Session #13
 
-- [Algebraic K-theory.](https://ocw.nagoya-u.jp/files/132/lecture13.pdf) 
+- [Algebraic K-theory.](https://ocw.nagoya-u.jp/files/132/lecture13.pdf)
 
 Session #14
 
-- [The additivity theorem.](https://ocw.nagoya-u.jp/files/132/lecture14.pdf) 
+- [The additivity theorem.](https://ocw.nagoya-u.jp/files/132/lecture14.pdf)
 
 Session #15
 
-- [Hochschild homology of a ringoid: An introduction.](https://ocw.nagoya-u.jp/files/132/lecture15.pdf) 
-
-
-
-
+- [Hochschild homology of a ringoid: An introduction.](https://ocw.nagoya-u.jp/files/132/lecture15.pdf)
 
 ### Grading
 
 Occasional exercises reviewed by the teacher.
 
-
-
-
-
------
+---
