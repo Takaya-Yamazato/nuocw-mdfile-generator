@@ -91,7 +91,7 @@ movie:
 date: 2020-05-08 10:46:53
 ---
 
-![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg) {overview lang="en" header="Goals of the course"}
+![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg) 
 
 ### Key Features
 
