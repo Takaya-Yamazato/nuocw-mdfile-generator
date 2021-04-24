@@ -82,8 +82,6 @@ movie: https://nuvideo.media.nagoya-u.ac.jp/embed/f95e48fa6a213a597a939ec9f16b06
 date: 2020-05-10 12:17:16
 ---
 
-{overview lang="en" header="Course Overview (Aims)"}
-
 
 ### Key Feature
 
