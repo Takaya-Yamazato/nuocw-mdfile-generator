@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "441"
 
 # タイトル
-title: "Academic-Japanese-(Reading-&amp;-Writing)V--KANJI-2000-2018"
+title: "Academic-Japanese-(Reading-&-Writing)V--KANJI-2000-2018"
 
 # 簡単な説明
 description: >-
