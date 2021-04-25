@@ -361,6 +361,7 @@ if (!$attachments_array){
     $attaches = "";
     $attaches .= "  - name: \"NUOCW logo\" \n" ;
     $attaches .= "    path: /img/common/default_thumbnail.png\n" ;
+    $featuredimage = "";
 
 }else{
     // echo "<br>" ;
@@ -369,7 +370,8 @@ if (!$attachments_array){
     // $attachments = call_user_func_array('array_merge', $attachments_array);
     // print_r($attachments);
     // $ii = 0 ;
-    $featuredimage = "/img/common/default_thumbnail.png";
+    // $featuredimage = "/img/common/default_thumbnail.png";
+    $featuredimage = "";
     foreach ($attachments_array as $attachment){
         if(strpos($attachment['description'],'看板画像') !== false){
         // if ($attachment['description'] == '看板画像'){
