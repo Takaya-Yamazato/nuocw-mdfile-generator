@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "472"
 
 # タイトル
-title: "World-and-Image-in-Japanese-Narrative-I-IV-2013"
+title: "World and Image in Japanese Narrative I-IV"
 
 # 簡単な説明
 description: >-
@@ -34,20 +34,20 @@ credit: ""
 
 # pdfなどの追加資料
 attachments:
-  - name: "NUOCW logo" 
+  - name: "NUOCW logo"
     path: /img/common/default_thumbnail.png
 
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-    - visual
-    - traditions
-    - genres
-    - knowledge
-    - japanese
+  - visual
+  - traditions
+  - genres
+  - knowledge
+  - japanese
 # カテゴリ
 category:
- - "International education &amp; exchange"
+  - "International education &amp; exchange"
 
 # 色付けのロールにするか
 featuredpost: true
@@ -56,7 +56,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage:
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -72,22 +72,20 @@ date: 2020-01-15 12:53:30
 
 (Semester 2): This course, the second part of a year-long survey, will introduce students to traditions of visual storytelling popular during the late nineteenth- and twentieth-centuries, highlighting points of contingency with traditions introduced in the first course. Through a series of units on individual works and genres, including woodblock prints, _ponchi-e, manga, shashin shōsetsu_ (photo novels) and other popular print genres, film, _anime_, and _keitai shōsetsu_ (cell phone novels) students will gain practical knowledge about the production and reception of visual narratives, with a view towards gaining historical and cultural context for appreciating the interplay between technology and narrative form.
 
-
 ### Key Features
 
 In each class, I aim for an optimal balance of lecture and lively class discussion, both driven by an inquiry-based approach to learning. Students are encouraged to share their observations and insights during close examination of textual artifacts, to draw connections with other materials examined in the course, and ultimately to develop lines of inquiry that will lead to original research. Proficiency in Japanese, while helpful, is not required. All course materials will be made available to students at the beginning of the semester; there are no required texts for purchase.
 
-
-
-
-
 ### Course Aims
-  * Students will become familiar with the traditions of Japanese visual narrative, and be able to make connections and distinctions between different periods, trends, schools, works and figures.
-  * Students will be able to apply terminology, concepts and practical knowledge acquired during the year to various in-class and take-home exercises requiring aesthetic response and critical analysis.
-  * Students will gain exposure to theoretical approaches and practices currently employed in the fields of literary and cultural studies, art history and art criticism.
+
+- Students will become familiar with the traditions of Japanese visual narrative, and be able to make connections and distinctions between different periods, trends, schools, works and figures.
+- Students will be able to apply terminology, concepts and practical knowledge acquired during the year to various in-class and take-home exercises requiring aesthetic response and critical analysis.
+- Students will gain exposure to theoretical approaches and practices currently employed in the fields of literary and cultural studies, art history and art criticism.
 
 ### Course Outline
+
 Semester 1
+
 <table class="basic" width="500">
   <tr>
     <th width="20" class="center">
@@ -236,25 +234,11 @@ Semester 2
 </table>
 
 ### Textbooks
+
 None.
 
 ### Reference books
+
 None.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------
+---

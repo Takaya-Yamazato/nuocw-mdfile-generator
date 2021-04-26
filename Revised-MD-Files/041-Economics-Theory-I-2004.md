@@ -6,16 +6,16 @@ templateKey: "courses-en"
 course_id: "041"
 
 # タイトル
-title: "Economics-Theory-I-2004"
+title: "Economics Theory I"
 
 # 簡単な説明
 description: >-
-  {ocwimg file="home_yanagi.jpg" alt="Economics Theory 1"} ....
+   This course, "Economic Theory 1" is the first course on economics that economic majors take upon entering Nagoya University. Whether this class will become a guiding hand toward the world of economics is an important issue for me, and for the students, whether this course helps to make the remaining courses easier and more meaningful is just as important. With these in mind, I would like to point out some of the things I take care in my lessons. ....
 # 講師名
 lecturer: "Mitsuyoshi YANAGIHARA, Professor"
 
 # 部局名
-department: "School of Economics ／ Graduate School of Economics"
+department: "School of Economics / Graduate School of Economics"
 
 # 開講時限
 term: "2004	Fall"

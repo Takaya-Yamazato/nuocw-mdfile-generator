@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "005"
 
 # タイトル
-title: "Mathematical-analysis-and-Computer-mathematics-1-2011"
+title: "Mathematical analysis and Computer mathematics 1"
 
 # 簡単な説明
 description: >-
@@ -169,9 +169,9 @@ Our objectives for this course are not to learn how to use computer applications
 ### Programming Exercises
 
 The Information Media Education Center Satellite Laboratory can provide you with software for writing C programs for undergraduate science major students. As for graduate students, the computational calculation room in the mathematics department is available.
-  
+
 The contents of our exercises are to write a computer program using an algorithm introduced in the lecture. All the programs have to be written in C language.
-  
+
 I would like you to use the standard applications provided. Using nonstandard applications could result in some problems and I am not responsible for any trouble in the exercise sessions. You must bear the responsibility for any problems.
 
 ### Attendance

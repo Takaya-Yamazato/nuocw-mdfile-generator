@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "132"
 
 # タイトル
-title: "Algebraic-Topology-I-2008"
+title: "Algebraic Topology I"
 
 # 簡単な説明
 description: >-

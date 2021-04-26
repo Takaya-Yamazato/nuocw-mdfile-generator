@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "778"
 
 # タイトル
-title: "Studium-Generale-2020-Spring-2020"
+title: "Studium Generale 2020 Spring"
 
 # 簡単な説明
 description: >-
@@ -92,7 +92,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage: 
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される

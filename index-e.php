@@ -146,7 +146,7 @@ $courselist_result = pg_query($courselist_sql);
         die('クエリーが失敗しました。'.pg_last_error());
     }
 
-// print_r($courselist_result)    ;
+
 
 for ($i = 0 ; $i < pg_num_rows($courselist_result) ; $i++){
     $courselist_rows = pg_fetch_array($courselist_result, NULL, PGSQL_ASSOC);
@@ -163,13 +163,15 @@ $course_id = $courselist_rows['course_id'] ;
 $course_name = $courselist_rows['course_name']  ;
 $course_name = strip_tags( $course_name );
 $course_name = space_trim( $course_name ) ;
+
 // $course_name = preg_replace('/\s(?=\s)/', '', $course_name );
-$course_name = preg_replace("/( |　)/", "-", $course_name );
+
 $course_name = str_replace('/', '／' , $course_name );
 $course_name = str_replace('?', '？' , $course_name );
 $course_name = str_replace('!', '！' , $course_name );
 $course_name = str_replace(':', '：' , $course_name );
-$course_name = preg_replace('/-+/', '-', $course_name) ;
+
+
 
 $course_name = str_replace('基礎セミナー-', '基礎セミナー' , $course_name );
 $course_name = str_replace('図書館情報リテラシー：-', '図書館情報リテラシー：' , $course_name );
@@ -222,8 +224,12 @@ $course_name = str_replace('基礎セミナー-「法」と紛争解決', '基�
 // $course_name = $course_name."-".$course_id."-".$courselist_rows['year'] ;
 // $course_name = $course_name."-".$courselist_rows['department_name']."-".$courselist_rows['year'] ;
 
+// echo "<br>".$course_id." ".$course_name."\t: " ;
+
+$file_name = preg_replace("/( |　)/", "-", $course_name );
+$file_name = preg_replace('/-+/', '-', $file_name) ;
 // echo "<br>".$course_name ;
-echo "<br>".$course_id." " ;
+// echo "<br>".$course_id." ".$file_name."<br>" ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
@@ -311,8 +317,10 @@ $division_code_master_array = pg_fetch_all($division_code_master_result);
 // print_r($division_code_master_array);
 
 $division = $division_code_master_array[0]['division_name_e'] ;
-$division = str_replace('/', '／' , $division );
+// $division = str_replace('/', '／' , $division );
 // echo "<br>".$division."<br>" ;
+
+str_replace('Graduate School of Infomatics','Graduate School of Informatics',$division);
 
 $category = category_e ($division_code) ;
 $tags = category_e ($division_code) ;
@@ -729,7 +737,7 @@ if(!empty($page_id)){
     // $description_result_array = pg_fetch_all($description_result);
 
     $description = get_contents($page_id, $contents_type = '2101');
-    // echo "<br>description : ".print_r($description_result_array) ;
+    // echo "<br>description : ".print_r($description) ;
 
     // $course_home_sql = "SELECT contents.contents FROM page_contents, contents
     //             WHERE contents.pid = page_contents.contents_id
@@ -751,7 +759,8 @@ if(!empty($page_id)){
     $course_home = '';
 }
 
-$description = str_replace('###','',$description);
+$description = str_ireplace('###','',$description);
+$description = str_ireplace('Course Overview','',$description);
 $description = preg_replace('/(?<=\{ocwimg file=\").+?(?=\"\})/', '', $description);
 $description = preg_replace('/{ocwimg file=""}/','',$description) ;
 
@@ -770,6 +779,19 @@ $description = preg_replace('/{overview header=""}/','',$description) ;
 $description = preg_replace('/(?<=\{overview lang=\").+?(?=\"\})/', '', $description);
 $description = preg_replace('/{overview lang=""}/','',$description) ;
 
+$description = str_ireplace('{overview header="Course Outline" lang="en"}', '', $description);
+$description = str_ireplace('{overview header="Course Aims" lang="en"}', '', $description);
+$description = preg_replace('/\#\#\# Course Aims\" lang=\"en/', '\n', $description);
+$description = str_ireplace('### Course Aims" lang="en', '', $description);
+$description = str_ireplace('{overview lang="en" header="Objectives and aims of the course"}', '', $description);
+$description = str_ireplace('{overview lang="en" header="Course Objects"}', '', $description);
+$description = str_ireplace('### Course Home" lang="en','', $description);
+$description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
+$description = str_ireplace('{overview lang="en" header="Course Overview "}','',$description);
+$description = str_ireplace('{overview lang="en" header="Course Overview "} ', '',$description);
+$description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
+$description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
+$description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
 // echo "<br>description : ".$description ;
 
 // $course_home = convert_ocwlink ($course_home , $course_id) ;
@@ -1046,6 +1068,9 @@ if(preg_match('/FlvPlayer/',$movie)){
   }
 
 
+
+
+
 // $movie_description = "SELECT description FROM visual_syllabus
 //             WHERE vsyllabus_id =
 //                 (SELECT vsyllabus_id FROM course
@@ -1118,7 +1143,7 @@ if(preg_match('/FlvPlayer/',$movie)){
 // print('url_flv='.$courselist_rows['url_flv'].'<br>');
 
 if ($course_id == '441'){
-    $course_name = "Academic-Japanese-(Reading-and-Writing)V--KANJI-2000" ;
+    $course_name = "Academic Japanese (Reading-and-Writing)V KANJI 2000" ;
     echo "<br>".$course_name."<br>";
 }
 // echo "<br><br>";
@@ -1232,12 +1257,18 @@ foreach (array_keys($words) as $name) {
 // echo "<br><br> key_phrase = ".$key_phrase_title." ".$key_phrase ;
 // echo "<br> tags = ".$tags ;
 
-$course_name = $course_name."-".$courselist_rows['year'] ;
+
+
+
 // 授業のファイル名
+
+$file_name = remove_html_special_chars($course_name)."-".$courselist_rows['year'] ;
+
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division."-".$courselist_rows['year'].".md" ;
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division.".md" ;
-$file_name = "courses-en/".sprintf('%03d', $course_id)."-".$course_name ;
+$file_name = "courses-en/".sprintf('%03d', $course_id)."-".$file_name ;
 
+echo "<br>".$course_id." ".$file_name."\t: " ;
 
 $templateKey = "courses-en" ;
 
@@ -1357,7 +1388,8 @@ date: ".$course_date."
 ---
 " ;
 
-
+// print_r($courselist_text);
+$main_text = preg_replace('/\#\#\# Course Aims\" lang=\"en/', '', $main_text);
 
 // テンポラリーファイルに書き込み
 $fp_tmp = fopen('tmp.md', 'w');
@@ -1452,6 +1484,25 @@ while ($line = fgets($fp_tmp)) {
         //      echo "文字列 '$findme' は、文字列 '$mystring' の中で見つかりませんでした";
         // }
 
+        // echo "<br>";
+
+
+        $line = str_ireplace('{overview header="Course Outline" lang="en"}', '', $line);
+        $line = str_ireplace('{overview header="Course Aims" lang="en"}', '', $line);
+        $line = preg_replace('/\#\#\# Course Aims\" lang=\"en/', '', $line);
+        $line = str_ireplace('### Course Aims" lang="en', '', $line);
+        $line = str_ireplace('{overview lang="en" header="Objectives and aims of the course"}', '', $line);
+        $line = str_ireplace('{overview lang="en" header="Course Objects"}', '', $line);
+        $line = str_ireplace('### Course Home" lang="en','', $line);
+        $line = str_ireplace('{overview lang="en" header= "Course Aims"}','',$line);
+        $line = str_ireplace('{overview lang="en" header="Course Overview "}','',$line);
+        $line = str_ireplace('{overview lang="en" header="Course Overview "} ', '',$line);
+        $line = str_ireplace('{overview lang="en" header= "Course Aims"}','',$line);
+        $line = str_ireplace('{overview lang="en" header= "Course Aims"}','',$line);
+        $line = str_ireplace('{overview lang="en" header="Course Contents"}','',$line);
+
+        // print_r($line);
+        // echo "<br>";
 
     // ocwimg with ocwlink
         if(  (strpos($line, 'ocwimg file=') !== FALSE)
@@ -1769,6 +1820,21 @@ exec('/bin/rm tmp.md'  );
 exec('/bin/rm tmp2.md'  );
 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/tmp.html /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/static/tmp.html') ;
+
+// 修正済みのファイルは Revised-MD-Files からコピー
+exec('/bin/rm　/Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/022-University-Wide-Liberal-Arts-*.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/021-Astrophysics-*.md ');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/022-University-Wide-Liberal-Arts-*2014.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/270-Archaeological-Research-on-the-History-of-Ancient-*2009.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/044-Methods-of-Teaching-II*2010.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/057-University-Wide-Liberal-Arts*-2006.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/249-Gender-and-Literature-*-2011.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/304-Second-Language-Acquisition-*-2011.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/053-The-Structure-of-Representation-in-the-Post-Roman-Era*-2006.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/064-Behavioristics-Lecture-II*-2010.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/156-Methods-of-Teaching-I*-2010.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/435-C*-2014.md');
+exec('/bin/rm /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/472-World-and-Image-in-Japanese-Narrative*-2013.md');
 
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/*.md') ;
 exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses-en/*.md') ;

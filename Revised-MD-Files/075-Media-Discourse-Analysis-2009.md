@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "075"
 
 # タイトル
-title: "Media-Discourse-Analysis-2009"
+title: "Media Discourse Analysis"
 
 # 簡単な説明
 description: >-
@@ -91,7 +91,7 @@ movie:
 date: 2020-05-08 10:46:53
 ---
 
-![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg) 
+![Media Discourse Analysis](https://ocw.nagoya-u.jp/files/75/s_haig_kanban.jpg)
 
 ### Key Features
 

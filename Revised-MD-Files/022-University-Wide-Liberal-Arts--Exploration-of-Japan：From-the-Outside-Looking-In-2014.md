@@ -6,11 +6,11 @@ templateKey: "courses-en"
 course_id: "022"
 
 # タイトル
-title: "University-Wide-Liberal-Arts--Exploration-of-Japan：From-the-Outside-Looking-In-2014"
+title: "University Wide Liberal Arts -Exploration of Japan：From the Outside Looking In"
 
 # 簡単な説明
 description: >-
-   ....
+  ....
 # 講師名
 lecturer: "Masachika UKIBA, Professor"
 
@@ -34,72 +34,72 @@ credit: "2"
 
 # pdfなどの追加資料
 attachments:
-  - name: "10/30授業風景" 
+  - name: "10/30授業風景"
     path: https://ocw.nagoya-u.jp/files/22/10-30.rm
-  - name: "候補2" 
+  - name: "候補2"
     path: https://ocw.nagoya-u.jp/files/22/home_02.jpg
-  - name: "候補3" 
+  - name: "候補3"
     path: https://ocw.nagoya-u.jp/files/22/home_03.jpg
-  - name: "候補4" 
+  - name: "候補4"
     path: https://ocw.nagoya-u.jp/files/22/home_04.jpg
-  - name: "担当教官集合写真" 
+  - name: "担当教官集合写真"
     path: https://ocw.nagoya-u.jp/files/22/teachers.jpg
-  - name: "第14回講義ノート" 
+  - name: "第14回講義ノート"
     path: https://ocw.nagoya-u.jp/files/22/no-14_note.doc
-  - name: "第2回講義ノート" 
+  - name: "第2回講義ノート"
     path: https://ocw.nagoya-u.jp/files/22/no-2_note.doc
-  - name: "第13回講義ノート" 
+  - name: "第13回講義ノート"
     path: https://ocw.nagoya-u.jp/files/22/no-13_note.doc
-  - name: "レポート課題" 
+  - name: "レポート課題"
     path: https://ocw.nagoya-u.jp/files/22/report_2005.doc
-  - name: "" 
+  - name: ""
     path: https://ocw.nagoya-u.jp/files/22/teachers2.jpg
-  - name: "" 
+  - name: ""
     path: https://ocw.nagoya-u.jp/files/22/teachers3.jpg
-  - name: "第3回講義ノート" 
+  - name: "第3回講義ノート"
     path: https://ocw.nagoya-u.jp/files/22/no-3_note.pdf
-  - name: "第5回講義ノート" 
+  - name: "第5回講義ノート"
     path: https://ocw.nagoya-u.jp/files/22/no-5_note.pdf
-  - name: "アンケート用紙" 
+  - name: "アンケート用紙"
     path: https://ocw.nagoya-u.jp/files/22/no-13.doc
-  - name: "第2回講義ノート(pdf)" 
+  - name: "第2回講義ノート(pdf)"
     path: https://ocw.nagoya-u.jp/files/22/no-2_note.pdf
-  - name: "第3回講義ノート(差替)" 
+  - name: "第3回講義ノート(差替)"
     path: https://ocw.nagoya-u.jp/files/22/no-3_note_2.pdf
-  - name: "アンケート用紙(pdf)" 
+  - name: "アンケート用紙(pdf)"
     path: https://ocw.nagoya-u.jp/files/22/no-13.pdf
-  - name: "第13回講義ノート(pdf)" 
+  - name: "第13回講義ノート(pdf)"
     path: https://ocw.nagoya-u.jp/files/22/no-13_note.pdf
-  - name: "第14回講義ノート(pdf)" 
+  - name: "第14回講義ノート(pdf)"
     path: https://ocw.nagoya-u.jp/files/22/no-14_note.pdf
-  - name: "レポート課題" 
+  - name: "レポート課題"
     path: https://ocw.nagoya-u.jp/files/22/report_2005.pdf
-  - name: "グループ発表(ギャル)" 
+  - name: "グループ発表(ギャル)"
     path: https://ocw.nagoya-u.jp/files/22/group_gal.pdf
-  - name: "グループ発表(アルバイト)" 
+  - name: "グループ発表(アルバイト)"
     path: https://ocw.nagoya-u.jp/files/22/group_part-time_job.pdf
-  - name: "レポート課題一覧（pdf）" 
+  - name: "レポート課題一覧（pdf）"
     path: https://ocw.nagoya-u.jp/files/22/report_2014.pdf
-  - name: "レポート課題一覧" 
+  - name: "レポート課題一覧"
     path: https://ocw.nagoya-u.jp/files/22/report_2014.doc
-  - name: "担当教員集合写真" 
+  - name: "担当教員集合写真"
     path: https://ocw.nagoya-u.jp/files/22/teachers4_2014.jpg
-  - name: "担当教員集合写真・改訂版" 
+  - name: "担当教員集合写真・改訂版"
     path: https://ocw.nagoya-u.jp/files/22/teachers5_2014.jpg
-  - name: "候補1" 
+  - name: "候補1"
     path: https://ocw.nagoya-u.jp/files/22/home_01.jpg
 
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-    - japanese
-    - international
-    - experience
-    - cultural
-    - abroad
+  - japanese
+  - international
+  - experience
+  - cultural
+  - abroad
 # カテゴリ
 category:
- - "Liberal Arts"
+  - "Liberal Arts"
 
 # 色付けのロールにするか
 featuredpost: true
@@ -118,29 +118,27 @@ movie: https://nuvideo.media.nagoya-u.ac.jp/embed/138da9c89a19cdadc6414f3104dafa
 date: 2020-05-08 18:12:00
 ---
 
-![Exploration of Japan: From the Outside Looking In](https://ocw.nagoya-u.jp/files/22/home_ukiba.jpg) 
-
+![Exploration of Japan: From the Outside Looking In](https://ocw.nagoya-u.jp/files/22/home_ukiba.jpg)
 
 ### Key Features
 
-Nagoya University has over 1200 international students. At the same time more and more students are going abroad through exchange programs from our university. Therefore, in this class we intend to deepen students' understanding of Japan through collaborative work of students from various cultural backgrounds. Also, we encourage students to consider what it means to them to be in a society where various people with different cultural backgrounds are living and cooperating with each other. We will also think about how multiculturalism can be achieved in our society. 
+Nagoya University has over 1200 international students. At the same time more and more students are going abroad through exchange programs from our university. Therefore, in this class we intend to deepen students' understanding of Japan through collaborative work of students from various cultural backgrounds. Also, we encourage students to consider what it means to them to be in a society where various people with different cultural backgrounds are living and cooperating with each other. We will also think about how multiculturalism can be achieved in our society.
 
 #### Experiential learning
 
-Study abroad experience is full of inspiring and surprising happenings, and is also psychologically intensive experience. This course will give you an opportunity to experience "cultural gaps," or what it is like to be in a different culture. We will prepare a couple of intercultural simulation games, which will offer you some insights to look into various challenges of study abroad experience. 
+Study abroad experience is full of inspiring and surprising happenings, and is also psychologically intensive experience. This course will give you an opportunity to experience "cultural gaps," or what it is like to be in a different culture. We will prepare a couple of intercultural simulation games, which will offer you some insights to look into various challenges of study abroad experience.
 
 #### Good chance to meet with international students
 
-All the international students here are now experiencing what it is like to go abroad and study. Therefore for those who are willing to go abroad for exchange programs, it is going to be a valuable experience to be in contact with international students and think about cultural gaps you might face in the future. In this class, Japanese and international students will share the learning experience. The language used in this class is Japanese. Therefore, Japanese students have an important role to explain difficult terms with easy words. The number of students will be limited to about 30 people, including 15 Japanese and 15 international students. 
+All the international students here are now experiencing what it is like to go abroad and study. Therefore for those who are willing to go abroad for exchange programs, it is going to be a valuable experience to be in contact with international students and think about cultural gaps you might face in the future. In this class, Japanese and international students will share the learning experience. The language used in this class is Japanese. Therefore, Japanese students have an important role to explain difficult terms with easy words. The number of students will be limited to about 30 people, including 15 Japanese and 15 international students.
 
 #### Group projects
 
-In this course, we will discuss various issues in Japanese society or culture with in small groups. It is eye-opening experience for Japanese students to think about Japan from different cultural perspectives. For example, frequently asked questions are 'why do Japanese people like comic books?' or 'Why are there a lot of people sleeping in the subway?'. Of course there a lot of possible answers for these questions. However, the important part of this class is to experience the process of integrating opinions into the final presentation through discussion with your group members and to understand the importance of communication. 
+In this course, we will discuss various issues in Japanese society or culture with in small groups. It is eye-opening experience for Japanese students to think about Japan from different cultural perspectives. For example, frequently asked questions are 'why do Japanese people like comic books?' or 'Why are there a lot of people sleeping in the subway?'. Of course there a lot of possible answers for these questions. However, the important part of this class is to experience the process of integrating opinions into the final presentation through discussion with your group members and to understand the importance of communication.
 
 #### Class organized by several professors
 
 Several professors are responsible for organizing this course. They will be attending most of the sessions to perceive students' responses to various issues given in the course and give feedback from different perspectives. We also recognize that the significance of collaborative teaching which allow us to maximize students' learning by communicating each other regarding contents of each session.
-
 
 <h3>Students Accomplishments</h3>
 
@@ -153,31 +151,27 @@ Several professors are responsible for organizing this course. They will be atte
 Note: All files are in Japanese.
 </p>
 
-
-
-
 ### Instructor & Advisors
 
 Instructor: Ukiba Masachika  
 Advisor: Matsuura Machiko, Tanaka Kyoko, Horie Miki and Takaki Hitomi  
-![&nbsp;](https://ocw.nagoya-u.jp/files/22/teachers3.jpg)  
+![ ](https://ocw.nagoya-u.jp/files/22/teachers3.jpg)
 
 ### Course Aims
 
-The main course objective is for both Japanese and international students to deepen understanding of Japanese culture and society through collaborative work. Also we will explore the meaning and significance of cultural diversity on Nagoya University campus and its surrounding community. 
+The main course objective is for both Japanese and international students to deepen understanding of Japanese culture and society through collaborative work. Also we will explore the meaning and significance of cultural diversity on Nagoya University campus and its surrounding community.
 
 ### Textbooks
 
-No textbook is assigned. Handouts are given at the lectures. 
+No textbook is assigned. Handouts are given at the lectures.
 
 ### Class room
 
-Education Center for International Students, 2F 207. 
+Education Center for International Students, 2F 207.
 
 ### Note
 
 This class consists of undergraduate students from all departments, Japanese Language and Culture Course students, and the Introductory Program for Korean Engineering Students.
-
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">
@@ -283,18 +277,17 @@ Summary
 </tr>
 </table>
 
-
 ### Lecture Handouts
 
 Note: All files are provided only in Japanese.
 
 Session #2
 
-- [Human bingo game](https://ocw.nagoya-u.jp/files/22/no-2_note.pdf) 
+- [Human bingo game](https://ocw.nagoya-u.jp/files/22/no-2_note.pdf)
 
 Session #3
 
-- [International students and Japanese society](https://ocw.nagoya-u.jp/files/22/no-3_note_2.pdf) 
+- [International students and Japanese society](https://ocw.nagoya-u.jp/files/22/no-3_note_2.pdf)
 
 Session #4
 
@@ -302,7 +295,7 @@ Session #4
 
 Session #5
 
-- [Definition of culture](https://ocw.nagoya-u.jp/files/22/no-5_note.pdf) 
+- [Definition of culture](https://ocw.nagoya-u.jp/files/22/no-5_note.pdf)
 
 Session #13
 
@@ -312,13 +305,13 @@ Session #13
 
 <li>
 
-[Questionnaire](https://ocw.nagoya-u.jp/files/22/no-13.pdf) 
+[Questionnaire](https://ocw.nagoya-u.jp/files/22/no-13.pdf)
 
 </li>
 
 <li>
 
-[Results](https://ocw.nagoya-u.jp/files/22/no-13_note.pdf) 
+[Results](https://ocw.nagoya-u.jp/files/22/no-13_note.pdf)
 
 </li>
 
@@ -326,8 +319,7 @@ Session #13
 
 Session #14
 
-- [Giving advice for international students](https://ocw.nagoya-u.jp/files/22/no-14_note.pdf) 
-
+- [Giving advice for international students](https://ocw.nagoya-u.jp/files/22/no-14_note.pdf)
 
 <h3>Assignments</h3>
 
@@ -339,33 +331,26 @@ Students have to submit a final report of 4000 letters (A4 3pages long) at the e
 <li>[Themes and writing rules](https://ocw.nagoya-u.jp/files/22/report_2005.pdf)  (in Japanese). </li>
 </ul>
 
-
-
-
 ### Grading
 
-Grading is based on your attendance, participation in the class, successful completion of assignments, group presentation and final report. 
+Grading is based on your attendance, participation in the class, successful completion of assignments, group presentation and final report.
 
 #### Attendance (15%)
 
-Attendance will be taken at each lecture. If you are more than 30 minutes late, you will be considered absent. 
+Attendance will be taken at each lecture. If you are more than 30 minutes late, you will be considered absent.
 
-#### Participation (15%) 
+#### Participation (15%)
 
-We will ask you for self-evaluation on your participation in and contribution to the class and group discussion. 
+We will ask you for self-evaluation on your participation in and contribution to the class and group discussion.
 
 #### Group presentation (40%)
 
-You will decide the theme of the presentation with your team members. Your team will have 30 minutes for the presentation. I would like you to present about 15 minutes, leaving 10 minutes for a question and answer session. Also I would like you to leave 5 min. for listeners to fill out the evaluation sheets. 
+You will decide the theme of the presentation with your team members. Your team will have 30 minutes for the presentation. I would like you to present about 15 minutes, leaving 10 minutes for a question and answer session. Also I would like you to leave 5 min. for listeners to fill out the evaluation sheets.
 
-Evaluation will be based on your self-evaluation of your contribution toward presentation (10%) and the group presentation itself (evaluation based on students (15%) and evaluation based on professors (15%)). 
+Evaluation will be based on your self-evaluation of your contribution toward presentation (10%) and the group presentation itself (evaluation based on students (15%) and evaluation based on professors (15%)).
 
 #### Report (30%)
 
 The report is about 4000 letters (A4 3pages long) and it has to be written using word processing software. Reports written by hand will not be permitted. More information and details on the theme and writing rules will be given in December. Successful papers should be the ones that strictly follow the writing rules.
 
-
-
-
-
------
+---

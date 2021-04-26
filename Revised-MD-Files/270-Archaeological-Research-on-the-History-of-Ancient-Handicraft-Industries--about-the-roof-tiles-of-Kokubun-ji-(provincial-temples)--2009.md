@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "270"
 
 # タイトル
-title: "Archaeological-Research-on-the-History-of-Ancient-Handicraft-Industries---about-the-roof-tiles-of-Kokubun-ji-(provincial-temples)--2009"
+title: "Archaeological Research on the History of Ancient Handicraft Industries --about the roof tiles of Kokubun ji (provincial temples)--"
 
 # 簡単な説明
 description: >-
@@ -15,7 +15,7 @@ description: >-
 lecturer: "Yoshimitsu KAJIWARA, Associate Professor"
 
 # 部局名
-department: "School of Letters ／ Graduate School of Letters"
+department: "School of Letters / Graduate School of Letters"
 
 # 開講時限
 term: "2009	Fall"
@@ -72,7 +72,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage: 
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -82,27 +82,19 @@ movie: https://nuvideo.media.nagoya-u.ac.jp/embed/f95e48fa6a213a597a939ec9f16b06
 date: 2020-05-10 12:17:16
 ---
 
-
 ### Key Feature
 
-Until recent decades, archaeology meant researching periods of history about which document do not remain, like the Jomon period, the Yayoi period, or the Kofun period. Since the Asuka period, document history was seen as the preferable path of historical restoration, because the descriptions of authenticated histories like "Chronicles of Japan" had considerable reliability. So the field of study called historical archaeology had been considered what we call a supplementary study. 
+Until recent decades, archaeology meant researching periods of history about which document do not remain, like the Jomon period, the Yayoi period, or the Kofun period. Since the Asuka period, document history was seen as the preferable path of historical restoration, because the descriptions of authenticated histories like "Chronicles of Japan" had considerable reliability. So the field of study called historical archaeology had been considered what we call a supplementary study.
 
-In recent years, however, the increase of finds by excavation and the development of research on historical features and artifacts have been remarkable. Particularly, things not usually contained in documents, such as ancient local aspects or what the ancient handicraft industries were like, when viewed from industrial economic history, make the results of archeology such that they are not possible to disregard. 
+In recent years, however, the increase of finds by excavation and the development of research on historical features and artifacts have been remarkable. Particularly, things not usually contained in documents, such as ancient local aspects or what the ancient handicraft industries were like, when viewed from industrial economic history, make the results of archeology such that they are not possible to disregard.
 
 In this course, I will highlight the true state of local government, how handicraft industry in the Ritsu-Ryo period was managed and so on, using archaeological methodologies like typological research, in order to get the most information from artifacts. I think that we may get closer to the true state of the Ritsu-Ryo society by combining the research results of archaeology and the results of document history.
 
-
-
-
-
- 
-
 ### Course Requirements
 
-No special requirements, although it is better if you have basic knowledge of Japanese history learned in high school. 
+No special requirements, although it is better if you have basic knowledge of Japanese history learned in high school.
 
 I recommend that you take the course "Ancient Nation and Handicraft Industry" provided by Professor Furuoya.
-
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">
@@ -172,19 +164,8 @@ I recommend that you take the course "Ancient Nation and Handicraft Industry" pr
 </tr>
 </table>
 
-
-
-
-
-
-
-
 ### Grading
 
 The grading will be based on attendance (30%) and report (70%).
 
-
-
-
-
------
+---

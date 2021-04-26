@@ -6,11 +6,11 @@ templateKey: "courses-en"
 course_id: "520"
 
 # タイトル
-title: "Basic-Seminar-from-Korean-drama-to-Zainichi／-Pacchigi-Considering-Japan-Korea-Relationship-2015"
+title: "Basic Seminar -- from Korean drama to Zainichi Pacchigi -- Considering Japan-Korea Relationship"
 
 # 簡単な説明
 description: >-
-  Course OverviewA topic that is harder to understand than Korean culture itself, is the actuality of Koreans living in Japan. There are many reference materials discussing the issue, but reading the ....
+  A topic that is harder to understand than Korean culture itself, is the actuality of Koreans living in Japan. There are many reference materials discussing the issue, but reading the ....
 # 講師名
 lecturer: "Masachika UKIBA, Professor"
 
@@ -70,7 +70,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage:
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -90,7 +90,9 @@ By seeing the real condition of Koreans living in Japan, we should be able to re
 
 ### Key Features
 
-** Using Familiar Themes to Approach Culture Differences.** This course begins by deconstructing the symbolic images of "South Korea","North Kore" and "Zainichi Korean" (Korean Japanese people). Then, we will closely look at the similarities and differences between Korean and Japanese cultures, starting from familiar themes such as food culture, human relationships, romantic relationships, and entrance exam preparations. Therefore, I will frequently use TV dramas, movies, and programs that introduce Korea and the Zainichi Korean people as course materials.
+**Using Familiar Themes to Approach Culture Differences.**
+
+This course begins by deconstructing the symbolic images of "South Korea","North Kore" and "Zainichi Korean" (Korean Japanese people). Then, we will closely look at the similarities and differences between Korean and Japanese cultures, starting from familiar themes such as food culture, human relationships, romantic relationships, and entrance exam preparations. Therefore, I will frequently use TV dramas, movies, and programs that introduce Korea and the Zainichi Korean people as course materials.
 
 ### Course Contents
 

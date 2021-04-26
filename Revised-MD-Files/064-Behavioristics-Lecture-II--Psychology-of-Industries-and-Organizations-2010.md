@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "064"
 
 # タイトル
-title: "Behavioristics-Lecture-II-Psychology-of-Industries-and-Organizations-2010"
+title: "Behavioristics Lecture II Psychology of Industries and Organizations"
 
 # 簡単な説明
 description: >-
@@ -15,7 +15,7 @@ description: >-
 lecturer: "Atsuko KANAI, Professor"
 
 # 部局名
-department: "School of Education ／ Graduate School of Education and Human Development"
+department: "School of Education / Graduate School of Education and Human Development"
 
 # 開講時限
 term: "2010	Spring"
@@ -58,7 +58,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage: 
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される

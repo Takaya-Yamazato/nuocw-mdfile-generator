@@ -9,7 +9,7 @@ function extractCommonWords($string){
     $stopWords = array('i','a','about','an','and','are','as','at','be','by','com','de','en',
     'for','from','how','in','is','it','la','of','on','or','that','the','this','to','was',
     'what','when','where','who','will','with','und','the','www','students','student','hard',
-    'lecture','class','course','school','overview','problem','fundamentals','research', 
+    'lecture','class','course','school','overview','problem','fundamentals','research',
     'topics','more', 'those', 'have', 'useful', 'your', 'their', 'other', 'does', 'help', 'cases',
     'during', 'each', 'they', 'purpose', 'popular', 'accepted', 'understanding', 'problems', 'contents',
     '- -', 'such', 'issues', 'ability', 'given', 'should', 'important', 'which', 'such','individually',
@@ -19,7 +19,7 @@ function extractCommonWords($string){
     '- - ', 'width25', 'used', 'going', 'deschomework', 'universitys', 'because', 'also', 'including',
     'width20', 'were', 'some', 'universities',
 );
-    
+
 
     $string = preg_replace('/\s\s+/i', '', $string); // replace whitespace
     $string = trim($string); // trim the string
@@ -33,7 +33,7 @@ function extractCommonWords($string){
         if ( $item == '' || in_array(strtolower($item), $stopWords) || strlen($item) <= 3 ) {
             unset($matchWords[$key]);
         }
-    }   
+    }
     $wordCountArr = array();
     if ( is_array($matchWords) ) {
         foreach ( $matchWords as $key => $val ) {
@@ -49,6 +49,13 @@ function extractCommonWords($string){
     $wordCountArr = array_slice($wordCountArr, 0, 5);
     return $wordCountArr;
 }
+
+function remove_html_special_chars($string) {
+    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+    $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+
+    return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
+ }
 
 function extractKeyWords($string) {
     mb_internal_encoding('UTF-8');
@@ -66,7 +73,7 @@ function extractKeyWords($string) {
 function space_trim ($str) {
     // 行頭の半角、全角スペースを、空文字に置き換える
     $str = preg_replace('/^[ 　]+/u', '', $str);
- 
+
     // 末尾の半角、全角スペースを、空文字に置き換える
     $str = preg_replace('/[ 　]+$/u', '', $str);
 
@@ -76,7 +83,7 @@ function break_trim ($str){
 $str = preg_replace('/\n{3,}/', "\n\n", $str);
 }
 function convertEOL($string, $to = "\n")
-{   
+{
     return preg_replace("/\r\n|\r|\n/", $to, $string);
 }
 
@@ -136,12 +143,12 @@ function check_page_status ($course_id, $page_type){
 
     // echo "<br>course_id : ".$course_id." page_type : ".$page_type ;
 
-        $page_id_sql = "SELECT p.page_id FROM pages p 
+        $page_id_sql = "SELECT p.page_id FROM pages p
             WHERE p.course_id = $course_id AND p.page_type = '$page_type'
-            AND NOT EXISTS 
-            ( SELECT p_s.status FROM page_status p_s 
-            WHERE p_s.page_id = p.page_id AND 
-            ( p_s.status = '06' OR p_s.status = '07' 
+            AND NOT EXISTS
+            ( SELECT p_s.status FROM page_status p_s
+            WHERE p_s.page_id = p.page_id AND
+            ( p_s.status = '06' OR p_s.status = '07'
                 OR p_s.status = '08' OR p_s.status = '09') )
             ORDER BY page_id DESC LIMIT 1 ; " ;
     // echo "<br>page_id_sql : ".$page_id_sql."<br>" ;
@@ -158,22 +165,22 @@ function check_page_status ($course_id, $page_type){
         // var_dump($page_id_array);
         // echo "<br>page_id : ".$page_id_array[0]."<br><br>" ;
         // print_r($page_id_array);
-    
+
         return $page_id_array[0] ;
-    
+
         // var_dump($page_id_sql) ;
     }else{
         return '' ;
     }
-    
+
 
 }
 
 function get_contents ($page_id, $contents_type) {
-    $sql = "SELECT contents.contents FROM page_contents, contents 
-    WHERE contents.pid = page_contents.contents_id 
+    $sql = "SELECT contents.contents FROM page_contents, contents
+    WHERE contents.pid = page_contents.contents_id
     AND contents.type = '$contents_type'
-    AND page_contents.page_id = $page_id 
+    AND page_contents.page_id = $page_id
     ORDER BY contents.id DESC LIMIT 1 ; " ;
 
 // echo "<br>get_contents_sql : ".$sql."<br>" ;
@@ -207,7 +214,7 @@ function get_contents ($page_id, $contents_type) {
             // {#pdf_e#} を削除
             $contents = preg_replace('/\{#pdf_e#\}/', "", $contents) ;
             // {overview lang="en"} を削除
-            $contents = preg_replace('/\{overview lang=\"en\"\}/', "", $contents) ;       
+            $contents = preg_replace('/\{overview lang=\"en\"\}/', "", $contents) ;
 
            // {overview lang="en" header="Course Aims"} を削除
            $contents = preg_replace('/\{overview lang=\"en\" header=\"Course Aims\"\}/', "", $contents) ;
@@ -225,7 +232,7 @@ function get_contents ($page_id, $contents_type) {
                 $contents = $markdown = entities2text( $md->parseString( text2entities( $contents ) . PHP_EOL) );
                 unset($md);
             }
-        
+
         // stormvideo は削除
         if(preg_match('/stormvideo_link/s',$contents)){
 
@@ -235,9 +242,9 @@ function get_contents ($page_id, $contents_type) {
             $contents = preg_replace('/### 講義ビデオ/', '', $contents);
             $contents = preg_replace('/^.*stormvideo_link.*$/um','',$contents);
             $contents = preg_replace('/^.*Internet Explorer.*$/um','',$contents);
-            $contents = preg_replace('/^.*Google Chrome.*$/um','',$contents);        
-        
-            // echo "<br> stormvideo_del ".htmlspecialchars_decode($contents, ENT_NOQUOTES)."<br>";                       
+            $contents = preg_replace('/^.*Google Chrome.*$/um','',$contents);
+
+            // echo "<br> stormvideo_del ".htmlspecialchars_decode($contents, ENT_NOQUOTES)."<br>";
         }
 
             // // #で改行
@@ -264,7 +271,7 @@ function get_contents ($page_id, $contents_type) {
             //       // echo "<br>".$ii." contents: ".$contents."<br>" ;
             //     }
             // }
-            // // ###タイトル　を抜き出す（### の後にスペースが無い）        
+            // // ###タイトル　を抜き出す（### の後にスペースが無い）
             // $contents_tag = '/\#+(\S+)\s/';
             // if ( preg_match_all($contents_tag, $contents, $tag_match) ){
             //   $ii = 0;
@@ -289,7 +296,7 @@ function get_contents ($page_id, $contents_type) {
                 // }
 
             }
-        
+
 
         // なぜだかバックスラッシュ「\」が残るので削る
         $contents = str_replace('\\', '' , $contents) ;
@@ -298,7 +305,7 @@ function get_contents ($page_id, $contents_type) {
         $contents = str_replace('{tr}', "<tr>" , $contents) ;
 
         // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
-        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。
         // <dl> タグを削除
         $contents = str_replace('<dl>', '' , $contents) ;
         // </dl> タグを削除
@@ -316,11 +323,11 @@ function get_contents ($page_id, $contents_type) {
 
         // {#hr#} タグを「---」へ変換
         $contents = str_replace('{#hr#}', '
-        ---' , $contents) ;  
-        
+        ---' , $contents) ;
+
         // 残っている html タグを削除
         // $contents = strip_tags ($contents) ;
-        
+
         $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
         if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
 
@@ -328,21 +335,21 @@ function get_contents ($page_id, $contents_type) {
             // echo "<br><br> dd_tag_match : " ; var_dump($dd_tag_match) ; echo "<br>" ;
             // echo "<br><br> dd_tag_match : ".$dd_tag_match[0][0] ;
 
-            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK,
             ['options' => function ($value) {
                 return "- ".trim($value) ;
             }]);
             $ii = 0;
             foreach ($dd_tag2[0] as $value) {
                 // echo "<br> key: " ; var_dump(trim($value)) ;
-                // echo "<br> ii: ".$ii; 
+                // echo "<br> ii: ".$ii;
                 $value = str_replace("
-    ","",$value);           
+    ","",$value);
                 $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
                 // echo "<br> value: ".$value;
-                $contents = str_replace('<dd>','',$contents); 
-                // echo "<br> no-dd: ".$contents;            
-                $contents = str_replace("</dd>","",$contents);     
+                $contents = str_replace('<dd>','',$contents);
+                // echo "<br> no-dd: ".$contents;
+                $contents = str_replace("</dd>","",$contents);
                 $ii ++ ;
             }
             unset($value);
@@ -356,33 +363,33 @@ function get_contents ($page_id, $contents_type) {
             // echo implode("<br><br>", $array) ;
             $contents = implode("\n\n", $array) ;
             // $contents = $array ;
-            // echo "<br> dd_tag_match : " ; var_dump($array) ;      
+            // echo "<br> dd_tag_match : " ; var_dump($array) ;
             // $contents2 = array_map('ltrim', $contents);
             // $contents2 = str_replace($dd_tag_match,$dd_tag2,$contents) ;
             // $contents = array_map('ddcalc', $dd_tag_match);
-    
+
             // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
 
-        } 
+        }
 
         $dt_tag = '/(?<=\<dt\>).+?(?=\<\/dt\>)/s';
         if( preg_match_all($dt_tag, $contents, $dt_tag_match) ){
-    
+
             // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
-    
-            $dt_tag2 = filter_var($dt_tag_match, FILTER_CALLBACK, 
+
+            $dt_tag2 = filter_var($dt_tag_match, FILTER_CALLBACK,
             ['options' => function ($value) {
                 return "- ".$value ;
             }]);
             $ii = 0;
             foreach ($dt_tag2[0] as $value) {
                 // echo "<br> key: " ; var_dump($value);
-                // echo "<br> ii: ".$ii; 
+                // echo "<br> ii: ".$ii;
                 $value = str_replace("
-    ","",$value);           
+    ","",$value);
                 $contents = str_replace($dt_tag_match[0][$ii],trim($value),$contents);
-                $contents = str_replace("<dt>","",$contents);      
-                $contents = str_replace("</dt>","",$contents);            
+                $contents = str_replace("<dt>","",$contents);
+                $contents = str_replace("</dt>","",$contents);
                 $ii ++ ;
             }
             unset($value);
@@ -396,10 +403,10 @@ function get_contents ($page_id, $contents_type) {
             // echo implode("<br><br>", $array) ;
             $contents = implode("\n", $array) ;
             //  $contents = $array ;
-        } 
+        }
 
         if( preg_match('/\<table/', $contents) ){
-    
+
             // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
 
         $array = explode("\n", $contents); // とりあえず行に分割
@@ -410,8 +417,8 @@ function get_contents ($page_id, $contents_type) {
         // echo implode("<br><br>", $array) ;
         $contents = implode("\n", $array) ;
 
-        } 
-    }    
+        }
+    }
     return $contents ;
 }
 
@@ -433,10 +440,10 @@ function array_map_recursive(callable $func, array $arr) {
 }
 
 function get_contents_without_Markdownify ($page_id, $contents_type) {
-    $sql = "SELECT contents.contents FROM page_contents, contents 
-                    WHERE contents.pid = page_contents.contents_id 
+    $sql = "SELECT contents.contents FROM page_contents, contents
+                    WHERE contents.pid = page_contents.contents_id
                     AND contents.type = '$contents_type'
-                    AND page_contents.page_id = $page_id 
+                    AND page_contents.page_id = $page_id
                     ORDER BY contents.id DESC LIMIT 1 ; " ;
 
   $result = pg_query($sql);
@@ -444,7 +451,7 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
   die('クエリーが失敗しました。'.pg_last_error());
   }
   $array = pg_fetch_all($result);
-  
+
   if(!empty($array)){
 
     if (!mbTrim($array[0]['contents'])){
@@ -482,7 +489,7 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
 
 
         // dl要素で定義リストを表し、dt要素、dd要素でリストの内容を構成します。
-        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。    
+        // 語句を説明するdd要素は、語句を表すdt要素の後ろに記述します。
         // <dl> タグを削除
         $contents = str_replace('<dl>', '' , $contents) ;
         // </dl> タグを削除
@@ -496,33 +503,33 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
         // <dd> タグを「- 」へ変換
         //   $contents = str_replace('<dd>', "" , $contents) ;
         // </dd> タグを削除
-        //   $contents = str_replace('</dd>', '' , $contents) ;  
+        //   $contents = str_replace('</dd>', '' , $contents) ;
 
         // {#hr#} タグを「---」へ変換
-        $contents = str_replace('{#hr#}', '---' , $contents) ;  
+        $contents = str_replace('{#hr#}', '---' , $contents) ;
 
         $dd_tag = '/(?<=\<dd\>).+?(?=\<\/dd\>)/s';
         if( preg_match_all($dd_tag, $contents, $dd_tag_match) ){
-    
+
             // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
-    
-            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK, 
+
+            $dd_tag2 = filter_var($dd_tag_match, FILTER_CALLBACK,
             ['options' => function ($value) {
                 return "- ".$value ;
             }]);
             $ii = 0;
             foreach ($dd_tag2[0] as $value) {
                 // echo "<br> key: " ; var_dump($value);
-                // echo "<br> ii: ".$ii; 
+                // echo "<br> ii: ".$ii;
                 $value = str_replace("
-    ","",$value);           
+    ","",$value);
                 $contents = str_replace($dd_tag_match[0][$ii],trim($value),$contents);
-                $contents = str_replace("<dd>","",$contents);      
-                $contents = str_replace("</dd>","",$contents);            
+                $contents = str_replace("<dd>","",$contents);
+                $contents = str_replace("</dd>","",$contents);
                 $ii ++ ;
             }
             unset($value);
-    
+
             $array = explode("\n", $contents); // とりあえず行に分割
             $array = array_map('space_trim', $array); // 各行にspace_trim()をかける
             $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
@@ -531,12 +538,12 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
             // echo implode("<br><br>", $array) ;
             $contents = implode("\n\n", $array) ;
             // echo "<br><br> dd_tag_match: ".preg_replace("/\r\n|\r/s","\n",$contents) ;
-        } 
+        }
 
         if( preg_match('/\<table/', $contents) ){
-    
+
             // echo "<br> dd_tag_match : " ; var_dump($dd_tag_match) ;
-    
+
             $array = explode("\n", $contents); // とりあえず行に分割
             $array = array_map('rtrim', $array); // 各行にspace_trim()をかける
             $array = array_filter($array, 'strlen'); // 文字数が0の行を取り除く
@@ -544,7 +551,7 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
             $array = array_values($array); // これはキーを連番に振りなおしてるだけ
             // echo implode("<br><br>", $array) ;
             $contents = implode("\n", $array) ;
-    
+
             }
     }
 
@@ -563,10 +570,10 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
 //   $desc = '/(?<=desc=\").+?(?=\")/';
 //   preg_match_all($desc, $resources, $desc_match);
 //   //print_r($desc_match);
-    
+
 //   $ii = 0;
 //   foreach ($desc_match[0] as $value){
-//       $resources .= 
+//       $resources .=
 //       "- [".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
 //       $ii++;
 //     }
@@ -586,11 +593,11 @@ function get_contents_without_Markdownify ($page_id, $contents_type) {
 //   $desc = '/(?<=alt=\").+?(?=\")/';
 //   preg_match_all($desc, $resources, $desc_match);
 //   //print_r($desc_match);
-    
+
 //   $ii = 0;
 //   $temp = "";
 //   foreach ($desc_match[0] as $value){
-//       $temp .= 
+//       $temp .=
 //       "\n\n ![".$desc_match[0][$ii]."](/files/".$course_id."/".$file_match[0][$ii].")\n" ;
 //       $ii++;
 //     }
@@ -912,7 +919,7 @@ function category_e ($division_code){
           $category = " - \"International education &amp; exchange\"" ;
           break;
     }
-  
+
     return $category;
   }
 /**
@@ -932,9 +939,9 @@ function show_keyphrase($appid, $sentence){
   $output = "xml";
   $request  = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?";
   $request .= "appid=".$appid."&sentence=".urlencode($sentence)."&output=".$output;
-  
+
   $responsexml = simplexml_load_file($request);
-  
+
   $result_num = count($responsexml->Result);
 
   if($result_num > 0){
@@ -946,9 +953,9 @@ function show_keyphrase($appid, $sentence){
     if ( $result_num > 10){
       $num = 10;
     }else{
-      $num = $result_num ;  
+      $num = $result_num ;
     }
-     for($i = 0; $i < $result_num; $i++){      
+     for($i = 0; $i < $result_num; $i++){
       $result = $responsexml->Result[$i];
       // var_dump($result);
       if ( $result->Score >= 50){

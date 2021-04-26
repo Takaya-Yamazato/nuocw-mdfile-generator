@@ -6,7 +6,7 @@ templateKey: "courses-en"
 course_id: "441"
 
 # タイトル
-title: "Academic-Japanese-(Reading-&-Writing)V--KANJI-2000-2018"
+title: "Academic Japanese (Reading & Writing)V--KANJI 2000--"
 
 # 簡単な説明
 description: >-
@@ -664,7 +664,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: /img/common/default_thumbnail.png
+featuredimage: 
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
