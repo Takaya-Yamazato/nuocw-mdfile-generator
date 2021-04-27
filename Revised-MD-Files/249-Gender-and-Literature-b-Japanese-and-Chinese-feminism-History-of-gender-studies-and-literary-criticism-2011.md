@@ -72,8 +72,6 @@ movie: https://nuvideo.media.nagoya-u.ac.jp/embed/7f7470db212ae74e5433467dba307e
 date: 2020-05-08 10:30:47
 ---
 
-{overview lang="en" header="Course Overview"}
-
 ### Teacher's Tips
 
 #### 1) Encourage the students to read theoretical books actively.
@@ -83,20 +81,20 @@ With an emphasis on students' ability to read theoretical books actively, this c
 1. The reading materials are either assigned by the instructor or chosen by the student. While choosing, the student should keep in mind that the materials must have a relation between both his/her own research field and "gender and literature". The student should summarize the main points and prepare several discussion topics from the reading materials, then give an oral presentation in class.
 2. After the oral presentation follows a class discussion focusing on the prepared topics and other confusions or uncertainties concerning the reading materials. </ol>
 
+#### 2) Meet the needs of the students with low Chinese language proficiency.
 
-    #### 2) Meet the needs of the students with low Chinese language proficiency.
+As the subtitle "Japanese and Chinese feminist/ history of gender studies and literary criticism" indicates, this course extends beyond the boundaries between Chinese literature, Japanese literature and literary criticism. Therefore, the reading materials include some texts in original Chinese language without any Japanese version available. But the difficulties of the students with low Chinese language proficiency should not be ignored. So, the instructor will remind the students to give attention to the following points.
 
-    As the subtitle "Japanese and Chinese feminist/ history of gender studies and literary criticism" indicates, this course extends beyond the boundaries between Chinese literature, Japanese literature and literary criticism. Therefore, the reading materials include some texts in original Chinese language without any Japanese version available. But the difficulties of the students with low Chinese language proficiency should not be ignored. So, the instructor will remind the students to give attention to the following points.
+1. Introduce both the original Chinese titles and translated Japanese titles of Chinese movies or literary works. For those movies or literary works which are not released in Japan or translated into Japanese (cases like this are not few) give a full and clear introduction of the movies/literary works and the related reviews in China.
+2. When the reading materials are in original Chinese language, prepare the summary with details, and provide a contrastive explanation of Chinese and Japanese academic terms when necessary.
 
-      1. Introduce both the original Chinese titles and translated Japanese titles of Chinese movies or literary works. For those movies or literary works which are not released in Japan or translated into Japanese (cases like this are not few) give a full and clear introduction of the movies/literary works and the related reviews in China.
-      2. When the reading materials are in original Chinese language, prepare the summary with details, and provide a contrastive explanation of Chinese and Japanese academic terms when necessary.
-    #### 3) Bear in mind that 90% of the students are overseas students.
+#### 3) Bear in mind that 90% of the students are overseas students.
 
-    The majority of the students are from China and Taiwan and their possible doubts and uncertainties must be taken into consideration.
+The majority of the students are from China and Taiwan and their possible doubts and uncertainties must be taken into consideration.
 
-      1. Examine and confirm the Chinese counterparts of Japanese academic terms.
-      2. As to the important but difficult terms in Japanese culture or literature, request the Japanese students in class to offer a clarification.
+1. Examine and confirm the Chinese counterparts of Japanese academic terms.
+2. As to the important but difficult terms in Japanese culture or literature, request the Japanese students in class to offer a clarification.
 
-    Therefore, this course somewhat functions as a kind of cross-cultural communication too.
+Therefore, this course somewhat functions as a kind of cross-cultural communication too.
 
 ---

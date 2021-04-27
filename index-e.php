@@ -29,7 +29,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/static/kanban/*'
 $course_id = "course_id";
 // $course_id = "416" ;
 $sort_order = "ASC";
-$limit = "LIMIT 20 OFFSET 0" ;
+$limit = "LIMIT 0 OFFSET 0" ;
 // 全てのファイルを出力する場合
 $limit = "" ;
 
@@ -1404,7 +1404,7 @@ fclose($fp_tmp);
 
 // tmp.html へも出力
 $check_list .="<tr><td width=\"100\"><a href=\"http://ocw.nagoya-u.jp/index.php?lang=en&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
-$check_list .="<td width=\"100\"><a href=\"http://localhost:8000/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
+$check_list .="<td width=\"100\"><a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
 $check_list .="<td>".sprintf('%03d', $course_id)."-".$course_name."</td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;

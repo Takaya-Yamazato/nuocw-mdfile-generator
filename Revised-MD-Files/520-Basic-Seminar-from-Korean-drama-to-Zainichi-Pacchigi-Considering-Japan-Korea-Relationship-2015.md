@@ -27,7 +27,7 @@ class_is_for: "農学部・文系学部・情報文化学部(自然)・理学部
 target: "All Nagoya University Students"
 
 # 授業回数
-classes: "週2回全15回"
+classes: ""
 
 # 単位数
 credit: "2"

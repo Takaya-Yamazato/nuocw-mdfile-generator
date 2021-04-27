@@ -97,13 +97,13 @@ In this course, an overview of the field of Second Language Acquisition (SLA) is
 ### Reference books
 
 - Ellis, R. (1985). <cite>Understanding second language acquisition</cite>. Oxford University Press.
-  - Ellis, R. (2008). <cite>The studies of second language acquisition</cite> (2nd ed.). Oxford University Press.
-    - Lightbown, P.M. & Spada, N. (2006). <cite>How languages are learned</cite> (3rd ed.). Oxford University Press.
-      - Richards, J. C. & Schmidt, R. (2010). <cite>Longman dictionary of language teaching & applied linguistics</cite> (4th ed.). Longman. </ul>
+- Ellis, R. (2008). <cite>The studies of second language acquisition</cite> (2nd ed.). Oxford University Press.
+- Lightbown, P.M. & Spada, N. (2006). <cite>How languages are learned</cite> (3rd ed.). Oxford University Press.
+- Richards, J. C. & Schmidt, R. (2010). <cite>Longman dictionary of language teaching & applied linguistics</cite> (4th ed.). Longman. </ul>
 
-        ### Prerequisites
+### Prerequisites
 
-        None, but students are advised to take linguistics and research methodology courses.
+None, but students are advised to take linguistics and research methodology courses.
 
 <h3>Course Schedule</h3>
 <table class="basic" width="450">

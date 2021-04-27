@@ -100,52 +100,54 @@ B.Themes and suggested topics<br>
 (The topics are just to give a few ideas; any other topic within the theme is welcome)<br>
 
 1.  Biology and Chemistry, Physics, Engineering, Math<br>
-    -How discoveries in Chemistry/Physics/Engineering/Math have shaped Biology
-    research direction (discovery of microscope, X-rays etc.)<br>
-    -How technology has changed the way we look at or make discoveries in Biology<br>
+
+- How discoveries in Chemistry/Physics/Engineering/Math have shaped Biology research direction (discovery of microscope, X-rays etc.)<br>
+- How technology has changed the way we look at or make discoveries in Biology<br>
+
 2.  Biology and Arts<br>
-    -How visual arts have contributed to the knowledge of Biology (ancient
-    Egyptian/Greek sculptures and anatomy of human body, are anatomical drawings/
-    exhibits a form of art?)<br>
-    -Our senses are filters of our ability to perceive the world around us - what
-    implication this brings on art forms?<br>
-    -How literature has been representing biology? What we can learn about biology
-    from science fiction?<br>
+
+- How visual arts have contributed to the knowledge of Biology (ancient Egyptian/Greek sculptures and anatomy of human body, are anatomical drawings/
+  exhibits a form of art?)<br>
+- Our senses are filters of our ability to perceive the world around us - what implication this brings on art forms?<br>
+- How literature has been representing biology? What we can learn about biology from science fiction?<br>
+
 3.  Biology and Media<br>
-    -How biological research is misrepresented on media and the effect this has on our
-    lifestyle and life-long decisions; what knowledge/training in Biology do journalists
-    have?<br>
-    -Evolution - how science is interpreted, its relation to religion and society<br>
-    -How much of the history of science are we exposed to - political history has changed
-    hot spots of scientific research (Greeks, Ancient China, Islamic world, Europe, US
-    etc.), yet we hardly hear about names of scientists outside the "western world".<br>
-    -The science of marketing - emotions and branding; brands are taping into customers'
-    emotions - how do they do that and why it works (limbic system/dopamine system
-    and emotions, how this relates to entertainment)?<br>
+
+- How biological research is misrepresented on media and the effect this has on our lifestyle and life-long decisions; what knowledge/training in Biology do journalists
+  have?<br>
+- Evolution - how science is interpreted, its relation to religion and society<br>
+- How much of the history of science are we exposed to - political history has changed hot spots of scientific research (Greeks, Ancient China, Islamic world, Europe, US
+  etc.), yet we hardly hear about names of scientists outside the "western world".<br>
+- The science of marketing - emotions and branding; brands are taping into customers' emotions - how do they do that and why it works (limbic system/dopamine system and emotions, how this relates to entertainment)?<br>
+
 4.  Biology and Politics<br>
-    -Has politics anything to do with biology?<br>
-    -Has politics anything to do with agriculture?<br>
-    -How contemporary political maps have been shaped by biological phenomena?<br>
-    -How government policies have changed the way we grow - and consume - our
-    food?<br>
+
+- Has politics anything to do with biology?<br>
+- Has politics anything to do with agriculture?<br>
+- How contemporary political maps have been shaped by biological phenomena?<br>
+- How government policies have changed the way we grow - and consume - our food?<br>
+
 5.  Biology and Ethics<br>
-    -What the philosophical notion of ethics has to do with biology? Or doesn`t? <br>
-    -Where religious or cultural ethics/customs crashes with biological principles? What
-    do we do (or do not do) to resolve it? Examples: heterosexuality, first-kin marriages,
-    cannibalism, use of experimental animals in science and pharma etc. <br>
+
+- What the philosophical notion of ethics has to do with biology? Or doesn`t? <br>
+- Where religious or cultural ethics/customs crashes with biological principles? What do we do (or do not do) to resolve it? Examples: heterosexuality, first-kin marriages,
+  cannibalism, use of experimental animals in science and pharma etc. <br>
+
 6.  Biology and Environment <br>
-    -Environmental issues and economics <br>
-    -Biodiversity and why it matters <br>
-    -Is there really any global warming and do we really have to be concerned? <br>
+
+- Environmental issues and economics <br>
+- Biodiversity and why it matters <br>
+- Is there really any global warming and do we really have to be concerned? <br>
+
 7.  Biology and Sex <br>
-    -Biology of sex and culture of sex - same or different? What are the differences? <br>
-    -Hormones and libido <br>
-    -Sex is in the brain, perceptions of male and females - consent, abuse, porn <br>
-    -Objectifications and rape - the culture, the perceptions, the history; what we do to
-    stop that? <br>
-    -Ovarian cycle and contraception, how do different methods of contraception work?<br>
-    -Abortion - what is controversial about it and why?<br>
-    -Biological explanation of love - and lust - are they the same or different?<br>
+
+- Biology of sex and culture of sex - same or different? What are the differences? <br>
+- Hormones and libido <br>
+- Sex is in the brain, perceptions of male and females - consent, abuse, porn <br>
+- Objectifications and rape - the culture, the perceptions, the history; what we do to stop that? <br>
+- Ovarian cycle and contraception, how do different methods of contraception work?<br>
+- Abortion - what is controversial about it and why?<br>
+- Biological explanation of love - and lust - are they the same or different?<br>
 
 ### Grading
 

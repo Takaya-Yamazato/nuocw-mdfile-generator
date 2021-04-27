@@ -129,39 +129,39 @@ Mid term exam will be in the last lecture. Problems on the final exam will be th
 
 - Basic concepts about set, function and relation
 
-  - Elementary number theory
+- Elementary number theory
 
-    - Basic theories of algebra </ul>
+- Basic theories of algebra </ul>
 
-      ### Course Aims
+### Course Aims
 
-      Objectives of our course are as followed.
+Objectives of our course are as followed.
 
-      - Getting sufficient knowledge of basic mathematics in order to get through four-year study in Nagoya University
+- Getting sufficient knowledge of basic mathematics in order to get through four-year study in Nagoya University
 
-        - Getting sufficient knowledge of mathematical notational conventions in order to get through four-year study in Nagoya University
+- Getting sufficient knowledge of mathematical notational conventions in order to get through four-year study in Nagoya University
 
-          - Obtaining logical thinking, or the ability to prove logically and clearly without any unclear reasoning. (Many example problems will be given in the exercise session) Logically well-constructed proof has to follow following rules.
+- Obtaining logical thinking, or the ability to prove logically and clearly without any unclear reasoning. (Many example problems will be given in the exercise session) Logically well-constructed proof has to follow following rules.
 
-            - No inconsistency in the proof
+- No inconsistency in the proof
 
-              - No superfluous discussion
+- No superfluous discussion
 
-                - Enough reasoning for the conclusion.
+- Enough reasoning for the conclusion.
 
-                  - Clear storyline </ul>
+- Clear storyline
 
-                    - Development of abstract thinking </ul>
+- Development of abstract thinking
 
-                      ### Requirements and recommended courses
+### Requirements and recommended courses
 
-                      This lecture is designed for Electrical and Electronic Engineering and Information Engineering freshman. Therefore, one of our objectives is to get the basic skills and knowledge of basic mathematics. Furthermore, through intensive exercise I would like you to obtain logical thinking for writing thesis in senior year.
+This lecture is designed for Electrical and Electronic Engineering and Information Engineering freshman. Therefore, one of our objectives is to get the basic skills and knowledge of basic mathematics. Furthermore, through intensive exercise I would like you to obtain logical thinking for writing thesis in senior year.
 
-                      ### Assignments
+### Assignments
 
-                      Followings are the example problems given in the exercise session.
+Followings are the example problems given in the exercise session.
 
-                      - [Exercise problems](https://ocw.nagoya-u.jp/files/16/eng_c02_kadai.pdf)
+- [Exercise problems](https://ocw.nagoya-u.jp/files/16/eng_c02_kadai.pdf)
 
 <h3>Course Schedule</h3>
 <table class="basic" width="455">

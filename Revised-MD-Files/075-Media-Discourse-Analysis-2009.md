@@ -153,25 +153,23 @@ In this course the media texts to be analysed will be selected from both English
 
 Lesson #3, 4 Chapter 1 <span class="i">Introduction</span>
 
-- <p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap1.pdf) </p><p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap1.pdf) slides_chap1.pdf" desc="Slides"}</p>
+- [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap1.pdf)
+- [Slides](https://ocw.nagoya-u.jp/files/75/slides_chap1.pdf)
 
 Lesson #5, 6 Chapter 2 <span class="i">Text, social events and social practices</span>
 
-- <p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap2.pdf) </p><p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap2.pdf) slides_chap2.pdf" desc="Slides"}</p>
+- [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap2.pdf)
+- [Slides](https://ocw.nagoya-u.jp/files/75/slides_chap2.pdf)
 
 Lesson #7, 8 Chapter 3 <span class="i">Intertextuality and assumptions</span>
 
-- <p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap3.pdf) </p><p>  [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap3.pdf) slides_chap3.pdf" desc="Slides"}</p>
+- [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap3.pdf)
+- [Slides](https://ocw.nagoya-u.jp/files/75/slides_chap3.pdf)
 
 Lesson #9, 10 Chapter 4 <span class="i">Genres and generic structure</span>
 
-- <p>[Notes](https://ocw.nagoya-u.jp/files/75/notes_chap4.pdf)
-
-</p>
-
-<p>[Slides](https://ocw.nagoya-u.jp/files/75/slides_chap4.pdf)
-
-</p>
+- [Notes](https://ocw.nagoya-u.jp/files/75/notes_chap4.pdf)
+- [Slides](https://ocw.nagoya-u.jp/files/75/slides_chap4.pdf)
 
 ### Grading
 

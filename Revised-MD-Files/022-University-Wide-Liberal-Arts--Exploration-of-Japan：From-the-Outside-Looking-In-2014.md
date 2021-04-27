@@ -140,22 +140,18 @@ In this course, we will discuss various issues in Japanese society or culture wi
 
 Several professors are responsible for organizing this course. They will be attending most of the sessions to perceive students' responses to various issues given in the course and give feedback from different perspectives. We also recognize that the significance of collaborative teaching which allow us to maximize students' learning by communicating each other regarding contents of each session.
 
-<h3>Students Accomplishments</h3>
+### Students Accomplishments
 
-<ul>
-<li>[GAL](https://ocw.nagoya-u.jp/files/22/group_gal.pdf) </li>
-<li>[Part time Job for college students](https://ocw.nagoya-u.jp/files/22/group_part-time_job.pdf) </li>
-</ul>
+- [GAL](https://ocw.nagoya-u.jp/files/22/group_gal.pdf)
+- [Part time Job for college students](https://ocw.nagoya-u.jp/files/22/group_part-time_job.pdf)
 
-<p>
 Note: All files are in Japanese.
-</p>
 
 ### Instructor & Advisors
 
 Instructor: Ukiba Masachika  
 Advisor: Matsuura Machiko, Tanaka Kyoko, Horie Miki and Takaki Hitomi  
-![ ](https://ocw.nagoya-u.jp/files/22/teachers3.jpg)
+![Instructor: Ukiba Masachika, Advisor: Matsuura Machiko, Tanaka Kyoko, Horie Miki and Takaki Hitomi](https://ocw.nagoya-u.jp/files/22/teachers3.jpg)
 
 ### Course Aims
 
@@ -321,15 +317,11 @@ Session #14
 
 - [Giving advice for international students](https://ocw.nagoya-u.jp/files/22/no-14_note.pdf)
 
-<h3>Assignments</h3>
+### Assignments
 
-<p>
 Students have to submit a final report of 4000 letters (A4 3pages long) at the end of this course. It has to be written using word processing software. Reports written by hand will not be permitted. More information and details on the theme and writing rules will be given in December. Successful papers should be the ones that strictly follow the writing rules.
-</p>
 
-<ul>
-<li>[Themes and writing rules](https://ocw.nagoya-u.jp/files/22/report_2005.pdf)  (in Japanese). </li>
-</ul>
+- [Themes and writing rules](https://ocw.nagoya-u.jp/files/22/report_2005.pdf) (in Japanese).
 
 ### Grading
 
