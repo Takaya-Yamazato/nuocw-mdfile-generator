@@ -118,49 +118,49 @@ http://www.bio.nagoya-u.ac.jp/G30StudiumGenerale/
         <td width="450">Metaphor and the Power of Storytelling : A Cognitive Linguistic Approach</td>
         <td>Gerry Yokota</td>
         <td></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Yokota2.pdf) </td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Yokota2.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Nov 8</td>
         <td width="450">From Playstation to Hospitals : Hidden mathematics in our daily life</td>
         <td>Henrik Bachmann</td>
         <td></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Bachmann.pdf) </td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Bachmann.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Nov 15</td>
         <td width="450">Let's listen to a melody from the universe!</td>
         <td>Seiji Kawamura</td>
         <td></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Kawamura.pdf) </td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Kawamura.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Nov 22</td>
         <td width="450">Introduction to Islamic finance</td>
         <td>Mehriban Ahmadova</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/1333cef70e9007ca1a67f990b70235a53318e1db">![](https://ocw.nagoya-u.jp/files/738/Ahmadova_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Ahmadova.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/1333cef70e9007ca1a67f990b70235a53318e1db"><img src="https://ocw.nagoya-u.jp/files/738/Ahmadova_Thumb.png"> </a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Ahmadova.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Nov 29</td>
         <td width="450">DiVE into diversity!!</td>
         <td>Kanako Makino</td>
         <td></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Makino.pdf) </td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Makino.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Dec 20</td>
         <td width="450">What's Going on in Elementary School English Classes?</td>
         <td>Toru Tatsumi</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11">![](https://ocw.nagoya-u.jp/files/738/Tatsumi_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Tatsumi.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11"><img src="https://ocw.nagoya-u.jp/files/738/Tatsumi_Thumb.png"> </a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Tatsumi.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>Jan 10</td>
         <td width="450">What Is Inside a Black Hole?</td>
         <td>Masaki Shigemori</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/56cfb29db8a7eae53273fcc5849eeea5b4c53a74">![](https://ocw.nagoya-u.jp/files/738/Shigemori_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/738/Handout_Shigemori.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/56cfb29db8a7eae53273fcc5849eeea5b4c53a74"><img src="https://ocw.nagoya-u.jp/files/738/Shigemori_Thumb.png"> </a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Shigemori.pdf">Handout</a> </td>
     </tr>
 </table>
 

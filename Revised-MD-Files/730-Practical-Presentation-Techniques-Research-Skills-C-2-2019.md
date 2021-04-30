@@ -10,7 +10,7 @@ title: "Practical Presentation Techniques (Research Skills C-2)"
 
 # 簡単な説明
 description: >-
-  Course AimsThis course is directed towards graduate students and researchers in all fields and has the following practical goals:  1. To raise logical drafting and practical delivery skills to a l ....
+  This course is directed towards graduate students and researchers in all fields and has the following practical goals.  1. To raise logical drafting and practical delivery skills to a l ....
 # 講師名
 lecturer: "Mark WEEKS, Associate Professor"
 
@@ -32,7 +32,7 @@ One session / week
 15 weeks / semester"
 
 # 単位数
-credit: "2"
+credit: "２"
 
 # pdfなどの追加資料
 attachments:
@@ -83,9 +83,8 @@ While helping students to gain confidence in academic communication, this course
 ### Course Schedule
 
 Most lessons include a short interactive lecture. Students discuss issues raised and work together in pairs or small groups, changing partners each week in order to increase communication opportunities. Here is a tentative schedule:
-<br/><br/>
+<br/><br/>1. Introduction: fundamentals of presenting within and between fields
 
-1. Introduction: fundamentals of presenting within and between fields
 2. Focusing, organizing research by brief logical summary
 3. Preparing presentation abstracts for successful conference acceptance
 4. Combining words and images for clear logical flow and audience impact
@@ -98,9 +97,7 @@ Most lessons include a short interactive lecture. Students discuss issues raised
 11. Advanced visual design for clarity and impact; Timing issues  
     12-14. 2nd presentations
 12. Course review
-    <br/><br/>
-
-- Students give 2 short presentations (8-12 minutes) using their own research or other research material.
+    <br/><br/>\* Students give 2 short presentations (8-12 minutes) using their own research or other research material.
 
 ### Lecture Handouts
 

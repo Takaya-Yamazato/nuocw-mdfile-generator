@@ -44,7 +44,8 @@ $check_list = "<html>
 </head>
 <body>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" bordercolor=\"#C0C0C0\">
-<tr><td><b>現OCW</b></td><td><b>新OCW</b></td><td width=\"200\"><b>ファイル名</b></td></tr>" ;
+<tr><td>番号</td><td><b>現OCW</b></td><td><b>新OCW</b></td><td width=\"200\"><b>ファイル名</b></td></tr>" ;
+$kk = 0;
 
 // // SQL文の作成
 // $courselist_sql = "SELECT * FROM courselist_by_coursename
@@ -228,8 +229,9 @@ $course_name = str_replace('基礎セミナー-「法」と紛争解決', '基�
 
 $file_name = preg_replace("/( |　)/", "-", $course_name );
 $file_name = preg_replace('/-+/', '-', $file_name) ;
+$file_name = preg_replace("/\(.+?\)/", "", $file_name);
 // echo "<br>".$course_name ;
-// echo "<br>".$course_id." ".$file_name."<br>" ;
+// echo "<br>".$course_id." ".$course_name." ".$file_name."<br>" ;
 
 // 記事投稿日
 $course_date_sql = "SELECT * FROM event WHERE event_id IN
@@ -792,6 +794,9 @@ $description = str_ireplace('{overview lang="en" header="Course Overview "} ', '
 $description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
 $description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
 $description = str_ireplace('{overview lang="en" header= "Course Aims"}','',$description);
+$description = str_ireplace('{overview lang=“en” header=“Course Objectives”}','',$description);
+
+
 // echo "<br>description : ".$description ;
 
 // $course_home = convert_ocwlink ($course_home , $course_id) ;
@@ -1266,6 +1271,19 @@ $file_name = remove_html_special_chars($course_name)."-".$courselist_rows['year'
 
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division."-".$courselist_rows['year'].".md" ;
 // $file_name = "./src/pages/courses/".$course_id."-".$course_name."-".$division.".md" ;
+
+if($course_id == '22') $file_name = 'University-Wide-Liberal-Arts--Exploration-of-Japan：From-the-Outside-Looking-In-2014' ;
+if($course_id == '44') $file_name = 'Methods-of-Teaching-II--Lesson-Analysis-and-the-Scientification-of-Education-2010' ;
+if($course_id == '53') $file_name = 'The-Structure-of-Representation-in-the-Post-Roman-Era--Historical-Reflections-on-Communication-Acts-2006' ;
+if($course_id == '57') $file_name = 'University-Wide-Liberal-Arts-Tracing-the-History-of-Mei-Dai-2006' ;
+if($course_id == '64') $file_name = 'Behavioristics-Lecture-II--Psychology-of-Industries-and-Organizations-2010' ;
+if($course_id == '156') $file_name = 'Methods-of-Teaching-I-Outline-of-Teaching-Methods-2010' ;
+if($course_id == '249') $file_name = 'Gender-and-Literature-b-Japanese-and-Chinese-feminism-History-of-gender-studies-and-literary-criticism-2011' ;
+if($course_id == '270') $file_name = 'Archaeological-Research-on-the-History-of-Ancient-Handicraft-Industries--about-the-roof-tiles-of-Kokubun-ji-(provincial-temples)--2009' ;
+if($course_id == '304') $file_name = 'Second-Language-Acquisition-A-Understanding-Second-Language-Acquisition-Studies-2011' ;
+if($course_id == '435') $file_name = 'C-algebraic-methods-in-spectral-theory-2014' ;
+if($course_id == '472') $file_name = 'World-and-Image-in-Japanese-Narrative-I-IV-2013' ;
+
 $file_name = "courses-en/".sprintf('%03d', $course_id)."-".$file_name ;
 
 echo "<br>".$course_id." ".$file_name."\t: " ;
@@ -1403,9 +1421,10 @@ fclose($fp_tmp);
 // echo htmlspecialchars("\t&emsp;<a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a>\n") ;
 
 // tmp.html へも出力
-$check_list .="<tr><td width=\"100\"><a href=\"http://ocw.nagoya-u.jp/index.php?lang=en&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
+$kk = $i+1;
+$check_list .="<tr><td width=\"10\">".$kk."</td><td width=\"100\"><a href=\"http://ocw.nagoya-u.jp/index.php?lang=en&mode=c&id=".$course_id."&amp;page_type=index \" target=\"_blank\" rel=\"noopener\"> 現OCW </a></td>" ;
 $check_list .="<td width=\"100\"><a href=\"http://ocw.ilas.nagoya-u.ac.jp/".$file_name."\"target=\"_blank\" rel=\"noopener\"> 新OCW </a></td>" ;
-$check_list .="<td>".sprintf('%03d', $course_id)."-".$course_name."</td></tr>\n" ;
+$check_list .="<td>".sprintf('%03d', $course_id)."-".$file_name."</td></tr>\n" ;
 
 // echo "<br>ID: ".$course_id."\t".$file_name."\t を出力しました。" ;
 // echo "<br>".$file_name."\t を出力しました。" ;
@@ -1490,6 +1509,8 @@ while ($line = fgets($fp_tmp)) {
         $line = str_ireplace('{overview header="Course Outline" lang="en"}', '', $line);
         $line = str_ireplace('{overview header="Course Aims" lang="en"}', '', $line);
         $line = preg_replace('/\#\#\# Course Aims\" lang=\"en/', '', $line);
+        $line = preg_replace('/\#\#\# Course Contents\” lang=\“en/', '', $line);
+
         $line = str_ireplace('### Course Aims" lang="en', '', $line);
         $line = str_ireplace('{overview lang="en" header="Objectives and aims of the course"}', '', $line);
         $line = str_ireplace('{overview lang="en" header="Course Objects"}', '', $line);
@@ -1500,6 +1521,7 @@ while ($line = fgets($fp_tmp)) {
         $line = str_ireplace('{overview lang="en" header= "Course Aims"}','',$line);
         $line = str_ireplace('{overview lang="en" header= "Course Aims"}','',$line);
         $line = str_ireplace('{overview lang="en" header="Course Contents"}','',$line);
+        $line = str_ireplace('{overview lang="en" header="Course Objectives"}','',$line);
 
         // print_r($line);
         // echo "<br>";
@@ -1820,6 +1842,8 @@ exec('/bin/rm tmp.md'  );
 exec('/bin/rm tmp2.md'  );
 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/tmp.html /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/static/tmp.html') ;
+
+
 
 // 修正済みのファイルは Revised-MD-Files からコピー
 exec('/bin/rm　/Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/022-University-Wide-Liberal-Arts-*.md');

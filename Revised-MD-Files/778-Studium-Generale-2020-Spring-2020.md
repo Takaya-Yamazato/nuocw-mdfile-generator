@@ -126,8 +126,8 @@ The main purpose of Studium Generale is to expose students to topics (both acade
         <td>May 1</td>
         <td width="450">Plants and insects help us understand human infertility</td>
         <td>Mariana Costa</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/b1bed5264e131398cec40884acca75d8e97a2acc">![](https://ocw.nagoya-u.jp/files/778/Costa_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Costa_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/b1bed5264e131398cec40884acca75d8e97a2acc"><img src="https://ocw.nagoya-u.jp/files/778/Costa_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Costa_handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>May 8</td>
@@ -140,57 +140,57 @@ The main purpose of Studium Generale is to expose students to topics (both acade
         <td>May 15</td>
         <td width="450">Migration and Development: People on the Move</td>
         <td>Francis Peddie</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/3f1f64c2dee3f31cb270d1aaf284c9798ab30f3d">![](https://ocw.nagoya-u.jp/files/778/Peddie_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Peddie_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/3f1f64c2dee3f31cb270d1aaf284c9798ab30f3d"><img src="https://ocw.nagoya-u.jp/files/778/Peddie_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Peddie_handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>May 22</td>
         <td width="450">Science communication and public relations</td>
         <td>Azusa Minamizaki</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/6d5a49cb0aac534adaca212972795a13a24a3423">![](https://ocw.nagoya-u.jp/files/778/Minamizaki_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Minamizaki_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/6d5a49cb0aac534adaca212972795a13a24a3423"><img src="https://ocw.nagoya-u.jp/files/778/Minamizaki_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Minamizaki_handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>June 5</td>
         <td width="450">Happiness in philosophy, ethics and religion</td>
         <td>Jakub Rajcani</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/5ed06182c58ab4e60e976c145ad4d0b8e87670bb">![](https://ocw.nagoya-u.jp/files/778/Rajcani_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Rajcani_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/5ed06182c58ab4e60e976c145ad4d0b8e87670bb"><img src="https://ocw.nagoya-u.jp/files/778/Rajcani_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Rajcani_handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>June 19</td>
         <td width="450">See elegance in a worm brain</td>
         <td>Kentaro Noma</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/6844284e9b6d374dabdfac9e33e4600f75614209">![](https://ocw.nagoya-u.jp/files/778/Noma_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Noma_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/6844284e9b6d374dabdfac9e33e4600f75614209"><img src="https://ocw.nagoya-u.jp/files/778/Noma_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Noma_handout.pdf">Handout</a> </td>
     </tr>
 		<tr style="border-bottom: 1pt solid #666;">
         <td>June 26</td>
         <td width="450">Law and Literature: the Japanese legal system as seen through literary sources</td>
         <td>Giorgio Fabio Colombo</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/7e77b49044b3037b465afd64cba0e8423f2caade">![](https://ocw.nagoya-u.jp/files/778/Colombo_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Colombo_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/7e77b49044b3037b465afd64cba0e8423f2caade"><img src="https://ocw.nagoya-u.jp/files/778/Colombo_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Colombo_handout.pdf">Handout</a> </td>
     </tr>
 		<tr style="border-bottom: 1pt solid #666;">
         <td>July 3</td>
         <td width="450">What's Going on in Elementary School English Classes?</td>
         <td>Toru Tatsumi</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11">![](https://ocw.nagoya-u.jp/files/778/Tatsumi_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Tatsumi_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11"><img src="https://ocw.nagoya-u.jp/files/778/Tatsumi_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Tatsumi_handout.pdf">Handout</a> </td>
     </tr>
 		<tr style="border-bottom: 1pt solid #666;">
         <td>July 10</td>
         <td width="450">Corporate Law and Economic Inequality: A Beginner's Guide</td>
         <td>Sean McGinty</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/1d1b06b16e9d6cbe69ddb42a03b3e8f4d31afcf8">![](https://ocw.nagoya-u.jp/files/778/McGinty_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/McGinty_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/1d1b06b16e9d6cbe69ddb42a03b3e8f4d31afcf8"><img src="https://ocw.nagoya-u.jp/files/778/McGinty_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/McGinty_handout.pdf">Handout</a> </td>
     </tr>
 		<tr style="border-bottom: 1pt solid #666;">
         <td>July 31</td>
         <td width="450">Global Warming: Beyond the Hockey Stick Controversy</td>
         <td>Gabor Samjesk&eacute;</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/12d259e670fbe985298e4d08bd49b26985751ea0">![](https://ocw.nagoya-u.jp/files/778/Samjeske_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/778/Samjeske_handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/12d259e670fbe985298e4d08bd49b26985751ea0"><img src="https://ocw.nagoya-u.jp/files/778/Samjeske_Thumb.png" ></a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Samjeske_handout.pdf">Handout</a> </td>
     </tr>
 </table>
 

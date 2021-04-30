@@ -102,36 +102,36 @@ The course offers exposure to various academic topics presented in an accessible
         <td width="450">"Classical Chinese Poetry: Wonderland of Chinese
 Characters"</td>
         <td>Kayoko Tamura</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/5b2f041c6fb4ca3e68ef463a9fadddb27744d163">![](https://ocw.nagoya-u.jp/files/732/Tamura_Thumb.png) </a></td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/732/Tamura_Handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/5b2f041c6fb4ca3e68ef463a9fadddb27744d163"><img src="https://ocw.nagoya-u.jp/files/732/Tamura_Thumb.png"> </a></td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Tamura_Handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>May 21</td>
         <td width="450">Ingrained Habits: Kitchen Cars, Koppe Pan, and Dietary Transformation in Postwar Japan</td>
         <td>Nathan Hopson</td>
         <td align="center"> - </td>
-        <td>[handout](https://ocw.nagoya-u.jp/files/732/Hopson_Handout.pdf) </td>
+        <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Hopson_Handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>May 23</td>
         <td width="450">Seeing the sky through funnels - the challenges of X-ray astronomers</td>
         <td>Hideyo Kunieda</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/c1f068d9f79e4701fd2b10fae7f7163e7195d831">![](https://ocw.nagoya-u.jp/files/732/Kunieda_Thumb.png) </a></td>
-        <td> [handout](https://ocw.nagoya-u.jp/files/732/Kunieda_Handout_re.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/c1f068d9f79e4701fd2b10fae7f7163e7195d831"><img src="https://ocw.nagoya-u.jp/files/732/Kunieda_Thumb.png"> </a></td>
+        <td> <a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Kunieda_Handout_re.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>June 4</td>
         <td width="450">Five things to consider when talking to people from other countries</td>
         <td>David Barker</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/c15385e61a7ef1dff354bb2871bd887c61645afc">![](https://ocw.nagoya-u.jp/files/732/Barker_Thumb.png) </a></td>
-        <td> [handout](https://ocw.nagoya-u.jp/files/732/Barker_Handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/c15385e61a7ef1dff354bb2871bd887c61645afc"><img src="https://ocw.nagoya-u.jp/files/732/Barker_Thumb.png"> </a></td>
+        <td> <a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Barker_Handout.pdf">Handout</a> </td>
     </tr>
     <tr style="border-bottom: 1pt solid #666;">
         <td>June 18</td>
         <td width="450">"Fossil reefs and sea-level change: diving into the past to predict the future"</td>
         <td>Mark Humblet</td>
-        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/da17e644b039a03a0eb56246800e2010142aebbd">![](https://ocw.nagoya-u.jp/files/732/Humblet_Thumb.png) </a></td>
-        <td> [handout](https://ocw.nagoya-u.jp/files/732/Humblet_Handout.pdf) </td>
+        <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/da17e644b039a03a0eb56246800e2010142aebbd"><img src="https://ocw.nagoya-u.jp/files/732/Humblet_Thumb.png"> </a></td>
+        <td> <a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Humblet_Handout.pdf">Handout</a> </td>
     </tr>
 </table>
 
