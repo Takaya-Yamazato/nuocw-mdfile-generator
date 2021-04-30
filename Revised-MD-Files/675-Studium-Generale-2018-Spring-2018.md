@@ -95,7 +95,7 @@ date: 2020-02-27 12:46:32
 Studium Generale is a unique immersion program into an English-based lecture environment.
 The course offers exposure to various academic topics presented in an accessible way, and in English.
 
-<table class="basic" width="455">
+<!-- <table class="basic" width="455">
     <tr>
         <th>Date</th>
         <th>Topic</th>
@@ -188,7 +188,91 @@ The course offers exposure to various academic topics presented in an accessible
         <td></td>
         <td></td>
     </tr>
-</table>
+</table> -->
+
+---
+
+- May 8
+- A reflection on the name of "Bratislava"
+- Susumu Nagayo(Waseda University)
+- [handout](https://ocw.nagoya-u.jp/files/675/A Reflection on the Name of the capital city of Slovakia)
+
+---
+
+- May 10
+- Geographical information around us
+- Koichiro Nagamine (Graduate University)
+
+---
+
+- May 15
+- Is pessimism actually shortening your life? Genetics perspective
+- Maria Vassileva (Department of Biological Sciences, School of Science)
+- [![](https://ocw.nagoya-u.jp/files/675/VassilevaThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c338062ebccfda47faee1e0c7524220d115831e7)
+- [handout](https://ocw.nagoya-u.jp/files/675/0515material.pdf)
+
+---
+
+- May 17
+- Towards autonomous social driving for personal mobility vehicles
+- Luis Yoichi Moraies (Institute for Innovation for Future Society
+
+---
+
+- May 22
+- Photography
+- Naoyuki Ogino (Artist, Stanford lecturer,Kyoto
+- [![](https://ocw.nagoya-u.jp/files/675/OginoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/b0beaf63d511b394703f1165acb682cff831d76a)
+
+---
+
+- May 31
+- Introduction to game theory
+- Maria Martin Rodriguez (Graduate School of Economics)
+- [handout](https://ocw.nagoya-u.jp/files/675/0531material.pdf)
+
+---
+
+- June 5
+- Symmetry and singularity
+- Yukari Ito (Graduate School of Mathematics)
+- [![](https://ocw.nagoya-u.jp/files/675/ItoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/ec38596f8220084f18a08b03903ca103302fe4ed)
+- [handout](https://ocw.nagoya-u.jp/files/675/0605material.pdf)
+
+---
+
+- June 12
+- Critical thinking as collective inquiry
+- Masashi Kasaki (Institute of Liberal Arts and Sciences)
+- [handout](https://ocw.nagoya-u.jp/files/675/0612material.pdf)
+
+---
+
+- June 14
+- I have a dream...that all students shall learn how to study much harder
+- Kosuke Shobatake (Professor Emeritus)
+
+---
+
+- June 19
+- See elegance in a worm brain
+- Kentaro Noma (Graduate School of Science)
+- [handout](https://ocw.nagoya-u.jp/files/675/0619material.pdf)
+
+---
+
+- June 21
+- The Checksum: a trick to memorizing Japanese kanji?...
+- Markus Rude (Institute of Liberal Arts and Sciences)
+- [![](https://ocw.nagoya-u.jp/files/675/RudeThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c0d089ff260f95aeec7aefe496d58a98a16d04c6)
+
+---
+
+- June 26
+- Plasma
+- Nagahiro Saito (Graduate School of Engineering)
+
+---
 
 ### Syllabus
 
