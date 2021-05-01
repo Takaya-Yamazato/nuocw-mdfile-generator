@@ -110,7 +110,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: 
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
@@ -164,7 +164,7 @@ Other books will be notified by the instructor.
 ### Students Accomplishments
 
 Accomplishments given in 2005
-  
+
 Note: All files are in Japanese
 
 - [Homework No. 1](https://ocw.nagoya-u.jp/files/47/assgn01.pdf)

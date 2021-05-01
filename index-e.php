@@ -455,7 +455,7 @@ if (!$attachments_array){
     }
 }
 
-echo "<br> featuredimage ".$featuredimage."<br>" ;
+// echo "<br> featuredimage ".$featuredimage."<br>" ;
 
 // $jj = 0;
 // echo "<br><br>" ;

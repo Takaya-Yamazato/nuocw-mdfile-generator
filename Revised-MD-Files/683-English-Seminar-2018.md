@@ -60,7 +60,7 @@ featuredpost: true
 ## rootフォルダはstaticになっている
 ## なにも指定がない場合はデフォルトの画像が表示される
 ## 映像がある場合は映像優先で表示する
-featuredimage: 
+featuredimage: /img/common/default_thumbnail.png
 
 # 映像のURL
 ## なにも指定がない場合は画像が表示される
