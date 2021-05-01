@@ -1895,7 +1895,7 @@ exec('/bin/rm /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/cou
 
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/courses-en/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses-en/') ;
 exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/Revised-MD-Files/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses-en/') ;
-exec('/bin/cp /Users/yamazato/Sites/NUOCW-Project/nuocw-release/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/') ;
+// exec('/bin/cp /Users/yamazato/Sites/NUOCW-Project/nuocw-release/src/pages/courses/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-release-en/src/pages/courses/') ;
 // exec('/bin/cp /Users/yamazato/Sites/nuocw-mdfile-generator/src/pages/farewell/*.md /Users/yamazato/Sites/NUOCW-Project/nuocw-preview/src/pages/farewell/') ;
 
 // adeos
