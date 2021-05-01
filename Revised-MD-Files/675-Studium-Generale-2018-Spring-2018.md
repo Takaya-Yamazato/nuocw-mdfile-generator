@@ -208,8 +208,9 @@ The course offers exposure to various academic topics presented in an accessible
 - May 15
 - Is pessimism actually shortening your life? Genetics perspective
 - Maria Vassileva (Department of Biological Sciences, School of Science)
-- [![](https://ocw.nagoya-u.jp/files/675/VassilevaThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c338062ebccfda47faee1e0c7524220d115831e7)
 - [handout](https://ocw.nagoya-u.jp/files/675/0515material.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/675/VassilevaThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c338062ebccfda47faee1e0c7524220d115831e7)
 
 ---
 
@@ -221,8 +222,9 @@ The course offers exposure to various academic topics presented in an accessible
 
 - May 22
 - Photography
-- Naoyuki Ogino (Artist, Stanford lecturer,Kyoto
-- [![](https://ocw.nagoya-u.jp/files/675/OginoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/b0beaf63d511b394703f1165acb682cff831d76a)
+- Naoyuki Ogino (Artist, Stanford lecturer, Kyoto)
+
+[![](https://ocw.nagoya-u.jp/files/675/OginoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/b0beaf63d511b394703f1165acb682cff831d76a)
 
 ---
 
@@ -236,8 +238,9 @@ The course offers exposure to various academic topics presented in an accessible
 - June 5
 - Symmetry and singularity
 - Yukari Ito (Graduate School of Mathematics)
-- [![](https://ocw.nagoya-u.jp/files/675/ItoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/ec38596f8220084f18a08b03903ca103302fe4ed)
 - [handout](https://ocw.nagoya-u.jp/files/675/0605material.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/675/ItoThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/ec38596f8220084f18a08b03903ca103302fe4ed)
 
 ---
 
@@ -264,7 +267,8 @@ The course offers exposure to various academic topics presented in an accessible
 - June 21
 - The Checksum: a trick to memorizing Japanese kanji?...
 - Markus Rude (Institute of Liberal Arts and Sciences)
-- [![](https://ocw.nagoya-u.jp/files/675/RudeThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c0d089ff260f95aeec7aefe496d58a98a16d04c6)
+
+[![](https://ocw.nagoya-u.jp/files/675/RudeThumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/c0d089ff260f95aeec7aefe496d58a98a16d04c6)
 
 ---
 

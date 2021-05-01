@@ -98,6 +98,71 @@ See the sound, hear the light; Japanese independent cinema in the post-studio er
 <p>Topics for each semester to be announced on the course website:<br>
 http://www.bio.nagoya-u.ac.jp/G30StudiumGenerale/
 </p>
+
+---
+
+- Oct 18
+- Comfortable human-robot interaction: it's all about emotions!
+- Sarah Cosentino
+
+---
+
+- Nov 1
+- Metaphor and the Power of Storytelling : A Cognitive Linguistic Approach
+- Gerry Yokota
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Yokota2.pdf)
+
+---
+
+- Nov 8
+- From Playstation to Hospitals : Hidden mathematics in our daily life
+- Henrik Bachmann
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Bachmann.pdf)
+
+---
+
+- Nov 15
+- Let's listen to a melody from the universe!
+- Seiji Kawamura
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Kawamura.pdf)
+
+---
+
+- Nov 22
+- Introduction to Islamic finance
+- Mehriban Ahmadova
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Ahmadova.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/738/Ahmadova_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/1333cef70e9007ca1a67f990b70235a53318e1db)
+
+---
+
+- Nov 29
+- DiVE into diversity!!
+- Kanako Makino
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Makino.pdf)
+
+---
+
+- Dec 20
+- What's Going on in Elementary School English Classes?
+- Toru Tatsumi
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Tatsumi.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/738/Tatsumi_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11)
+
+---
+
+- Jan 10
+- What Is Inside a Black Hole?
+- Masaki Shigemori
+- [Handout](https://ocw.nagoya-u.jp/files/738/Handout_Shigemori.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/738/Shigemori_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/56cfb29db8a7eae53273fcc5849eeea5b4c53a74)
+
+---
+
+<!--
 <table class="basic" width="455">
     <tr>
         <th>Date</th>
@@ -162,7 +227,7 @@ http://www.bio.nagoya-u.ac.jp/G30StudiumGenerale/
         <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/56cfb29db8a7eae53273fcc5849eeea5b4c53a74"><img src="https://ocw.nagoya-u.jp/files/738/Shigemori_Thumb.png"> </a></td>
         <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/738/Handout_Shigemori.pdf">Handout</a> </td>
     </tr>
-</table>
+</table> -->
 
 ### Syllabus
 

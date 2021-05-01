@@ -107,7 +107,102 @@ date: 2021-02-17 23:23:59
 Studium Generale is a series of introductory level lectures in English by Nagoya University faculty members and external speakers. Topics cover any research field, arts, and business.
 The main purpose of Studium Generale is to expose students to topics (both academic and non-academic) that are outside of their major of study in an accessible way, as well as to offer practice in listening to lectures in English.
 
-<table class="basic" width="455">
+---
+
+- April 24
+- From university to Antarctica, a story about glaciers and life choices
+- Alexia Fabiani
+
+---
+
+- May 1
+- Plants and insects help us understand human infertility
+- Mariana Costa
+- [Handout](https://ocw.nagoya-u.jp/files/778/Costa_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Costa_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/b1bed5264e131398cec40884acca75d8e97a2acc)
+
+---
+
+- May 8
+- Geographical information around us
+- Koichiro Nagamine
+
+---
+
+- May 15
+- Migration and Development: People on the Move
+- Francis Peddie
+- [Handout](https://ocw.nagoya-u.jp/files/778/Peddie_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Peddie_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/3f1f64c2dee3f31cb270d1aaf284c9798ab30f3d)
+
+---
+
+- May 22
+- Science communication and public relations
+- Azusa Minamizaki
+- [Handout](https://ocw.nagoya-u.jp/files/778/Minamizaki_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Minamizaki_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/6d5a49cb0aac534adaca212972795a13a24a3423)
+
+---
+
+- June 5
+- Happiness in philosophy, ethics and religion
+- Jakub Rajcani
+- [Handout](https://ocw.nagoya-u.jp/files/778/Rajcani_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Rajcani_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/5ed06182c58ab4e60e976c145ad4d0b8e87670bb)
+
+---
+
+- June 19
+- See elegance in a worm brain
+- Kentaro Noma
+- [Handout](https://ocw.nagoya-u.jp/files/778/Noma_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Noma_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/6844284e9b6d374dabdfac9e33e4600f75614209)
+
+---
+
+- June 26
+- Law and Literature: the Japanese legal system as seen through literary sources
+- Giorgio Fabio Colombo
+- [Handout](https://ocw.nagoya-u.jp/files/778/Colombo_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Colombo_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/7e77b49044b3037b465afd64cba0e8423f2caade)
+
+---
+
+- July 3
+- What's Going on in Elementary School English Classes?
+- Toru Tatsumi
+- [Handout](https://ocw.nagoya-u.jp/files/778/Tatsumi_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Tatsumi_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/9872a35eb67a9d93de40209811f55edeff744e11)
+
+---
+
+- July 10
+- Corporate Law and Economic Inequality: A Beginner's Guide
+- Sean McGinty
+- [Handout](https://ocw.nagoya-u.jp/files/778/McGinty_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/McGinty_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/1d1b06b16e9d6cbe69ddb42a03b3e8f4d31afcf8)
+
+---
+
+- July 31
+- Global Warming: Beyond the Hockey Stick Controversy
+- Gabor Samjeské
+- [Handout](https://ocw.nagoya-u.jp/files/778/Samjeske_handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/778/Samjeske_Thumb.png)](https://nuvideo.media.nagoya-u.ac.jp/embed/12d259e670fbe985298e4d08bd49b26985751ea0)
+
+---
+
+<!-- <table class="basic" width="455">
     <tr>
         <th>Date</th>
         <th>Topic</th>
@@ -192,7 +287,7 @@ The main purpose of Studium Generale is to expose students to topics (both acade
         <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/12d259e670fbe985298e4d08bd49b26985751ea0"><img src="https://ocw.nagoya-u.jp/files/778/Samjeske_Thumb.png" ></a></td>
         <td><a target="_blank" href="https://ocw.nagoya-u.jp/files/778/Samjeske_handout.pdf">Handout</a> </td>
     </tr>
-</table>
+</table> -->
 
 ### Syllabus
 

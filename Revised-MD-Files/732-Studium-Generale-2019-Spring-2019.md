@@ -89,6 +89,52 @@ date: 2019-12-12 18:39:56
 Studium Generale is a unique immersion program into an English-based lecture environment.
 The course offers exposure to various academic topics presented in an accessible way, and in English.
 
+---
+
+- May 14
+- Classical Chinese Poetry: Wonderland of Chinese Characters
+- Kayoko Tamura
+- [Handout](https://ocw.nagoya-u.jp/files/732/Tamura_Handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/732/Tamura_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/5b2f041c6fb4ca3e68ef463a9fadddb27744d163) |
+
+---
+
+- May 21
+- Ingrained Habits: Kitchen Cars, Koppe Pan, and Dietary Transformation in Postwar Japan
+- Nathan Hopson
+- [Handout](https://ocw.nagoya-u.jp/files/732/Hopson_Handout.pdf)
+
+---
+
+- May 23
+- Seeing the sky through funnels - the challenges of X-ray astronomers
+- Hideyo Kunieda
+- [Handout](https://ocw.nagoya-u.jp/files/732/Kunieda_Handout_re.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/732/Kunieda_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/c1f068d9f79e4701fd2b10fae7f7163e7195d831)
+
+---
+
+- June 4
+- Five things to consider when talking to people from other countries
+- David Barker
+- [Handout](https://ocw.nagoya-u.jp/files/732/Barker_Handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/732/Barker_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/c15385e61a7ef1dff354bb2871bd887c61645afc)
+
+---
+
+- June 18
+- Fossil reefs and sea-level change: diving into the past to predict the future
+- Mark Humblet
+- [Handout](https://ocw.nagoya-u.jp/files/732/Humblet_Handout.pdf)
+
+[![](https://ocw.nagoya-u.jp/files/732/Humblet_Thumb.png) ](https://nuvideo.media.nagoya-u.ac.jp/embed/da17e644b039a03a0eb56246800e2010142aebbd)
+
+---
+
+<!--
 <table class="basic" width="455">
     <tr>
         <th>Date</th>
@@ -133,7 +179,7 @@ Characters"</td>
         <td><a target="_blank" href="https://nuvideo.media.nagoya-u.ac.jp/embed/da17e644b039a03a0eb56246800e2010142aebbd"><img src="https://ocw.nagoya-u.jp/files/732/Humblet_Thumb.png"> </a></td>
         <td> <a target="_blank" href="https://ocw.nagoya-u.jp/files/732/Humblet_Handout.pdf">Handout</a> </td>
     </tr>
-</table>
+</table> -->
 
 ### Syllabus
 
