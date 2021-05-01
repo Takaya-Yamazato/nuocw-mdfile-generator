@@ -363,7 +363,31 @@ $file_directory_result = glob( $file_directory );
 
 // echo "<br>"; var_dump($attachments_array);
 $attaches = "";
+
 $featuredimage = "/img/common/default_thumbnail.png";
+
+if($division_code  == '1E0') $featuredimage = "/img/department/環境学研究科.png" ;
+if($division_code  == '1C0') $featuredimage = "/img/department/多元数理科学研究科.png" ;
+if($division_code  == '110') $featuredimage = "/img/department/文学部／人文学研究科.png" ;
+if($division_code  == '110') $featuredimage = "/img/department/文学部.png" ;
+if($division_code  == '1E1') $featuredimage = "/img/department/創薬科学研究科.png" ;
+if($division_code  == '180') $featuredimage = "/img/department/工学部／工学研究科.png" ;
+if($division_code  == '151') $featuredimage = "/img/department/情報学部／情報学研究科.png" ;
+if($division_code  == '100') $featuredimage = "/img/department/教養教育院.png" ;
+if($division_code  == '1B0') $featuredimage = "/img/department/国際開発研究科.png" ;
+if($division_code  == '130') $featuredimage = "/img/department/法学部／法学研究科.png" ;
+if($division_code  == '140') $featuredimage = "/img/department/経済学部／経済学研究科.png" ;
+if($division_code  == '110') $featuredimage = "/img/department/文学研究科.png" ;
+if($division_code  == '1A0') $featuredimage = "/img/department/情報科学研究科.png" ;
+if($division_code  == '160') $featuredimage = "/img/department/理学部／理学研究科.png" ;
+if($division_code  == '190') $featuredimage = "/img/department/農学部／生命農学研究科.png" ;
+if($division_code  == '400') $featuredimage = "/img/department/高等研究院.png" ;
+if($division_code  == '1F0') $featuredimage = "/img/department/国際言語センター.png" ;
+if($division_code  == '170') $featuredimage = "/img/department/医学部／医学系研究科.png" ;
+if($division_code  == '120') $featuredimage = "/img/department/教育学部／教育発達科学研究科.png" ;
+if($division_code  == '150') $featuredimage = "/img/department/情報文化学部.png" ;
+if($division_code  == '1D0') $featuredimage = "/img/department/国際言語文化研究科.png" ;
+if($division_code  == '640') $featuredimage = "/img/department/国際教育交流センター.png" ;
 
 if (!$attachments_array){
     // echo "データがありません！" ;
@@ -371,7 +395,7 @@ if (!$attachments_array){
     $attaches = "";
     $attaches .= "  - name: \"NUOCW logo\" \n" ;
     $attaches .= "    path: /img/common/default_thumbnail.png\n" ;
-    $featuredimage = "";
+    // $featuredimage = "";
 
 }else{
     // echo "<br>" ;
@@ -381,7 +405,7 @@ if (!$attachments_array){
     // print_r($attachments);
     // $ii = 0 ;
     // $featuredimage = "/img/common/default_thumbnail.png";
-    $featuredimage = "";
+    // $featuredimage = "";
     foreach ($attachments_array as $attachment){
         if(strpos($attachment['description'],'看板画像') !== false){
         // if ($attachment['description'] == '看板画像'){
@@ -431,6 +455,7 @@ if (!$attachments_array){
     }
 }
 
+echo "<br> featuredimage ".$featuredimage."<br>" ;
 
 // $jj = 0;
 // echo "<br><br>" ;
