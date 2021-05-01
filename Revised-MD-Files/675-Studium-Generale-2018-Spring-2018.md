@@ -64,11 +64,10 @@ attachments:
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-    - graduate
-    - institute
-    - liberal
-    - arts
-    - sciences    
+  - English-based lecture
+  - Studium Generale
+  - Various academic topics
+  - A unique immersion program
 # カテゴリ
 category:
  - "Liberal Arts"

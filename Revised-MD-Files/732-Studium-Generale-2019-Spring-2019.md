@@ -10,7 +10,7 @@ title: "Studium Generale 2019 Spring"
 
 # 簡単な説明
 description: >-
-  Course OverviewStudium Generale is a unique immersion program into an English-based lecture environment.The course offers exposure to various academic topics presented in an accessible way, and in ....
+  Studium Generale is a unique immersion program into an English-based lecture environment.The course offers exposure to various academic topics presented in an accessible way, and in ....
 # 講師名
 lecturer: "VASSILEVA Maria Niko, Associate Professor"
 
@@ -58,11 +58,11 @@ attachments:
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-  - graduate
-  - altocwlink
-  - chinese
-  - things
-  - university
+  - English-based lecture
+  - Studium Generale
+  - Various academic topics
+  - A unique immersion program
+
 # カテゴリ
 category:
   - "Liberal Arts"

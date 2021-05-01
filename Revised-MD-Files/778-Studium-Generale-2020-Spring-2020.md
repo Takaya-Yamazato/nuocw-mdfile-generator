@@ -10,7 +10,7 @@ title: "Studium Generale 2020 Spring"
 
 # 簡単な説明
 description: >-
-  Course OverviewStudium Generale is a series of introductory level lectures in English by Nagoya University faculty members and external speakers. Topics cover any research field, arts, and business. ....
+  Studium Generale is a series of introductory level lectures in English by Nagoya University faculty members and external speakers. Topics cover any research field, arts, and business. ....
 # 講師名
 lecturer: "VASSILEVA Maria Niko, Associate Professor"
 
@@ -76,11 +76,11 @@ attachments:
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-    - altocwlink
-    - university
-    - science
-    - generale
-    - english    
+  - English-based lecture
+  - Studium Generale
+  - Various academic topics
+  - A unique immersion program
+  
 # カテゴリ
 category:
  - "Liberal Arts"

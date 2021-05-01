@@ -10,7 +10,7 @@ title: "Studium Generale 2019 Fall"
 
 # 簡単な説明
 description: >-
-  Discussions sessions and talks by invited speakers. Each lecture is different and invited speakers from Nagoya University or elsewhere. Lecture topics are renewe ....
+  Studium Generale is a series of introductory level lectures in English by Nagoya University faculty members and external speakers. Topics cover any research field, arts, and business.
 # 講師名
 lecturer: "VASSILEVA Maria Niko, Associate Professor"
 
@@ -60,11 +60,11 @@ attachments:
 # 関連するタグ
 # （頻度の高い単語を出力）
 tags:
-    - university
-    - deschandoutnov
-    - graduate
-    - science
-    - economics    
+  - English-based lecture
+  - Studium Generale
+  - Various academic topics
+  - A unique immersion program
+  
 # カテゴリ
 category:
  - "Liberal Arts"
